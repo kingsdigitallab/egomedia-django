@@ -1,0 +1,11 @@
+wagtail
+django-activecollab-digger
+django-compressor
+django-haystack
+django-extensions
+django-kdl-ldap
+django-libsass
+django-model-utils
+django-redis
+psycopg2-binary
+pysolr
