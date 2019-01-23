@@ -78,12 +78,10 @@ INSTALLED_APPS = [
 
     'haystack',
 
-    'django_extensions',
-    'compressor',
-]
-
-INSTALLED_APPS += [    # your project apps here
     'activecollab_digger',
+    'compressor',
+    'django_extensions',
+
     'kdl_ldap',
     'modelcluster',
     'rest_framework',
@@ -100,7 +98,12 @@ INSTALLED_APPS += [    # your project apps here
     'wagtail.contrib.forms',
     'wagtail.sites',
     'wagtail.contrib.routable_page',
-    'wagtail.contrib.table_block',
+    'wagtail.contrib.table_block'
+]
+
+INSTALLED_APPS += [
+    'kdl_wagtail.apps.KdlWagtailConfig',
+    'base.apps.BaseConfig'
 ]
 
 INTERNAL_IPS = ['127.0.0.1']
@@ -154,11 +157,6 @@ LOGGING = {
             'propagate': True
         },
         'egomedia': {
-            'handlers': ['file'],
-            'level': LOGGING_LEVEL,
-            'propagate': True
-        },
-        'elasticsearch': {
             'handlers': ['file'],
             'level': LOGGING_LEVEL,
             'propagate': True
