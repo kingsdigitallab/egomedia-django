@@ -13,7 +13,7 @@
   {% include 'includes/google-analytics.html' %}
 
   {% compress css %}
-    <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}" defer>
+  <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}" defer>
   {% endcompress %}
 </head>
 <body>
@@ -33,14 +33,14 @@
 
   <footer>
     {% block footer %}
-      {% include 'includes/footer.html' %}
+    {% include 'includes/footer.html' %}
     {% endblock %}
   </footer>
 
   {% compress js %}
-    <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
-    <script src="{% static 'vue/dist/vue.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'vue/dist/vue.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
   {% endcompress %}
 
   {% block footer_scripts %}{% endblock %}
