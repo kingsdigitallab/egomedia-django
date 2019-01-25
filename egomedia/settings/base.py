@@ -217,7 +217,7 @@ else:
 AUTH_LDAP_REQUIRE_GROUP = (
     (
         LDAPGroupQuery('cn=kdl-staff,' + LDAP_BASE_OU) |
-        LDAPGroupQuery('cn=egomedia,' + LDAP_BASE_OU)
+        LDAPGroupQuery('cn=ego,' + LDAP_BASE_OU)
     )
 )
 
