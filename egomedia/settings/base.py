@@ -102,8 +102,8 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += [
-    'kdl_wagtail.apps.KdlWagtailConfig',
-    'base.apps.BaseConfig'
+    'kdl_wagtail.core.apps.KdlWagtailCoreConfig',
+    # 'core.apps.CoreConfig'
 ]
 
 INTERNAL_IPS = ['127.0.0.1']
