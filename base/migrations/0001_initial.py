@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('wagtailcore', '0041_group_collection_permissions_verbose_name_plural'),
-        ('kdl_wagtail', '0004_auto_20190124_1523'),
+        ('kdl_wagtail', '0004_alter_fields_body_and_image_on_standardpage'),
     ]
 
     operations = [
