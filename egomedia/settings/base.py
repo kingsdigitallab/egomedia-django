@@ -87,22 +87,24 @@ INSTALLED_APPS = [
     'rest_framework',
     'taggit',
 
-    'wagtail.core',
     'wagtail.admin',
+    'wagtail.core',
     'wagtail.documents',
-    'wagtail.snippets',
-    'wagtail.users',
-    'wagtail.images',
     'wagtail.embeds',
-    'wagtail.contrib.redirects',
-    'wagtail.contrib.forms',
+    'wagtail.images',
+    'wagtail.snippets',
     'wagtail.sites',
+    'wagtail.users',
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
     'wagtail.contrib.routable_page',
-    'wagtail.contrib.table_block'
+    'wagtail.contrib.table_block',
+    'wagtail.contrib.modeladmin',
 ]
 
 INSTALLED_APPS += [
     'kdl_wagtail.core.apps.KdlWagtailCoreConfig',
+    'kdl_wagtail.contrib.people.apps.KdlWagtailContribPeopleConfig',
     # 'core.apps.CoreConfig'
 ]
 
@@ -306,7 +308,7 @@ AC_TOKEN = ''
 
 WAGTAIL_SITE_NAME = PROJECT_TITLE
 
-ITEMS_PER_PAGE = 10
+KDL_WAGTAIL_ITEMS_PER_PAGE = 10
 
 # -----------------------------------------------------------------------------
 # haystack
