@@ -10,6 +10,7 @@ flake8 = "*"
 ipython = "*"
 pycodestyle = "*"
 tox = "*"
+tox-pipenv = "*"
 
 [packages]
 wagtail = "*"

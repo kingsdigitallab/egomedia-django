@@ -83,29 +83,32 @@ INSTALLED_APPS = [
     'django_extensions',
 
     'kdl_ldap',
-    'modelcluster',
     'rest_framework',
-    'taggit',
 
-    'wagtail.admin',
-    'wagtail.core',
-    'wagtail.documents',
-    'wagtail.embeds',
-    'wagtail.images',
-    'wagtail.snippets',
-    'wagtail.sites',
-    'wagtail.users',
     'wagtail.contrib.forms',
+    'wagtail.contrib.modeladmin',
     'wagtail.contrib.redirects',
     'wagtail.contrib.routable_page',
+    'wagtail.contrib.settings',
     'wagtail.contrib.table_block',
-    'wagtail.contrib.modeladmin',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail.core',
+
+    'modelcluster',
+    'taggit'
 ]
 
 INSTALLED_APPS += [
     'kdl_wagtail.core.apps.KdlWagtailCoreConfig',
     'kdl_wagtail.people.apps.KdlWagtailPeopleConfig',
-    # 'core.apps.CoreConfig'
+    'core.apps.CoreConfig'
 ]
 
 INTERNAL_IPS = ['127.0.0.1']
@@ -309,6 +312,7 @@ AC_TOKEN = ''
 WAGTAIL_SITE_NAME = PROJECT_TITLE
 
 KDL_WAGTAIL_ITEMS_PER_PAGE = 10
+KDL_WAGTAIL_PERSON_MODEL = 'kdl_wagtail_people.Person'
 
 # -----------------------------------------------------------------------------
 # haystack

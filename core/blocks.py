@@ -1,6 +1,4 @@
-from kdl_wagtail.blocks import (BaseStreamBlock, DocumentBlock, EmbedBlock,
-                                ImageBlock, LinkBlock)
-from wagtail.contrib.table_block.blocks import TableBlock
+from kdl_wagtail.blocks import DocumentBlock, EmbedBlock, ImageBlock, LinkBlock
 from wagtail.core.blocks import (CharBlock, ListBlock, RichTextBlock,
                                  StreamBlock, StructBlock, TextBlock)
 
@@ -18,11 +16,7 @@ class TimelineBlock(StructBlock):
 
     class Meta:
         icon = 'list-ul'
-        template = 'base/blocks/timeline_block.html'
-
-
-class GenericStreamBlock(BaseStreamBlock):
-    table_block = TableBlock()
+        template = 'core/blocks/timeline_block.html'
 
 
 class HomePageStreamBlock(StreamBlock):
