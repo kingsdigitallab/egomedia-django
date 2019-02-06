@@ -166,6 +166,14 @@
             "index": "pypi",
             "version": "==1.1"
         },
+        "django-kdl-wagtail": {
+            "hashes": [
+                "sha256:132f79687eb5c5a21624fd69f8019177b3e093c220a310381b76ff865925de7a",
+                "sha256:cfa827e12d06f2a3c86462902e777fedacd7c49093a8c0458956977e4b242444"
+            ],
+            "index": "pypi",
+            "version": "==0.6.2"
+        },
         "django-libsass": {
             "hashes": [
                 "sha256:49db3334b87e1f7955c4f9fb9945bc296f8bfd27a14d6d89706e4b0e5dc5de1c"
