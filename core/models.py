@@ -10,6 +10,38 @@ from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
 from wagtail.search import index
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail.snippets.models import register_snippet
+
+
+class BaseFacet(models.Model):
+    title = models.CharField(max_length=64, unique=True)
+
+    class Meta:
+        abstract = True
+
+    def str(self):
+        return self.title
+
+
+@register_snippet
+class Discipline(BaseFacet):
+    pass
+
+
+@register_snippet
+class Focus(BaseFacet):
+    class Meta:
+        verbose_name_plural = 'Focus'
+
+
+@register_snippet
+class Keyword(BaseFacet):
+    pass
+
+
+@register_snippet
+class Method(BaseFacet):
+    pass
 
 
 class HomePage(Page):
