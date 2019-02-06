@@ -1,13 +1,12 @@
-<div class="title">
-    {{ self.title }}
-</div>
+{% load wagtailcore_tags %}
+<div class="timeline">
+    <div class="title">
+        {{ self.title }}
+    </div>
 
-<div class="label">
-    {{ self.label }}
+    {% for item in self.items %}
+    <ol class="items">
+        <li>{% include_block item %}</li>
+    </ol>
+    {% endfor %}
 </div>
-
-{% if self.item %}
-<div class="content">
-    {{ self.item }}
-</div>
-{% endif %}
