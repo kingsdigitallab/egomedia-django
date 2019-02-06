@@ -1,0 +1,13 @@
+{% load wagtailcore_tags %}
+
+<div class="annotation">
+    <div class="title">
+        {{ self.title }}
+    </div>
+
+    <div class="content">
+        {% for block in self.body %}
+        {% include_block block %}
+        {% endfor %}
+    </div>
+</div>
