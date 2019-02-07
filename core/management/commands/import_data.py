@@ -62,6 +62,7 @@ class Command(BaseCommand):
             home_page = HomePage.objects.first()
             home_page.add_child(instance=themes_index_page)
 
+        themes_index_page.show_in_menus = True
         themes_index_page.save()
 
         revision = themes_index_page.save_revision()
@@ -80,6 +81,7 @@ class Command(BaseCommand):
             home_page = HomePage.objects.first()
             home_page.add_child(instance=researchers_index_page)
 
+        researchers_index_page.show_in_menus = True
         researchers_index_page.save()
 
         revision = researchers_index_page.save_revision()
@@ -96,9 +98,8 @@ class Command(BaseCommand):
             if name:
                 person, _ = Person.objects.get_or_create(name=name)
 
-                pipr = PeopleIndexPersonRelationship(
+                PeopleIndexPersonRelationship.objects.get_or_create(
                     page=researchers_index_page, person=person)
-                pipr.save()
 
                 try:
                     researcher_page = ResearcherPage.objects.get(title=name)
@@ -111,9 +112,8 @@ class Command(BaseCommand):
                 revision = researcher_page.save_revision()
                 revision.publish()
 
-                rtr = ResearcherThemeRelationship(
+                ResearcherThemeRelationship.objects.get_or_create(
                     researcher=researcher_page, theme=theme_page)
-                rtr.save()
 
     def import_projects_and_researchers(self, csv_filename,):
         projects_index_page = self.get_or_create_projects_index_page()
@@ -151,6 +151,7 @@ class Command(BaseCommand):
             home_page = HomePage.objects.first()
             home_page.add_child(instance=projects_index_page)
 
+        projects_index_page.show_in_menus = True
         projects_index_page.save()
 
         revision = projects_index_page.save_revision()
@@ -182,9 +183,8 @@ class Command(BaseCommand):
             if name:
                 person, _ = Person.objects.get_or_create(name=name)
 
-                pipr = PeopleIndexPersonRelationship(
+                PeopleIndexPersonRelationship.objects.get_or_create(
                     page=researchers_index_page, person=person)
-                pipr.save()
 
                 try:
                     researcher_page = ResearcherPage.objects.get(title=name)
@@ -197,6 +197,5 @@ class Command(BaseCommand):
                 revision = researcher_page.save_revision()
                 revision.publish()
 
-                prr = ProjectResearcherRelationship(
+                ProjectResearcherRelationship.objects.get_or_create(
                     project=project_page, researcher=researcher_page)
-                prr.save()
