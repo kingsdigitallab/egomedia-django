@@ -170,11 +170,43 @@ class BaseTimelinePage(BasePage):
         abstract = True
 
 
+class ProjectThemeRelationship(Orderable, models.Model):
+    project = ParentalKey(
+        'ProjectPage', related_name='project_theme_relationship',
+        on_delete=models.CASCADE
+    )
+    theme = models.ForeignKey(
+        'ThemePage', related_name='theme_project_relationship',
+        on_delete=models.CASCADE
+    )
+
+    panels = [
+        PageChooserPanel('theme')
+    ]
+
+
+class ProjectResearcherRelationship(Orderable, models.Model):
+    project = ParentalKey(
+        'ProjectPage', related_name='project_researcher_relationship',
+        on_delete=models.CASCADE
+    )
+    researcher = models.ForeignKey(
+        'ResearcherPage', related_name='researcher_project_relationship',
+        on_delete=models.CASCADE
+    )
+
+    panels = [
+        PageChooserPanel('researcher')
+    ]
+
+
 class ProjectPage(BaseTimelinePage, FacetsMixin):
-    # TODO add link to person
-    # TODO add link to theme
-    content_panels = BaseTimelinePage.content_panels + \
-        FacetsMixin.content_panels
+    content_panels = BaseTimelinePage.content_panels + [
+        InlinePanel('project_theme_relationship',
+                    label='Themes', panels=None, min_num=1),
+        InlinePanel('project_researcher_relationship',
+                    label='Researchers', panels=None, min_num=1),
+    ] + FacetsMixin.content_panels
 
     parent_page_types = [IndexPage, 'ProjectPage']
     subpage_types = ['ProjectPage']
