@@ -1,0 +1,93 @@
+[
+  {
+    "fields": {
+      "title": "Quantitative"
+    },
+    "pk": 1,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Corpus assisted discourse analysis"
+    },
+    "pk": 2,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Qualitative"
+    },
+    "pk": 3,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Digital ethnography & tracking"
+    },
+    "pk": 4,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Online Conversation Analysis"
+    },
+    "pk": 5,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Multimodal analysis"
+    },
+    "pk": 6,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Critical theory"
+    },
+    "pk": 7,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Literary theory"
+    },
+    "pk": 8,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Life writing"
+    },
+    "pk": 9,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Close Reading"
+    },
+    "pk": 10,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Small stories research"
+    },
+    "pk": 11,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Research creation"
+    },
+    "pk": 12,
+    "model": "core.method"
+  },
+  {
+    "fields": {
+      "title": "Media archaeology"
+    },
+    "pk": 13,
+    "model": "core.method"
+  }
+]

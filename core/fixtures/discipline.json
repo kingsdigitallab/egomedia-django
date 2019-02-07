@@ -1,0 +1,79 @@
+[
+  {
+    "model": "core.discipline",
+    "pk": 1,
+    "fields": {
+      "title": "English"
+    }
+  },
+  {
+    "model": "core.discipline",
+    "pk": 2,
+    "fields": {
+      "title": "Life Writing"
+    }
+  },
+  {
+    "model": "core.discipline",
+    "pk": 3,
+    "fields": {
+      "title": "Sociolinguistics"
+    }
+  },
+  {
+    "model": "core.discipline",
+    "pk": 4,
+    "fields": {
+      "title": "Neurology"
+    }
+  },
+  {
+    "model": "core.discipline",
+    "pk": 5,
+    "fields": {
+      "title": "Cultural Studies"
+    }
+  },
+  {
+    "model": "core.discipline",
+    "pk": 6,
+    "fields": {
+      "title": "Sociology"
+    }
+  },
+  {
+    "model": "core.discipline",
+    "pk": 7,
+    "fields": {
+      "title": "Digital Humanities"
+    }
+  },
+  {
+    "model": "core.discipline",
+    "pk": 8,
+    "fields": {
+      "title": "Medical Humanities"
+    }
+  },
+  {
+    "model": "core.discipline",
+    "pk": 9,
+    "fields": {
+      "title": "Media Theory"
+    }
+  },
+  {
+    "model": "core.discipline",
+    "pk": 10,
+    "fields": {
+      "title": "Platform Studies"
+    }
+  },
+  {
+    "model": "core.discipline",
+    "pk": 11,
+    "fields": {
+      "title": "Narrative analysis"
+    }
+  }
+]

@@ -1,0 +1,247 @@
+[
+  {
+    "fields": {
+      "title": "Identity"
+    },
+    "pk": 1,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Authenticity"
+    },
+    "pk": 2,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Agency"
+    },
+    "pk": 3,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Health"
+    },
+    "pk": 4,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Dialogue"
+    },
+    "pk": 5,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Communities"
+    },
+    "pk": 6,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Tone"
+    },
+    "pk": 7,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Place"
+    },
+    "pk": 8,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Voice"
+    },
+    "pk": 9,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Platform"
+    },
+    "pk": 10,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Public/private"
+    },
+    "pk": 11,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Access"
+    },
+    "pk": 12,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Temporality"
+    },
+    "pk": 13,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Historicity"
+    },
+    "pk": 14,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Diary"
+    },
+    "pk": 15,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Practices"
+    },
+    "pk": 16,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Quantification"
+    },
+    "pk": 17,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Value"
+    },
+    "pk": 18,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Ethics"
+    },
+    "pk": 19,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Methods"
+    },
+    "pk": 20,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Narrative"
+    },
+    "pk": 21,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Stories"
+    },
+    "pk": 22,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Small stories"
+    },
+    "pk": 23,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Storytelling"
+    },
+    "pk": 24,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Gender"
+    },
+    "pk": 25,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Body"
+    },
+    "pk": 26,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Senses"
+    },
+    "pk": 27,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Affect"
+    },
+    "pk": 28,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Alignment"
+    },
+    "pk": 29,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Interaction"
+    },
+    "pk": 30,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Immediacy"
+    },
+    "pk": 31,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Ephemerality"
+    },
+    "pk": 32,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Sharing"
+    },
+    "pk": 33,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Sharing everyday life"
+    },
+    "pk": 34,
+    "model": "core.keyword"
+  },
+  {
+    "fields": {
+      "title": "Sharing life-in-the-moment"
+    },
+    "pk": 35,
+    "model": "core.keyword"
+  }
+]
