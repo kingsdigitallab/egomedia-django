@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2b837d9a54e781c12deb906983ae203c5e11f57ea19c90d9dbfc9a66e2de2174"
+            "sha256": "1922f2965b7983f1a916de3285fc77d8a73b3ff268219bd884fe6df0f7d35566"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -135,6 +135,13 @@
             ],
             "version": "==1.7.0"
         },
+        "django-cogwheels": {
+            "hashes": [
+                "sha256:53942daafeac4db35dd2a9772597701f94ac29944026d51c1b03687e2b42be66",
+                "sha256:dab05326be02250f3ccbaabfcac4e65333f9f437b250099aaf81e6aed09e9a4c"
+            ],
+            "version": "==0.2"
+        },
         "django-compressor": {
             "hashes": [
                 "sha256:7732676cfb9d58498dfb522b036f75f3f253f72ea1345ac036434fdc418c2e57",
@@ -165,14 +172,6 @@
             ],
             "index": "pypi",
             "version": "==1.1"
-        },
-        "django-kdl-wagtail": {
-            "hashes": [
-                "sha256:132f79687eb5c5a21624fd69f8019177b3e093c220a310381b76ff865925de7a",
-                "sha256:cfa827e12d06f2a3c86462902e777fedacd7c49093a8c0458956977e4b242444"
-            ],
-            "index": "pypi",
-            "version": "==0.6.2"
         },
         "django-libsass": {
             "hashes": [
@@ -458,6 +457,22 @@
             ],
             "index": "pypi",
             "version": "==2.4"
+        },
+        "wagtail-condensedinlinepanel": {
+            "hashes": [
+                "sha256:b1e952c81b2e422a38170178dc78fdb72b0c25ef2b32f421032f598c3099b663",
+                "sha256:ccce80483a0e4daccfe913c358101dd38b9b80c0cca269fce93e9acd054ecae7"
+            ],
+            "index": "pypi",
+            "version": "==0.5.2"
+        },
+        "wagtailmenus": {
+            "hashes": [
+                "sha256:683ad2aecfa6516a410966b2a3dd41be02385481ea037da835f48aa60ed407e0",
+                "sha256:b66c81cd0eb329fbb956e4c1ce5a24a64d4aed09637b59c8c3a7fcac63de3619"
+            ],
+            "index": "pypi",
+            "version": "==2.12"
         },
         "webencodings": {
             "hashes": [

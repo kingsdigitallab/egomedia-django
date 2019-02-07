@@ -102,8 +102,10 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.core',
 
+    'condensedinlinepanel',
     'modelcluster',
-    'taggit'
+    'taggit',
+    'wagtailmenus',
 ]
 
 INSTALLED_APPS += [
@@ -203,6 +205,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 'activecollab_digger.context_processors.activecollab_digger',
+
+                'wagtail.contrib.settings.context_processors.settings',
+                'wagtailmenus.context_processors.wagtailmenus',
             ],
         },
     },
