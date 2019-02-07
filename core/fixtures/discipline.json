@@ -1,79 +1,79 @@
 [
   {
-    "model": "core.discipline",
     "pk": 1,
     "fields": {
-      "title": "English"
-    }
+      "title": "english"
+    },
+    "model": "core.discipline"
   },
   {
-    "model": "core.discipline",
     "pk": 2,
     "fields": {
-      "title": "Life Writing"
-    }
+      "title": "life writing"
+    },
+    "model": "core.discipline"
   },
   {
-    "model": "core.discipline",
     "pk": 3,
     "fields": {
-      "title": "Sociolinguistics"
-    }
+      "title": "sociolinguistics"
+    },
+    "model": "core.discipline"
   },
   {
-    "model": "core.discipline",
     "pk": 4,
     "fields": {
-      "title": "Neurology"
-    }
+      "title": "neurology"
+    },
+    "model": "core.discipline"
   },
   {
-    "model": "core.discipline",
     "pk": 5,
     "fields": {
-      "title": "Cultural Studies"
-    }
+      "title": "cultural studies"
+    },
+    "model": "core.discipline"
   },
   {
-    "model": "core.discipline",
     "pk": 6,
     "fields": {
-      "title": "Sociology"
-    }
+      "title": "sociology"
+    },
+    "model": "core.discipline"
   },
   {
-    "model": "core.discipline",
     "pk": 7,
     "fields": {
-      "title": "Digital Humanities"
-    }
+      "title": "digital humanities"
+    },
+    "model": "core.discipline"
   },
   {
-    "model": "core.discipline",
     "pk": 8,
     "fields": {
-      "title": "Medical Humanities"
-    }
+      "title": "medical humanities"
+    },
+    "model": "core.discipline"
   },
   {
-    "model": "core.discipline",
     "pk": 9,
     "fields": {
-      "title": "Media Theory"
-    }
+      "title": "media theory"
+    },
+    "model": "core.discipline"
   },
   {
-    "model": "core.discipline",
     "pk": 10,
     "fields": {
-      "title": "Platform Studies"
-    }
+      "title": "platform studies"
+    },
+    "model": "core.discipline"
   },
   {
-    "model": "core.discipline",
     "pk": 11,
     "fields": {
-      "title": "Narrative analysis"
-    }
+      "title": "narrative analysis"
+    },
+    "model": "core.discipline"
   }
 ]

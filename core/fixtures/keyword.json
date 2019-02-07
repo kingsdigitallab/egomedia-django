@@ -1,247 +1,247 @@
 [
   {
     "fields": {
-      "title": "Identity"
+      "title": "identity"
     },
-    "pk": 1,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 1
   },
   {
     "fields": {
-      "title": "Authenticity"
+      "title": "authenticity"
     },
-    "pk": 2,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 2
   },
   {
     "fields": {
-      "title": "Agency"
+      "title": "agency"
     },
-    "pk": 3,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 3
   },
   {
     "fields": {
-      "title": "Health"
+      "title": "health"
     },
-    "pk": 4,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 4
   },
   {
     "fields": {
-      "title": "Dialogue"
+      "title": "dialogue"
     },
-    "pk": 5,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 5
   },
   {
     "fields": {
-      "title": "Communities"
+      "title": "communities"
     },
-    "pk": 6,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 6
   },
   {
     "fields": {
-      "title": "Tone"
+      "title": "tone"
     },
-    "pk": 7,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 7
   },
   {
     "fields": {
-      "title": "Place"
+      "title": "place"
     },
-    "pk": 8,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 8
   },
   {
     "fields": {
-      "title": "Voice"
+      "title": "voice"
     },
-    "pk": 9,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 9
   },
   {
     "fields": {
-      "title": "Platform"
+      "title": "platform"
     },
-    "pk": 10,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 10
   },
   {
     "fields": {
-      "title": "Public/private"
+      "title": "public/private"
     },
-    "pk": 11,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 11
   },
   {
     "fields": {
-      "title": "Access"
+      "title": "access"
     },
-    "pk": 12,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 12
   },
   {
     "fields": {
-      "title": "Temporality"
+      "title": "temporality"
     },
-    "pk": 13,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 13
   },
   {
     "fields": {
-      "title": "Historicity"
+      "title": "historicity"
     },
-    "pk": 14,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 14
   },
   {
     "fields": {
-      "title": "Diary"
+      "title": "diary"
     },
-    "pk": 15,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 15
   },
   {
     "fields": {
-      "title": "Practices"
+      "title": "practices"
     },
-    "pk": 16,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 16
   },
   {
     "fields": {
-      "title": "Quantification"
+      "title": "quantification"
     },
-    "pk": 17,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 17
   },
   {
     "fields": {
-      "title": "Value"
+      "title": "value"
     },
-    "pk": 18,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 18
   },
   {
     "fields": {
-      "title": "Ethics"
+      "title": "ethics"
     },
-    "pk": 19,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 19
   },
   {
     "fields": {
-      "title": "Methods"
+      "title": "methods"
     },
-    "pk": 20,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 20
   },
   {
     "fields": {
-      "title": "Narrative"
+      "title": "narrative"
     },
-    "pk": 21,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 21
   },
   {
     "fields": {
-      "title": "Stories"
+      "title": "stories"
     },
-    "pk": 22,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 22
   },
   {
     "fields": {
-      "title": "Small stories"
+      "title": "small stories"
     },
-    "pk": 23,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 23
   },
   {
     "fields": {
-      "title": "Storytelling"
+      "title": "storytelling"
     },
-    "pk": 24,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 24
   },
   {
     "fields": {
-      "title": "Gender"
+      "title": "gender"
     },
-    "pk": 25,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 25
   },
   {
     "fields": {
-      "title": "Body"
+      "title": "body"
     },
-    "pk": 26,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 26
   },
   {
     "fields": {
-      "title": "Senses"
+      "title": "senses"
     },
-    "pk": 27,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 27
   },
   {
     "fields": {
-      "title": "Affect"
+      "title": "affect"
     },
-    "pk": 28,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 28
   },
   {
     "fields": {
-      "title": "Alignment"
+      "title": "alignment"
     },
-    "pk": 29,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 29
   },
   {
     "fields": {
-      "title": "Interaction"
+      "title": "interaction"
     },
-    "pk": 30,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 30
   },
   {
     "fields": {
-      "title": "Immediacy"
+      "title": "immediacy"
     },
-    "pk": 31,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 31
   },
   {
     "fields": {
-      "title": "Ephemerality"
+      "title": "ephemerality"
     },
-    "pk": 32,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 32
   },
   {
     "fields": {
-      "title": "Sharing"
+      "title": "sharing"
     },
-    "pk": 33,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 33
   },
   {
     "fields": {
-      "title": "Sharing everyday life"
+      "title": "sharing everyday life"
     },
-    "pk": 34,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 34
   },
   {
     "fields": {
-      "title": "Sharing life-in-the-moment"
+      "title": "sharing life-in-the-moment"
     },
-    "pk": 35,
-    "model": "core.keyword"
+    "model": "core.keyword",
+    "pk": 35
   }
 ]

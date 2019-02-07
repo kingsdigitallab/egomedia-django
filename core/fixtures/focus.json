@@ -1,217 +1,217 @@
 [
   {
     "fields": {
-      "title": "Social Media"
+      "title": "social media"
     },
     "pk": 1,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Affordances"
+      "title": "affordances"
     },
     "pk": 2,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Platforms"
+      "title": "platforms"
     },
     "pk": 3,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Facebook statuses"
+      "title": "facebook statuses"
     },
     "pk": 4,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Facebook Memories"
+      "title": "facebook memories"
     },
     "pk": 5,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Instagram Stories"
+      "title": "instagram stories"
     },
     "pk": 6,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Snapchat Stories"
+      "title": "snapchat stories"
     },
     "pk": 7,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Video"
+      "title": "video"
     },
     "pk": 8,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "YouTube"
+      "title": "youtube"
     },
     "pk": 9,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Mashups / Remixes / Spoof videos"
+      "title": "mashups / remixes / spoof videos"
     },
     "pk": 10,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Audio"
+      "title": "audio"
     },
     "pk": 11,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Images"
+      "title": "images"
     },
     "pk": 12,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Selfies"
+      "title": "selfies"
     },
     "pk": 13,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Gifs"
+      "title": "gifs"
     },
     "pk": 14,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Diaries"
+      "title": "diaries"
     },
     "pk": 15,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Blogs"
+      "title": "blogs"
     },
     "pk": 16,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Books"
+      "title": "books"
     },
     "pk": 17,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Archives"
+      "title": "archives"
     },
     "pk": 18,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Search Engines"
+      "title": "search engines"
     },
     "pk": 19,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "SMS"
+      "title": "sms"
     },
     "pk": 20,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Chat rooms / forums"
+      "title": "chat rooms / forums"
     },
     "pk": 21,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "News media"
+      "title": "news media"
     },
     "pk": 22,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Interviews"
+      "title": "interviews"
     },
     "pk": 23,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Events"
+      "title": "events"
     },
     "pk": 24,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Emblematic events"
+      "title": "emblematic events"
     },
     "pk": 25,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Critical moments"
+      "title": "critical moments"
     },
     "pk": 26,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Small stories"
+      "title": "small stories"
     },
     "pk": 27,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Participation"
+      "title": "participation"
     },
     "pk": 28,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Plot - emplotment"
+      "title": "plot - emplotment"
     },
     "pk": 29,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Social relations"
+      "title": "social relations"
     },
     "pk": 30,
     "model": "core.focus"
   },
   {
     "fields": {
-      "title": "Digital games"
+      "title": "digital games"
     },
     "pk": 31,
     "model": "core.focus"

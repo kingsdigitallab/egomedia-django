@@ -1,91 +1,91 @@
 [
   {
     "fields": {
-      "title": "Quantitative"
+      "title": "quantitative"
     },
     "pk": 1,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Corpus assisted discourse analysis"
+      "title": "corpus assisted discourse analysis"
     },
     "pk": 2,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Qualitative"
+      "title": "qualitative"
     },
     "pk": 3,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Digital ethnography & tracking"
+      "title": "digital ethnography & tracking"
     },
     "pk": 4,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Online Conversation Analysis"
+      "title": "online conversation analysis"
     },
     "pk": 5,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Multimodal analysis"
+      "title": "multimodal analysis"
     },
     "pk": 6,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Critical theory"
+      "title": "critical theory"
     },
     "pk": 7,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Literary theory"
+      "title": "literary theory"
     },
     "pk": 8,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Life writing"
+      "title": "life writing"
     },
     "pk": 9,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Close Reading"
+      "title": "close reading"
     },
     "pk": 10,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Small stories research"
+      "title": "small stories research"
     },
     "pk": 11,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Research creation"
+      "title": "research creation"
     },
     "pk": 12,
     "model": "core.method"
   },
   {
     "fields": {
-      "title": "Media archaeology"
+      "title": "media archaeology"
     },
     "pk": 13,
     "model": "core.method"
