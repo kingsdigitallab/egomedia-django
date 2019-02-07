@@ -189,6 +189,7 @@ def deploy(version=None):
     own_django_log()
     fix_permissions()
     migrate()
+    load_data()
     collect_static()
     # update_index()
     # clear_cache()
@@ -299,6 +300,14 @@ def migrate(app=None):
 
     with cd(env.path), prefix(env.within_virtualenv):
         run('./manage.py migrate {}'.format(app if app else ''))
+
+
+@task
+def load_data(app=None):
+    require('srvr', 'path', 'within_virtualenv', provided_by=env.servers)
+
+    with cd(env.path), prefix(env.within_virtualenv):
+        run('./manage.py loaddata core/fixtures/*.json')
 
 
 @task
