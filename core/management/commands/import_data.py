@@ -32,12 +32,11 @@ class Command(BaseCommand):
                     theme_page = ThemePage.objects.get(title=title)
                 except ThemePage.DoesNotExist:
                     theme_page = ThemePage(title=title, slug=slugify(title))
-
                     themes_index_page.add_child(instance=theme_page)
 
-                    theme_page.save()
-                    revision = theme_page.save_revision()
-                    revision.publish()
+                theme_page.save()
+                revision = theme_page.save_revision()
+                revision.publish()
 
                 keywords_list = row[3].split(';')
                 for title in keywords_list:
@@ -58,14 +57,13 @@ class Command(BaseCommand):
             themes_index_page = IndexPage.objects.get(title=title)
         except IndexPage.DoesNotExist:
             themes_index_page = IndexPage(title=title, slug=slugify(title))
-
             home_page = HomePage.objects.first()
             home_page.add_child(instance=themes_index_page)
 
-            themes_index_page.save()
+        themes_index_page.save()
 
-            revision = themes_index_page.save_revision()
-            revision.publish()
+        revision = themes_index_page.save_revision()
+        revision.publish()
 
         return themes_index_page
 
@@ -77,14 +75,13 @@ class Command(BaseCommand):
         except PeopleIndexPage.DoesNotExist:
             researchers_index_page = PeopleIndexPage(
                 title=title, slug=slugify(title))
-
             home_page = HomePage.objects.first()
             home_page.add_child(instance=researchers_index_page)
 
-            researchers_index_page.save()
+        researchers_index_page.save()
 
-            revision = researchers_index_page.save_revision()
-            revision.publish()
+        revision = researchers_index_page.save_revision()
+        revision.publish()
 
         return researchers_index_page
 
@@ -105,13 +102,12 @@ class Command(BaseCommand):
                 except ResearcherPage.DoesNotExist:
                     researcher_page = ResearcherPage(title=name)
                     researcher_page.person = person
-
                     researchers_index_page.add_child(instance=researcher_page)
 
-                    researcher_page.save()
-                    revision = researcher_page.save_revision()
-                    revision.publish()
+                researcher_page.save()
+                revision = researcher_page.save_revision()
+                revision.publish()
 
-                    rtr = ResearcherThemeRelationship(
-                        researcher=researcher_page, theme=theme_page)
-                    rtr.save()
+                rtr = ResearcherThemeRelationship(
+                    researcher=researcher_page, theme=theme_page)
+                rtr.save()
