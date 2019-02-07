@@ -35,6 +35,7 @@ class BaseFacet(index.Indexed, ClusterableModel):
 
     class Meta:
         abstract = True
+        ordering = ['title']
 
     def __str__(self):
         return self.title
@@ -47,7 +48,7 @@ class Discipline(BaseFacet):
 
 @register_snippet
 class Focus(BaseFacet):
-    class Meta:
+    class Meta(BaseFacet.Meta):
         verbose_name_plural = 'Focus'
 
 
@@ -135,7 +136,7 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
 
     content_panels = [
         FieldPanel('title', classname='full'),
-        SnippetChooserPanel('person', classname='full'),
+        SnippetChooserPanel('person'),
         StreamFieldPanel('body'),
         InlinePanel('researcher_theme_relationship',
                     label='Themes', panels=None, min_num=1)
