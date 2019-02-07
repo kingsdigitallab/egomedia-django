@@ -170,23 +170,23 @@ class BaseTimelinePage(BasePage):
         abstract = True
 
 
-class ProjectPage(BaseTimelinePage):
-    # TODO add links to facets
+class ProjectPage(BaseTimelinePage, FacetsMixin):
     # TODO add link to person
     # TODO add link to theme
+    content_panels = BaseTimelinePage.content_panels + \
+        FacetsMixin.content_panels
 
     parent_page_types = [IndexPage, 'ProjectPage']
     subpage_types = ['ProjectPage']
 
 
-class ThemePage(BaseTimelinePage):
-    # TODO add links to facets
+class ThemePage(BaseTimelinePage, FacetsMixin):
+    content_panels = BaseTimelinePage.content_panels + \
+        FacetsMixin.content_panels
 
     parent_page_types = [IndexPage]
     subpage_types = []
 
-
-# TODO add snippets for keyword, focus, method, discipline
 
 # Sets up pages' visibility
 IndexPage.parent_page_types = [HomePage, IndexPage]
