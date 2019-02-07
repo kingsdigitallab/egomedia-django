@@ -1,6 +1,7 @@
 import csv
 
-from core.models import HomePage, Keyword, ThemePage
+from core.models import (HomePage, Keyword, ResearcherPage,
+                         ResearcherThemeRelationship, ThemePage)
 from django.core.management.base import BaseCommand
 from django.utils.text import slugify
 from kdl_wagtail.core.models import IndexPage
@@ -47,15 +48,8 @@ class Command(BaseCommand):
 
                 theme_page.save()
 
-                researchers = row[1].split(';')
-                for name in researchers:
-                    name = name.strip()
-                    if name:
-                        person, _ = Person.objects.get_or_create(name=name)
-
-                        pipr = PeopleIndexPersonRelationship(
-                            page=researchers_index_page, person=person)
-                        pipr.save()
+                self.import_researchers(
+                    row, researchers_index_page, theme_page)
 
     def get_or_create_themes_index_page(self):
         title = 'Themes'
@@ -93,3 +87,31 @@ class Command(BaseCommand):
             revision.publish()
 
         return researchers_index_page
+
+    def import_researchers(self, row, researchers_index_page, theme_page):
+        researchers = row[1].split(';')
+
+        for name in researchers:
+            name = name.strip()
+            if name:
+                person, _ = Person.objects.get_or_create(name=name)
+
+                pipr = PeopleIndexPersonRelationship(
+                    page=researchers_index_page, person=person)
+                pipr.save()
+
+                try:
+                    researcher_page = ResearcherPage.objects.get(title=name)
+                except ResearcherPage.DoesNotExist:
+                    researcher_page = ResearcherPage(title=name)
+                    researcher_page.person = person
+
+                    researchers_index_page.add_child(instance=researcher_page)
+
+                    researcher_page.save()
+                    revision = researcher_page.save_revision()
+                    revision.publish()
+
+                    rtr = ResearcherThemeRelationship(
+                        researcher=researcher_page, theme=theme_page)
+                    rtr.save()

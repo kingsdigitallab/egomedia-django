@@ -5,13 +5,14 @@ from kdl_wagtail.core.models import (BasePage, BaseStreamPage, IndexPage,
                                      RichTextPage, StreamPage)
 from kdl_wagtail.people.models import (PeopleIndexPage, Person, PersonModel,
                                        PersonPage)
-from modelcluster.fields import ParentalManyToManyField
+from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.models import ClusterableModel
 from wagtail.admin.edit_handlers import (FieldPanel, FieldRowPanel,
-                                         MultiFieldPanel, StreamFieldPanel)
+                                         InlinePanel, MultiFieldPanel,
+                                         PageChooserPanel, StreamFieldPanel)
 from wagtail.api import APIField
 from wagtail.core.fields import StreamField
-from wagtail.core.models import Page
+from wagtail.core.models import Orderable, Page
 from wagtail.search import index
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
@@ -110,6 +111,21 @@ class HomePage(Page):
     subpage_types = [IndexPage, PeopleIndexPage, StreamPage]
 
 
+class ResearcherThemeRelationship(Orderable, models.Model):
+    researcher = ParentalKey(
+        'ResearcherPage', related_name='researcher_theme_relationship',
+        on_delete=models.CASCADE
+    )
+    theme = models.ForeignKey(
+        'ThemePage', related_name='theme_researcher_relationship',
+        on_delete=models.CASCADE
+    )
+
+    panels = [
+        PageChooserPanel('theme')
+    ]
+
+
 class ResearcherPage(BaseStreamPage, FacetsMixin):
     person = models.ForeignKey(
         PersonModel, related_name='researcher_pages', on_delete=models.PROTECT)
@@ -121,7 +137,9 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
     content_panels = [
         FieldPanel('title', classname='full'),
         SnippetChooserPanel('person'),
-        StreamFieldPanel('body')
+        StreamFieldPanel('body'),
+        InlinePanel('researcher_theme_relationship',
+                    label='Themes', panels=None, min_num=1)
     ] + FacetsMixin.content_panels
 
     search_fields = BaseStreamPage.search_fields + [
