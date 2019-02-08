@@ -378,6 +378,20 @@
       tags:
         - django
 
+    - name: django | load data - import from CSVs
+      command: "pipenv run python manage.py import_data"
+      args:
+        chdir: "{{ project_root }}"
+      tags:
+        - django
+
+    - name: django | generate wagtail menu
+      command: "pipenv run python manage.py autopopulate_main_menus"
+      args:
+        chdir: "{{ project_root }}"
+      tags:
+        - django
+
 # GIT config
 # run as vagrant
 - hosts: all
