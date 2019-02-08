@@ -361,19 +361,20 @@
       tags:
         - django
 
-    - name: django | load initial data
-      command: "pipenv run python manage.py loaddata core/fixtures/discipline.json"
+    - name: django | load data - gather fixtures
+      find:
+        paths: "{{ project_root }}/core/fixtures"
+        patterns: "*.json"
+      register: fixture_files
+      tags:
+        - django
+
+    - name: django | load data - from fixtures
+      command: "pipenv run python manage.py loaddata {{ item.path }}"
       args:
         chdir: "{{ project_root }}"
-      command: "pipenv run python manage.py loaddata core/fixtures/focus.json"
-      args:
-        chdir: "{{ project_root }}"
-      command: "pipenv run python manage.py loaddata core/fixtures/keyword.json"
-      args:
-        chdir: "{{ project_root }}"
-      command: "pipenv run python manage.py loaddata core/fixtures/method.json"
-      args:
-        chdir: "{{ project_root }}"
+      with_items:
+        - "{{ fixture_files.files }}"
       tags:
         - django
 
