@@ -1,1 +1,6 @@
-/** Your custom scss here **/
+@import 'settings';
+@import 'fontawesome';
+@import '../../node_modules/foundation-sites/scss/foundation';
+
+// Need to check if this is needed
+// @import '../../node_modules/motion-ui/motion-ui';
