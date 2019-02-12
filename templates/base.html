@@ -29,9 +29,15 @@
   </nav>
 
   <main>
-    {% block title %}{% endblock %}
-    {% block main %}
-    {% endblock %}
+    <div class="grid-container">
+      <div class="grid-x">
+        <div class="cell">
+          {% block title %}{% endblock %}
+          {% block main %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="bottom-footer">
