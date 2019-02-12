@@ -3,7 +3,7 @@ from .base import *  # noqa
 ALLOWED_HOSTS = ['127.0.0.1',
                  'localhost'
                  '[::1]',
-                 'egomedia-dev.kdl.kcl.ac.uk']
+                 'ego-dev.kdl.kcl.ac.uk']
 
 CACHE_REDIS_DATABASE = '2'
 CACHES['default']['LOCATION'] = '127.0.0.1:6379:' + CACHE_REDIS_DATABASE
@@ -15,8 +15,8 @@ INTERNAL_IPS = INTERNAL_IPS + ['']
 DATABASES = {
     'default': {
         'ENGINE': db_engine,
-        'NAME': 'app_egomedia_dev',
-        'USER': 'app_egomedia',
+        'NAME': 'app_ego_dev',
+        'USER': 'app_ego',
         'PASSWORD': '',
         'HOST': ''
     },
