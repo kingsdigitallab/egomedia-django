@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{% block meta_title %}{% endblock %} | Ego Media</title>
+  <title>{% block meta_title %}{{ self.title }}{% endblock %} | Ego Media</title>
   <meta name="author" content="King's Digital Lab">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
   {% endcompress %}
 </head>
 <body>
-  <header>
+  <header class="top-header">
     {% include 'includes/header.html' %}
   </header>
 
@@ -31,7 +31,7 @@
     {% endblock %}
   </main>
 
-  <footer>
+  <footer class="bottom-footer">
     {% block footer %}
     {% include 'includes/footer.html' %}
     {% endblock %}
@@ -39,7 +39,8 @@
 
   {% compress js %}
   <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
-  <script src="{% static 'vue/dist/vue.min.js' %}"></script>
+  <script src="{% static '@fortawesome/fontawesome-pro/js/all.min.js' %}"></script>
+  <script src="{% static 'foundation-sites/dist/js/foundation.min.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
   {% endcompress %}
 

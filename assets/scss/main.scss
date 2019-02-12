@@ -1,1 +1,21 @@
-/** Your custom scss here **/
+@import 'settings';
+@import 'fontawesome';
+@import '../../node_modules/foundation-sites/scss/foundation';
+
+// Need to check if this is needed
+// @import '../../node_modules/motion-ui/motion-ui';
+
+/* Globals */
+
+.bottom-footer,
+.top-header {
+  background-color: $light-gray;
+  margin: 0;
+  padding: rem-calc(16);
+}
+
+/* Header */
+
+/* Main */
+
+/* Footer */
