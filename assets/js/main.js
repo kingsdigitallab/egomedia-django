@@ -1,3 +1,3 @@
 $(function() {
-    // Your JS Here
+    $(document).foundation();
 });

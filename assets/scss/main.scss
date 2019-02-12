@@ -4,7 +4,7 @@
 @import '../../node_modules/foundation-sites/scss/foundation';
 
 // Need to check if this is needed
-// @import '../../node_modules/motion-ui/motion-ui';
+@import '../../node_modules/motion-ui/motion-ui';
 
 @include foundation-everything;
 
@@ -30,6 +30,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header */
 
+.page-header {
+  margin-top: rem-calc(24);
+
+  h1 {
+    border-bottom: 1px solid $light-gray;
+    color: $medium-gray;
+  }
+}
+
 /* Navigation */
 
 .top-bar {
@@ -39,7 +48,6 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 
   a {
-    // margin: rem-calc(0 16);
     padding-top: rem-calc(16);
 
     &:hover {
@@ -96,3 +104,20 @@ a.item-methods {
 /* Main */
 
 /* Footer */
+
+
+/* Prevent the menu bar to display before JS is loaded */
+
+.no-js {
+  @include breakpoint(small only) {
+    .top-bar {
+      display: none;
+    }
+  }
+
+  @include breakpoint(medium) {
+    .title-bar {
+      display: none;
+    }
+  }
+}
