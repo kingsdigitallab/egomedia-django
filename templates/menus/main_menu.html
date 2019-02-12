@@ -32,7 +32,7 @@
       {% for item in menu_items %}
       {% if item.text == "Themes" or item.text == "Researchers" or item.text == "Projects" %}
       <li>
-        <a class="item-{{ item|lower }}" href="#">{{ item.text }}</a>
+        <a class="item-{{ item|lower }}" href="{{ item.href }}">{{ item.text }}</a>
       </li>
       {% endif %}
       {% endfor %}
