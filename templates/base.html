@@ -15,6 +15,9 @@
   {% compress css %}
   <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}" defer>
   {% endcompress %}
+
+  {# Favicon #}
+  <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
 </head>
 <body>
   <header class="top-header">
@@ -44,9 +47,8 @@
   <script src="{% static 'js/main.js' %}"></script>
   {% endcompress %}
 
-  {% block footer_scripts %}{% endblock %}
-
   {% compress js %}
+  {% block footer_scripts %}{% endblock %}
   {% endcompress %}
 </body>
 </html>

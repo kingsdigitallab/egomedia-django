@@ -1,0 +1,43 @@
+{% load menu_tags %}
+
+<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+  <div class="title-bar-title">Menu</div>
+</div>
+
+<div class="top-bar" id="responsive-menu">
+  <div class="top-bar-left">
+    <ul class="{{ item.active_class }}{% if item.has_children_in_menu %} dropdown{% endif %} menu"{% if item.has_children_in_menu %} data-dropdown-menu{% endif %}>
+      <li><a href="/">Home</a></li>
+
+      {% for item in menu_items %}
+      {% if item.text != "Themes" and item.text != "Researchers" and item.text != "Projects" %}
+      <li{% if item.has_children_in_menu %} class="has-submenu"{% endif %}>
+        <a href="{{ item.href }}">{{ item.text }}</a>
+
+        {% if item.has_children_in_menu %}
+          <ul class="submenu menu vertical" data-submenu>
+            {% for item in menu_items %}
+            <li class="{{ item.active_class }}">
+              <a href="{{ item.href }}">{{ item.text }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    <ul class="menu">
+      {% for item in menu_items %}
+      {% if item.text == "Themes" or item.text == "Researchers" or item.text == "Projects" %}
+      <li>
+        <a class="item-{{ item|lower }}" href="#">{{ item.text }}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="top-bar-right">
+  </div>
+</div>

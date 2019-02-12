@@ -1,9 +1,12 @@
 @import 'settings';
+@import 'fonts';
 @import 'fontawesome';
 @import '../../node_modules/foundation-sites/scss/foundation';
 
 // Need to check if this is needed
 // @import '../../node_modules/motion-ui/motion-ui';
+
+@include foundation-everything;
 
 /* Globals */
 
@@ -15,6 +18,69 @@
 }
 
 /* Header */
+
+/* Navigation */
+
+.top-bar {
+  font-family: "KingsBureauGrot";
+  font-size: rem-calc(20);
+  padding: 0;
+  text-transform: uppercase;
+
+  a {
+    // margin: rem-calc(0 16);
+    padding-top: rem-calc(16);
+
+    &:hover {
+      background: $primary-color;
+      color: $white;
+    }
+  }
+}
+
+a[class^="item-"] {
+  color: $white;
+}
+
+a.item-blue,
+a.item-projects {
+  background: $navylike;
+  border-bottom: 5px solid $bright-navy;
+
+  &:hover {
+    background: $bright-navy;
+  }
+}
+
+a.item-green,
+a.item-researchers {
+  background: $dark-green;
+  border-bottom: 5px solid $bright-green;
+
+  &:hover {
+    background: $bright-green;
+  }
+}
+
+a.item-orange,
+a.item-themes {
+  background: $dirty-orange;
+  border-bottom: 5px solid $bright-orange;
+
+  &:hover {
+    background: $bright-orange;
+  }
+}
+
+a.item-yellow,
+a.item-methods {
+  background: $dirty-yellow;
+  border-bottom: 5px solid $bright-yellow;
+
+  &:hover {
+    background: $bright-yellow;
+  }
+}
 
 /* Main */
 
