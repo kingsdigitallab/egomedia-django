@@ -1,14 +1,14 @@
 {% load menu_tags %}
-  <div class="grid-container">
-    <div class="grid-x">
-      <div class="cell">
+<div class="grid-container">
+  <div class="grid-x">
+    <div class="cell">
 
-<div class="title-bar" data-responsive-toggle="top-nav" data-hide-for="medium">
-  <button class="menu-icon" type="button" data-toggle="top-nav"></button>
-  <div class="title-bar-title">Menu</div>
-</div>
+      <div class="title-bar" data-responsive-toggle="top-nav" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="top-nav"></button>
+        <div class="title-bar-title">Menu</div>
+      </div>
 
-<div class="top-bar" id="top-nav">
+      <div class="top-bar" id="top-nav">
         <div class="top-bar-left">
           <ul class="{{ item.active_class }}{% if item.has_children_in_menu %} dropdown{% endif %} menu"{% if item.has_children_in_menu %} data-dropdown-menu{% endif %}>
             <li><a href="/">Home</a></li>
@@ -43,7 +43,7 @@
         </div>
         <div class="top-bar-right">
         </div>
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 </div>

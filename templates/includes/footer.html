@@ -1,6 +1,26 @@
-{% load kdl_wagtail_core_tags %}
+{% load kdl_wagtail_core_tags menu_tags %}
 
 <div class="grid-container">
+  <div class="grid-x">
+    <div class="cell medium-6 large-3">
+      <h4>{{ PROJECT_TITLE }}</h4>
+      <p>&copy; {% now 'Y' %}</p>
+    </div>
+    <div class="cell medium-6 large-9">
+      <nav>
+        <ul class="menu">
+          <li><a href="/">Home</a></li>
+
+          {# TODO: implement footer_menu #}
+          {% for item in footer_menu %}
+          <li>
+            <a href="{{ item.href }}">{{ item.text }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
   <div class="grid-x">
     <div class="cell">
       {% get_footer_text %}
