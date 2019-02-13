@@ -41,8 +41,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navigation */
 
-.top-bar {
+nav {
   font-family: "KingsBureauGrot";
+}
+
+.top-bar {
   font-size: rem-calc(20);
   padding: 0;
   text-transform: uppercase;
@@ -55,6 +58,10 @@ h1, h2, h3, h4, h5, h6 {
       color: $white;
     }
   }
+}
+
+.top-nav {
+  background: $light-gray;
 }
 
 a[class^="item-"] {

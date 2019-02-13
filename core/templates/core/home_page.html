@@ -1,7 +1,39 @@
 {% extends "base.html" %}
 
-{% block main %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% comment %}
+  TODO: We might want to remove the page-header from the homepage,
+  but leave it for the time being
+{% endcomment %}
+
+{% block page-header %}
+<div class="page-header">
+  <h1>{{ page.title }}</h1>
+</div>
+{% endblock %}
+
+{% block page-body %}
 
 {{ self.body }}
 
-{% endblock main %}
+{% if children %}
+<div class="grid-container">
+  <div class="grid-x grid-padding-x small-up-1 medium-up-3" data-equalizer data-equalize-on="medium">
+
+    {# TODO: implement the cards #}
+    {% for child in children %}
+    <div class="cell">
+      <div class="card" data-equalizer-watch>
+        <img src="assets/img/generic/rectangle-1.jpg">
+        <div class="card-section">
+        <h4>This is a row of cards.</h4>
+          <p>This row of cards is embedded in an X-Y Block Grid.</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock page-body %}
