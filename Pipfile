@@ -27,6 +27,7 @@ psycopg2-binary = "*"
 pysolr = "*"
 wagtail-condensedinlinepanel = "*"
 wagtailmenus = "*"
+django = "*"
 
 [requires]
 python_version = "3.5"
