@@ -22,6 +22,23 @@ body {
   padding: rem-calc(16);
 }
 
+// Alignments
+
+.center {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.left {
+  float: left;
+  margin-right: 1rem;
+}
+
+.right {
+  float: right;
+  margin-left: 1rem;
+}
+
 // Headings
 
 h1, h2, h3, h4, h5, h6 {
@@ -109,6 +126,72 @@ a.item-methods {
 }
 
 /* Main */
+
+// Embeds
+
+.attribution {
+  &::before {
+    content: "\A9";
+  }
+}
+
+.caption {
+  font-style: italic;
+}
+
+.embed {
+  background: $light-gray;
+  margin: 1rem auto;
+  padding: .5rem;
+  width: 80%;
+
+  // &::before {
+  //   content: "\f0c1";
+  //   font-family: "Font Awesome 5 Pro";
+  //   margin-left: -2rem;
+  // }
+
+  p {
+    font-size: 16px;
+    line-height: 1.25;
+    margin-bottom: .5rem;
+  }
+}
+
+// Images
+
+main,
+.main {
+  img {
+    background: lighten($light-gray, 7%);
+    border: 1px solid $light-gray;
+    margin-bottom: .25rem;
+    padding: .25rem;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+// Responsive iframe
+
+.iframe-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  margin-bottom: .5rem;
+  // margin-top: -30px;
+  overflow: hidden;
+  clear: both;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
 
 /* Footer */
 
