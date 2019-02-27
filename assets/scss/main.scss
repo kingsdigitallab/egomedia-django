@@ -56,10 +56,32 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.top-header {
+  height: 50px;
+
+  .logo {
+    img {
+      max-height: 70px;
+    }
+  }
+}
+
 /* Navigation */
 
 nav {
   font-family: "KingsBureauGrot";
+
+  &.top-nav {
+    margin-top: 2.5rem;
+
+    @include breakpoint(medium) {
+      margin-top: -2.5rem;
+    }
+
+    .menu {
+      margin: .5rem 0;
+    }
+  }
 }
 
 .top-bar {
@@ -68,7 +90,7 @@ nav {
   text-transform: uppercase;
 
   a {
-    padding-top: rem-calc(16);
+    padding-top: rem-calc(8);
 
     &:hover {
       background: $primary-color;
@@ -77,12 +99,10 @@ nav {
   }
 }
 
-.top-nav {
-  background: $light-gray;
-}
-
 a[class^="item-"] {
+  border-radius: 2px;
   color: $white;
+  margin-right: 1rem;
 }
 
 a.item-blue,
@@ -127,7 +147,7 @@ a.item-methods {
 
 /* Main */
 
-// Embeds
+// Embeds and Documents
 
 .attribution {
   &::before {
@@ -137,6 +157,15 @@ a.item-methods {
 
 .caption {
   font-style: italic;
+}
+
+.document {
+  &::before {
+    color: $primary-color;
+    content: "\f56d";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+  }
 }
 
 .embed {
