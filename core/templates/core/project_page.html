@@ -1,1 +1,30 @@
 {% extends "kdl_wagtail_core/base_stream_page.html" %}
+{% load kdl_wagtail_core_tags wagtailcore_tags wagtailembeds_tags %}
+
+{% block page-body %}
+  <div class="page-meta">
+    {% if self.project_researcher_relationship.all %}
+    <ul class="horizontal no-bullet persons">
+      {% for item in self.project_researcher_relationship.all %}
+      <li class="person"><a href="{% pageurl item.researcher %}">{{ item.researcher }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if self.project_theme_relationship.all %}
+    <ul class="horizontal no-bullet">
+      {% for item in self.project_theme_relationship.all %}
+      <li class="tag theme"><a href="{% pageurl item.theme %}">{{ item.theme }}</a></li>
+      {% endfor %}
+      {% if self.keywords.all %}
+      {% for item in self.keywords.all %}
+      <li class="tag keyword">{{ item }}</li>
+      {% endfor %}
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
+
+  {{ block.super }}
+
+{% endblock %}
