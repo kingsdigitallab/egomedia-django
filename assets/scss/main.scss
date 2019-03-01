@@ -86,24 +86,24 @@ nav {
       margin: .5rem 0;
 
       .active > a {
-        background: transparent;
+        background: $light-gray;
         border-bottom: 5px solid $dark-gray;
         color: $dark-gray;
 
-        &.item-projects {
-          background-color: scale-color($navylike, $lightness: -20%);
-          color: $white;
-        }
+        // &.item-projects {
+        //   background-color: scale-color($navylike, $lightness: -20%);
+        //   color: $white;
+        // }
 
-        &.item-researchers {
-          background-color: scale-color($dark-green, $lightness: -20%);
-          color: $white;
-        }
+        // &.item-researchers {
+        //   background-color: scale-color($dark-green, $lightness: -20%);
+        //   color: $white;
+        // }
 
-        &.item-themes {
-          background-color: scale-color($dirty-orange, $lightness: -20%);
-          color: $white;
-        }
+        // &.item-themes {
+        //   background-color: scale-color($dirty-orange, $lightness: -20%);
+        //   color: $white;
+        // }
       }
     }
   }
