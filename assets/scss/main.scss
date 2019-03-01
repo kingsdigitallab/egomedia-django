@@ -84,6 +84,27 @@ nav {
 
     .menu {
       margin: .5rem 0;
+
+      .active > a {
+        background: transparent;
+        border-bottom: 5px solid $dark-gray;
+        color: $dark-gray;
+
+        &.item-projects {
+          background-color: scale-color($navylike, $lightness: -20%);
+          color: $white;
+        }
+
+        &.item-researchers {
+          background-color: scale-color($dark-green, $lightness: -20%);
+          color: $white;
+        }
+
+        &.item-themes {
+          background-color: scale-color($dirty-orange, $lightness: -20%);
+          color: $white;
+        }
+      }
     }
   }
 }
@@ -207,6 +228,81 @@ a.item-methods {
     margin-bottom: .5rem;
   }
 }
+
+// Lists
+
+.horizontal {
+  li {
+    display: inline-block;
+  }
+}
+
+// Metadata
+
+.keyword {
+  padding: 0 8px;
+}
+
+.keyword,
+.person,
+.tag {
+  text-transform: capitalize;
+}
+
+.page-meta {
+  border-bottom: 10px solid $light-gray;
+  padding-bottom: 8px;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.person,
+.tag {
+  a {
+    color: $dark-gray;
+
+    &:hover {
+      box-shadow: inset 0 -2px 0 0 $dark-gray;
+      text-decoration: none;
+    }
+  }
+}
+
+.person {
+  font-family: "KingsBureauGrot";
+  font-size: 18px;
+}
+
+.persons {
+  li {
+    &:not(:last-child) {
+      &::after {
+        content: ", ";
+      }
+    }
+  }
+}
+
+.tag {
+  background-color: $light-gray;
+  border-radius: 2px;
+  color: $dark-gray;
+  font-family: "KingsBureauGrot";
+  font-size: 14px;
+  font-weight: 300;
+
+  a {
+    padding: 4px 8px;
+  }
+}
+
+.theme {
+  border-bottom: 3px solid $bright-orange;
+}
+
+// TODO: define classes for border-bottom;
 
 // Images
 

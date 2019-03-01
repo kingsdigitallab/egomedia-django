@@ -8,16 +8,7 @@
     </div>
     <div class="cell medium-6 large-9">
       <nav>
-        <ul class="menu">
-          <li><a href="/">Home</a></li>
-
-          {# TODO: implement footer_menu #}
-          {% for item in footer_menu %}
-          <li>
-            <a href="{{ item.href }}">{{ item.text }}</a>
-          </li>
-          {% endfor %}
-        </ul>
+        {% flat_menu 'footer_menu' apply_active_classes=True template='menus/footer_menu.html' %}
       </nav>
     </div>
   </div>
