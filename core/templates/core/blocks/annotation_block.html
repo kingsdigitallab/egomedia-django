@@ -2,12 +2,16 @@
 
 <div class="annotation">
     <div class="title">
-        {{ self.title }}
+        <a data-open="annotation">{{ self.title }} {{ self.id_for_label }}</a>
     </div>
 
-    <div class="content">
+    <div class="content reveal" id="annotation" data-reveal>
         {% for block in self.body %}
         {% include_block block %}
         {% endfor %}
+
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 </div>
