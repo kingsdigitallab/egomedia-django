@@ -4,9 +4,9 @@
         {{ self.title }}
     </div>
 
-    {% for item in self.items %}
     <ol class="items">
+    {% for item in self.items %}
         <li>{% include_block item %}</li>
-    </ol>
     {% endfor %}
+    </ol>
 </div>
