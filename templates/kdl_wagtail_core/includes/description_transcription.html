@@ -1,0 +1,13 @@
+{% load wagtailcore_tags %}
+
+{% if self.description %}
+<div class="description reveal" id="description" data-reveal>
+{{ self.description|richtext }}
+</div>
+{% endif %}
+
+{% if self.transcription %}
+<div class="transcription reveal" id="transcription" data-reveal>
+{{ self.transcription|richtext }}
+</div>
+{% endif %}

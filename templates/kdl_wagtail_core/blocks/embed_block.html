@@ -1,7 +1,15 @@
-{% load wagtailembeds_tags %}
+{% load wagtailcore_tags wagtailembeds_tags %}
+
 <div class="embed">
+  {% if self.description %}
+  <a data-open="description" class="meta-toggler"><i class="fas fa-info-circle"></i></a>
+  {% endif %}
+  {% if self.transcription %}
+  <a data-open="transcription" class="meta-toggler"><i class="fas fa-file-alt"></i></a>
+  {% endif %}
   <div class="iframe-container">
     {% embed self.embed_block.url %}
   </div>
   <p>{% include "kdl_wagtail_core/includes/caption_attribution.html" %}</p>
+  <p>{% include "kdl_wagtail_core/includes/description_transcription.html" %}</p>
 </div>
