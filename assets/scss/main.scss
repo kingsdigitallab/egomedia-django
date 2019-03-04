@@ -216,11 +216,18 @@ a.item-methods {
   padding: .5rem;
   width: 80%;
 
-  // &::before {
-  //   content: "\f0c1";
-  //   font-family: "Font Awesome 5 Pro";
-  //   margin-left: -2rem;
-  // }
+  &.margin-top {
+    .iframe-container {
+      margin-top: -1.875rem;
+    }
+  }
+
+  .meta-toggler {
+    height: 0;
+    margin-left: -3rem;
+    text-align: center;
+    width: 40px;
+  }
 
   p {
     font-size: 16px;
@@ -302,8 +309,6 @@ a.item-methods {
   border-bottom: 3px solid $bright-orange;
 }
 
-// TODO: define classes for border-bottom;
-
 // Images
 
 main,
@@ -336,6 +341,11 @@ main,
     left: 0;
     height: 100%;
     width: 100%;
+  }
+
+  img {
+    margin-bottom: -56.25%;
+    padding: 0;
   }
 }
 
