@@ -25,6 +25,13 @@
     {% endif %}
   </div>
 
-  {{ block.super }}
+  <div class="grid-x">
+    <div class="cell medium-3">
+      {% include 'includes/toc.html' %}
+    </div>
 
+    <div class="cell medium-7">
+      {{ block.super }}
+    </div>
+  </div>
 {% endblock %}

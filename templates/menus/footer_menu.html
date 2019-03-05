@@ -2,7 +2,7 @@
 <ul class="menu">
   {% for item in menu_items %}
   <li class="{{ item.active_class }}">
-    <a href="{{ item.href }}">{{ item.text }}</a>
+    <a href="{{ item.href }}">{{ item }}</a>
   </li>
   {% endfor %}
 </ul>

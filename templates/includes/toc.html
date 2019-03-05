@@ -1,0 +1,13 @@
+{% load wagtailcore_tags %}
+
+<nav role="navigation" class="table-of-contents">
+  <h4>Table of contents</h4>
+  {% if page.get_children %}
+  <h4>Sub projects</h4>
+  <ul>
+      {% for child in page.get_children %}
+      <li><a href="{% pageurl child %}">{{ child.title }}</a></li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+</nav>
