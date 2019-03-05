@@ -227,8 +227,8 @@ else:
 
 AUTH_LDAP_REQUIRE_GROUP = (
     (
-        LDAPGroupQuery('cn=kdl-staff,' + LDAP_BASE_OU) |
-        LDAPGroupQuery('cn=ego,' + LDAP_BASE_OU)
+        LDAPGroupQuery('cn=kdl-staff,' + LDAP_BASE_OU) | LDAPGroupQuery(
+            'cn=ego,' + LDAP_BASE_OU)
     )
 )
 
@@ -317,7 +317,7 @@ AC_TOKEN = ''
 
 WAGTAIL_SITE_NAME = PROJECT_TITLE
 
-KDL_WAGTAIL_ITEMS_PER_PAGE = 10
+KDL_WAGTAIL_ITEMS_PER_PAGE = 50
 KDL_WAGTAIL_PERSON_MODEL = 'kdl_wagtail_people.Person'
 
 # -----------------------------------------------------------------------------

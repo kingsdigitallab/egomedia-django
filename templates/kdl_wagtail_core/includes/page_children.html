@@ -19,10 +19,17 @@
             </div>
             {% endif %}
         </a>
+
+        {% if child.get_children %}
+        <ul>
+            {% for sub in child.get_children %}
+            <li><a href="{% pageurl sub %}">{{ sub.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>
-
 
 {% include "kdl_wagtail_core/includes/pagination.html" with items=children %}
 

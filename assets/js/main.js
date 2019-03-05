@@ -9,5 +9,4 @@ $(document).ready(function() {
     // $( ":header" ).each( function() {
     //     alert("this is a heading");
     // });
-
 });
