@@ -1,13 +1,13 @@
-{% load wagtailcore_tags %}
+{% load kdl_wagtail_core_tags wagtailcore_tags %}
 
 {% if self.description %}
-<div class="description reveal" id="description" data-reveal>
+<div class="description reveal" id="{% get_object_id self.description 'description' %}" data-reveal>
 {{ self.description|richtext }}
 </div>
 {% endif %}
 
 {% if self.transcription %}
-<div class="transcription reveal" id="transcription" data-reveal>
+<div class="transcription reveal" id="{% get_object_id self.transcription 'transcription' %}" data-reveal>
 {{ self.transcription|richtext }}
 </div>
 {% endif %}
