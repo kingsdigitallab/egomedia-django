@@ -17,6 +17,10 @@
     {% embed self.embed_block.url %}
   </div>
 
+  {% if self.caption or self.attribution %}
   <p>{% include "kdl_wagtail_core/includes/caption_attribution.html" %}</p>
-  <p>{% include "kdl_wagtail_core/includes/description_transcription.html" %}</p>
+  {% endif %}
+  {% if self.description|wordcount > 2 or self.transcription|wordcount > 2 %}
+  {% include "kdl_wagtail_core/includes/description_transcription.html" %}
+  {% endif %}
 </div>

@@ -3,11 +3,17 @@
 {% if self.description %}
 <div class="description reveal" id="{% get_object_id self.description 'description' %}" data-reveal>
 {{ self.description|richtext }}
+<button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+</button>
 </div>
 {% endif %}
 
 {% if self.transcription %}
 <div class="transcription reveal" id="{% get_object_id self.transcription 'transcription' %}" data-reveal>
 {{ self.transcription|richtext }}
+<button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+</button>
 </div>
 {% endif %}
