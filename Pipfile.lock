@@ -171,11 +171,11 @@
         },
         "django-kdl-wagtail": {
             "hashes": [
-                "sha256:0aa52af1e1f991bf639c24156723fa7767ad26398b73e00be05188e9b36a5ad5",
-                "sha256:dd90e1f3f54042779f21e6d68275d12e0ce2054bcf31310e7b123f5e987387c1"
+                "sha256:69dd3c1529592476ca491fc7c4e0b7a0e46d3d92af3de67d8460bccd8e02055b",
+                "sha256:e6471b77d157b3660f1f02f6da601fe5f97b6934c06dc52069826f99c2b90391"
             ],
             "index": "pypi",
-            "version": "==0.7.2"
+            "version": "==0.7.3"
         },
         "django-libsass": {
             "hashes": [
