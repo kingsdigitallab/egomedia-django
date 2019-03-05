@@ -17,6 +17,9 @@ from wagtail.search import index
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
+# hides the generic image field
+BasePage.content_panels.pop(2)
+
 
 class BaseFacet(index.Indexed, ClusterableModel):
     title = models.CharField(max_length=64, unique=True)
