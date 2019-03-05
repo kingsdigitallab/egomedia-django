@@ -308,6 +308,7 @@ def load_data(app=None):
 
     with cd(env.path), prefix(env.within_virtualenv):
         run('./manage.py loaddata core/fixtures/*.json')
+        run('./manage.py fixtree')
 
 
 @task
