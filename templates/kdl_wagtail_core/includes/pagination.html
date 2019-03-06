@@ -9,12 +9,13 @@
     {% else %}
     <li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
     {% endif %}
+
     {% for i in items.paginator.page_range %}
     {% if items.number == i %}
     <li class="current"><span class="show-for-sr">You're on page</span> {{ i }}</li>
     {% else %}
     <li>
-        <a href="?page={{ query_string|urlencode }}&amp;page={{ i }}" aria-label="Page {{ i }}">{{ i }}</a>
+        <a href="?page={{ i }}" aria-label="Page {{ i }}">{{ i }}</a>
     </li>
     {% endif %}
     {% endfor %}
