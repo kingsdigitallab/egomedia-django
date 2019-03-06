@@ -1,7 +1,23 @@
 from kdl_wagtail.core.blocks import (BaseStreamBlock, DocumentBlock,
-                                     EmbedBlock, ImageBlock, LinkBlock)
+                                     EmbedBlock, ImageBlock, LinkBlock,
+                                     TableBlock)
 from wagtail.core.blocks import (CharBlock, ListBlock, RichTextBlock,
                                  StreamBlock, StructBlock)
+
+
+class ModalBlock(StructBlock):
+    title = CharBlock()
+    body = StreamBlock([
+        ('description', RichTextBlock(required=False)),
+        ('document_block', DocumentBlock(required=False)),
+        ('image_block', ImageBlock(required=False)),
+        ('embed_block', EmbedBlock(required=False)),
+        ('table_block', TableBlock(required=False))
+    ])
+
+    class Meta:
+        icon = 'no-view'
+        template = 'core/blocks/modal_block.html'
 
 
 class TimelineItemBlock(StructBlock):
@@ -40,4 +56,5 @@ class HomePageStreamBlock(StreamBlock):
 
 class TimelineStreamBlock(BaseStreamBlock):
     # TODO rename this sequence instead of timeline
+    modal_block = ModalBlock()
     timeline_block = TimelineBlock()
