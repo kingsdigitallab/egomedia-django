@@ -1,6 +1,19 @@
-{% load wagtailcore_tags %}
+{% load core_tags kdl_wagtail_core_tags wagtailcore_tags %}
 
 <nav role="navigation" class="table-of-contents">
+    {% if page.body %}
+    <h4>Table of Contents</h4>
+    <ul>
+        {% for block in page.body %}
+        <li>
+            <a href="#{% get_object_id block %}">
+            {% get_block_title block %}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     {% if page.get_children %}
     <h4>Sub projects</h4>
     <ul>
