@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     // Expande / Collapse
     $('.toggler').on('click', function () {
-        $(this).next('.content').slideToggle(400).toggleClass('hide show');
+        $(this).next('.sub').slideToggle(400).toggleClass('hide show');
         $(this).toggleClass('close open');
 
         return false;
