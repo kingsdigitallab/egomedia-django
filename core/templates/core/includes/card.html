@@ -1,0 +1,31 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% if children %}
+<div class="cell">
+    {% for child in children %}
+    <div class="card">
+        <div class="card-divider">
+            <a href="{% pageurl child %}">
+                {{ child.title }}
+            </a>
+        </div>
+        {% if child.image %}
+        <a href="{% pageurl child %}">
+            {% image child.image fill-180x180-c100 %}
+        </a>
+        {% endif %}
+
+        {% if child.introduction %}
+        <div class="card-section">
+            <a href="{% pageurl child %}">
+                {{ child.introduction }}
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+{% else %}
+<p>No live pages found!</p>
+{% endif %}
