@@ -11,8 +11,12 @@
 /* Globals */
 
 body {
-  font-family: "KingsCaslon";
-  font-size: rem-calc(20);
+    font-family: "KingsCaslon";
+    font-size: rem-calc(20);
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .bottom-footer,
@@ -351,6 +355,27 @@ main,
 
 /* Footer */
 
+// Cookies box
+
+.cookies-box {
+    background: $dark-blue;
+    bottom: 0;
+    color: white;
+    left: 0;
+    margin: 0;
+    opacity: 0.95;
+    padding-top: 1rem;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+
+    button,
+    .button {
+      font-family: "KingsBureauGrot", sans-serif;
+      font-size: rem-calc(18);
+      font-weight: normal;
+    }
+}
 
 /* Prevent the menu bar to display before JS is loaded */
 
