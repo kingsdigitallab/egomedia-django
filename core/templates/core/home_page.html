@@ -17,23 +17,13 @@
 
 {{ self.body }}
 
-{% if children %}
-<div class="grid-container">
-  <div class="grid-x grid-padding-x small-up-1 medium-up-3" data-equalizer data-equalize-on="medium">
-
-    {# TODO: implement the cards #}
-    {% for child in children %}
-    <div class="cell">
-      <div class="card" data-equalizer-watch>
-        <img src="assets/img/generic/rectangle-1.jpg">
-        <div class="card-section">
-        <h4>This is a row of cards.</h4>
-          <p>This row of cards is embedded in an X-Y Block Grid.</p>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
+{% if self.get_children %}
+<div class="grid-x grid-margin-x" data-equalizer="card" data-equalize-on="medium">
+  {% include "core/includes/card.html" %}
 </div>
+
+{% else %}
+<p>No live pages found!</p>
 {% endif %}
 
 {% endblock page-body %}

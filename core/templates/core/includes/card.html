@@ -1,9 +1,9 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% if children %}
-<div class="cell">
-    {% for child in children %}
-    <div class="card">
+{% for index_page in self.get_children %}
+{% for child in index_page.get_children %}
+<div class="cell small-1 medium-3">
+    <div class="card" data-equalizer-watch="card">
         <div class="card-divider">
             <a href="{% pageurl child %}">
                 {{ child.title }}
@@ -11,7 +11,7 @@
         </div>
         {% if child.image %}
         <a href="{% pageurl child %}">
-            {% image child.image fill-180x180-c100 %}
+            {% image child.image fill-300x150-c100 %}
         </a>
         {% endif %}
 
@@ -23,9 +23,6 @@
         </div>
         {% endif %}
     </div>
-    {% endfor %}
 </div>
-
-{% else %}
-<p>No live pages found!</p>
-{% endif %}
+{% endfor %}
+{% endfor %}
