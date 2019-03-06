@@ -1,9 +1,9 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% if children %}
-<ul>
+<ul class="nested-list no-bullet">
     {% for child in children %}
-    <li class="child-page">
+    <li class="child-page{% if child.get_children %} parent{% endif %}">
         <a href="{% pageurl child %}">
             {{ child.title }}
 
@@ -21,9 +21,13 @@
         </a>
 
         {% if child.get_children %}
-        <ul>
+        <span class="toggler close clearfix"></span>
+        {% endif %}
+
+        {% if child.get_children %}
+        <ul class="sub hide no-bullet">
             {% for sub in child.get_children %}
-            <li><a href="{% pageurl sub %}">{{ sub.title }}</a></li>
+            <li class="child-page"><a href="{% pageurl sub %}">{{ sub.title }}</a></li>
             {% endfor %}
         </ul>
         {% endif %}

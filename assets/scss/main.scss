@@ -193,6 +193,30 @@ a.item-methods {
 
 /* Main */
 
+// Expand/Collapse
+.toggler {
+  float: right;
+  width: rem-calc(40);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.close {
+    &::before {
+      content: "\f330";
+      font-family: "Font Awesome 5 Pro";
+    }
+  }
+
+  &.open {
+    &::before {
+      content: "\f32d";
+      font-family: "Font Awesome 5 Pro";
+    }
+  }
+}
+
 // Embeds and Documents
 
 .attribution {
@@ -245,6 +269,23 @@ a.item-methods {
 .horizontal {
   li {
     display: inline-block;
+  }
+}
+
+.nested-list {
+  line-height: 2;
+
+  > li:not(:first-child) {
+    border-top: 1px solid $light-gray;
+  }
+
+  .show {
+    background: scale-color($light-gray, $lightness: 50%);
+  }
+
+  li li {
+    margin-left: rem-calc(16);
+    padding: rem-calc(8);
   }
 }
 
