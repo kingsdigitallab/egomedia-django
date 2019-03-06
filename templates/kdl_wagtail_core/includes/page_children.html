@@ -4,8 +4,15 @@
 <ul class="nested-list no-bullet">
     {% for child in children %}
     <li class="child-page{% if child.get_children %} parent{% endif %}">
+
+        {% if child.get_children %}
+        <span class="toggler close clearfix"></span>
+        {% endif %}
+        
         <a href="{% pageurl child %}">
             {{ child.title }}
+
+            {% comment %}
 
             {% if child.image %}
             <div class="child-page-image">
@@ -18,11 +25,9 @@
                 {{ child.introduction }}
             </div>
             {% endif %}
-        </a>
 
-        {% if child.get_children %}
-        <span class="toggler close clearfix"></span>
-        {% endif %}
+            {% endcomment %}
+        </a>
 
         {% if child.get_children %}
         <ul class="sub hide no-bullet">
