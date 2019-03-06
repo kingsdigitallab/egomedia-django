@@ -1,0 +1,10 @@
+{% extends "wagtailadmin/login.html" %}
+
+{% block below_login %}
+{{ block.super }}
+
+{% if not show_password_reset %}
+Forgot your password? Please email your details to
+<a href="mailto:kdl-support@kcl.ac.uk">kdl-support@kcl.ac.uk</a>.
+{% endif %}
+{% endblock %}

@@ -315,6 +315,7 @@ AC_TOKEN = ''
 # Wagtail
 # -----------------------------------------------------------------------------
 
+WAGTAIL_PASSWORD_RESET_ENABLED = False
 WAGTAIL_SITE_NAME = PROJECT_TITLE
 
 KDL_WAGTAIL_ITEMS_PER_PAGE = 50
