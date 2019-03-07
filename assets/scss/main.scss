@@ -4,7 +4,7 @@
 @import '../../node_modules/foundation-sites/scss/foundation';
 
 // Need to check if this is needed
-@import '../../node_modules/motion-ui/motion-ui';
+// @import '../../node_modules/motion-ui/motion-ui';
 
 @include foundation-everything;
 
@@ -199,26 +199,42 @@ a.item-methods {
 
 /* Main */
 
-// Expand/Collapse
-.toggler {
-  float: right;
-  width: rem-calc(40);
+// Cards
 
-  &:hover {
-    cursor: pointer;
+.card {
+  &.streampage {
+    border-top: 5px solid $dark-gray;
   }
 
-  &.close {
-    &::before {
-      content: "\f330";
-      font-family: "Font Awesome 5 Pro";
-    }
+  &.projectpage {
+    border-top: 5px solid $bright-navy;
   }
 
-  &.open {
-    &::before {
-      content: "\f32d";
-      font-family: "Font Awesome 5 Pro";
+  &.researcherpage {
+    border-top: 5px solid $bright-green;   
+  }
+
+  // .streampage == default
+  &.streampage {
+    border-top: 5px solid $dark-gray;
+  }
+
+  &.themepage {
+    border-top: 5px solid $bright-orange;
+  }
+
+  h3 {
+    font-size: rem-calc(20);
+  }
+
+  a {
+    &.intro {
+      color: $dark-gray;
+      
+      &:hover {
+        background: $bright-yellow;
+        text-decoration: none;
+      }
     }
   }
 }
@@ -268,6 +284,47 @@ a.item-methods {
     line-height: 1.25;
     margin-bottom: .5rem;
   }
+}
+
+// Expand/Collapse
+.toggler {
+  float: right;
+  width: rem-calc(40);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.close {
+    &::before {
+      content: "\f330";
+      font-family: "Font Awesome 5 Pro";
+    }
+  }
+
+  &.open {
+    &::before {
+      content: "\f32d";
+      font-family: "Font Awesome 5 Pro";
+    }
+  }
+}
+
+// Images
+
+main,
+.main {
+  img {
+    background: lighten($light-gray, 7%);
+    border: 1px solid $light-gray;
+    margin-bottom: .25rem;
+    padding: .25rem;
+  }
+}
+
+.full-width,
+.full-width img {
+  width: 100%;
 }
 
 // Lists
@@ -357,23 +414,6 @@ a.item-methods {
 
 .theme {
   border-bottom: 3px solid $bright-orange;
-}
-
-// Images
-
-main,
-.main {
-  img {
-    background: lighten($light-gray, 7%);
-    border: 1px solid $light-gray;
-    margin-bottom: .25rem;
-    padding: .25rem;
-  }
-}
-
-.full-width,
-.full-width img {
-  width: 100%;
 }
 
 // Responsive iframe
