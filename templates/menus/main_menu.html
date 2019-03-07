@@ -16,13 +16,7 @@
               <a href="{{ item.href }}">{{ item.text }}</a>
 
               {% if item.has_children_in_menu %}
-                <ul class="menu">
-                  {% for item in menu_items %}
-                  <li{% if item.active_class %} class="{{ item.active_class }}"{% endif %}>
-                    <a href="{{ item.href }}">{{ item.text }}</a>
-                  </li>
-                  {% endfor %}
-                </ul>
+              {% sub_menu item template=current %}
               {% endif %}
             </li>
             {% endfor %}
