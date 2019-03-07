@@ -1,0 +1,21 @@
+{% load kdl_wagtail_core_tags wagtailcore_tags %}
+
+{% if self.project_theme_relationship.all %}
+<ul class="horizontal no-bullet">
+    {% for item in self.project_theme_relationship.all %}
+    <li class="tag theme"><a href="{% pageurl item.theme %}">{{ item.theme }}</a></li>
+    {% endfor %}
+    {% for item in self.disciplines.all %}
+    <li class="tag keyword">{{ item }}</li>
+    {% endfor %}
+      {% for item in self.focus.all %}
+    <li class="tag keyword">{{ item }}</li>
+    {% endfor %}
+    {% for item in self.methods.all %}
+    <li class="tag keyword">{{ item }}</li>
+    {% endfor %}
+    {% for item in self.keywords.all %}
+    <li class="tag keyword">{{ item }}</li>
+    {% endfor %}
+</ul>
+{% endif %}

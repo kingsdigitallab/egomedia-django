@@ -11,33 +11,7 @@
     </ul>
     {% endif %}
 
-    {% if self.project_theme_relationship.all %}
-    <ul class="horizontal no-bullet">
-      {% for item in self.project_theme_relationship.all %}
-      <li class="tag theme"><a href="{% pageurl item.theme %}">{{ item.theme }}</a></li>
-      {% endfor %}
-      {% if self.disciplines.all %}
-      {% for item in self.disciplines.all %}
-      <li class="tag keyword">{{ item }}</li>
-      {% endfor %}
-      {% endif %}
-      {% if self.focus.all %}
-      {% for item in self.focus.all %}
-      <li class="tag keyword">{{ item }}</li>
-      {% endfor %}
-      {% endif %}
-      {% if self.methods.all %}
-      {% for item in self.methods.all %}
-      <li class="tag keyword">{{ item }}</li>
-      {% endfor %}
-      {% endif %}
-      {% if self.keywords.all %}
-      {% for item in self.keywords.all %}
-      <li class="tag keyword">{{ item }}</li>
-      {% endfor %}
-      {% endif %}
-    </ul>
-    {% endif %}
+    {% include "core/includes/labels.html" %}
   </div>
 
   <div class="grid-x">

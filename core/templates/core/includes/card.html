@@ -1,16 +1,18 @@
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load kdl_wagtail_core_tags wagtailcore_tags wagtailimages_tags %}
 
 {% for index_page in self.get_children %}
+{{ index_page }}
 {% for child in index_page.get_children.specific %}
-<div class="cell small-1 medium-3">
+{{ child.keywords.all }}
+<div class="cell">
     <a href="{% pageurl child %}">
-        <div class="card" data-equalizer-watch="card">
+        <div class="card {% get_page_label child %}" data-equalizer-watch="card">
             <div class="card-divider">
                 {{ child.title }}
             </div>
 
             {% if child.image %}
-            {% image child.image fill-300x150-c100 %}
+            {% image child.image fill-600x300-c100 %}
             {% endif %}
 
             {% if child.introduction %}
