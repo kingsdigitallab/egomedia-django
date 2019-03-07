@@ -20,13 +20,17 @@
   <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
 </head>
 <body>
+  {% block top_header %}
   <header class="top-header">
     {% include 'includes/header.html' %}
   </header>
+  {% endblock %}
 
+  {% block main_nav %}
   <nav class="top-nav">
     {% include 'includes/navigation.html' %}
   </nav>
+  {% endblock %}
 
   <main>
     <div class="grid-container">
@@ -41,6 +45,7 @@
     </div>
   </main>
 
+  {% block bottom %}
   <footer class="bottom-footer">
     {% block footer %}
     {% include 'includes/footer.html' %}
@@ -64,5 +69,6 @@
   {% compress js %}
   {% block footer_scripts %}{% endblock %}
   {% endcompress %}
+  {% endblock %}
 </body>
 </html>

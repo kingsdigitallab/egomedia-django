@@ -11,7 +11,7 @@
 /* Globals */
 
 body {
-    font-family: "KingsCaslon";
+    font-family: "KingsCaslon", serif;
     font-size: rem-calc(20);
     
     -webkit-font-smoothing: antialiased;
@@ -43,10 +43,16 @@ body {
   margin-left: 1rem;
 }
 
+// Errors
+
+.errors {
+  margin-top: rem-calc(48);
+}
+
 // Headings
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "KingsBureauGrot";
+  font-family: "KingsBureauGrot", sans-serif;
 }
 
 /* Header */
@@ -77,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Navigation */
 
 nav {
-  font-family: "KingsBureauGrot";
+  font-family: "KingsBureauGrot", sans-serif;
 
   &.top-nav {
     margin-top: 2.5rem;
@@ -322,7 +328,7 @@ a.item-methods {
 }
 
 .person {
-  font-family: "KingsBureauGrot";
+  font-family: "KingsBureauGrot", sans-serif;
   font-size: 18px;
 }
 
@@ -340,7 +346,7 @@ a.item-methods {
   background-color: $light-gray;
   border-radius: 2px;
   color: $dark-gray;
-  font-family: "KingsBureauGrot";
+  font-family: "KingsBureauGrot", sans-serif;
   font-size: 14px;
   font-weight: 300;
 
