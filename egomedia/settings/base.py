@@ -102,7 +102,7 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.core',
 
-    'condensedinlinepanel',
+    # 'condensedinlinepanel',
     'modelcluster',
     'taggit',
     'wagtailmenus',
