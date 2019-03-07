@@ -5,9 +5,7 @@
 <div class="cell">
     <div class="card {% get_page_label child %}" data-equalizer-watch="card">
         <div class="card-divider">
-            <a href="{% pageurl child %}">
-                {{ child.title }}
-            </a>
+            <h3><a href="{% pageurl child %}">{{ child.title }}</a></h3>
         </div>
 
         {% if child.image %}
@@ -18,7 +16,7 @@
 
         <div class="card-section">
             {% if child.introduction %}
-            <a href="{% pageurl child %}">
+            <a href="{% pageurl child %}" class="intro">
                 {{ child.introduction }}
             </a>
             {% endif %}
