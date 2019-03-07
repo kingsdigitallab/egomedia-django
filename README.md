@@ -4,6 +4,31 @@ This is the repository for the egomedia project at [Kings Digital Lab](https://k
 
 This project uses the technologies outlined in our [Technology Stack](https://stackshare.io/kings-digital-lab/django) and is configured to use [Vagrant](https://www.vagrantup.com/) for local development and [Fabric](http://www.fabfile.org/) for deployment.
 
+## Release notes
+
+### 0.0.4
+
+* Fixed dropdown menus functionality
+
+### 0.0.3
+
+* Added dropdown menus
+* Removed testing tags
+
+### 0.0.2
+
+* Added error page templates
+
+### 0.0.1
+
+First minor release.
+
+* Cards
+* Content blocks
+* Fixed Font Awesome Pro 5 issue
+* Initial styling
+* Page types
+
 ## Getting started
 1. Enter the project directory: `cd egomedia-django`
 2. Start the virtual machine: `vagrant up`
