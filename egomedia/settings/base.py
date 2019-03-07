@@ -318,10 +318,29 @@ AC_TOKEN = ''
 WAGTAIL_PASSWORD_MANAGEMENT_ENABLED = False
 WAGTAIL_PASSWORD_RESET_ENABLED = False
 
+WAGTAIL_SITE_NAME = PROJECT_TITLE
+
+sketchfab_provider = {
+    'endpoint': 'https://sketchfab.com/oembed',
+    'urls': [
+        r'^http(?:s)?://sketchfab\.com/models/.+$',
+    ]
+}
+
+WAGTAILEMBEDS_FINDERS = [
+    # overrides the default oEmbed provider for sketchfab
+    {
+        'class': 'wagtail.embeds.finders.oembed',
+        'providers': [sketchfab_provider],
+    },
+    # handles all other oEmbed providers the default way
+    {
+        'class': 'wagtail.embeds.finders.oembed',
+    }
+]
+
 WAGTAILUSERS_PASSWORD_ENABLED = False
 WAGTAILUSERS_PASSWORD_REQUIRED = False
-
-WAGTAIL_SITE_NAME = PROJECT_TITLE
 
 KDL_WAGTAIL_ITEMS_PER_PAGE = 50
 KDL_WAGTAIL_PERSON_MODEL = 'kdl_wagtail_people.Person'
