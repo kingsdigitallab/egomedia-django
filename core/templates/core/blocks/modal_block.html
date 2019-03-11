@@ -10,7 +10,7 @@
         {% include_block block %}
         {% endfor %}
 
-        <button class="close-button" data-close aria-label="Close modal" type="button">
+        <button class="close-button" data-close aria-label="Close modal" type="button" data-reveal-id="{% get_object_id self 'modal' %}">
           <span aria-hidden="true">&times;</span>
         </button>
     </div>
