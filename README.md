@@ -9,6 +9,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 ### 0.0.4
 
 * Fixed dropdown menus functionality
+* Fixed nested modals
 
 ### 0.0.3
 
