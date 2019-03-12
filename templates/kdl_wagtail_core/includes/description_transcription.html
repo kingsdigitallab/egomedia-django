@@ -6,7 +6,7 @@
   <a data-open="{% get_object_id self.description 'description' %}" class="meta-toggler">
     <i class="fas fa-info-circle"></i>
   </a>
-  <div class="description reveal" id="{% get_object_id self.description 'description' %}" data-reveal>
+  <div class="description reveal" id="{% get_object_id self.description 'description' %}" data-multiple-opened="true" data-reveal>
     {{ self.description|richtext }}
     <button class="close-button" data-close aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>
@@ -18,7 +18,7 @@
   <a data-open="{% get_object_id self.transcription 'transcription' %}" class="meta-toggler">
     <i class="fas fa-file-alt"></i>
   </a>
-  <div class="transcription reveal" id="{% get_object_id self.transcription 'transcription' %}" data-reveal>
+  <div class="transcription reveal" id="{% get_object_id self.transcription 'transcription' %}" data-multiple-opened="true" data-reveal>
     {{ self.transcription|richtext }}
     <button class="close-button" data-close aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>

@@ -5,7 +5,7 @@
         <a data-open="{% get_object_id self 'modal' %}">{{ self.title }} {{ self.id_for_label }}</a>
     </div>
 
-    <div class="content reveal" id="{% get_object_id self 'modal' %}" data-reveal data-multiple-opened="true">
+    <div class="content reveal" id="{% get_object_id self 'modal' %}" data-multiple-opened="true" data-reveal>
         {% for block in self.body %}
         {% include_block block %}
         {% endfor %}
