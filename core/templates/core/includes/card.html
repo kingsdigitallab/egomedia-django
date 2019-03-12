@@ -17,7 +17,7 @@
         <div class="card-section">
             {% if child.introduction %}
             <a href="{% pageurl child %}" class="intro">
-                {{ child.introduction }}
+                {{ child.introduction|truncatechars:150 }}
             </a>
             {% endif %}
 
