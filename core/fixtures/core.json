@@ -1,16 +1,5 @@
 [
   {
-    "model": "wagtailcore.site",
-    "pk": 1,
-    "fields": {
-      "hostname": "localhost",
-      "port": 80,
-      "site_name": null,
-      "root_page": 3,
-      "is_default_site": true
-    }
-  },
-  {
     "model": "wagtailcore.page",
     "pk": 1,
     "fields": {
@@ -54,7 +43,7 @@
       "url_path": "/egomedia/",
       "owner": null,
       "seo_title": "",
-      "show_in_menus": false,
+      "show_in_menus": true,
       "search_description": "",
       "go_live_at": null,
       "expire_at": null,
