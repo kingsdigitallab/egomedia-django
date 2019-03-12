@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cf953bccf6ed6ebf8cb7b28fc2c6fabcd6837fccc0ebbfaa78f2719f3c17902f"
+            "sha256": "5fa54103ebfa9c00b25e7562ee1cb8bcfc1bbe5ec10e2ea61c44c19652c7a197"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -168,6 +168,9 @@
             ],
             "index": "pypi",
             "version": "==1.1"
+        },
+        "django-kdl-wagtail": {
+            "path": "./django-kdl-wagtail"
         },
         "django-libsass": {
             "hashes": [
