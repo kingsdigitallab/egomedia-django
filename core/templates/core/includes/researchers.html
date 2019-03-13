@@ -1,0 +1,11 @@
+{% load wagtailcore_tags %}
+
+{% if researchers %}
+<ul class="horizontal no-bullet persons">
+    {% for item in researchers %}
+    <li class="person">
+        <a href="{% pageurl item.researcher %}">{{ item.researcher }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

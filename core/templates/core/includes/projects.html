@@ -1,0 +1,11 @@
+{% load wagtailcore_tags %}
+
+{% if projects %}
+<ul class="horizontal no-bullet projects">
+    {% for item in projects %}
+    <li class="project">
+        <a href="{% pageurl item.project %}">{{ item.project }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

@@ -1,1 +1,19 @@
 {% extends "kdl_wagtail_core/base_stream_page.html" %}
+
+{% block page-body %}
+  <div class="page-meta">
+    {% include "core/includes/researchers.html" with researchers=self.theme_researcher_relationship.all %}
+
+    {% include "core/includes/labels.html" with page=self %}
+  </div>
+
+  <div class="grid-x">
+    <div class="cell medium-3">
+      {% include "core/includes/toc.html" %}
+    </div>
+
+    <div class="cell medium-7">
+      {{ block.super }}
+    </div>
+  </div>
+{% endblock %}

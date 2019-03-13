@@ -1,8 +1,12 @@
 {% load kdl_wagtail_core_tags wagtailcore_tags %}
 
-{% if page.project_theme_relationship.all %}
 <ul class="horizontal no-bullet">
     {% for item in page.project_theme_relationship.all %}
+    <li class="tag theme">
+        <a href="{% pageurl item.theme %}">{{ item.theme }}</a>
+    </li>
+    {% endfor %}
+    {% for item in page.researcher_theme_relationship.all %}
     <li class="tag theme">
         <a href="{% pageurl item.theme %}">{{ item.theme }}</a>
     </li>
@@ -21,4 +25,3 @@
     <li class="tag keyword">{{ item }}</li>
     {% endfor %}
 </ul>
-{% endif %}

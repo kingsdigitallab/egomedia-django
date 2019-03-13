@@ -1,15 +1,8 @@
 {% extends "kdl_wagtail_core/base_stream_page.html" %}
-{% load kdl_wagtail_core_tags wagtailcore_tags wagtailembeds_tags %}
 
 {% block page-body %}
   <div class="page-meta">
-    {% if self.project_researcher_relationship.all %}
-    <ul class="horizontal no-bullet persons">
-      {% for item in self.project_researcher_relationship.all %}
-      <li class="person"><a href="{% pageurl item.researcher %}">{{ item.researcher }}</a></li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+    {% include "core/includes/researchers.html" with researchers=self.project_researcher_relationship.all %}
 
     {% include "core/includes/labels.html" with page=self %}
   </div>
