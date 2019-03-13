@@ -171,11 +171,11 @@
         },
         "django-kdl-wagtail": {
             "hashes": [
-                "sha256:0c445b5115ac23a8f559f1000155950a992d0f9294ca4edaf65d7aad59efe7bd",
-                "sha256:f55b7207b29afcb413dc6d1547b1672eedc839e241bb2a0c72c8617b4b6cb5dd"
+                "sha256:7e209ef1b7c13d7a24da27e9d2fd98ee0946a63a52f69dc345b1325818bd7ff5",
+                "sha256:ac5b056f432b93597564132838cf4aaea744eccf0de15b26397f5074bb827c9e"
             ],
             "index": "pypi",
-            "version": "==0.7.7"
+            "version": "==0.7.8"
         },
         "django-libsass": {
             "hashes": [
@@ -376,9 +376,9 @@
         },
         "python-ldap": {
             "hashes": [
-                "sha256:41975e79406502c092732c57ef0c2c2eb318d91e8e765f81f5d4ab6c1db727c5"
+                "sha256:7d1c4b15375a533564aad3d3deade789221e450052b21ebb9720fb822eccdb8e"
             ],
-            "version": "==3.1.0"
+            "version": "==3.2.0"
         },
         "pytz": {
             "hashes": [

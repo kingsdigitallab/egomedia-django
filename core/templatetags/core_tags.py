@@ -10,6 +10,12 @@ def get_block_title(block):
     if not block:
         return
 
+    if block.block_type == 'map_block':
+        if block.value.get('caption'):
+            return block.value.get('caption')
+
+        return 'Map'
+
     if block.block_type == 'modal_block':
         return block.value.get('title')
 
