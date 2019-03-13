@@ -1,8 +1,17 @@
-from kdl_wagtail.core.blocks import (BaseStreamBlock, DocumentBlock,
-                                     EmbedBlock, ImageBlock, LinkBlock,
-                                     TableBlock)
-from wagtail.core.blocks import (CharBlock, ListBlock, RichTextBlock,
-                                 StreamBlock, StructBlock)
+from kdl_wagtail.core.blocks import (
+    BaseCaptionAttributionBlock, BaseStreamBlock, DocumentBlock, EmbedBlock,
+    ImageBlock, LinkBlock, TableBlock
+)
+from wagtail.core.blocks import (
+    CharBlock, ListBlock, RichTextBlock, StreamBlock, StructBlock, URLBlock
+)
+
+
+class MapBlock(BaseCaptionAttributionBlock):
+    map_url = URLBlock()
+
+    class Meta:
+        template = 'core/blocks/map_block.html'
 
 
 class ModalBlock(StructBlock):
@@ -10,8 +19,9 @@ class ModalBlock(StructBlock):
     body = StreamBlock([
         ('description', RichTextBlock(required=False)),
         ('document_block', DocumentBlock(required=False)),
-        ('image_block', ImageBlock(required=False)),
         ('embed_block', EmbedBlock(required=False)),
+        ('image_block', ImageBlock(required=False)),
+        ('openstreetmap_block', MapBlock(required=False)),
         ('table_block', TableBlock(required=False))
     ])
 
@@ -55,6 +65,6 @@ class HomePageStreamBlock(StreamBlock):
 
 
 class TimelineStreamBlock(BaseStreamBlock):
-    # TODO rename this sequence instead of timeline
+    openstreetmap_block = MapBlock()
     modal_block = ModalBlock()
     timeline_block = TimelineBlock()
