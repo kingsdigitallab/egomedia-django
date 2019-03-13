@@ -18,7 +18,7 @@ django-activecollab-digger = "*"
 django-extensions = "*"
 django-haystack = "*"
 django-kdl-ldap = "*"
-django-kdl-wagtail = {path = "./django-kdl-wagtail"}
+django-kdl-wagtail = "*"
 django-libsass = "*"
 django-model-utils = "*"
 django-redis = "*"

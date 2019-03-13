@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5fa54103ebfa9c00b25e7562ee1cb8bcfc1bbe5ec10e2ea61c44c19652c7a197"
+            "sha256": "cf953bccf6ed6ebf8cb7b28fc2c6fabcd6837fccc0ebbfaa78f2719f3c17902f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -170,7 +170,12 @@
             "version": "==1.1"
         },
         "django-kdl-wagtail": {
-            "path": "./django-kdl-wagtail"
+            "hashes": [
+                "sha256:4dcfead67c4eea633ad35038c79a94168ae87473905a2d1471c8c69e6843c7d0",
+                "sha256:561e9166b980ee6e93c4bc9e87fdf2c6063abeec7f48b18fcfb390a22e563800"
+            ],
+            "index": "pypi",
+            "version": "==0.7.6"
         },
         "django-libsass": {
             "hashes": [
