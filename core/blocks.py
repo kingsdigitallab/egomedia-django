@@ -11,6 +11,7 @@ class MapBlock(BaseCaptionAttributionBlock):
     map_url = URLBlock()
 
     class Meta:
+        icon = 'site'
         template = 'core/blocks/map_block.html'
 
 
@@ -21,7 +22,7 @@ class ModalBlock(StructBlock):
         ('document_block', DocumentBlock(required=False)),
         ('embed_block', EmbedBlock(required=False)),
         ('image_block', ImageBlock(required=False)),
-        ('openstreetmap_block', MapBlock(required=False)),
+        ('map_block', MapBlock(required=False)),
         ('table_block', TableBlock(required=False))
     ])
 
@@ -65,6 +66,6 @@ class HomePageStreamBlock(StreamBlock):
 
 
 class TimelineStreamBlock(BaseStreamBlock):
-    openstreetmap_block = MapBlock()
+    map_block = MapBlock()
     modal_block = ModalBlock()
     timeline_block = TimelineBlock()
