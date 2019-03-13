@@ -25,4 +25,4 @@ def get_block_title(block):
     if block.block_type == 'timeline_stream_block':
         return 'Timeline'
 
-    return kdl_get_block_title(block)
+    return kdl_get_block_title(block).capitalize()
