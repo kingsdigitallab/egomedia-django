@@ -26,6 +26,18 @@ body {
   padding: rem-calc(16);
 }
 
+.anchor-link {
+  display: block;
+  height: 1px;
+
+  // &::before {
+  //   content: "\f0c1";
+  //   font-family: "Font Awesome 5 Pro";
+  //   font-weight: 900;
+  //   padding-right: .5rem;
+  // }
+}
+
 // Alignments
 
 .center {
@@ -45,12 +57,22 @@ body {
 
 .float-left,
 .float-right {
-  max-width: 48%;
+  @include breakpoint(medium) {
+    max-width: 48%;
+  }
 }
 
 .cell {
   @extend .clearfix;
 }
+
+.embed,
+.image,
+.modal,
+.timeline {
+  position: relative;
+}
+
 
 // Errors
 
@@ -285,17 +307,26 @@ a.item-methods {
     }
   }
 
-  .meta-toggler {
-    height: 0;
-    margin-left: -3rem;
-    text-align: center;
-    width: 40px;
-  }
-
   p {
     font-size: 16px;
     line-height: 1.25;
     margin-bottom: .5rem;
+  }
+}
+
+.meta-toggler {
+  background: $light-gray;
+  border-radius: 2px 0 0 2px;
+  // height: 0;
+  left: -1rem;
+  padding: 2px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  // width: 40px;
+
+  a {
+    display: block;
   }
 }
 
@@ -328,8 +359,7 @@ a.item-methods {
 main,
 .main {
   img {
-    background: lighten($light-gray, 7%);
-    border: 1px solid $light-gray;
+    background: $light-gray;
     margin-bottom: .25rem;
     padding: .25rem;
   }
