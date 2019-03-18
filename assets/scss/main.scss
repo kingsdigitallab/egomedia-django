@@ -43,6 +43,15 @@ body {
   margin-left: 1rem;
 }
 
+.float-left,
+.float-right {
+  max-width: 48%;
+}
+
+.cell {
+  @extend .clearfix;
+}
+
 // Errors
 
 .errors {
