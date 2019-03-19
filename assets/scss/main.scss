@@ -58,7 +58,7 @@ body {
 .float-left,
 .float-right {
   @include breakpoint(medium) {
-    max-width: 48%;
+    max-width: 48.5%;
   }
 }
 
@@ -318,12 +318,12 @@ a.item-methods {
   background: $light-gray;
   border-radius: 2px 0 0 2px;
   // height: 0;
-  left: -1rem;
+  left: -2rem;
   padding: 2px;
   position: absolute;
   text-align: center;
   top: 0;
-  // width: 40px;
+  width: 32px;
 
   a {
     display: block;
@@ -461,26 +461,26 @@ main,
 
 // Responsive iframe
 
-.iframe-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  margin-bottom: .5rem;
-  overflow: hidden;
-  clear: both;
+// .iframe-container {
+//   position: relative;
+//   padding-bottom: 56.25%;
+//   margin-bottom: .5rem;
+//   overflow: hidden;
+//   clear: both;
 
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
+//   iframe {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     height: 100%;
+//     width: 100%;
+//   }
 
-  img {
-    margin-bottom: -56.25%;
-    padding: 0;
-  }
-}
+//   img {
+//     margin-bottom: -56.25%;
+//     padding: 0;
+//   }
+// }
 
 /* Footer */
 
@@ -518,6 +518,14 @@ main,
   @include breakpoint(medium) {
     .title-bar {
       display: none;
+    }
+  }
+}
+
+.responsive-embed {
+  &.audio {
+    @include breakpoint(medium) {
+      padding-bottom: 25%;
     }
   }
 }
