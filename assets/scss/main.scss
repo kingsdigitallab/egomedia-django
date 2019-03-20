@@ -27,8 +27,9 @@ body {
 }
 
 .anchor-link {
-  display: block;
-  height: 1px;
+  // clear: both;
+  // display: block;
+  // height: 1px;
 
   // &::before {
   //   content: "\f0c1";
@@ -58,8 +59,18 @@ body {
 .float-left,
 .float-right {
   @include breakpoint(medium) {
-    max-width: 48.5%;
+    max-width: 45%;
   }
+  @include breakpoint(small only) {
+    display: block;
+    float: none !important;
+    margin: 0 auto;
+    max-width: 80%;
+  }
+}
+
+.float-left {
+  margin-left: 32px;
 }
 
 .cell {
@@ -317,7 +328,6 @@ a.item-methods {
 .meta-toggler {
   background: $light-gray;
   border-radius: 2px 0 0 2px;
-  // height: 0;
   left: -2rem;
   padding: 2px;
   position: absolute;
