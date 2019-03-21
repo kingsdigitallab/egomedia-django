@@ -26,17 +26,27 @@ body {
   padding: rem-calc(16);
 }
 
+/* TODO: needs styling */
 .anchor-link {
-  // clear: both;
-  // display: block;
-  // height: 1px;
+}
 
-  // &::before {
-  //   content: "\f0c1";
-  //   font-family: "Font Awesome 5 Pro";
-  //   font-weight: 900;
-  //   padding-right: .5rem;
-  // }
+div[class*="float-"] + a ~ * {
+  @extend .clearfix;
+}
+
+// .cell {
+//   @extend .clearfix;
+// }
+
+.embed,
+.image,
+.modal,
+.timeline {
+  position: relative;
+}
+
+iframe {
+  border: 0;
 }
 
 // Alignments
@@ -56,6 +66,12 @@ body {
   margin-left: 1rem;
 }
 
+.float-center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
 .float-left,
 .float-right {
   @include breakpoint(medium) {
@@ -72,18 +88,6 @@ body {
 .float-left {
   margin-left: 32px;
 }
-
-.cell {
-  @extend .clearfix;
-}
-
-.embed,
-.image,
-.modal,
-.timeline {
-  position: relative;
-}
-
 
 // Errors
 
@@ -142,20 +146,20 @@ nav {
         border-bottom: 5px solid $dark-gray;
         color: $dark-gray;
 
-        // &.item-projects {
-        //   background-color: scale-color($navylike, $lightness: -20%);
-        //   color: $white;
-        // }
+        &.item-projects {
+          background-color: scale-color($navylike, $lightness: -20%);
+          color: $white;
+        }
 
-        // &.item-researchers {
-        //   background-color: scale-color($dark-green, $lightness: -20%);
-        //   color: $white;
-        // }
+        &.item-researchers {
+          background-color: scale-color($dark-green, $lightness: -20%);
+          color: $white;
+        }
 
-        // &.item-themes {
-        //   background-color: scale-color($dirty-orange, $lightness: -20%);
-        //   color: $white;
-        // }
+        &.item-themes {
+          background-color: scale-color($dirty-orange, $lightness: -20%);
+          color: $white;
+        }
       }
     }
   }
@@ -312,11 +316,11 @@ a.item-methods {
   padding: .5rem;
   width: 80%;
 
-  &.margin-top {
-    .iframe-container {
-      margin-top: -1.875rem;
-    }
-  }
+  // &.margin-top {
+  //   .iframe-container {
+  //     margin-top: -1.875rem;
+  //   }
+  // }
 
   p {
     font-size: 16px;
@@ -368,10 +372,18 @@ a.item-methods {
 
 main,
 .main {
-  img {
+  .image {
     background: $light-gray;
     margin-bottom: .25rem;
     padding: .25rem;
+
+    &.float-center {
+      text-align: center;
+
+      figcaption {
+        text-align: left;
+      }
+    }
   }
 }
 
