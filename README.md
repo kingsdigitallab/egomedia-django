@@ -6,6 +6,10 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
+### 0.0.6
+
+* Image gallery behaviour and styling
+
 ### 0.0.5
 
 * Blockquote styling
