@@ -254,6 +254,29 @@ a.item-methods {
 
 /* Main */
 
+// Blockquotes
+blockquote {
+  border-left: 1px solid $light-gray;
+  // compensate for border
+  margin-left: 1px;
+  margin-top: .5rem;
+
+  p {
+    margin-bottom: .5rem;
+  }
+}
+
+cite {
+  &.attribution {
+    font-size: 16px;
+
+    &::before {
+      content: "\2014";
+      padding-right: 8px;
+    }
+  }
+}
+
 // Cards
 
 .card {
