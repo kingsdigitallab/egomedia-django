@@ -421,6 +421,19 @@ main,
   width: 100%;
 }
 
+.gallery {
+
+  figure {
+    background: $light-gray;
+    border: 1px solid $white;
+    display: block;
+    height: 100%;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
 // Lists
 
 .horizontal {
