@@ -6,6 +6,11 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
+### 0.0.5
+* Added embed blocks
+* Added map block
+* Added timeline styling
+
 ### 0.0.4
 
 * Fixed dropdown menus functionality
