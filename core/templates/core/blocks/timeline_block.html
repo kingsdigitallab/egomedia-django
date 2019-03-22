@@ -1,8 +1,6 @@
 {% load wagtailcore_tags %}
 <div class="timeline">
-    <div class="title">
-        {{ self.title }}
-    </div>
+    <h3>{{ self.title }}</h3>
 
     <ol class="items">
     {% for item in self.items %}

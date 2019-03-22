@@ -75,7 +75,7 @@ iframe {
 .float-left,
 .float-right {
   @include breakpoint(medium) {
-    max-width: 45%;
+    max-width: 44.5%;
   }
   @include breakpoint(small only) {
     display: block;
@@ -87,6 +87,11 @@ iframe {
 
 .float-left {
   margin-left: 32px;
+  margin-right: 8px
+}
+
+.float-right {
+  margin-left: 8px;
 }
 
 // Errors
@@ -98,6 +103,7 @@ iframe {
 // Headings
 
 h1, h2, h3, h4, h5, h6 {
+  color: $medium-gray;
   font-family: "KingsBureauGrot", sans-serif;
 }
 
@@ -108,7 +114,6 @@ h1, h2, h3, h4, h5, h6 {
 
   h1 {
     border-bottom: 1px solid $light-gray;
-    color: $medium-gray;
   }
 }
 
@@ -338,6 +343,7 @@ a.item-methods {
   text-align: center;
   top: 0;
   width: 32px;
+  z-index: 1100;
 
   a {
     display: block;
@@ -481,28 +487,44 @@ main,
   border-bottom: 3px solid $bright-orange;
 }
 
-// Responsive iframe
+// Timeline
 
-// .iframe-container {
-//   position: relative;
-//   padding-bottom: 56.25%;
-//   margin-bottom: .5rem;
-//   overflow: hidden;
-//   clear: both;
+.timeline {
 
-//   iframe {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     height: 100%;
-//     width: 100%;
-//   }
+  .items {
+    margin-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+  }
 
-//   img {
-//     margin-bottom: -56.25%;
-//     padding: 0;
-//   }
-// }
+  li {
+    &::before {
+      color: $primary-color;
+      content: "\f192";
+      display: inline-block;
+      font-family: "Font Awesome 5 Pro";
+      font-weight: 400;
+      vertical-align: top;
+      width: 30px;
+    }
+
+    h4 {
+      display: inline-block;
+      max-width: 80%;
+    }
+
+    .content {
+      border-left: 1px solid $primary-color;
+      line-height: 1;
+      margin-left: 8px;
+      padding-left: 22px;
+
+      p {
+        line-height: 1.25;
+      }
+    }
+  }
+}
 
 /* Footer */
 
