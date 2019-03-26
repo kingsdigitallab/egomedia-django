@@ -27,11 +27,19 @@
 
 <nav role="navigation">
     {% if page.body %}
+    <h4>Content</h4>
+    {% comment %}
     <div class="cell controls">
         <button class="button"><i class="fas fa-sort-numeric-down fa-lg"></i></button>
         <button class="button"><i class="fas fa-sort-alpha-down fa-lg"></i></button>
     </div>
+    {% endcomment %}
     <ul class="no-bullet">
+        {% if page.introduction %}
+        <li>
+            <a href="#intro" class="richtext_block">Introduction</a>
+        </li>
+        {% endif %}
         {% for block in page.body %}
         <li>
             <a href="#{% get_object_id block %}" class="{{ block.block_type }}">
