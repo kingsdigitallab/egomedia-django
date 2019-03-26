@@ -30,17 +30,36 @@ body {
 .anchor-link {
 }
 
-div[class*="float-"] + a ~ *:not(.rich-text) {
+// div[class*="float-"] + a ~ *:not(.rich-text) {
+//   @extend .clearfix;
+// }
+
+div[class*="float-"] + a ~ * {
   @extend .clearfix;
 }
 
-// div[class*="float-"] + a ~ .rich-text {
-//   @extend .float-left;
-// }
+.float-left {
+  + a {
+    @extend .float-left;
+    + .rich-text {
+      @extend .float-right;
+    }
+  }
 
-// .cell {
-//   @extend .clearfix;
-// }
+  + .float-right + a + .rich-text {
+    all: unset;
+    margin-top: 1rem;
+  }
+}
+
+.float-right {
+  + a {
+    @extend .float-right;
+    + .rich-text {
+      @extend .float-left;
+    }
+  }
+}
 
 .embed,
 .image,
