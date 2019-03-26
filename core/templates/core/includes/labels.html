@@ -13,13 +13,13 @@
     {% endfor %}
 
     {% for item in page.disciplines.all %}
-    <li class="tag keyword">{{ item }}</li>
+    <li class="tag discipline">{{ item }}</li>
     {% endfor %}
     {% for item in page.focus.all %}
-    <li class="tag keyword">{{ item }}</li>
+    <li class="tag focus">{{ item }}</li>
     {% endfor %}
     {% for item in page.methods.all %}
-    <li class="tag keyword">{{ item }}</li>
+    <li class="tag method">{{ item }}</li>
     {% endfor %}
     {% for item in page.keywords.all %}
     <li class="tag keyword">{{ item }}</li>

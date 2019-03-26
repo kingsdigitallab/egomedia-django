@@ -117,6 +117,18 @@ class HomePage(Page):
 
     subpage_types = [IndexPage, PeopleIndexPage, StreamPage]
 
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        filters = [
+            ('theme', ThemePage.objects.values_list('title', flat=True)),
+            ('keyword', Keyword.objects.all()),
+        ]
+
+        context['filters'] = filters
+
+        return context
+
 
 class ResearcherThemeRelationship(Orderable, models.Model):
     researcher = ParentalKey(
