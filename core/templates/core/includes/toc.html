@@ -25,13 +25,12 @@
 </nav>
 {% endcomment %}
 
-<div class="cell controls">
-    <button class="button"><i class="fas fa-sort-numeric-down fa-lg"></i></button>
-    <button class="button"><i class="fas fa-sort-alpha-down fa-lg"></i></button>
-</div>
-
 <nav role="navigation">
     {% if page.body %}
+    <div class="cell controls">
+        <button class="button"><i class="fas fa-sort-numeric-down fa-lg"></i></button>
+        <button class="button"><i class="fas fa-sort-alpha-down fa-lg"></i></button>
+    </div>
     <ul class="no-bullet">
         {% for block in page.body %}
         <li>
@@ -44,13 +43,15 @@
     {% endif %}
 
     {% if page.get_children %}
+    <h4>Sub projects</h4>
     <ul>
         {% for child in page.get_children.specific %}
         <li>
-            {{ child.image }}
+            {% comment %}
             {% if child.image %}
             {% image child.image fill-600x300-c100 %}
             {% endif %}
+            {% endcomment %}
             <a href="{% pageurl child %}">{{ child.title }}</a>
         </li>
         {% endfor %}

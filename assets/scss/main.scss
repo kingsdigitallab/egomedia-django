@@ -30,9 +30,13 @@ body {
 .anchor-link {
 }
 
-div[class*="float-"] + a ~ * {
+div[class*="float-"] + a ~ *:not(.rich-text) {
   @extend .clearfix;
 }
+
+// div[class*="float-"] + a ~ .rich-text {
+//   @extend .float-left;
+// }
 
 // .cell {
 //   @extend .clearfix;
@@ -562,6 +566,15 @@ main,
 
 .theme {
   border-bottom: 3px solid $bright-orange;
+}
+
+// Text
+
+.intro {
+  color: scale-color($dark-gray, $lightness: 20%);
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-top: 1rem;
 }
 
 // Timeline
