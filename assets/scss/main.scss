@@ -231,6 +231,51 @@ a.item-methods {
   }
 }
 
+// .visual-toc {
+  a[class$="_block"] {
+    &::before {
+      font-family: "Font Awesome 5 Pro";
+      font-weight: 900;
+      padding-right: 10px;
+    }
+  }
+
+  .embed_block {
+    &::before {
+      content: "\f04b";
+      color: $dirty-orange;
+    }
+  }
+
+  .image_block {
+    &::before {
+      content: "\f03e";
+      color: $dark-green;
+    }
+  }
+
+  .pullquote_block {
+    &::before {
+      content: "\f10d";
+      color: $bright-blue;
+    }
+  }
+
+  .richtext_block {
+    &::before {
+      content: "\f1dd";
+      color: $primary-color;
+    }
+  }
+
+  .table_block {
+    &::before {
+      content: "\f0ce";
+      color: $dirty-yellow;
+    }
+  }
+// }
+
 // Responsive menu
 // Small scree title bar
 
@@ -255,6 +300,7 @@ a.item-methods {
 /* Main */
 
 // Blockquotes
+
 blockquote {
   border-left: 1px solid $light-gray;
   // compensate for border
@@ -344,12 +390,6 @@ cite {
   padding: .5rem;
   width: 80%;
 
-  // &.margin-top {
-  //   .iframe-container {
-  //     margin-top: -1.875rem;
-  //   }
-  // }
-
   p {
     font-size: 16px;
     line-height: 1.25;
@@ -374,6 +414,7 @@ cite {
 }
 
 // Expand/Collapse
+
 .toggler {
   float: right;
   width: rem-calc(40);
