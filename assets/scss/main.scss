@@ -30,13 +30,36 @@ body {
 .anchor-link {
 }
 
+// div[class*="float-"] + a ~ *:not(.rich-text) {
+//   @extend .clearfix;
+// }
+
 div[class*="float-"] + a ~ * {
   @extend .clearfix;
 }
 
-// .cell {
-//   @extend .clearfix;
-// }
+.float-left {
+  + a {
+    @extend .float-left;
+    + .rich-text {
+      @extend .float-right;
+    }
+  }
+
+  + .float-right + a + .rich-text {
+    all: unset;
+    margin-top: 1rem;
+  }
+}
+
+.float-right {
+  + a {
+    @extend .float-right;
+    + .rich-text {
+      @extend .float-left;
+    }
+  }
+}
 
 .embed,
 .image,
@@ -231,6 +254,59 @@ a.item-methods {
   }
 }
 
+// .visual-toc {
+  a[class$="_block"] {
+    &::before {
+      font-family: "Font Awesome 5 Pro";
+      font-weight: 900;
+      padding-right: 10px;
+    }
+  }
+
+  .embed_block {
+    &::before {
+      content: "\f04b";
+      color: $dirty-orange;
+    }
+  }
+
+  .image_block {
+    &::before {
+      content: "\f03e";
+      color: $dark-green;
+    }
+  }
+
+  .pullquote_block {
+    &::before {
+      content: "\f10d";
+      color: $bright-blue;
+    }
+  }
+
+  .richtext_block {
+    &::before {
+      content: "\f1dd";
+      color: $primary-color;
+    }
+  }
+
+  .table_block {
+    &::before {
+      content: "\f0ce";
+      color: $dirty-yellow;
+    }
+  }
+// }
+
+.controls {
+  button,
+  .button {
+    background-color: $dark-blue;
+    padding: 4px;
+  }
+}
+
 // Responsive menu
 // Small scree title bar
 
@@ -255,6 +331,7 @@ a.item-methods {
 /* Main */
 
 // Blockquotes
+
 blockquote {
   border-left: 1px solid $light-gray;
   // compensate for border
@@ -344,12 +421,6 @@ cite {
   padding: .5rem;
   width: 80%;
 
-  // &.margin-top {
-  //   .iframe-container {
-  //     margin-top: -1.875rem;
-  //   }
-  // }
-
   p {
     font-size: 16px;
     line-height: 1.25;
@@ -374,6 +445,7 @@ cite {
 }
 
 // Expand/Collapse
+
 .toggler {
   float: right;
   width: rem-calc(40);
@@ -521,6 +593,15 @@ main,
 
 .theme {
   border-bottom: 3px solid $bright-orange;
+}
+
+// Text
+
+.intro {
+  color: scale-color($dark-gray, $lightness: 20%);
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-top: 1rem;
 }
 
 // Timeline
