@@ -230,15 +230,22 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
 # Sets up pages' visibility
 IndexPage.parent_page_types = [HomePage, IndexPage]
 IndexPage.subpage_types = [IndexPage, ProjectPage, StreamPage, ThemePage]
+
 PeopleIndexPage.parent_page_types = [HomePage]
 PeopleIndexPage.subpage_types = [ResearcherPage]
+PeopleIndexPage.content_panels.pop(2)
+
 PersonPage.parent_page_types = []
 PersonPage.subpage_types = []
+
 ProjectPage.subpage_types = [ProjectPage]
+
 RichTextPage.parent_page_types = []
 RichTextPage.subpage_types = []
+
 StreamPage.parent_page_types = [HomePage, IndexPage]
 
 # Re-label the stream page to match the name required by this project
 StreamPage._meta.verbose_name = 'Generic page'
 StreamPage._meta.verbose_name_plural = 'Generic pages'
+StreamPage.content_panels.pop(2)
