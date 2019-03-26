@@ -13,6 +13,7 @@
     "@fortawesome/fontawesome-pro": "^5.7.2",
     "fontawesome": "^5.6.3",
     "foundation-sites": "^6.5.1",
+    "isotope-layout": "^3.0.6",
     "jquery": "^3.3.1",
     "js-cookie": "^2.2.0"
   },
