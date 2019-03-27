@@ -9,7 +9,9 @@
         <option value=".{% get_filter_value filter.0 v %}">{{ v|capfirst }}</option>
         {% endfor %}
     </select>
-    {% endfor %}
+</div>
+{% endfor %}
 
-    <a class="button" id="clear-filters">Clear all filters</a>
+<div class="cell">
+    <button type="button" class="button" id="clear-filters" disabled>Clear all filters</button>
 </div>
