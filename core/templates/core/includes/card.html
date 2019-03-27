@@ -21,8 +21,8 @@
 
     <div class='card-section'>
       {% if child.introduction %}
-      <a href='{% pageurl child %}' class='intro'>
-        {{ child.introduction|truncatechars:150 }}
+      <a href='{% pageurl child %}'>
+        {{ child.search_description|truncatechars:150 }}
       </a>
       {% endif %}
 
