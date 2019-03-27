@@ -1,13 +1,15 @@
 {% load core_tags %}
 
 {% for filter in filters %}
-<select class="filter {{ filter.0 }}" data-category="{{ filter.0 }}">
-    <option value="">{{ filter.0|capfirst }}</option>
+<div class="cell">
+    <select class="filter {{ filter.0 }}" data-category="{{ filter.0 }}">
+        <option value="">{{ filter.0|capfirst }}</option>
 
-    {% for v in filter.1 %}
-    <option value=".{% get_filter_value filter.0 v %}">{{ v|capfirst }}</option>
+        {% for v in filter.1 %}
+        <option value=".{% get_filter_value filter.0 v %}">{{ v|capfirst }}</option>
+        {% endfor %}
+    </select>
     {% endfor %}
-</select>
-{% endfor %}
 
-<a class="button" id="clear-filters">Clear all filters</a>
+    <a class="button" id="clear-filters">Clear all filters</a>
+</div>

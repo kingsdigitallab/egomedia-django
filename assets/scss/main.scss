@@ -30,6 +30,10 @@ body {
 .anchor-link {
 }
 
+/* Allowing content to float and display side by side */
+/* A bit hacky, but since we are not using pure css   */
+/* grid yet, this is a work around.                   */
+
 // div[class*="float-"] + a ~ *:not(.rich-text) {
 //   @extend .clearfix;
 // }
@@ -530,10 +534,16 @@ main,
   }
 }
 
-// Metadata
+// Metadata and Filters
 
-.keyword {
-  padding: 0 8px;
+.tag {
+  padding: 2px 8px;
+
+  &.project,
+  &.researcher,
+  &.theme {
+    padding: 2px 0 0;
+  }
 }
 
 .keyword,
@@ -587,12 +597,26 @@ main,
   font-weight: 300;
 
   a {
-    padding: 4px 8px;
+    padding: 6px 8px 4px;
   }
 }
 
+.project,
+.researcher,
 .theme {
-  border-bottom: 3px solid $bright-orange;
+  border-bottom: 3px solid;
+}
+
+.project {
+  border-color: $bright-navy;
+}
+
+.researcher {
+  border-color: $bright-green;
+}
+
+.theme {
+  border-color: $bright-orange;
 }
 
 // Text
