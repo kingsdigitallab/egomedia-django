@@ -1,37 +1,27 @@
 {% load core_tags kdl_wagtail_core_tags wagtailcore_tags wagtailimages_tags %}
 
-{% for index_page in self.get_children %}
+{% get_page_label page as page_label %}
 
-{% for child in index_page.get_children.specific %}
-
-{% get_page_label child as page_label %}
-
-{% if page_label == 'themepage' or page_label == 'researcherpage' or page_label == 'projectpage' %}
-<div class='cell {% get_filter_value page_label|cut:'page' child.title %}'>
-  <div class='card {{ page_label }}' data-equalizer-watch='card'>
-    <div class='card-divider'>
-      <h3><a href='{% pageurl child %}'>{{ child.title }}</a></h3>
+<div class="cell {% get_filter_value page_label|cut:'page' page.title %}">
+  <div class="card {{ page_label }}" data-equalizer-watch="card">
+    <div class="card-divider">
+      <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
     </div>
 
-    {% if child.image %}
-    <a href='{% pageurl child %}'>
-      {% image child.image fill-600x300-c100 %}
+    {% if page.image %}
+    <a href="{% pageurl page %}">
+      {% image page.image fill-600x300-c100 %}
     </a>
     {% endif %}
 
-    <div class='card-section'>
-      {% if child.introduction %}
-      <a href='{% pageurl child %}'>
-        {{ child.search_description|truncatechars:150 }}
+    <div class="card-section">
+      {% if page.introduction %}
+      <a href="{% pageurl page %}">
+        {{ page.search_description|truncatechars:150 }}
       </a>
       {% endif %}
 
-      {% include 'core/includes/labels.html' with page=child %}
+      {% include "core/includes/labels.html" with page=page %}
     </div>
   </div>
 </div>
-{% endif %}
-
-{% endfor %}
-
-{% endfor %}

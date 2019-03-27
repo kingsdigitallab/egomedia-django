@@ -3,21 +3,21 @@
 <h3>Filter by</h3>
 
 <div class="grid-x small-up-1 medium-up-4 large-up-7">
-    {% for filter in filters %}
-    <div class="cell">
-      <select class="filter {{ filter.0 }}" data-category="{{ filter.0 }}">
-        <option value="">{{ filter.0|capfirst }}</option>
+  {% for filter in filters %}
+  <div class="cell">
+    <select class="filter {{ filter.0 }}" data-category="{{ filter.0 }}">
+      <option value="">{{ filter.0|capfirst }}</option>
 
-        {% for v in filter.1 %}
-        <option value=".{% get_filter_value filter.0 v %}">{{ v|capfirst }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    {% endfor %}
+      {% for v in filter.1 %}
+      <option value=".{% get_filter_value filter.0 v %}">{{ v|capfirst }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endfor %}
 </div>
 
 <div class="grid-x">
-    <div class="cell">
-      <button type="button" class="button" id="clear-filters" disabled>Clear all filters</button>
-    </div>
+  <div class="cell">
+    <button type="button" class="button" id="clear-filters" disabled>Clear all filters</button>
+  </div>
 </div>

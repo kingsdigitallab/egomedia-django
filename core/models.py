@@ -138,6 +138,12 @@ class HomePage(Page):
 
         context['filters'] = filters
 
+        descendants = Page.objects.live().descendant_of(self)
+        pages = descendants.type(ThemePage) | descendants.type(
+            ResearcherPage) | descendants.type(ProjectPage)
+
+        context['pages'] = pages
+
         return context
 
 
