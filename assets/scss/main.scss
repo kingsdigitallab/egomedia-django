@@ -591,8 +591,22 @@ main,
   }
 }
 
+.project,
+.researcher,
 .theme {
-  border-bottom: 3px solid $bright-orange;
+  border-bottom: 3px solid;
+}
+
+.project {
+  border-color: $bright-navy;
+}
+
+.researcher {
+  border-color: $bright-green;
+}
+
+.theme {
+  border-color: $bright-orange;
 }
 
 // Text
