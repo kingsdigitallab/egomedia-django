@@ -6,6 +6,15 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
+### 0.0.7
+
+* Fixed floating content issue
+* Style for default ToC
+* Faceted search on homepage
+* Align classes for images
+* Feed image in the promote tab
+* Researcher page
+
 ### 0.0.6
 
 * Image gallery behaviour and styling
