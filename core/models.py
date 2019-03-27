@@ -121,8 +121,19 @@ class HomePage(Page):
         context = super().get_context(request, *args, **kwargs)
 
         filters = [
-            ('theme', ThemePage.objects.values_list('title', flat=True)),
-            ('keyword', Keyword.objects.all()),
+            ('theme',
+             ThemePage.objects.live().order_by(
+                 'title').values_list('title', flat=True)),
+            ('researcher',
+             ResearcherPage.objects.live().order_by(
+                 'title').values_list('title', flat=True)),
+            ('project',
+             ProjectPage.objects.live().order_by(
+                 'title').values_list('title', flat=True)),
+            ('discipline', Discipline.objects.values_list('title', flat=True)),
+            ('focus', Focus.objects.values_list('title', flat=True)),
+            ('method', Method.objects.values_list('title', flat=True)),
+            ('keyword', Keyword.objects.values_list('title', flat=True))
         ]
 
         context['filters'] = filters

@@ -1,9 +1,11 @@
+{% load core_tags %}
+
 {% for filter in filters %}
-<select class="filter {{ filter.0 }}">
+<select class="filter {{ filter.0 }}" data-category="{{ filter.0 }}">
     <option value="">{{ filter.0|capfirst }}</option>
 
     {% for v in filter.1 %}
-    <option value=".tag_{{ filter.0 }}_{{ v|cut:" " }}">{{ v|capfirst }}</option>
+    <option value=".{% get_filter_value filter.0 v %}">{{ v|capfirst }}</option>
     {% endfor %}
 </select>
 {% endfor %}

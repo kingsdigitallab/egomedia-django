@@ -1,0 +1,3 @@
+{% load core_tags %}
+
+<li class="tag {{ category }}" data-filter="{% get_filter_value category item.title %}">{{ item }}</li>
