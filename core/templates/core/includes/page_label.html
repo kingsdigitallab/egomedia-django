@@ -1,5 +1,5 @@
 {% load core_tags wagtailcore_tags %}
 
 <li class="tag {{ category }}" data-filter="{% get_filter_value category page.title %}">
-    <a href="{% pageurl page %}">{{ page }}</a>
+  <a href="{% pageurl page %}">{{ page }}</a>
 </li>

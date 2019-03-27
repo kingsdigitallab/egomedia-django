@@ -2,12 +2,16 @@
 
 {% for filter in filters %}
 <div class="cell">
-    <select class="filter {{ filter.0 }}" data-category="{{ filter.0 }}">
-        <option value="">{{ filter.0|capfirst }}</option>
+  <select class="filter {{ filter.0 }}" data-category="{{ filter.0 }}">
+    <option value="">{{ filter.0|capfirst }}</option>
 
-        {% for v in filter.1 %}
-        <option value=".{% get_filter_value filter.0 v %}">{{ v|capfirst }}</option>
-        {% endfor %}
-    </select>
+    {% for v in filter.1 %}
+    <option value=".{% get_filter_value filter.0 v %}">{{ v|capfirst }}</option>
+    {% endfor %}
+  </select>
 </div>
 {% endfor %}
+
+<div class="cell">
+  <button type="button" class="button" id="clear-filters" disabled>Clear all filters</button>
+</div>

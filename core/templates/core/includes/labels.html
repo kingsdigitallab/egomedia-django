@@ -1,35 +1,35 @@
 <ul class="horizontal no-bullet">
-    {% for item in page.project_theme_relationship.all %}
-    {% include "core/includes/page_label.html" with page=item.theme category="theme" %}
-    {% endfor %}
-    {% for item in page.researcher_theme_relationship.all %}
-    {% include "core/includes/page_label.html" with page=item.theme category="theme" %}
-    {% endfor %}
+  {% for item in page.project_theme_relationship.all %}
+  {% include "core/includes/page_label.html" with page=item.theme category="theme" %}
+  {% endfor %}
+  {% for item in page.researcher_theme_relationship.all %}
+  {% include "core/includes/page_label.html" with page=item.theme category="theme" %}
+  {% endfor %}
 
-    {% for item in page.theme_researcher_relationship.all %}
-    {% include "core/includes/page_label.html" with page=item.researcher category="researcher" %}
-    {% endfor %}
-    {% for item in page.project_researcher_relationship.all %}
-    {% include "core/includes/page_label.html" with page=item.researcher category="researcher" %}
-    {% endfor %}
+  {% for item in page.theme_researcher_relationship.all %}
+  {% include "core/includes/page_label.html" with page=item.researcher category="researcher" %}
+  {% endfor %}
+  {% for item in page.project_researcher_relationship.all %}
+  {% include "core/includes/page_label.html" with page=item.researcher category="researcher" %}
+  {% endfor %}
 
-    {% for item in page.theme_project_relationship.all %}
-    {% include "core/includes/page_label.html" with page=item.project category="project" %}
-    {% endfor %}
-    {% for item in page.researcher_project_relationship.all %}
-    {% include "core/includes/page_label.html" with page=item.project category="project" %}
-    {% endfor %}
+  {% for item in page.theme_project_relationship.all %}
+  {% include "core/includes/page_label.html" with page=item.project category="project" %}
+  {% endfor %}
+  {% for item in page.researcher_project_relationship.all %}
+  {% include "core/includes/page_label.html" with page=item.project category="project" %}
+  {% endfor %}
 
-    {% for item in page.disciplines.all %}
-    {% include "core/includes/tag_label.html" with tag=item category="discipline" %}
-    {% endfor %}
-    {% for item in page.focus.all %}
-    {% include "core/includes/tag_label.html" with tag=item category="focus" %}
-    {% endfor %}
-    {% for item in page.methods.all %}
-    {% include "core/includes/tag_label.html" with tag=item category="method" %}
-    {% endfor %}
-    {% for item in page.keywords.all %}
-    {% include "core/includes/tag_label.html" with tag=item category="keyword" %}
-    {% endfor %}
+  {% for item in page.disciplines.all %}
+  {% include "core/includes/tag_label.html" with tag=item category="discipline" %}
+  {% endfor %}
+  {% for item in page.focus.all %}
+  {% include "core/includes/tag_label.html" with tag=item category="focus" %}
+  {% endfor %}
+  {% for item in page.methods.all %}
+  {% include "core/includes/tag_label.html" with tag=item category="method" %}
+  {% endfor %}
+  {% for item in page.keywords.all %}
+  {% include "core/includes/tag_label.html" with tag=item category="keyword" %}
+  {% endfor %}
 </ul>
