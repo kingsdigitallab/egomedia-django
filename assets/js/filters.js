@@ -20,10 +20,12 @@ $(document).ready(function() {
 
     filters[category] = value;
 
-    const filterValue = Object.values(filters).join('');
+    const filterValue = Object.values(filters).join('').trim();
 
     if (filterValue.length > 0) {
       $('#clear-filters').removeAttr('disabled');
+    } else {
+      $('#clear-filters').attr('disabled', true);
     }
 
     $results.isotope({
