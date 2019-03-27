@@ -26,7 +26,9 @@ $(document).ready(function() {
       $('#clear-filters').removeAttr('disabled');
     }
 
-    $results.isotope({ filter: filterValue });
+    $results.isotope({
+      filter: filterValue
+    });
 
     const items = $results.isotope('getFilteredItemElements');
     const availableFilters = [
@@ -50,7 +52,9 @@ $(document).ready(function() {
     $(this).attr('disabled', true);
 
     filters = {};
-    $results.isotope({ filter: '*' });
+    $results.isotope({
+      filter: '*'
+    });
 
     $('.filter option:disabled').each(function(i, option) {
       $(option).removeAttr('disabled');
