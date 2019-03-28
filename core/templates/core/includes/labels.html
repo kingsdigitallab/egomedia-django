@@ -13,15 +13,31 @@
   {% include "core/includes/page_label.html" with page=item.researcher category="researcher" %}
   {% endfor %}
 
-  {% for item in page.theme_project_relationship.all %}
-  {% include "core/includes/page_label.html" with page=item.project category="project" %}
-  {% endfor %}
-  {% for item in page.researcher_project_relationship.all %}
-  {% include "core/includes/page_label.html" with page=item.project category="project" %}
-  {% for theme in item.project.project_theme_relationship.all %}
-  {% include "core/includes/page_label.html" with page=theme.theme category="secondary theme" %}
-  {% endfor %}
-  {% endfor %}
+  {% if page.theme_project_relationship.count > 0 %}
+  <li class="tag project" data-filter="project">
+    <a href="">Projects <span class="badge">{{ page.theme_project_relationship.count }}</span></a>
+    <ul>
+      {% for item in page.theme_project_relationship.all %}
+      {% include "core/includes/page_label.html" with page=item.project category="project" %}
+      {% endfor %}
+    </ul>
+  </li>
+  {% endif %}
+
+  {% if page.researcher_project_relationship.count > 0 %}
+  <li class="tag project" data-filter="project">
+    <a href="">Projects <span class="badge">{{ page.researcher_project_relationship.count }}</span></a>
+    <ul>
+      {% for item in page.researcher_project_relationship.all %}
+      {% include "core/includes/page_label.html" with page=item.project category="project" %}
+
+      {% for theme in item.project.project_theme_relationship.all %}
+      {% include "core/includes/page_label.html" with page=theme.theme category="secondary theme" %}
+      {% endfor %}
+      {% endfor %}
+    </ul>
+  </li>
+  {% endif %}
 
   {% for item in page.disciplines.all %}
   {% include "core/includes/tag_label.html" with tag=item category="discipline" %}
