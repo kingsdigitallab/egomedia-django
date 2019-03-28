@@ -6,8 +6,7 @@ ALLOWED_HOSTS = ['127.0.0.1',
                  'ego-dev.kdl.kcl.ac.uk']
 
 CACHE_REDIS_DATABASE = '2'
-CACHES['default']['LOCATION'] = 'redis://127.0.0.1:6379/' + CACHE_REDIS_DATABASE
-
+CACHES['default']['LOCATION'] = 'redis://127.0.0.1:6379/' + CACHE_REDIS_DATABASE  # noqa
 DEBUG = True
 
 INTERNAL_IPS = INTERNAL_IPS + ['']
