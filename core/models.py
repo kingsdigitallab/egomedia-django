@@ -195,13 +195,22 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
 
     def get_projects(self):
         related = self.researcher_project_relationship.all()
-        return ProjectPage.objects.filter(
+        return ProjectPage.objects.live().filter(
             project_researcher_relationship__in=related)
 
     def get_themes(self):
         related = self.researcher_theme_relationship.all()
-        return ThemePage.objects.filter(
+        return ThemePage.objects.live().filter(
             theme_researcher_relationship__in=related)
+
+    def get_projects_themes(self):
+        projects = self.get_projects()
+        themes = ThemePage.objects.none()
+
+        for p in projects:
+            themes = themes | p.get_themes()
+
+        return themes.distinct()
 
 
 class BaseTimelinePage(BasePage):
@@ -267,12 +276,12 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
 
     def get_researchers(self):
         related = self.project_researcher_relationship.all()
-        return ResearcherPage.objects.filter(
+        return ResearcherPage.objects.live().filter(
             researcher_project_relationship__in=related)
 
     def get_themes(self):
         related = self.project_theme_relationship.all()
-        return ThemePage.objects.filter(
+        return ThemePage.objects.live().filter(
             theme_project_relationship__in=related)
 
 
@@ -285,12 +294,12 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
 
     def get_projects(self):
         related = self.theme_project_relationship.all()
-        return ProjectPage.objects.filter(
+        return ProjectPage.objects.live().filter(
             project_theme_relationship__in=related)
 
     def get_researchers(self):
         related = self.theme_researcher_relationship.all()
-        return ResearcherPage.objects.filter(
+        return ResearcherPage.objects.live().filter(
             researcher_theme_relationship__in=related)
 
 

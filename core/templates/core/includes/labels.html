@@ -3,6 +3,10 @@
   {% include "core/includes/page_label.html" with page=theme category="theme" %}
   {% endfor %}
 
+  {% for theme in page.get_projects_themes %}
+  {% include "core/includes/page_label.html" with page=theme category="theme secondary" %}
+  {% endfor %}
+
   {% for researcher in page.get_researchers %}
   {% include "core/includes/page_label.html" with page=researcher category="researcher" %}
   {% endfor %}
