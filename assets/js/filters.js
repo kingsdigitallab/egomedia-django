@@ -10,6 +10,8 @@ $(document).ready(function() {
 
   var filters = {};
 
+  showCurrentFilters(filters);
+
   const $results = $('#results').isotope({
     itemSelector: '.cell',
     layoutMode: 'fitRows'
@@ -25,6 +27,8 @@ $(document).ready(function() {
     const filterValue = getFilterValue(filters);
 
     filterResults($results, filterValue);
+
+    showCurrentFilters(filters);
 
     toggleClearFilters(filterValue);
 
@@ -43,6 +47,30 @@ $(document).ready(function() {
     isotopeObj.isotope({
       filter: filterValue
     });
+  }
+
+  function showCurrentFilters(filters) {
+    $('.remove-filter').parent().remove();
+
+    if (!jQuery.isEmptyObject(filters)) {
+      $('.filter option:selected').each(function(i, option) {
+        if (option.value) {
+          const category = $(option).parent().data('category');
+          const text = option.innerText;
+
+          let cell = $('<div class="cell">');
+
+          let button = $('<button type="button" class="button remove-filter">');
+          button.addClass(category);
+          button.html(category + ': ' + text);
+          button.val(category);
+
+          cell.append(button);
+
+          $('#current-filters').append(cell);
+        }
+      });
+    }
   }
 
   function toggleClearFilters(filterValue) {
@@ -72,13 +100,15 @@ $(document).ready(function() {
     });
   }
 
-  // remove filters
+  // remove all filters
   $('#clear-filters').click(function() {
     filters = {};
 
     const filterValue = getFilterValue(filters);
 
     filterResults($results, filterValue);
+
+    showCurrentFilters(filters);
 
     toggleClearFilters(filterValue);
 
@@ -93,4 +123,23 @@ $(document).ready(function() {
       $(option).removeAttr('disabled');
     });
   }
+
+  // remove selected filter
+  $('#current-filters').on('click', 'button.remove-filter', function() {
+    const category = $(this).val();
+
+    $('.filter.' + category)[0].selectedIndex = 0;
+
+    delete filters[category];
+
+    const filterValue = getFilterValue(filters);
+
+    filterResults($results, filterValue);
+
+    showCurrentFilters(filters);
+
+    toggleClearFilters(filterValue);
+
+    disableUnavailableFilters($results);
+  });
 });
