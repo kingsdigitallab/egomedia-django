@@ -1,57 +1,30 @@
 <ul class="horizontal no-bullet">
-  {% for item in page.project_theme_relationship.all %}
-  {% include "core/includes/page_label.html" with page=item.theme category="theme" %}
-  {% endfor %}
-  {% for item in page.researcher_theme_relationship.all %}
-  {% include "core/includes/page_label.html" with page=item.theme category="theme" %}
+  {% for theme in page.get_themes %}
+  {% include "core/includes/page_label.html" with page=theme category="theme" %}
   {% endfor %}
 
-  {% for item in page.theme_researcher_relationship.all %}
-  {% include "core/includes/page_label.html" with page=item.researcher category="researcher" %}
-  {% endfor %}
-  {% for item in page.project_researcher_relationship.all %}
-  {% include "core/includes/page_label.html" with page=item.researcher category="researcher" %}
+  {% for researcher in page.get_researchers %}
+  {% include "core/includes/page_label.html" with page=researcher category="researcher" %}
   {% endfor %}
 
-  {% if page.theme_project_relationship.count > 0 %}
+  {% with projects=page.get_projects %}
+  {% if projects.count > 0 %}
   <li class="tag project flat" data-filter="project">
-    <button class="button" type="button" data-toggle="theme-project-list-{{ page.id }}">
-      Projects <span class="badge secondary">{{ page.theme_project_relationship.count }}</span>
+    <button class="button" type="button" data-toggle="project-list-{{ page.id }}">
+      Projects <span class="badge secondary">{{ projects.count }}</span>
     </button>
-    <ul class="dropdown-pane" data-position="top" data-alignment="left" id="theme-project-list-{{ page.id }}" data-dropdown data-auto-focus="true" data-close-on-click="true">
-      {% for item in page.theme_project_relationship.all %}
-      {% include "core/includes/page_label.html" with page=item.project category="project" %}
+    <ul class="dropdown-pane" data-position="top" data-alignment="left" id="project-list-{{ page.id }}" data-dropdown data-auto-focus="true" data-close-on-click="true">
+      {% for project in projects %}
+      {% include "core/includes/page_label.html" with page=project category="project" %}
       {% endfor %}
     </ul>
   </li>
   {% endif %}
+  {% endwith %}
 
-  {% if page.researcher_project_relationship.count > 0 %}
-  <li class="tag project flat" data-filter="project">
-    <button class="button" type="button" data-toggle="researcher-project-list-{{ page.id }}">
-      Projects <span class="badge secondary">{{ page.researcher_project_relationship.count }}</span>
-    </button>
-    <ul class="dropdown-pane" data-position="top" data-alignment="left" id="researcher-project-list-{{ page.id }}" data-dropdown data-auto-focus="true" data-close-on-click="true">
-      {% for item in page.researcher_project_relationship.all %}
-      {% include "core/includes/page_label.html" with page=item.project category="project" %}
-      {% for theme in item.project.project_theme_relationship.all %}
-      {% include "core/includes/page_label.html" with page=theme.theme category="secondary theme" %}
-      {% endfor %}
-      {% endfor %}
-    </ul>
-  </li>
-  {% endif %}
-
-  {% for item in page.disciplines.all %}
-  {% include "core/includes/tag_label.html" with tag=item category="discipline" %}
+  {% for facet in page.get_facets %}
+  {% for item in facet.1 %}
+  {% include "core/includes/tag_label.html" with tag=item category=facet.0 %}
   {% endfor %}
-  {% for item in page.focus.all %}
-  {% include "core/includes/tag_label.html" with tag=item category="focus" %}
-  {% endfor %}
-  {% for item in page.methods.all %}
-  {% include "core/includes/tag_label.html" with tag=item category="method" %}
-  {% endfor %}
-  {% for item in page.keywords.all %}
-  {% include "core/includes/tag_label.html" with tag=item category="keyword" %}
   {% endfor %}
 </ul>
