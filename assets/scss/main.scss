@@ -540,42 +540,6 @@ main,
 
 // Metadata and Filters
 
-.tag {
-  padding: 2px 8px;
-
-  // &.flat {
-  //   padding: 0 !important;
-  // }
-
-  &.project,
-  &.researcher,
-  &.theme {
-    padding: 2px 0 0;
-  }
-
-  // &.project {
-  //   background-color: $navylike;
-  // }
-
-  button,
-  .button {
-    font-weight: 300;
-    margin-bottom: 0;
-    padding: 2px 8px;
-  }
-
-  .badge {
-    border-radius: 2px;
-    font-size: 12px;
-    padding: 2px;
-
-    &.secondary {
-      background: $white;
-      color: $dark-blue;
-    }
-  }
-}
-
 .keyword,
 .person,
 .tag {
@@ -631,27 +595,52 @@ main,
   font-family: "KingsBureauGrot", sans-serif;
   font-size: 14px;
   font-weight: 300;
+  overflow-wrap: break-word;
+  padding: 2px 8px;
+
+  &.project,
+  &.researcher,
+  &.theme {
+    border-bottom: 3px solid;
+    padding: 2px 0 0;
+  }
 
   a {
-    padding: 6px 8px 4px;
+    display: block;
+    padding: 0 8px;
+  }
+
+  button,
+  .button {
+    font-weight: 300;
+    margin-bottom: 0;
+    padding: 2px 8px;
+  }
+
+  .badge {
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 2px;
+
+    &.secondary {
+      background: $white;
+      color: $dark-blue;
+    }
   }
 }
 
 .project,
-.researcher,
-.theme {
-  border-bottom: 3px solid;
-}
-
-.project {
+.project.tag {
   border-color: $bright-navy;
 }
 
-.researcher {
+.researcher,
+.researcher.tag {
   border-color: $bright-green;
 }
 
-.theme {
+.theme,
+.theme.tag {
   border-color: $bright-orange;
 }
 
