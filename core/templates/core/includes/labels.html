@@ -14,9 +14,11 @@
   {% endfor %}
 
   {% if page.theme_project_relationship.count > 0 %}
-  <li class="tag project" data-filter="project">
-    <a href="">Projects <span class="badge">{{ page.theme_project_relationship.count }}</span></a>
-    <ul>
+  <li class="tag project flat" data-filter="project">
+    <button class="button" type="button" data-toggle="theme-project-list-{{ page.id }}">
+      Projects <span class="badge secondary">{{ page.theme_project_relationship.count }}</span>
+    </button>
+    <ul class="dropdown-pane" data-position="top" data-alignment="left" id="theme-project-list-{{ page.id }}" data-dropdown data-auto-focus="true" data-close-on-click="true">
       {% for item in page.theme_project_relationship.all %}
       {% include "core/includes/page_label.html" with page=item.project category="project" %}
       {% endfor %}
@@ -25,12 +27,13 @@
   {% endif %}
 
   {% if page.researcher_project_relationship.count > 0 %}
-  <li class="tag project" data-filter="project">
-    <a href="">Projects <span class="badge">{{ page.researcher_project_relationship.count }}</span></a>
-    <ul>
+  <li class="tag project flat" data-filter="project">
+    <button class="button" type="button" data-toggle="researcher-project-list-{{ page.id }}">
+      Projects <span class="badge secondary">{{ page.researcher_project_relationship.count }}</span>
+    </button>
+    <ul class="dropdown-pane" data-position="top" data-alignment="left" id="researcher-project-list-{{ page.id }}" data-dropdown data-auto-focus="true" data-close-on-click="true">
       {% for item in page.researcher_project_relationship.all %}
       {% include "core/includes/page_label.html" with page=item.project category="project" %}
-
       {% for theme in item.project.project_theme_relationship.all %}
       {% include "core/includes/page_label.html" with page=theme.theme category="secondary theme" %}
       {% endfor %}

@@ -539,10 +539,36 @@ main,
 .tag {
   padding: 2px 8px;
 
+  // &.flat {
+  //   padding: 0 !important;
+  // }
+
   &.project,
   &.researcher,
   &.theme {
     padding: 2px 0 0;
+  }
+
+  // &.project {
+  //   background-color: $navylike;
+  // }
+
+  button,
+  .button {
+    font-weight: 300;
+    margin-bottom: 0;
+    padding: 2px 8px;
+  }
+
+  .badge {
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 2px;
+
+    &.secondary {
+      background: $white;
+      color: $dark-blue;
+    }
   }
 }
 
@@ -585,6 +611,12 @@ main,
         content: ", ";
       }
     }
+  }
+}
+
+.flat {
+  li {
+    display: block;
   }
 }
 
