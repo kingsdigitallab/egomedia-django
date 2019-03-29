@@ -111,6 +111,9 @@ class FacetsMixin(models.Model):
             ('method', self.methods.values_list('title', flat=True)),
         ]
 
+    def get_page_facets(self):
+        pass
+
 
 class HomePage(Page):
     body = StreamField(HomePageStreamBlock())
@@ -193,24 +196,25 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
     parent_page_types = [PeopleIndexPage]
     subpage_types = []
 
-    def get_projects(self):
+    def get_page_facets(self):
         related = self.researcher_project_relationship.all()
-        return ProjectPage.objects.live().filter(
+        projects = ProjectPage.objects.live().filter(
             project_researcher_relationship__in=related)
 
-    def get_themes(self):
         related = self.researcher_theme_relationship.all()
-        return ThemePage.objects.live().filter(
+        themes = ThemePage.objects.live().filter(
             theme_researcher_relationship__in=related)
 
-    def get_projects_themes(self):
-        projects = self.get_projects()
-        themes = ThemePage.objects.none()
+        secondary_themes = ThemePage.objects.none()
 
         for p in projects:
-            themes = themes | p.get_themes()
+            secondary_themes = secondary_themes | p.get_themes()
 
-        return themes.distinct()
+        return [
+            ('theme', themes),
+            ('theme secondary', secondary_themes),
+            ('project', projects)
+        ]
 
 
 class BaseTimelinePage(BasePage):
@@ -274,10 +278,15 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
     parent_page_types = [IndexPage, 'ProjectPage']
     subpage_types = ['ProjectPage']
 
-    def get_researchers(self):
+    def get_page_facets(self):
         related = self.project_researcher_relationship.all()
-        return ResearcherPage.objects.live().filter(
+        researchers = ResearcherPage.objects.live().filter(
             researcher_project_relationship__in=related)
+
+        return [
+            ('theme', self.get_themes()),
+            ('researcher', researchers)
+        ]
 
     def get_themes(self):
         related = self.project_theme_relationship.all()
@@ -292,15 +301,19 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
     parent_page_types = [IndexPage]
     subpage_types = []
 
-    def get_projects(self):
+    def get_page_facets(self):
         related = self.theme_project_relationship.all()
-        return ProjectPage.objects.live().filter(
+        projects = ProjectPage.objects.live().filter(
             project_theme_relationship__in=related)
 
-    def get_researchers(self):
         related = self.theme_researcher_relationship.all()
-        return ResearcherPage.objects.live().filter(
+        researchers = ResearcherPage.objects.live().filter(
             researcher_theme_relationship__in=related)
+
+        return [
+            ('researcher', researchers),
+            ('project', projects)
+        ]
 
 
 # Sets up pages' visibility
