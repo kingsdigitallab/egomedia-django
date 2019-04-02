@@ -14,6 +14,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 * Align classes for images
 * Feed image in the promote tab
 * Researcher page
+* Adding sticky function to project sidebar
 
 ### 0.0.6
 
