@@ -60,9 +60,10 @@ $(document).ready(function() {
 
           let cell = $('<div class="cell">');
 
-          let button = $('<button type="button" class="button remove-filter">');
+          let button = $('<button type="button" class="button expanded remove-filter">');
           button.addClass(category);
-          button.html(category + ': ' + text);
+          // button.html(category + ': ' + text);
+          button.html(text);
           button.val(category);
 
           cell.append(button);
