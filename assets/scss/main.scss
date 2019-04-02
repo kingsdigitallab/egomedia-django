@@ -30,6 +30,16 @@ body {
 .anchor-link {
 }
 
+/* Block types */
+/*
+ * .embed_block
+ * .image_block
+ * .pullquote_block
+ * .richtext_block
+ * .table_block
+ *
+ */
+
 /* Allowing content to float and display side by side */
 /* A bit hacky, but since we are not using pure css   */
 /* grid yet, this is a work around.                   */
@@ -258,50 +268,48 @@ a.item-methods {
   }
 }
 
-// .visual-toc {
-  a[class$="_block"] {
-    &::before {
-      font-family: "Font Awesome 5 Pro";
-      font-weight: 900;
-      padding-right: 10px;
-    }
+a[class$="_block"] {
+  &::before {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    padding-right: 10px;
   }
+}
 
-  .embed_block {
-    &::before {
-      content: "\f04b";
-      color: $dirty-orange;
-    }
+.embed_block {
+  &::before {
+    content: "\f04b";
+    color: $dirty-orange;
   }
+}
 
-  .image_block {
-    &::before {
-      content: "\f03e";
-      color: $dark-green;
-    }
+.image_block {
+  &::before {
+    content: "\f03e";
+    color: $dark-green;
   }
+}
 
-  .pullquote_block {
-    &::before {
-      content: "\f10d";
-      color: $bright-blue;
-    }
+.pullquote_block {
+  &::before {
+    content: "\f10d";
+    color: $bright-blue;
   }
+}
 
-  .richtext_block {
-    &::before {
-      content: "\f1dd";
-      color: $primary-color;
-    }
+.richtext_block {
+  &::before {
+    content: "\f1dd";
+    color: $primary-color;
   }
+}
 
-  .table_block {
-    &::before {
-      content: "\f0ce";
-      color: $dirty-yellow;
-    }
+.table_block {
+  &::before {
+    content: "\f0ce";
+    color: $dirty-yellow;
   }
-// }
+}
 
 .controls {
   button,
@@ -399,6 +407,12 @@ cite {
 
   img {
     width: 100%;
+  }
+
+  [id*="project-list-"] {
+    li {
+      background: $white;
+    }
   }
 }
 
@@ -539,6 +553,65 @@ main,
 }
 
 // Metadata and Filters
+
+#current-filters,
+#current-filters button,
+.filters,
+.filters select {
+  font-family: "KingsBureauGrot";
+  font-weight: 300;
+}
+
+#current-filters {
+  button,
+  .button {
+    background-color: $light-gray;
+    border: none;
+    border-right: 5px solid $white;
+    border-left: 5px solid;
+    color: $black;
+
+    &::after {
+      content: "\f00d";
+      font-family: "Font Awesome 5 Pro";
+      font-weight: 900;
+      padding-left: 8px;
+    }
+
+    &:hover {
+      background-color: scale-color($dark-gray, $lightness: 80%) !important;
+      color: $black;
+    }
+
+    &.project,
+    &.researcher,
+    &.theme {
+      color: $dark-gray;
+    }
+
+    &.project {
+      border-left: 5px solid $bright-navy;
+    }
+
+    &.researcher {
+      border-left: 5px solid $bright-green;
+    }
+
+    &.theme {
+      border-left: 5px solid $bright-orange;
+    }
+
+    &.all {
+      background-color: $dark-gray;
+      border-left: none;
+      color: $white;
+
+      &::after {
+        content: "\f2ed";
+      }    
+    }
+  }
+}
 
 .keyword,
 .person,
