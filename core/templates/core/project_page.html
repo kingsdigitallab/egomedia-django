@@ -12,11 +12,13 @@
 
 {% block page-body %}
   <div class="grid-x">
-    <div class="cell medium-3">
+    <div class="cell medium-3" data-sticky-container>
+      <div class="sticky" data-sticky data-top-anchor="project-content:top" data-btm-anchor="project-content:bottom">
       {% include "core/includes/toc.html" %}
+      </div>
     </div>
 
-    <div class="cell medium-9">
+    <div class="cell medium-9" id="project-content">
       <div class="page-meta">
         {% include "core/includes/researchers.html" with researchers=self.project_researcher_relationship.all %}
 
