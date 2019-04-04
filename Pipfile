@@ -13,21 +13,19 @@ tox = "*"
 tox-pipenv = "*"
 
 [packages]
-wagtail = "*"
 django-activecollab-digger = "*"
 django-extensions = "*"
-django-haystack = "*"
 django-kdl-ldap = "*"
+django-kdl-wagtail = {git = "https://github.com/kingsdigitallab/django-kdl-wagtail.git",ref = "develop",editable = true}
 django-libsass = "*"
 django-model-utils = "*"
 django-redis = "*"
 django_compressor = "*"
 psycopg2-binary = "*"
-pysolr = "*"
+wagtail = "*"
 wagtail-condensedinlinepanel = "*"
-wand = "*"
-django-kdl-wagtail = "*"
 wagtailmenus = "*"
+wand = "*"
 
 [requires]
 python_version = "3.5"

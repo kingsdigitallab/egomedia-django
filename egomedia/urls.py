@@ -3,7 +3,6 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from kdl_ldap.signal_handlers import \
     register_signal_handlers as kdl_ldap_register_signal_hadlers
-from kdl_wagtail.core.api import api_router
 from wagtail.contrib.sitemaps.views import sitemap
 
 kdl_ldap_register_signal_hadlers()
@@ -12,12 +11,9 @@ kdl_ldap_register_signal_hadlers()
 admin.autodiscover()
 
 urlpatterns = [
-    path('api/v2/', api_router.urls),
-
     path('admin/', admin.site.urls),
     path('digger/', include('activecollab_digger.urls')),
     path('documents/', include('wagtail.documents.urls')),
-    path('search/', include('haystack.urls')),
     path('wagtail/', include('wagtail.admin.urls')),
 
     path('sitemap.xml', sitemap),

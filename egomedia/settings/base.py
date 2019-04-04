@@ -77,8 +77,6 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
 
-    'haystack',
-
     'activecollab_digger',
     'compressor',
     'django_extensions',
@@ -345,18 +343,6 @@ WAGTAILUSERS_PASSWORD_REQUIRED = False
 
 KDL_WAGTAIL_ITEMS_PER_PAGE = 50
 KDL_WAGTAIL_PERSON_MODEL = 'kdl_wagtail_people.Person'
-
-# -----------------------------------------------------------------------------
-# haystack
-# -----------------------------------------------------------------------------
-
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
-        'URL': 'http://127.0.0.1:8983/solr/vagrant',
-        'ADMIN_URL': 'http://127.0.0.1:8983/solr/admin/cores'
-    }
-}
 
 # -----------------------------------------------------------------------------
 # Automatically generated settings

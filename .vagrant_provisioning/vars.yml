@@ -5,7 +5,7 @@ git:
     url: "https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh",
   }
 motd: { file: 00-kdl }
-npm: { original_packages: jquery vue foundation-sites }
+npm: { original_packages: jquery foundation-sites }
 postgresql:
   {
     admin_user: postgres,
@@ -18,37 +18,26 @@ postgresql:
     user: egomedia,
   }
 project_root: /vagrant
-python:
-  {
-    requirements: requirements-dev.txt,
-    virtualenv_location: /home/vagrant/venv,
-  }
-solr:
-  {
-    dist: /opt,
-    url: "https://archive.apache.org/dist/lucene/solr/7.6.0/solr-7.6.0.tgz",
-    version: 7.6.0,
-  }
 system_packages:
   [
     ack-grep,
     adminer,
     aptitude,
     binutils,
-    elasticsearch,
     gdal-bin,
     git,
     git-core,
     libgdal-dev,
     libjpeg-dev,
     libldap2-dev,
+    libmagickwand-dev,
     libproj-dev,
     libsasl2-dev,
     libssl-dev,
     libxml2-dev,
-    libmagickwand-dev,
     libxslt-dev,
     nfs-common,
+    npm,
     open-vm-tools,
     openjdk-8-jre,
     postgis,
@@ -61,9 +50,8 @@ system_packages:
     python3-psycopg2,
     python3-setuptools,
     vim-nox,
-    zsh,
     wget,
-    npm,
+    zsh,
   ]
 user_home: /home/vagrant
 zsh:

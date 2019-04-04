@@ -38,43 +38,6 @@
       tags:
         - system
 
-    - name: solr | download
-      become: yes
-      get_url:
-        url: "{{ solr.url }}"
-        dest: /tmp
-      tags:
-        - system
-        - solr
-
-    - name: solr | unarchive
-      become: yes
-      unarchive:
-        src: /tmp/solr-{{ solr.version}}.tgz
-        dest: /tmp
-        remote_src: yes
-      tags:
-        - system
-        - solr
-
-    - name: solr | install
-      become: yes
-      command: /tmp/solr-{{ solr.version }}/bin/install_solr_service.sh /tmp/solr-{{ solr.version}}.tgz -f
-      tags:
-        - system
-        - solr
-
-    - name: solr | set up
-      become: yes
-      become_user: solr
-      command: /opt/solr/bin/solr create -c dev
-      # ignoring errors because this fails if the core already exists
-      ignore_errors: yes
-      notify: solr | restart solr
-      tags:
-        - system
-        - solr
-
     - name: zsh | clone oh-my-zsh repo
       git: repo={{ zsh.oh_my_zsh }} dest={{ user_home }}/.oh-my-zsh
       tags:
@@ -124,47 +87,16 @@
         - system
         - javascript
 
-  handlers:
-    - name: solr | restart solr
-      become: yes
-      service:
-        name: solr
-        state: started
-      tags:
-        - db
-
 # Python and Javascript Package Managers
 # run as vagrant
-
 - hosts: all
   vars_files:
     - vars.yml
   gather_facts: false
 
   tasks:
-    - name: python | requirements.txt => Pipfiles
-      # for first local deployment after bootstraping with barebone
-      command: "pipenv install --three"
-      args:
-        chdir: "{{ project_root }}"
-        creates: "{{ project_root }}/Pipfile"
-      tags:
-        - python
-
-    - name: python | requirements-dev.txt => Pipfiles
-      # for first local deployment after bootstraping with barebone
-      shell: pipenv install -d $(sed 's/-r .*//g' requirements-dev.txt | tr '\n' ' ') && rm requirements*.txt
-      args:
-        chdir: "{{ project_root }}"
-        removes: "{{ project_root }}/requirements-dev.txt"
-      tags:
-        - python
-
-    # todo: delete requirements.txt & requirements-dev.txt
-
-    - name: python | install packages from Pipfiles
-      # for second and later deployments (Pipfile already exists)
-      command: "pipenv sync -d"
+    - name: python | install packages from Pipfile
+      command: "pipenv install -d"
       args:
         chdir: "{{ project_root }}"
       tags:
