@@ -44,10 +44,6 @@ body {
 /* A bit hacky, but since we are not using pure css   */
 /* grid yet, this is a work around.                   */
 
-// div[class*="float-"] + a ~ *:not(.rich-text) {
-//   @extend .clearfix;
-// }
-
 div[class*="float-"] + a ~ * {
   @extend .clearfix;
 }
@@ -164,6 +160,18 @@ h1, h2, h3, h4, h5, h6 {
   .logo {
     img {
       max-height: 70px;
+    }
+  }
+}
+
+/* Lists */
+
+ol li {
+  ol li {
+    list-style-type: lower-latin;
+
+    ol li {
+      list-style-type: lower-roman;
     }
   }
 }
@@ -650,6 +658,7 @@ main,
     &:not(:last-child) {
       &::after {
         content: ", ";
+        margin-left: -4px;
       }
     }
   }
