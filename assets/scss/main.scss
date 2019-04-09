@@ -650,6 +650,7 @@ main,
     &:not(:last-child) {
       &::after {
         content: ", ";
+        margin-left: -4px;
       }
     }
   }
