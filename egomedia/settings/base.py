@@ -108,8 +108,9 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += [
-    'kdl_wagtail.core.apps.KdlWagtailCoreConfig',
-    'kdl_wagtail.people.apps.KdlWagtailPeopleConfig',
+    'kdl_wagtail.core',
+    'kdl_wagtail.draftail',
+    'kdl_wagtail.people',
     'core.apps.CoreConfig'
 ]
 
