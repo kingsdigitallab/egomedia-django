@@ -6,6 +6,11 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
+### 0.0.8
+
+* Bug fixes
+* Styled nested ordered lists
+
 ### 0.0.7
 
 * Fixed floating content issue
