@@ -8,55 +8,57 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ### 0.0.8
 
-* Bug fixes
-* Styled nested ordered lists
+- Bug fixes
+- Styled nested ordered lists
+- Image gallery with links to pages and external URLs
 
 ### 0.0.7
 
-* Fixed floating content issue
-* Style for default ToC
-* Faceted search on homepage
-* Align classes for images
-* Feed image in the promote tab
-* Researcher page
-* Adding sticky function to project sidebar
+- Fixed floating content issue
+- Style for default ToC
+- Faceted search on homepage
+- Align classes for images
+- Feed image in the promote tab
+- Researcher page
+- Adding sticky function to project sidebar
 
 ### 0.0.6
 
-* Image gallery behaviour and styling
+- Image gallery behaviour and styling
 
 ### 0.0.5
 
-* Blockquote styling
-* Embed blocks
-* Map block
-* Timeline styling
+- Blockquote styling
+- Embed blocks
+- Map block
+- Timeline styling
 
 ### 0.0.4
 
-* Fixed dropdown menus functionality
-* Fixed nested modals
+- Fixed dropdown menus functionality
+- Fixed nested modals
 
 ### 0.0.3
 
-* Added dropdown menus
-* Removed testing tags
+- Added dropdown menus
+- Removed testing tags
 
 ### 0.0.2
 
-* Added error page templates
+- Added error page templates
 
 ### 0.0.1
 
 First minor release.
 
-* Cards
-* Content blocks
-* Fixed Font Awesome Pro 5 issue
-* Initial styling
-* Page types
+- Cards
+- Content blocks
+- Fixed Font Awesome Pro 5 issue
+- Initial styling
+- Page types
 
 ## Getting started
+
 1. Enter the project directory: `cd egomedia-django`
 2. Start the virtual machine: `vagrant up`
 3. SSH into the virtual machine: `vagrant ssh`
@@ -72,7 +74,8 @@ password: `vagrant`
 Note: This login will only work on a locally deployed virtual machine.
 
 ## Requirements
-* Ansible >= 2.3
-* NodeJS
-* Vagrant >= 1.9
-* VirtualBox >= 5.0
+
+- Ansible >= 2.3
+- NodeJS
+- Vagrant >= 1.9
+- VirtualBox >= 5.0
