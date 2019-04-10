@@ -1,13 +1,14 @@
-<div class="{% if self.document.file_extension == 'mp3' %}embed{% else %}document{% endif %}">
-    {% if self.document.file_extension == 'mp3' %}
-    <audio controls>
-        <source src="{{ self.document.url }}" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    {% else %}
-    <a href="{{ self.document.url }}">{{ self.document.title }}</a>
-    {% endif %}
+<div
+  class="{% if self.document.file_extension == 'mp3' %}embed{% else %}document{% endif %}">
+  {% if self.document.file_extension == 'mp3' %}
+  <audio controls>
+    <source src="{{ self.document.url }}" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  {% else %}
+  <a href="{{ self.document.url }}">{{ self.document.title }}</a>
+  {% endif %}
 
-    {% include "kdl_wagtail_core/includes/caption_attribution.html" %}
-    {% include "kdl_wagtail_core/includes/description_transcription.html" %}
+  {% include "kdl_wagtail_core/includes/caption_attribution.html" with obj=self %}
+  {% include "kdl_wagtail_core/includes/description_transcription.html" with obj=self %}
 </div>
