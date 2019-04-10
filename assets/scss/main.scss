@@ -138,6 +138,8 @@ iframe {
 h1, h2, h3, h4, h5, h6 {
   color: $medium-gray;
   font-family: "KingsBureauGrot", sans-serif;
+  line-height: 1.25em;
+  padding-bottom: .25em;
 }
 
 /* Header */
@@ -524,6 +526,7 @@ main,
 }
 
 .gallery {
+  margin-bottom: 1rem;
 
   figure {
     background: $light-gray;
@@ -533,6 +536,23 @@ main,
     padding: 8px;
     text-align: center;
     vertical-align: middle;
+  }
+}
+
+.reveal {
+  .close-button {
+    background: $white;
+    border-radius: 0 0 0 16px;
+    padding-left: 8px;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
   }
 }
 
@@ -629,6 +649,7 @@ main,
 
 .page-meta {
   border-bottom: 10px solid $light-gray;
+  margin-bottom: 8px;
   padding-bottom: 8px;
 
   p {
