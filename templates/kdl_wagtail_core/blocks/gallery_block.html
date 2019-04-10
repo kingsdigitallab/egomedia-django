@@ -23,6 +23,18 @@
     data-multiple-opened="true" data-reveal>
     {% image image.image max-800x800 %}
 
+    {% if image.caption or image.attribution %}
+    {% include "kdl_wagtail_core/includes/caption_attribution.html" %}
+    {% endif %}
+    {% if image.description or image.transcription %}
+    {% include "kdl_wagtail_core/includes/description_transcription.html" %}
+    {% endif %}
+
+    description: {{ image.description }}
+    transcription: {{ image.transcription }}
+    caption: {{ image.caption }}<br>
+    attribution: {{ image.attribution }}
+
     <button class="close-button" data-close="image-{{ image.image.id }}"
       aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>
