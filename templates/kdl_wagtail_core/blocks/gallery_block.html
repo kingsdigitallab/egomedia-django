@@ -1,22 +1,34 @@
 {% load kdl_wagtail_core_tags wagtailcore_tags wagtailimages_tags %}
 
 <div class="grid-x small-up-1 medium-up-2 large-up-4 gallery">
-    {% for image in self.images_block %}
-    <div class="cell">
-        <figure>
-            <a data-open="image-{{ image.image.id }}">{% image image.image fill-600x600 %}</a>
-            <figcaption>
-                {% include "kdl_wagtail_core/includes/caption_attribution.html" %}
-            </figcaption>
-        </figure>
-    </div>
+  {% for image in self.images_block %}
 
-    <div class="content reveal" id="image-{{ image.image.id }}" data-multiple-opened="true" data-reveal>
-        {% image image.image max-800x800 %}
+  <div class="cell">
+    <figure>
+      {% if image.url or image.page %}
+      <a class="{% if image.url %}external{% else %}internal{% endif %}"
+        href="{% if image.url %}{{ image.url }}{% else %}{% pageurl image.page %}{% endif %}">{% image image.image fill-600x600 %}</a>
+      {% else %}
+      <a
+        data-open="image-{{ image.image.id }}">{% image image.image fill-600x600 %}</a>
+      {% endif %}
+      <figcaption>
+        {% include "kdl_wagtail_core/includes/caption_attribution.html" %}
+      </figcaption>
+    </figure>
+  </div>
 
-        <button class="close-button" data-close="image-{{ image.image.id }}" aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    {% endfor %}
+  {% if not image.url and not image.page %}
+  <div class="content reveal" id="image-{{ image.image.id }}"
+    data-multiple-opened="true" data-reveal>
+    {% image image.image max-800x800 %}
+
+    <button class="close-button" data-close="image-{{ image.image.id }}"
+      aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %}
+
+  {% endfor %}
 </div>
