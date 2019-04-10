@@ -11,6 +11,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Bug fixes
 - Styled nested ordered lists
 - Image gallery with links to pages and external URLs
+- Image gallery modal styling
 
 ### 0.0.7
 
