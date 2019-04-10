@@ -4,6 +4,8 @@
   {% for image in self.images_block %}
 
   <div class="cell">
+    {% include "kdl_wagtail_core/includes/description_transcription.html" with obj=image %}
+
     <figure>
       {% if image.link %}
       <a class="{% if image.url %}external{% else %}internal{% endif %}"
@@ -22,9 +24,6 @@
   <div class="content large reveal" id="image-{{ image.image.id }}"
     data-multiple-opened="true" data-reveal>
     {% image image.image max-800x800 %}
-
-    {% include "kdl_wagtail_core/includes/caption_attribution.html" with obj=image %}
-    {% include "kdl_wagtail_core/includes/description_transcription.html" with obj=image %}
 
     <button class="close-button" data-close="image-{{ image.image.id }}"
       aria-label="Close modal" type="button">
