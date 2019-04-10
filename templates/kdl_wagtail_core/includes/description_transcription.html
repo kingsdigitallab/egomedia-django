@@ -1,37 +1,43 @@
 {% load kdl_wagtail_core_tags wagtailcore_tags %}
 
-{% if self.description|wordcount > 2 or self.transcription|wordcount > 2 %}
-  <div class="meta-toggler">
+{% if obj.description|wordcount > 2 or obj.transcription|wordcount > 2 %}
+<div class="meta-toggler">
 
-    {% if self.description|wordcount > 2 %}
-    <a data-open="{% get_object_id self.description 'description' %}">
-      <i class="fas fa-info-circle"></i>
-    </a>
-    {% endif %}
+  {% if obj.description|wordcount > 2 %}
+  <a data-open="{% get_object_id obj.description 'description' %}">
+    <i class="fas fa-info-circle"></i>
+  </a>
+  {% endif %}
 
-    {% if self.transcription|wordcount > 2 %}
-    <a data-open="{% get_object_id self.transcription 'transcription' %}">
-      <i class="fas fa-file-alt"></i>
-    </a>
-    {% endif %}
-  </div>
+  {% if obj.transcription|wordcount > 2 %}
+  <a data-open="{% get_object_id obj.transcription 'transcription' %}">
+    <i class="fas fa-file-alt"></i>
+  </a>
+  {% endif %}
+</div>
 
-  {% if self.description|wordcount > 2 %}
-  <div class="description reveal" id="{% get_object_id self.description 'description' %}" data-multiple-opened="true" data-reveal>
-    {{ self.description|richtext }}
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+{% if obj.description|wordcount > 2 %}
+<div class="description reveal"
+  id="{% get_object_id obj.description 'description' %}"
+  data-multiple-opened="true" data-reveal>
+  {{ obj.description|richtext }}
+  <button class="close-button" data-close aria-label="Close modal"
+    type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {% endif %}
 
-{% if self.transcription|wordcount > 2 %}
-  <div class="transcription reveal" id="{% get_object_id self.transcription 'transcription' %}" data-multiple-opened="true" data-reveal>
-    {{ self.transcription|richtext }}
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+{% if obj.transcription|wordcount > 2 %}
+<div class="transcription reveal"
+  id="{% get_object_id obj.transcription 'transcription' %}"
+  data-multiple-opened="true" data-reveal>
+  {{ obj.transcription|richtext }}
+  <button class="close-button" data-close aria-label="Close modal"
+    type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {% endif %}
 
 {% endif %}

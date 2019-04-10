@@ -1,11 +1,13 @@
 <div class="embed map">
-    <div class="iframe-container responsive-embed">
-        <iframe src="{{ self.map_url }}"></iframe>
-    </div>
+  <div class="iframe-container responsive-embed">
+    <iframe src="{{ self.map_url }}"></iframe>
+  </div>
 
-    {% if self.caption or self.attribution %}
-    <p>{% include "kdl_wagtail_core/includes/caption_attribution.html" %}</p>
-    {% endif %}
+  {% if self.caption or self.attribution %}
+  <p>
+    {% include "kdl_wagtail_core/includes/caption_attribution.html" with obj=self %}
+  </p>
+  {% endif %}
 
-    {% include "kdl_wagtail_core/includes/description_transcription.html" %}
+  {% include "kdl_wagtail_core/includes/description_transcription.html" with obj=self %}
 </div>

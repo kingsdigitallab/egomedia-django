@@ -5,23 +5,26 @@
 
   <div class="cell">
     <figure>
-      {% if image.url or image.page %}
+      {% if image.link %}
       <a class="{% if image.url %}external{% else %}internal{% endif %}"
-        href="{% if image.url %}{{ image.url }}{% else %}{% pageurl image.page %}{% endif %}">{% image image.image fill-600x600 %}</a>
+        href="{{ image.link }}">{% image image.image fill-600x600 %}</a>
       {% else %}
       <a
         data-open="image-{{ image.image.id }}">{% image image.image fill-600x600 %}</a>
       {% endif %}
       <figcaption>
-        {% include "kdl_wagtail_core/includes/caption_attribution.html" %}
+        {% include "kdl_wagtail_core/includes/caption_attribution.html" with obj=image %}
       </figcaption>
     </figure>
   </div>
 
-  {% if not image.url and not image.page %}
+  {% if not image.link %}
   <div class="content large reveal" id="image-{{ image.image.id }}"
     data-multiple-opened="true" data-reveal>
     {% image image.image max-800x800 %}
+
+    {% include "kdl_wagtail_core/includes/caption_attribution.html" with obj=image %}
+    {% include "kdl_wagtail_core/includes/description_transcription.html" with obj=image %}
 
     <button class="close-button" data-close="image-{{ image.image.id }}"
       aria-label="Close modal" type="button">
