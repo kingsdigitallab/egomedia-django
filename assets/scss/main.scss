@@ -463,13 +463,12 @@ cite {
 .meta-toggler {
   background: $light-gray;
   border-radius: 2px 0 0 2px;
-  left: -2rem;
+  left: 1px;
   padding: 2px;
   position: absolute;
   text-align: center;
-  top: 0;
+  top: 1px;
   width: 32px;
-  z-index: 1100;
 
   a {
     display: block;
@@ -527,6 +526,11 @@ main,
 
 .gallery {
   margin-bottom: 1rem;
+  // position: relative;
+
+  .cell {
+    position: relative;
+  }
 
   figure {
     background: $light-gray;
