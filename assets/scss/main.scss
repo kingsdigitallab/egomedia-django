@@ -69,6 +69,10 @@ div[class*="float-"] + a ~ * {
       @extend .float-left;
     }
   }
+
+  img {
+    float: right;
+  }
 }
 
 .embed,
@@ -107,10 +111,10 @@ iframe {
 
 .float-left,
 .float-right {
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
 
   @include breakpoint(medium) {
-    max-width: 49%;
+    width: 49%;
   }
 
   @include breakpoint(small only) {
@@ -443,9 +447,10 @@ cite {
 
 .embed {
   background: $light-gray;
+  clear: both;
   margin: 1rem auto;
   padding: .5rem;
-  width: 80%;
+  width: 100%;
 
   p {
     font-size: 16px;
@@ -456,12 +461,12 @@ cite {
 
 .meta-toggler {
   background: $light-gray;
-  border-radius: 2px 0 0 2px;
-  left: 1px;
+  // border-radius: 2px 0 0 2px;
+  left: 0;
   padding: 2px;
   position: absolute;
   text-align: center;
-  top: 1px;
+  top: 0;
   width: 32px;
 
   a {
@@ -499,9 +504,8 @@ cite {
 main,
 .main {
   .image {
-    background: $light-gray;
-    margin-bottom: .25rem;
-    padding: .25rem;
+    // background: $light-gray;
+    margin-bottom: 1rem;
 
     &.float-center {
       text-align: center;
@@ -510,6 +514,10 @@ main,
         text-align: left;
       }
     }
+
+    // img {
+    //   border: 3px solid $light-gray;
+    // }
   }
 }
 
