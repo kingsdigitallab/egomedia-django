@@ -446,16 +446,17 @@ cite {
 }
 
 .embed {
-  background: $light-gray;
+  // background: $light-gray;
   clear: both;
   margin: 1rem auto;
-  padding: .5rem;
+  // padding: .5rem;
   width: 100%;
 
   p {
     font-size: 16px;
     line-height: 1.25;
     margin-bottom: .5rem;
+    margin-left: 2rem;
   }
 }
 
@@ -842,6 +843,11 @@ main,
 }
 
 .responsive-embed {
+  background-color: $light-gray;
+  border: .5rem solid $light-gray;
+  margin-left: 2rem;
+  margin-right: 2rem;
+
   &.audio {
     @include breakpoint(medium) {
       padding-bottom: 25%;
