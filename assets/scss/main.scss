@@ -130,6 +130,10 @@ iframe {
   margin-left: auto;
   margin-right: auto;
   width: 75%;
+
+  &.image {
+    text-align: center;
+  }
 }
 
 .float-left,
@@ -449,6 +453,10 @@ cite {
 
 // Embeds and Documents
 
+audio {
+  margin-left: 2rem;
+}
+
 .attribution {
   &::before {
     content: "\A9";
@@ -536,6 +544,12 @@ main,
 
       figcaption {
         text-align: left;
+      }
+    }
+
+    .external {
+      &::before {
+        display: none;
       }
     }
 
