@@ -30,6 +30,29 @@ body {
 .anchor-link {
 }
 
+a {
+  word-break: break-all;
+}
+
+.external {
+  &::before {
+    content: "\f35d";
+    font-family: "Font Awesome 5 Pro";
+    font-size: 14px;
+    font-weight: 900;
+    padding-right: 8px;
+  }
+}
+
+figure,
+img {
+  .external {
+    &::before {
+      display: none;
+    }
+  }
+}
+
 /* Block types */
 /*
  * .embed_block
