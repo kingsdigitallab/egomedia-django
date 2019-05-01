@@ -261,8 +261,8 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-MEDIA_URL = STATIC_URL + 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL.strip('/'))
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(STATIC_ROOT, MEDIA_URL.strip('/'))
 
 if not os.path.exists(MEDIA_ROOT):
     os.makedirs(MEDIA_ROOT)
