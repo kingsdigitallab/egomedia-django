@@ -32,7 +32,7 @@
 <div class="transcription reveal"
   id="{% get_object_id obj.transcription 'transcription' %}"
   data-multiple-opened="true" data-reveal>
-  {{ obj.transcription|richtext }}
+  {{ obj.transcription|richtext|krackdown }}
   <button class="close-button" data-close aria-label="Close modal"
     type="button">
     <span aria-hidden="true">&times;</span>
