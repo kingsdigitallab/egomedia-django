@@ -109,7 +109,6 @@ INSTALLED_APPS = [
 
 INSTALLED_APPS += [
     'kdl_wagtail.core',
-    'kdl_wagtail.draftail',
     'kdl_wagtail.people',
     'core.apps.CoreConfig'
 ]
@@ -344,6 +343,11 @@ WAGTAILUSERS_PASSWORD_REQUIRED = False
 
 KDL_WAGTAIL_ITEMS_PER_PAGE = 50
 KDL_WAGTAIL_PERSON_MODEL = 'kdl_wagtail_people.Person'
+
+KDL_WAGTAIL_KRACKDOWN_FILTERS = [
+    'kdl_wagtail.core.utils.krackdown_link',
+    'kdl_wagtail.core.utils.krackdown_anchor'
+]
 
 # -----------------------------------------------------------------------------
 # Automatically generated settings
