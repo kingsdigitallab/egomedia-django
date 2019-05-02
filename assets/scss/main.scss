@@ -138,8 +138,7 @@ iframe {
 
 .float-left,
 .float-right {
-  // margin-bottom: 1rem;
-
+  
   @include breakpoint(medium) {
     width: 49%;
   }
@@ -477,10 +476,8 @@ audio {
 }
 
 .embed {
-  // background: $light-gray;
   clear: both;
   margin: 1rem auto;
-  // padding: .5rem;
   width: 100%;
 
   p {
@@ -493,7 +490,6 @@ audio {
 
 .meta-toggler {
   background: $light-gray;
-  // border-radius: 2px 0 0 2px;
   left: 0;
   padding: 2px;
   position: absolute;
@@ -536,7 +532,6 @@ audio {
 main,
 .main {
   .image {
-    // background: $light-gray;
     margin-bottom: 1rem;
 
     &.float-center {
@@ -552,10 +547,6 @@ main,
         display: none;
       }
     }
-
-    // img {
-    //   border: 3px solid $light-gray;
-    // }
   }
 }
 
