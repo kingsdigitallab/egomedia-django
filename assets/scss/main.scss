@@ -566,15 +566,14 @@ main,
 
 .gallery {
   margin-bottom: 1rem;
-  // position: relative;
 
   .cell {
+    border: 1px solid $white;
     position: relative;
   }
 
   figure {
     background: $light-gray;
-    border: 1px solid $white;
     display: block;
     height: 100%;
     padding: 8px;
