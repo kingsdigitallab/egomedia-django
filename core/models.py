@@ -212,7 +212,7 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
 
         return [
             ('theme', themes),
-            ('theme secondary', secondary_themes),
+            ('theme secondary', secondary_themes.distinct()),
             ('project', projects)
         ]
 
