@@ -210,9 +210,12 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
         for p in projects:
             secondary_themes = secondary_themes | p.get_themes()
 
+        secondary_themes = secondary_themes.distinct()
+        secondary_themes = secondary_themes.difference(themes)
+
         return [
             ('theme', themes),
-            ('theme secondary', secondary_themes.distinct()),
+            ('theme secondary', secondary_themes),
             ('project', projects)
         ]
 
