@@ -371,7 +371,20 @@ a[class$="_block"] {
 }
 
 .submenu {
-    background: $white !important;
+  background: $light-gray !important;
+  border: none;
+  box-shadow: 0 5px scale-color($light-gray, $lightness: -30%);
+  list-style: none;
+  margin: 0;
+
+  li,
+  .is-submenu-item {
+    border-top: 1px solid $white;
+
+    a {
+      padding: .75rem .5rem .5rem;
+    }
+  }
 }
 
 /* Main */

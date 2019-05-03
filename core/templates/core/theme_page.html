@@ -13,6 +13,13 @@
     </div>
 
     <div class="cell medium-7">
+
+      {% if page.introduction %}
+      <p class="intro" id="intro">
+        {{ page.introduction }}
+      </p>
+      {% endif %}
+
       {{ block.super }}
     </div>
   </div>
