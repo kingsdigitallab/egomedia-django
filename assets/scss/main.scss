@@ -479,11 +479,11 @@ audio {
   width: 90%;
 }
 
-.attribution {
-  &::before {
-    content: "\A9";
-  }
-}
+// .attribution {
+//   &::before {
+//     content: "\A9";
+//   }
+// }
 
 .caption {
   font-style: italic;
