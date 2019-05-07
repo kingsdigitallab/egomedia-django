@@ -25,7 +25,12 @@ $(document).ready(function() {
       document.execCommand('copy')
 
       $field.remove()
+
+      $('#message-success').attr('style', '')
+      $('#message-success').removeClass('hide')
     } catch (err) {
+      $('#message-aler').attr('style', '')
+      $('#message-alert').removeClass('hide')
       console.log('copy execCommand failed', err)
     }
   })
