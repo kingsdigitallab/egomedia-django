@@ -1,33 +1,8 @@
 {% load kdl_wagtail_core_tags core_tags wagtailcore_tags wagtailimages_tags %}
-{% comment %}
-<nav role="navigation" class="table-of-contents">
-    {% if page.body %}
-    <h4>Table of Contents</h4>
-    <ul>
-        {% for block in page.body %}
-        <li>
-            <a href="#{% get_object_id block %}">
-                {% get_block_title block %}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-
-    {% if page.get_children %}
-    <h4>Sub projects</h4>
-    <ul>
-        {% for child in page.get_children %}
-        <li><a href="{% pageurl child %}">{{ child.title }}</a></li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-</nav>
-{% endcomment %}
 
 <nav role="navigation">
     {% if page.body %}
-    <h4>Content</h4>
+    <h4>On this page</h4>
     {% comment %}
     <div class="cell controls">
         <button class="button"><i class="fas fa-sort-numeric-down fa-lg"></i></button>
@@ -51,7 +26,7 @@
     {% endif %}
 
     {% if page.get_children %}
-    <h4>Sub projects</h4>
+    <h4>Other pages in this section</h4>
     <ul>
         {% for child in page.get_children.specific %}
         <li>
