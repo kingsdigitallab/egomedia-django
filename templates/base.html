@@ -1,74 +1,102 @@
 {% load staticfiles compress %}
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{% block meta_title %}{{ self.title }}{% endblock %} | Ego Media</title>
-  <meta name="author" content="King's Digital Lab">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {# TODO: set GA_ID in settings and pass it to the context with a context processor #}
-  {% include 'includes/google-analytics.html' %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block meta_title %}{{ self.title }}{% endblock %} | Ego Media
+    </title>
+    <meta name="author" content="King's Digital Lab">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% compress css %}
-  <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}" defer>
-  {% endcompress %}
+    {# TODO: set GA_ID in settings and pass it to the context with a context processor #}
+    {% include 'includes/google-analytics.html' %}
 
-  {# Favicon #}
-  <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
-</head>
-<body>
-  {% block top_header %}
-  <header class="top-header">
-    {% include 'includes/header.html' %}
-  </header>
-  {% endblock %}
+    {% compress css %}
+    <link rel="stylesheet" type="text/x-scss"
+      href="{% static 'scss/main.scss' %}" defer>
+    {% endcompress %}
 
-  {% block main_nav %}
-  <nav class="top-nav">
-    {% include 'includes/navigation.html' %}
-  </nav>
-  {% endblock %}
+    {# Favicon #}
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+  </head>
 
-  <main>
-    <div class="grid-container">
-      <div class="grid-x">
-        <div class="cell">
-          {% block page-header %}
-          {% endblock %}
-          {% block page-body %}
-          {% endblock %}
+  <body>
+    {% block messages %}
+    <div id="message-alert" class="callout alert hide" data-closable>
+      <h5>Error</h5>
+      <p>Failed to copy link to the clipboard.</p>
+      <button class="close-button" aria-label="Dismiss alert" type="button"
+        data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div id="message-success" class="callout success hide" data-closable>
+      <h5>Success</h5>
+      <p>Link copied to the clipboard.</p>
+      <button class="close-button" aria-label="Dismiss alert" type="button"
+        data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endblock messages %}
+
+    {% block top_header %}
+    <header class="top-header">
+      {% include 'includes/header.html' %}
+    </header>
+    {% endblock %}
+
+    {% block main_nav %}
+    <nav class="top-nav">
+      {% include 'includes/navigation.html' %}
+    </nav>
+    {% endblock %}
+
+    <main>
+      <div class="grid-container">
+        <div class="grid-x">
+          <div class="cell">
+            {% block page-header %}
+            {% endblock %}
+            {% block page-body %}
+            {% endblock %}
+          </div>
         </div>
       </div>
+    </main>
+
+    {% block bottom %}
+    <footer class="bottom-footer">
+      {% block footer %}
+      {% include 'includes/footer.html' %}
+      {% endblock %}
+    </footer>
+
+    {# Cookies #}
+    <div class="cookies-box hide" id="cookie-disclaimer">
+      <p>We use cookies to track usage and preferences.</p>
+      <p><a href="/cookie-policy/" class="button secondary">Cookie Policy</a>
+        <button class="button success close" aria-label="Dismiss alert"
+          type="button">I understand</button></p>
     </div>
-  </main>
 
-  {% block bottom %}
-  <footer class="bottom-footer">
-    {% block footer %}
-    {% include 'includes/footer.html' %}
+    {% compress js %}
+    <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'js-cookie/src/js.cookie.js' %}"></script>
+    <script src="{% static '@fortawesome/fontawesome-pro/js/all.min.js' %}">
+    </script>
+    <script src="{% static 'foundation-sites/dist/js/foundation.min.js' %}">
+    </script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% endcompress %}
+
+    {% compress js %}
+    {% block footer_scripts %}{% endblock %}
+    {% endcompress %}
     {% endblock %}
-  </footer>
+  </body>
 
-  {# Cookies #}
-  <div class="cookies-box hide" id="cookie-disclaimer">
-    <p>We use cookies to track usage and preferences.</p>
-    <p><a href="/cookie-policy/" class="button secondary">Cookie Policy</a> <button class="button success close" aria-label="Dismiss alert" type="button">I understand</button></p>
-  </div>
-
-  {% compress js %}
-  <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
-  <script src="{% static 'js-cookie/src/js.cookie.js' %}"></script>
-  <script src="{% static '@fortawesome/fontawesome-pro/js/all.min.js' %}"></script>
-  <script src="{% static 'foundation-sites/dist/js/foundation.min.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
-  {% endcompress %}
-
-  {% compress js %}
-  {% block footer_scripts %}{% endblock %}
-  {% endcompress %}
-  {% endblock %}
-</body>
 </html>
