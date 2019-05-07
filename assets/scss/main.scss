@@ -28,14 +28,15 @@ body {
 
 /* TODO: needs styling */
 .anchor-link {
-  display: block;
+  // margin-left: 0.5rem;
+  // width: 32px;
 
-  &::before {
+  &::after {
     content: "\f0c1";
     font-family: "Font Awesome 5 Pro";
     font-size: 16px;
     font-weight: 900;
-    margin-left: -2rem;
+    margin-left: -1.5rem;
   }
 }
 
@@ -76,36 +77,51 @@ img {
 /* A bit hacky, but since we are not using pure css   */
 /* grid yet, this is a work around.                   */
 
-div[class*="float-"] + a ~ * {
-  @extend .clearfix;
+.page-body {
+  // align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly; 
 }
 
-.float-left {
-  + a {
-    @extend .float-left;
-    + .rich-text {
-      @extend .float-right;
-    }
-  }
+// .anchor-link,
+// .float-left,
+// .float-right,
+// .rich-text {
+//   // display: flex;
+//   flex-grow: 1;
+// }
 
-  + .float-right + a + .rich-text {
-    all: unset;
-    margin-top: 1rem;
-  }
-}
+// div[class*="float-"] + a ~ * {
+//   @extend .clearfix;
+// }
 
-.float-right {
-  + a {
-    @extend .float-right;
-    + .rich-text {
-      @extend .float-left;
-    }
-  }
+// .float-left {
+//   + a {
+//     @extend .float-left;
+//     + .rich-text {
+//       @extend .float-right;
+//     }
+//   }
 
-  img {
-    float: right;
-  }
-}
+//   + .float-right + a + .rich-text {
+//     all: unset;
+//     margin-top: 1rem;
+//   }
+// }
+
+// .float-right {
+//   + a {
+//     @extend .float-right;
+//     + .rich-text {
+//       @extend .float-left;
+//     }
+//   }
+
+//   img {
+//     float: right;
+//   }
+// }
 
 .embed,
 .image,
@@ -135,29 +151,31 @@ iframe {
   margin-left: 1rem;
 }
 
-.float-center {
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
+// .float-center {
+//   margin-left: auto;
+//   margin-right: auto;
+//   width: 75%;
 
-  &.image {
-    text-align: center;
-  }
-}
+//   &.image {
+//     text-align: center;
+//   }
+// }
 
 .float-left,
+.float-left + a + .rich-text,
 .float-right {
   
   @include breakpoint(medium) {
-    width: 49%;
+    flex-basis: 45%;
+    // width: 49%;
   }
 
-  @include breakpoint(small only) {
-    display: block;
-    float: none !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  // @include breakpoint(small only) {
+  //   display: block;
+  //   float: none !important;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
 }
 
 // Errors
