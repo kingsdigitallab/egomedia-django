@@ -8,6 +8,28 @@ $(document).ready(function() {
     .addClass('external')
     .attr('target', '_blank')
 
+  $('.anchor-link').click(function() {
+    try {
+      let $field = $('<input>', {
+        'class': 'to-copy',
+        'type': 'text',
+        'value': location.href.replace(location.hash, '') + '#' + $(
+            this)
+          .attr('id')
+      })
+
+      $(this).append($field)
+      $field.focus()
+      $field.select()
+
+      document.execCommand('copy')
+
+      $field.remove()
+    } catch (err) {
+      console.log('copy execCommand failed', err)
+    }
+  })
+
   // Expande / Collapse
   $('.toggler').on('click', function() {
     $(this)
