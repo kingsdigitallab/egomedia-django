@@ -30,6 +30,8 @@ body {
 .anchor-link {
   // margin-left: 0.5rem;
   // width: 32px;
+  display: flex;
+  flex-direction: row;
 
   &::before {
     clear: left;
@@ -38,6 +40,7 @@ body {
     font-size: 16px;
     font-weight: 900;
     margin-left: -1.5rem;
+    padding-left: 1.5rem;
   }
 }
 
@@ -78,12 +81,14 @@ img {
 /* A bit hacky, but since we are not using pure css   */
 /* grid yet, this is a work around.                   */
 
-.page-body {
-  // align-items: flex-start;
-  display: flex;
-  flex-basis: 100%;
-  flex-flow: row wrap;
-  justify-content: space-between; 
+.projectpage,
+.themepage {
+  &.page-body {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    // justify-content: space-between;
+  }
 }
 
 // .anchor-link,
@@ -168,7 +173,8 @@ iframe {
 .float-right {
   
   @include breakpoint(medium) {
-    flex-basis: 46%;
+    flex-basis: 50%;
+    // flex-grow: 1 32px 1 32px;
     // width: 49%;
   }
 
@@ -499,11 +505,11 @@ audio {
   width: 90%;
 }
 
-.attribution {
-  &::before {
-    content: "\A9";
-  }
-}
+// .attribution {
+//   &::before {
+//     content: "\A9";
+//   }
+// }
 
 .caption {
   font-style: italic;
