@@ -81,6 +81,7 @@ img {
 .page-body {
   // align-items: flex-start;
   display: flex;
+  flex-basis: 100%;
   flex-flow: row wrap;
   justify-content: space-between; 
 }
@@ -167,7 +168,7 @@ iframe {
 .float-right {
   
   @include breakpoint(medium) {
-    // flex-basis: 46%;
+    flex-basis: 46%;
     // width: 49%;
   }
 
