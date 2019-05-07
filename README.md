@@ -6,6 +6,9 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
+### Working on 0.1.0
+- Expose block anchor link
+
 ### 0.0.9
 - Bug fixes
 - Introduction display on theme pages

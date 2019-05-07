@@ -28,6 +28,15 @@ body {
 
 /* TODO: needs styling */
 .anchor-link {
+  display: block;
+
+  &::before {
+    content: "\f0c1";
+    font-family: "Font Awesome 5 Pro";
+    font-size: 16px;
+    font-weight: 900;
+    margin-left: -2rem;
+  }
 }
 
 a {
