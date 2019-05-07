@@ -31,7 +31,7 @@ body {
   // margin-left: 0.5rem;
   // width: 32px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   &::before {
     clear: left;
@@ -84,10 +84,10 @@ img {
 .projectpage,
 .themepage {
   &.page-body {
-    align-items: flex-start;
+    // align-items: flex-start;
     display: flex;
     flex-flow: row wrap;
-    // justify-content: space-between;
+    justify-content: space-between;
   }
 }
 
@@ -129,6 +129,11 @@ img {
 //     float: right;
 //   }
 // }
+
+.rich-text + .anchor-link,
+.float-right + .anchor-link {
+  background-color: #000;
+}
 
 .embed,
 .image,
@@ -173,8 +178,8 @@ iframe {
 .float-right {
   
   @include breakpoint(medium) {
-    flex-basis: 50%;
-    // flex-grow: 1 32px 1 32px;
+    flex-basis: 46%;
+    // flex-grow: 1;
     // width: 49%;
   }
 
