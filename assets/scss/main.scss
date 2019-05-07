@@ -31,7 +31,8 @@ body {
   // margin-left: 0.5rem;
   // width: 32px;
 
-  &::after {
+  &::before {
+    clear: left;
     content: "\f0c1";
     font-family: "Font Awesome 5 Pro";
     font-size: 16px;
@@ -81,7 +82,7 @@ img {
   // align-items: flex-start;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly; 
+  justify-content: space-between; 
 }
 
 // .anchor-link,
@@ -166,7 +167,7 @@ iframe {
 .float-right {
   
   @include breakpoint(medium) {
-    flex-basis: 45%;
+    // flex-basis: 46%;
     // width: 49%;
   }
 
