@@ -26,16 +26,44 @@ body {
   padding: rem-calc(16);
 }
 
+.block {
+  display: flex;
+  flex: 100% 0;
+  
+  @include breakpoint(medium) {
+    &.float-left,
+    &.float-right,
+    &.float-left + .block.richtext_block,
+    &.float-right + .block.richtext_block {
+      flex: 47% 0;
+      justify-content: space-between;
+    }
+  }
+
+  @include breakpoint(small only) {
+    &.float-left,
+    &.float-right,
+    &.float-left + .block.richtext_block,
+    &.float-right + .block.richtext_block {
+      flex: 90% 0;
+    }
+  }
+}
+
 /* TODO: needs styling */
 .anchor-link {
-  display: block;
+  @include breakpoint(medium) {
+    left: -1.5rem;
+    position: absolute;
+    top: 0;
+  }
 
   &::before {
+    clear: left;
     content: "\f0c1";
     font-family: "Font Awesome 5 Pro";
     font-size: 16px;
     font-weight: 900;
-    margin-left: -2rem;
   }
 }
 
@@ -76,37 +104,56 @@ img {
 /* A bit hacky, but since we are not using pure css   */
 /* grid yet, this is a work around.                   */
 
-div[class*="float-"] + a ~ * {
-  @extend .clearfix;
-}
-
-.float-left {
-  + a {
-    @extend .float-left;
-    + .rich-text {
-      @extend .float-right;
-    }
-  }
-
-  + .float-right + a + .rich-text {
-    all: unset;
-    margin-top: 1rem;
+.projectpage,
+.themepage {
+  &.page-body {
+    align-items: flex-end;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
   }
 }
 
-.float-right {
-  + a {
-    @extend .float-right;
-    + .rich-text {
-      @extend .float-left;
-    }
-  }
+// .anchor-link,
+// .float-left,
+// .float-right,
+// .rich-text {
+//   // display: flex;
+//   flex-grow: 1;
+// }
 
-  img {
-    float: right;
-  }
-}
+// div[class*="float-"] + a ~ * {
+//   @extend .clearfix;
+// }
 
+// .float-left {
+//   + a {
+//     @extend .float-left;
+//     + .rich-text {
+//       @extend .float-right;
+//     }
+//   }
+
+//   + .float-right + a + .rich-text {
+//     all: unset;
+//     margin-top: 1rem;
+//   }
+// }
+
+// .float-right {
+//   + a {
+//     @extend .float-right;
+//     + .rich-text {
+//       @extend .float-left;
+//     }
+//   }
+
+//   img {
+//     float: right;
+//   }
+// }
+
+.block,
 .embed,
 .image,
 .modal,
@@ -133,31 +180,6 @@ iframe {
 .right {
   float: right;
   margin-left: 1rem;
-}
-
-.float-center {
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
-
-  &.image {
-    text-align: center;
-  }
-}
-
-.float-left,
-.float-right {
-  
-  @include breakpoint(medium) {
-    width: 49%;
-  }
-
-  @include breakpoint(small only) {
-    display: block;
-    float: none !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
 // Errors
@@ -316,6 +338,12 @@ a[class$="_block"] {
     font-family: "Font Awesome 5 Pro";
     font-weight: 900;
     padding-right: 10px;
+  }
+}
+
+.block[class$="_block"] {
+  &::before {
+    content: "";
   }
 }
 
@@ -479,11 +507,9 @@ audio {
   width: 90%;
 }
 
-// .attribution {
-//   &::before {
-//     content: "\A9";
-//   }
-// }
+audio + p {
+  padding-left: 0.5rem;
+}
 
 .caption {
   font-style: italic;
