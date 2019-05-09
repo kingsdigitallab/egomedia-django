@@ -1,15 +1,19 @@
 from core.blocks import HomePageStreamBlock, TimelineStreamBlock
 from django import forms
 from django.db import models
-from kdl_wagtail.core.models import (BasePage, BaseStreamPage, IndexPage,
-                                     RichTextPage, StreamPage)
-from kdl_wagtail.people.models import (PeopleIndexPage, Person, PersonModel,
-                                       PersonPage)
+from kdl_wagtail.core.models import (
+    BasePage, BaseStreamPage, IndexPage, RichTextPage, StreamPage
+)
+from kdl_wagtail.people.models import (
+    PeopleIndexPage, Person, PersonModel, PersonPage
+)
+from kdl_wagtail.zotero.models import BibliographyIndexPage
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.models import ClusterableModel
-from wagtail.admin.edit_handlers import (FieldPanel, FieldRowPanel,
-                                         InlinePanel, MultiFieldPanel,
-                                         PageChooserPanel, StreamFieldPanel)
+from wagtail.admin.edit_handlers import (
+    FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, PageChooserPanel,
+    StreamFieldPanel
+)
 from wagtail.api import APIField
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Orderable, Page
@@ -126,7 +130,8 @@ class HomePage(Page):
         index.SearchField('body')
     ]
 
-    subpage_types = [IndexPage, PeopleIndexPage, StreamPage]
+    subpage_types = [BibliographyIndexPage,
+                     IndexPage, PeopleIndexPage, StreamPage]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
@@ -320,6 +325,9 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
 
 
 # Sets up pages' visibility
+BibliographyIndexPage.parent_page_types = [HomePage]
+BibliographyIndexPage.subpage_types = []
+
 IndexPage.parent_page_types = [HomePage, IndexPage]
 IndexPage.subpage_types = [IndexPage, ProjectPage, StreamPage, ThemePage]
 

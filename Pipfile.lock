@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "834bd24f5d9bdc59f8730a531c04c5262bb2c2785e8f96c1913ca845843d2cc6"
+            "sha256": "d46f6cc5cfeea379e09ec8c3a7b64abfa0de954e5bde3fa288cc7d3219244f71"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -30,6 +30,12 @@
                 "sha256:808b6ac932dccb0a4126558f7dfdcf41710dd44a4ef497a0bb59a77f9f078e89"
             ],
             "version": "==4.6.0"
+        },
+        "bibtexparser": {
+            "hashes": [
+                "sha256:df8966ea752db6d74657a69b9d684a61aa33457ad6d9d50e41c50ef7f374907f"
+            ],
+            "version": "==1.1.0"
         },
         "certifi": {
             "hashes": [
@@ -165,7 +171,7 @@
         "django-kdl-wagtail": {
             "editable": true,
             "git": "https://github.com/kingsdigitallab/django-kdl-wagtail.git",
-            "ref": "7613d9c06e283ed32253ebe816942b68a0f614a4"
+            "ref": "54591d9a81ee0e48a8d8a90749b3be80051dc7f7"
         },
         "django-libsass": {
             "hashes": [
@@ -223,6 +229,20 @@
             ],
             "version": "==2.1.5"
         },
+        "feedparser": {
+            "hashes": [
+                "sha256:bd030652c2d08532c034c27fcd7c85868e7fa3cb2b17f230a44a6bbc92519bf9",
+                "sha256:cd2485472e41471632ed3029d44033ee420ad0b57111db95c240c9160a85831c",
+                "sha256:ce875495c90ebd74b179855449040003a1beb40cd13d5f037a0654251e260b02"
+            ],
+            "version": "==5.2.1"
+        },
+        "future": {
+            "hashes": [
+                "sha256:67045236dcfd6816dc439556d009594abf643e5eb48992e36beac09c2ca659b8"
+            ],
+            "version": "==0.17.1"
+        },
         "html5lib": {
             "hashes": [
                 "sha256:20b159aa3badc9d5ee8f5c647e5efd02ed2a66ab8d354930bd9ff139fc1dc0a3",
@@ -257,6 +277,12 @@
                 "sha256:f4b29b0c70d753c754a58aaad7c31ad3309ca4a26f9aa64e695157251f6832ad"
             ],
             "version": "==0.18.0"
+        },
+        "pathlib": {
+            "hashes": [
+                "sha256:6940718dfc3eff4258203ad5021090933e5c04707d5ca8cc9e73c94a7894ea9f"
+            ],
+            "version": "==1.0.1"
         },
         "pillow": {
             "hashes": [
@@ -354,6 +380,13 @@
             ],
             "version": "==19.0.0"
         },
+        "pyparsing": {
+            "hashes": [
+                "sha256:1873c03321fc118f4e9746baf201ff990ceb915f433f23b395f5580d1840cb2a",
+                "sha256:9b6323ef4ab914af344ba97510e966d64ba91055d6b9afa6b30799340e89cc03"
+            ],
+            "version": "==2.4.0"
+        },
         "python-ldap": {
             "hashes": [
                 "sha256:7d1c4b15375a533564aad3d3deade789221e450052b21ebb9720fb822eccdb8e"
@@ -366,6 +399,14 @@
                 "sha256:d747dd3d23d77ef44c6a3526e274af6efeb0a6f1afd5a69ba4d5be4098c8e141"
             ],
             "version": "==2019.1"
+        },
+        "pyzotero": {
+            "hashes": [
+                "sha256:b4217ff6b19c913b0efc85a1d39e88b92527daf5e0cbce89c5298ca46f8e663e",
+                "sha256:ff175ca79714249e8ccc901a415e8ba47da73c7b38ddbc71aad2f8d531bceb71"
+            ],
+            "index": "pypi",
+            "version": "==1.3.15"
         },
         "rcssmin": {
             "hashes": [
@@ -448,14 +489,6 @@
             ],
             "index": "pypi",
             "version": "==2.5.1"
-        },
-        "wagtail-condensedinlinepanel": {
-            "hashes": [
-                "sha256:b1e952c81b2e422a38170178dc78fdb72b0c25ef2b32f421032f598c3099b663",
-                "sha256:ccce80483a0e4daccfe913c358101dd38b9b80c0cca269fce93e9acd054ecae7"
-            ],
-            "index": "pypi",
-            "version": "==0.5.2"
         },
         "wagtailmenus": {
             "hashes": [

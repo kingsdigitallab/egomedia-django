@@ -101,7 +101,6 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.core',
 
-    # 'condensedinlinepanel',
     'modelcluster',
     'taggit',
     'wagtailmenus',
@@ -110,6 +109,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     'kdl_wagtail.core',
     'kdl_wagtail.people',
+    'kdl_wagtail.zotero',
     'core.apps.CoreConfig'
 ]
 
@@ -348,6 +348,10 @@ KDL_WAGTAIL_KRACKDOWN_FILTERS = [
     'kdl_wagtail.core.utils.krackdown_link',
     'kdl_wagtail.core.utils.krackdown_anchor'
 ]
+
+KDL_WAGTAIL_ZOTERO_LIBRARY_ID = ''
+KDL_WAGTAIL_ZOTERO_LIBRARY_TYPE = ''
+KDL_WAGTAIL_ZOTERO_TOKEN = ''
 
 # -----------------------------------------------------------------------------
 # Automatically generated settings
