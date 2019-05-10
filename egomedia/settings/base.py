@@ -349,8 +349,10 @@ KDL_WAGTAIL_KRACKDOWN_FILTERS = [
     'kdl_wagtail.core.utils.krackdown_anchor'
 ]
 
+KDL_WAGTAIL_ZOTERO_COLLECTION = ''
 KDL_WAGTAIL_ZOTERO_LIBRARY_ID = ''
 KDL_WAGTAIL_ZOTERO_LIBRARY_TYPE = ''
+KDL_WAGTAIL_ZOTERO_STYLE = 'chicago-fullnote-bibliography'
 KDL_WAGTAIL_ZOTERO_TOKEN = ''
 
 # -----------------------------------------------------------------------------
