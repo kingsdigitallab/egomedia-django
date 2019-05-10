@@ -171,7 +171,7 @@
         "django-kdl-wagtail": {
             "editable": true,
             "git": "https://github.com/kingsdigitallab/django-kdl-wagtail.git",
-            "ref": "54591d9a81ee0e48a8d8a90749b3be80051dc7f7"
+            "ref": "e1898b22baf7d3e6a4261bf00ecd81c381c77d93"
         },
         "django-libsass": {
             "hashes": [
