@@ -352,7 +352,7 @@ KDL_WAGTAIL_KRACKDOWN_FILTERS = [
 KDL_WAGTAIL_ZOTERO_COLLECTION = ''
 KDL_WAGTAIL_ZOTERO_LIBRARY_ID = ''
 KDL_WAGTAIL_ZOTERO_LIBRARY_TYPE = ''
-KDL_WAGTAIL_ZOTERO_STYLE = 'chicago-fullnote-bibliography'
+KDL_WAGTAIL_ZOTERO_STYLE = 'chicago-note-bibliography'
 KDL_WAGTAIL_ZOTERO_TOKEN = ''
 
 # -----------------------------------------------------------------------------
