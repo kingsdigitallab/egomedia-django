@@ -8,8 +8,10 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ### Working on 0.1.0
 
-- Expose block anchor links
+- Bug fixes
 - Changed wording in ToC
+- ERC and KCL logos in the footer
+- Expose block anchor links
 - Replacing floating content with flexbox
 - Zotero bibliography
 

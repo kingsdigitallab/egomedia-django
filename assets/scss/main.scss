@@ -114,45 +114,6 @@ img {
   }
 }
 
-// .anchor-link,
-// .float-left,
-// .float-right,
-// .rich-text {
-//   // display: flex;
-//   flex-grow: 1;
-// }
-
-// div[class*="float-"] + a ~ * {
-//   @extend .clearfix;
-// }
-
-// .float-left {
-//   + a {
-//     @extend .float-left;
-//     + .rich-text {
-//       @extend .float-right;
-//     }
-//   }
-
-//   + .float-right + a + .rich-text {
-//     all: unset;
-//     margin-top: 1rem;
-//   }
-// }
-
-// .float-right {
-//   + a {
-//     @extend .float-right;
-//     + .rich-text {
-//       @extend .float-left;
-//     }
-//   }
-
-//   img {
-//     float: right;
-//   }
-// }
-
 .block,
 .embed,
 .image,
@@ -426,6 +387,11 @@ a[class$="_block"] {
 
 /* Main */
 
+main {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 // Blockquotes
 
 blockquote {
@@ -620,6 +586,16 @@ main,
     text-align: center;
     vertical-align: middle;
   }
+}
+
+.acknowledgement {
+  font-size: rem-calc(14);
+  line-height: 1.25;
+  margin-top: 1rem;
+}
+
+.kcl {
+  padding-top: 1rem;
 }
 
 .reveal {
@@ -900,6 +876,21 @@ main,
       font-size: rem-calc(18);
       font-weight: normal;
     }
+}
+
+.bottom-footer {
+  .external {
+    &::before {
+      display: none;
+    }
+  }
+
+  @include breakpoint(small only) {
+    .cell {
+      margin-bottom: .5rem;
+      margin-top: 1rem;
+    }
+  }
 }
 
 /* Prevent the menu bar to display before JS is loaded */
