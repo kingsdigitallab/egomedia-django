@@ -14,6 +14,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Expose block anchor links
 - Replacing floating content with flexbox
 - Zotero bibliography
+- Option to choose which blocks display in the TOC
 
 ### 0.0.9
 
