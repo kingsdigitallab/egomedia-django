@@ -1,43 +1,47 @@
 {% load kdl_wagtail_core_tags core_tags wagtailcore_tags wagtailimages_tags %}
 
 <nav role="navigation">
-    {% if page.body %}
-    <h4>On this page</h4>
-    {% comment %}
-    <div class="cell controls">
-        <button class="button"><i class="fas fa-sort-numeric-down fa-lg"></i></button>
-        <button class="button"><i class="fas fa-sort-alpha-down fa-lg"></i></button>
-    </div>
-    {% endcomment %}
-    <ul class="no-bullet">
-        {% if page.introduction %}
-        <li>
-            <a href="#intro" class="richtext_block">Introduction</a>
-        </li>
-        {% endif %}
-        {% for block in page.body %}
-        <li>
-            <a href="#{% get_object_id block %}" class="{{ block.block_type }}">
-                {% get_block_title block %}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
+  {% if page.body %}
+  <h4>On this page</h4>
+  {% comment %}
+  <div class="cell controls">
+    <button class="button"><i
+        class="fas fa-sort-numeric-down fa-lg"></i></button>
+    <button class="button"><i class="fas fa-sort-alpha-down fa-lg"></i></button>
+  </div>
+  {% endcomment %}
+  <ul class="no-bullet">
+    {% if page.introduction %}
+    <li>
+      <a href="#intro" class="richtext_block">Introduction</a>
+    </li>
     {% endif %}
 
-    {% if page.get_children %}
-    <h4>Other pages in this section</h4>
-    <ul>
-        {% for child in page.get_children.specific %}
-        <li>
-            {% comment %}
-            {% if child.image %}
-            {% image child.image fill-600x300-c100 %}
-            {% endif %}
-            {% endcomment %}
-            <a href="{% pageurl child %}">{{ child.title }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+    {% for block in page.body %}
+    {% if block.value.show_in_menus %}
+    <li>
+      <a href="#{% get_object_id block %}" class="{{ block.block_type }}">
+        {% get_block_title block %}
+      </a>
+    </li>
     {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if page.get_children %}
+  <h4>Other pages in this section</h4>
+  <ul>
+    {% for child in page.get_children.specific %}
+    <li>
+      {% comment %}
+      {% if child.image %}
+      {% image child.image fill-600x300-c100 %}
+      {% endif %}
+      {% endcomment %}
+      <a href="{% pageurl child %}">{{ child.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 </nav>

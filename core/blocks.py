@@ -1,6 +1,6 @@
 from kdl_wagtail.core.blocks import (
-    BaseCaptionAttributionBlock, BaseStreamBlock, DocumentBlock, EmbedBlock,
-    ImageBlock, LinkBlock, TableBlock
+    BaseCaptionAttributionBlock, BaseStreamBlock, BaseStructBlock,
+    DocumentBlock, EmbedBlock, ImageBlock, LinkBlock, TableBlock
 )
 from wagtail.core.blocks import (
     CharBlock, ListBlock, RichTextBlock, StreamBlock, StructBlock, URLBlock
@@ -15,7 +15,7 @@ class MapBlock(BaseCaptionAttributionBlock):
         template = 'core/blocks/map_block.html'
 
 
-class ModalBlock(StructBlock):
+class ModalBlock(BaseStructBlock):
     title = CharBlock()
     body = StreamBlock([
         ('description', RichTextBlock(required=False)),
@@ -47,7 +47,7 @@ class TimelineItemBlock(StructBlock):
         template = 'core/blocks/timeline_item_block.html'
 
 
-class TimelineBlock(StructBlock):
+class TimelineBlock(BaseStructBlock):
     title = CharBlock()
     items = ListBlock(TimelineItemBlock())
 
