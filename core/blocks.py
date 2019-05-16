@@ -65,7 +65,8 @@ class EndNoteItemBlock(StreamBlock):
         template='kdl_wagtail_core/blocks/richtext_block.html'
     )
     bibliography_block = StructBlock([
-        ('entry', SnippetChooserBlock(Bibliography, required=True)),
+        ('entry', SnippetChooserBlock(
+            Bibliography, icon='form', required=True)),
         ('pages', CharBlock(required=False)),
         ('shortnote', BooleanBlock(required=False))
     ], icon='form', required=False)
