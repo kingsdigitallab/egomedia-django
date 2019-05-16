@@ -3,12 +3,15 @@
 
 {% block page-body %}
 <div class="page-body {% get_page_label page %}">
-    {% for block in page.body %}
-    <div class="block{% if block.value.alignment %} {{ block.value.alignment }}{% endif %} {{ block.block_type }}">
-        <a class="anchor-link" id="{% get_object_id block %}"></a>
+  {% for block in page.body %}
+  <div
+    class="block{% if block.value.alignment %} {{ block.value.alignment }}{% endif %} {{ block.block_type }}">
+    <a class="anchor-link" id="{% get_object_id block %}"></a>
 
-        {% include_block block %}
-    </div>
-    {% endfor %}
+    {% include_block block %}
+  </div>
+  {% endfor %}
+
+  {% include "core/includes/endnotes.html" %}
 </div>
 {% endblock page-body %}

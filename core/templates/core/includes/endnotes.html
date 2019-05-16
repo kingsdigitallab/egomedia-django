@@ -1,11 +1,16 @@
 {% load wagtailcore_tags %}
 
-<h2>Endnotes</h2>
+{% if page.endnotes %}
+<div class="endnotes">
+  <a class="anchor-link" id="endnotes"></a>
+  <h2>Endnotes</h2>
 
-<ol class="endnotes">
-  {% for block in page.endnotes %}
-  <li id="endnote-{{ forloop.counter }}">
-    {% include_block block %}
-  </li>
-  {% endfor %}
-</ol>
+  <ol>
+    {% for block in page.endnotes %}
+    <li id="endnote-{{ forloop.counter }}">
+      {% include_block block %}
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+{% endif %}
