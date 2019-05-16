@@ -1,4 +1,6 @@
-from core.blocks import HomePageStreamBlock, TimelineStreamBlock
+from core.blocks import (
+    EndNoteStreamBlock, HomePageStreamBlock, TimelineStreamBlock
+)
 from django import forms
 from django.db import models
 from kdl_wagtail.core.models import (
@@ -228,17 +230,20 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
 class BaseTimelinePage(BasePage):
     body = StreamField(TimelineStreamBlock(),
                        verbose_name='Page body', blank=True)
+    endnotes = StreamField(EndNoteStreamBlock(), blank=True)
 
     api_fields = BasePage.api_fields + [
         APIField('body')
     ]
 
     content_panels = BasePage.content_panels + [
-        StreamFieldPanel('body')
+        StreamFieldPanel('body'),
+        StreamFieldPanel('endnotes')
     ]
 
     search_fields = BasePage.search_fields + [
-        index.SearchField('body')
+        index.SearchField('body'),
+        index.SearchField('endnotes')
     ]
 
     class Meta:

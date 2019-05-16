@@ -11,27 +11,29 @@
 {% endblock %}
 
 {% block page-body %}
-  <div class="grid-x grid-margin-x">
-    <div class="cell medium-3" data-sticky-container>
-      <div class="sticky" data-sticky data-anchor="project-content">
+<div class="grid-x grid-margin-x">
+  <div class="cell medium-3" data-sticky-container>
+    <div class="sticky" data-sticky data-anchor="project-content">
       {% include "core/includes/toc.html" %}
-      </div>
-    </div>
-
-    <div class="cell medium-9" id="project-content">
-      <div class="page-meta">
-        {% include "core/includes/researchers.html" with researchers=self.project_researcher_relationship.all %}
-
-        {% include "core/includes/labels.html" with page=self %}
-      </div>
-
-      {% if page.introduction %}
-      <p class="intro" id="intro">
-        {{ page.introduction }}
-      </p>
-      {% endif %}
-
-      {{ block.super }}
     </div>
   </div>
+
+  <div class="cell medium-9" id="project-content">
+    <div class="page-meta">
+      {% include "core/includes/researchers.html" with researchers=self.project_researcher_relationship.all %}
+
+      {% include "core/includes/labels.html" with page=self %}
+    </div>
+
+    {% if page.introduction %}
+    <p class="intro" id="intro">
+      {{ page.introduction }}
+    </p>
+    {% endif %}
+
+    {{ block.super }}
+
+    {% include "core/includes/endnotes.html" %}
+  </div>
+</div>
 {% endblock %}

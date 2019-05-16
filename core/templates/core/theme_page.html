@@ -1,26 +1,28 @@
 {% extends "kdl_wagtail_core/base_stream_page.html" %}
 
 {% block page-body %}
-  <div class="page-meta">
-    {% include "core/includes/researchers.html" with researchers=self.theme_researcher_relationship.all %}
+<div class="page-meta">
+  {% include "core/includes/researchers.html" with researchers=self.theme_researcher_relationship.all %}
 
-    {% include "core/includes/labels.html" with page=self %}
+  {% include "core/includes/labels.html" with page=self %}
+</div>
+
+<div class="grid-x">
+  <div class="cell medium-3">
+    {% include "core/includes/toc.html" %}
   </div>
 
-  <div class="grid-x">
-    <div class="cell medium-3">
-      {% include "core/includes/toc.html" %}
-    </div>
+  <div class="cell medium-7">
 
-    <div class="cell medium-7">
+    {% if page.introduction %}
+    <p class="intro" id="intro">
+      {{ page.introduction }}
+    </p>
+    {% endif %}
 
-      {% if page.introduction %}
-      <p class="intro" id="intro">
-        {{ page.introduction }}
-      </p>
-      {% endif %}
+    {{ block.super }}
 
-      {{ block.super }}
-    </div>
+    {% include "core/includes/endnotes.html" %}
   </div>
+</div>
 {% endblock %}
