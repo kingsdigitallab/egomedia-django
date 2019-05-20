@@ -416,6 +416,14 @@ cite {
   }
 }
 
+// Callouts
+
+#message-success {
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+}
+
 // Cards
 
 .card {
