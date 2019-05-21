@@ -1,6 +1,4 @@
-from core.blocks import (
-    EndNoteStreamBlock, HomePageStreamBlock, TimelineStreamBlock
-)
+from core.blocks import HomePageStreamBlock, TimelineStreamBlock
 from django import forms
 from django.db import models
 from kdl_wagtail.core.models import (
@@ -9,7 +7,7 @@ from kdl_wagtail.core.models import (
 from kdl_wagtail.people.models import (
     PeopleIndexPage, Person, PersonModel, PersonPage
 )
-from kdl_wagtail.zotero.models import BibliographyIndexPage
+from kdl_wagtail.zotero.models import Bibliography, BibliographyIndexPage
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.models import ClusterableModel
 from wagtail.admin.edit_handlers import (
@@ -17,7 +15,7 @@ from wagtail.admin.edit_handlers import (
     StreamFieldPanel
 )
 from wagtail.api import APIField
-from wagtail.core.fields import StreamField
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Orderable, Page
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
@@ -119,6 +117,27 @@ class FacetsMixin(models.Model):
 
     def get_page_facets(self):
         pass
+
+
+class EndNoteMixin(models.Model):
+    pre_text = RichTextField(blank=True, null=True)
+    bibliography_entry = models.ForeignKey(
+        Bibliography, blank=True, null=True, on_delete=models.SET_NULL)
+    bibliography_pages = models.CharField(
+        max_length=256, blank=True, null=True)
+    bibliography_shortnote = models.BooleanField()
+    post_text = RichTextField(blank=True, null=True)
+
+    panels = [
+        FieldPanel('pre_text'),
+        SnippetChooserPanel('bibliography_entry', Bibliography),
+        FieldPanel('bibliography_pages'),
+        FieldPanel('bibliography_shortnote'),
+        FieldPanel('post_text')
+    ]
+
+    class Meta:
+        abstract = True
 
 
 class HomePage(Page):
@@ -230,24 +249,24 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
 class BaseTimelinePage(BasePage):
     body = StreamField(TimelineStreamBlock(),
                        verbose_name='Page body', blank=True)
-    endnotes = StreamField(EndNoteStreamBlock(), blank=True)
 
     api_fields = BasePage.api_fields + [
         APIField('body')
     ]
 
     content_panels = BasePage.content_panels + [
-        StreamFieldPanel('body'),
-        StreamFieldPanel('endnotes')
+        StreamFieldPanel('body')
     ]
 
     search_fields = BasePage.search_fields + [
         index.SearchField('body'),
-        index.SearchField('endnotes')
     ]
 
     class Meta:
         abstract = True
+
+    def get_endnotes_by_entry(self):
+        return self.endnotes.order_by('bibliography_entry__order')
 
 
 class ProjectThemeRelationship(Orderable, models.Model):
@@ -282,6 +301,7 @@ class ProjectResearcherRelationship(Orderable, models.Model):
 
 class ProjectPage(BaseTimelinePage, FacetsMixin):
     content_panels = BaseTimelinePage.content_panels + [
+        InlinePanel('endnotes', label='EndNotes'),
         InlinePanel('project_theme_relationship',
                     label='Themes', panels=None, min_num=1),
         InlinePanel('project_researcher_relationship',
@@ -307,9 +327,15 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
             theme_project_relationship__in=related)
 
 
+class ProjectEndnote(EndNoteMixin, Orderable):
+    project = ParentalKey(
+        ProjectPage, on_delete=models.CASCADE, related_name='endnotes')
+
+
 class ThemePage(BaseTimelinePage, FacetsMixin):
-    content_panels = BaseTimelinePage.content_panels + \
-        FacetsMixin.content_panels
+    content_panels = BaseTimelinePage.content_panels + [
+        InlinePanel('endnotes', label='EndNotes')
+    ] + FacetsMixin.content_panels
 
     parent_page_types = [IndexPage]
     subpage_types = []
@@ -327,6 +353,11 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
             ('researcher', researchers),
             ('project', projects)
         ]
+
+
+class ThemeEndnote(EndNoteMixin, Orderable):
+    theme = ParentalKey(
+        ThemePage, on_delete=models.CASCADE, related_name='endnotes')
 
 
 # Sets up pages' visibility

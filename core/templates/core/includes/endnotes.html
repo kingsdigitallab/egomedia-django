@@ -1,16 +1,47 @@
 {% load wagtailcore_tags %}
 
 {% if page.endnotes %}
+
+{% with endnotes=page.endnotes.all|dictsort:"sort_order" %}
 <div class="endnotes">
   <a class="anchor-link" id="endnotes"></a>
   <h2>Endnotes</h2>
 
   <ol>
-    {% for block in page.endnotes %}
+    {% for endnote in endnotes %}
     <li id="endnote-{{ forloop.counter }}">
-      {% include_block block %}
+      {% spaceless %}
+      {{ endnote.pre_text|richtext }}
+
+      {% if endnote.bibliography_shortnote %}
+      {{ endnote.bibliography_entry.shortnote }}
+      {% else %}
+      {{ endnote.bibliography_entry.note }}
+      {% endif %}
+
+      {% if endnote.bibliography_pages %}
+      {{ endnote.bibliography_pages }}.
+      {% endif %}
+
+      {{ endnote.post_text|richtext }}
+      {% endspaceless %}
     </li>
     {% endfor %}
   </ol>
 </div>
+{% endwith %}
+
+<div class="bibliography">
+  <a class="anchor-link" id="bibliography"></a>
+  <h2>Bibliography</h2>
+
+  <ul class="no-bullet">
+    {% regroup page.get_endnotes_by_entry by bibliography_entry as entry_list %}
+
+    {% for entry in entry_list %}
+    <li>{{ entry.grouper.entry }}</li>
+    {% endfor %}
+  </ul>
+</div>
+
 {% endif %}
