@@ -15,6 +15,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Replacing floating content with flexbox
 - Zotero bibliography
 - Option to choose which blocks display in the TOC
+- Endnotes
 
 ### 0.0.9
 
