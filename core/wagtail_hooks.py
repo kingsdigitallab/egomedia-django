@@ -1,5 +1,7 @@
-from wagtail.contrib.modeladmin.options import (ModelAdmin, ModelAdminGroup,
-                                                modeladmin_register)
+from wagtail.contrib.modeladmin.options import (
+    ModelAdmin, ModelAdminGroup, modeladmin_register
+)
+from wagtail.core import hooks
 
 from .models import Discipline, Focus, Keyword, Method
 
@@ -33,3 +35,11 @@ class FacetGroup(ModelAdminGroup):
 
 
 modeladmin_register(FacetGroup)
+
+
+@hooks.register('register_rich_text_features')
+def register_core_features(features):
+    features.default_features.append('superscript')
+    features.default_features.append('subscript')
+    features.default_features.append('strikethrough')
+    features.default_features.append('blockquote')
