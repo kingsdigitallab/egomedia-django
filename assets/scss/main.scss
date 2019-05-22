@@ -11,12 +11,12 @@
 /* Globals */
 
 body {
-    font-family: "KingsCaslon", serif;
-    font-size: rem-calc(20);
-    
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+  font-family: "KingsCaslon", serif;
+  font-size: rem-calc(20);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .bottom-footer,
@@ -27,24 +27,26 @@ body {
 }
 
 .block {
-  display: flex;
+  // display: flex;
   flex: 100% 0;
-  
+
   @include breakpoint(medium) {
+
     &.float-left,
     &.float-right,
-    &.float-left + .block.richtext_block,
-    &.float-right + .block.richtext_block {
+    &.float-left+.block.richtext_block,
+    &.float-right+.block.richtext_block {
       flex: 47% 0;
       justify-content: space-between;
     }
   }
 
   @include breakpoint(small only) {
+
     &.float-left,
     &.float-right,
-    &.float-left + .block.richtext_block,
-    &.float-right + .block.richtext_block {
+    &.float-left+.block.richtext_block,
+    &.float-right+.block.richtext_block {
       flex: 90% 0;
     }
   }
@@ -151,7 +153,12 @@ iframe {
 
 // Headings
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $medium-gray;
   font-family: "KingsBureauGrot", sans-serif;
   line-height: 1.25em;
@@ -209,7 +216,7 @@ nav {
     .menu {
       margin: .5rem 0;
 
-      .active > a {
+      .active>a {
         background: $light-gray;
         border-bottom: 5px solid $dark-gray;
         color: $dark-gray;
@@ -344,6 +351,7 @@ a[class$="_block"] {
 }
 
 .controls {
+
   button,
   .button {
     background-color: $dark-blue;
@@ -363,7 +371,7 @@ a[class$="_block"] {
   .menu-icon {
     &::after {
       background-color: $medium-gray;
-      box-shadow: 0 7px 0 $medium-gray,0 14px 0 $medium-gray;
+      box-shadow: 0 7px 0 $medium-gray, 0 14px 0 $medium-gray;
     }
   }
 }
@@ -436,7 +444,7 @@ cite {
   }
 
   &.researcherpage {
-    border-top: 5px solid $bright-green;   
+    border-top: 5px solid $bright-green;
   }
 
   // .streampage == default
@@ -455,7 +463,7 @@ cite {
   a {
     &.intro {
       color: $dark-gray;
-      
+
       &:hover {
         background: $bright-yellow;
         text-decoration: none;
@@ -481,7 +489,7 @@ audio {
   width: 90%;
 }
 
-audio + p {
+audio+p {
   padding-left: 0.5rem;
 }
 
@@ -633,7 +641,7 @@ main,
 
 .nested-list {
 
-  > li:not(:first-child) {
+  >li:not(:first-child) {
     border-top: 1px solid $light-gray;
   }
 
@@ -658,6 +666,7 @@ main,
 }
 
 #current-filters {
+
   button,
   .button {
     background-color: $light-gray;
@@ -703,7 +712,7 @@ main,
 
       &::after {
         content: "\f2ed";
-      }    
+      }
     }
   }
 }
@@ -867,23 +876,23 @@ main,
 // Cookies box
 
 .cookies-box {
-    background: $dark-blue;
-    bottom: 0;
-    color: white;
-    left: 0;
-    margin: 0;
-    opacity: 0.95;
-    padding-top: 1rem;
-    position: fixed;
-    text-align: center;
-    width: 100%;
+  background: $dark-blue;
+  bottom: 0;
+  color: white;
+  left: 0;
+  margin: 0;
+  opacity: 0.95;
+  padding-top: 1rem;
+  position: fixed;
+  text-align: center;
+  width: 100%;
 
-    button,
-    .button {
-      font-family: "KingsBureauGrot", sans-serif;
-      font-size: rem-calc(18);
-      font-weight: normal;
-    }
+  button,
+  .button {
+    font-family: "KingsBureauGrot", sans-serif;
+    font-size: rem-calc(18);
+    font-weight: normal;
+  }
 }
 
 .bottom-footer {
