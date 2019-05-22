@@ -171,7 +171,7 @@
         "django-kdl-wagtail": {
             "editable": true,
             "git": "https://github.com/kingsdigitallab/django-kdl-wagtail.git",
-            "ref": "1c7192cf1dfab53a83bbbbc0a8f04620ca42f850"
+            "ref": "e4a535b7490dd7ce1fe78f3c243e8289b559073d"
         },
         "django-libsass": {
             "hashes": [
@@ -491,11 +491,11 @@
         },
         "wagtailmenus": {
             "hashes": [
-                "sha256:64cdbfa6294df4a2629638561695cb0380c470070f7298ce3f770d443fbddcd9",
-                "sha256:f705e0a01b5af704ef9a1d82e15b47b6f884ad8698a63b72c80177781d9401f0"
+                "sha256:a22fa5b5b5ea8084271f87a3562b9bcedd199bd64a36f67025acbfc795360f04",
+                "sha256:f1f4d7f3e048f9cc973feccf4f746474e5948e546c39096f2234d2735fe64c8d"
             ],
             "index": "pypi",
-            "version": "==2.13"
+            "version": "==2.13.1"
         },
         "wand": {
             "hashes": [

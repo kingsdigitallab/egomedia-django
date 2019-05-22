@@ -3,13 +3,13 @@
 {% if page.endnotes %}
 
 {% with endnotes=page.endnotes.all|dictsort:"sort_order" %}
-<div class="endnotes">
+<div class="block endnotes">
   <a class="anchor-link" id="endnotes"></a>
   <h2>Endnotes</h2>
 
   <ol>
     {% for endnote in endnotes %}
-    <li id="endnote-{{ forloop.counter }}">
+    <li id="fn:{{ forloop.counter }}">
       {% spaceless %}
       {{ endnote.pre_text|richtext }}
 
@@ -31,7 +31,7 @@
 </div>
 {% endwith %}
 
-<div class="bibliography">
+<div class="block bibliography">
   <a class="anchor-link" id="bibliography"></a>
   <h2>Bibliography</h2>
 
