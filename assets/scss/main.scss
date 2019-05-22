@@ -27,7 +27,6 @@ body {
 }
 
 .block {
-  // display: flex;
   flex: 100% 0;
 
   @include breakpoint(medium) {
@@ -48,6 +47,19 @@ body {
     &.float-left+.block.richtext_block,
     &.float-right+.block.richtext_block {
       flex: 90% 0;
+    }
+  }
+
+
+  &.endnotes ol li {
+    clear: both;
+
+    .join * {
+      float: left;
+
+      &::after {
+        content: '\a0';
+      }
     }
   }
 }

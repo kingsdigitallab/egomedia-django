@@ -10,21 +10,31 @@
   <ol>
     {% for endnote in endnotes %}
     <li id="fn:{{ forloop.counter }}">
-      {% spaceless %}
-      {{ endnote.pre_text|richtext }}
+      {% if endnote.pre_text %}
+      <div class="join">
+        {{ endnote.pre_text|richtext }}
+      </div>
+      {% endif %}
 
       {% if endnote.bibliography_shortnote %}
-      {{ endnote.bibliography_entry.shortnote }}
+      <div class="join">
+        {{ endnote.bibliography_entry.shortnote }}
+      </div>
       {% else %}
-      {{ endnote.bibliography_entry.note }}
+      <div class="join">
+        {{ endnote.bibliography_entry.note }}
+      </div>
       {% endif %}
 
       {% if endnote.bibliography_pages %}
-      {{ endnote.bibliography_pages }}.
+      <div class="join">{{ endnote.bibliography_pages }}.</div>
       {% endif %}
 
-      {{ endnote.post_text|richtext }}
-      {% endspaceless %}
+      {% if endnote.post_text %}
+      <div class="join">
+        {{ endnote.post_text|richtext }}
+      </div>
+      {% endif %}
     </li>
     {% endfor %}
   </ol>
