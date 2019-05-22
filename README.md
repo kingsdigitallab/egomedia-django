@@ -16,6 +16,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Zotero bibliography
 - Option to choose which blocks display in the TOC
 - Endnotes
+- Markdown foonote/endnote syntax
 
 ### 0.0.9
 
