@@ -104,6 +104,9 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
     'wagtailmenus',
+
+    'bakery',
+    'wagtailbakery'
 ]
 
 INSTALLED_APPS += [
@@ -340,6 +343,15 @@ WAGTAILEMBEDS_FINDERS = [
 
 WAGTAILUSERS_PASSWORD_ENABLED = False
 WAGTAILUSERS_PASSWORD_REQUIRED = False
+
+# Wagtail Bakery: https://github.com/wagtail/wagtail-bakery
+BUILD_DIR = os.path.join(BASE_DIR, 'build')
+
+BAKERY_VIEWS = (
+    'wagtailbakery.views.AllPublishedPagesView',
+)
+
+# KDL Wagtail
 
 KDL_WAGTAIL_ITEMS_PER_PAGE = 50
 KDL_WAGTAIL_PERSON_MODEL = 'kdl_wagtail_people.Person'
