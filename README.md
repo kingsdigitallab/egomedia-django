@@ -17,6 +17,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Option to choose which blocks display in the TOC
 - Endnotes
 - Markdown foonote/endnote syntax
+- Static site generation via the wagtail bakery package
 
 ### 0.0.9
 
