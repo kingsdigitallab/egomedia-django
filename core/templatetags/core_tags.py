@@ -36,3 +36,15 @@ def get_filter_value(category, value):
         return
 
     return '{}_{}'.format(category.lower(), re.sub(r'\W', '_', value.lower()))
+
+
+@register.simple_tag(takes_context=True)
+def sort_endnotes(context, endnotes, field):
+    request = context.get('request')
+
+    # django modelcluster doesn't support __ clauses in order_by
+    # and it causes the preview to fail
+    if getattr(request, 'is_preview') and '__' in field:
+        return endnotes
+
+    return endnotes.order_by(field)

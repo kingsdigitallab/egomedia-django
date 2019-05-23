@@ -119,7 +119,7 @@ class FacetsMixin(models.Model):
         pass
 
 
-class EndNoteMixin(models.Model):
+class EndNoteMixin(ClusterableModel):
     pre_text = RichTextField(blank=True, null=True)
     bibliography_entry = models.ForeignKey(
         Bibliography, blank=True, null=True, on_delete=models.SET_NULL)

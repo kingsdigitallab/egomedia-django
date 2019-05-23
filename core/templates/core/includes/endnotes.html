@@ -1,4 +1,4 @@
-{% load wagtailcore_tags %}
+{% load core_tags wagtailcore_tags %}
 
 {% if page.endnotes %}
 
@@ -39,8 +39,18 @@
   <a class="anchor-link" id="bibliography"></a>
   <h2>Bibliography</h2>
 
+  {% if request.is_preview %}
+  <div class="callout alert">
+    <h5>Bibliography entries order</h5>
+    <p>The order of the bibliography entries may not be as expected/correct in
+      <strong>preview mode</strong>.
+    </p>
+  </div>
+  {% endif %}
+
   <ul class="no-bullet">
-    {% regroup page.get_endnotes_by_entry by bibliography_entry as entry_list %}
+    {% sort_endnotes page.endnotes.all 'bibliography_entry__order' as endnotes %}
+    {% regroup endnotes by bibliography_entry as entry_list %}
 
     {% for entry in entry_list %}
     <li>{{ entry.grouper.entry }}</li>
