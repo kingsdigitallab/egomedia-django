@@ -16,7 +16,7 @@ tox-pipenv = "*"
 django-activecollab-digger = "*"
 django-extensions = "*"
 django-kdl-ldap = "*"
-django-kdl-wagtail = {editable = true,git = "https://github.com/kingsdigitallab/django-kdl-wagtail.git",ref = "develop"}
+django-kdl-wagtail = {editable = true,ref = "develop",git = "https://github.com/kingsdigitallab/django-kdl-wagtail.git"}
 django-libsass = "*"
 django-model-utils = "*"
 django-redis = "*"
@@ -26,6 +26,7 @@ pyzotero = "*"
 wagtail = "*"
 wagtailmenus = "*"
 wand = "*"
+wagtail-bakery = "*"
 
 [requires]
 python_version = "3.5"
