@@ -51,17 +51,17 @@ body {
   }
 
 
-  &.endnotes ol li {
-    clear: both;
+  // &.endnotes ol li {
+  //   clear: both;
 
-    .join * {
-      float: left;
+  //   .join * {
+  //     float: left;
 
-      &::after {
-        content: '\a0';
-      }
-    }
-  }
+  //     &::after {
+  //       content: '\a0';
+  //     }
+  //   }
+  // }
 }
 
 /* TODO: needs styling */
