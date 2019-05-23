@@ -27,6 +27,8 @@
       {% if endnote.post_text %}
       {{ endnote.post_text|richtext }}
       {% endif %}
+
+      <a href="#fnref:{{ forloop.counter }}" class="reversefootnote">↩</a>
     </li>
     {% endfor %}
   </ol>
