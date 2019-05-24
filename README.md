@@ -18,6 +18,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Endnotes
 - Markdown foonote/endnote syntax
 - Static site generation via the wagtail bakery package
+- Modified sticky sidebar to allow for internal scrolling
 
 ### 0.0.9
 
