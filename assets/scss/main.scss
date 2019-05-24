@@ -83,6 +83,7 @@ body {
 
 a {
   word-break: break-all;
+  word-wrap: break-word;
 }
 
 .external {
@@ -250,6 +251,19 @@ nav {
       }
     }
   }
+}
+
+.sidebar {
+  &.is-stuck {
+    max-height: 95vh;
+    overflow-y: scroll;
+  }
+}
+
+.toc {
+  // max-height: 90vh;
+  // overflow: scroll;
+  word-wrap: break-word;
 }
 
 .top-bar {
