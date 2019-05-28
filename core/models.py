@@ -359,6 +359,9 @@ class ThemeEndnote(EndNoteMixin, Orderable):
     theme = ParentalKey(
         ThemePage, on_delete=models.CASCADE, related_name='endnotes')
 
+    class Meta:
+        ordering = ['sort_order']
+
 
 # Sets up pages' visibility
 BibliographyIndexPage.parent_page_types = [HomePage]
