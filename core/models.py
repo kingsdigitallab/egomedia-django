@@ -327,7 +327,7 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
             theme_project_relationship__in=related)
 
 
-class ProjectEndnote(EndNoteMixin, Orderable):
+class ProjectEndnote(Orderable, EndNoteMixin):
     project = ParentalKey(
         ProjectPage, on_delete=models.CASCADE, related_name='endnotes')
 
@@ -355,12 +355,9 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
         ]
 
 
-class ThemeEndnote(EndNoteMixin, Orderable):
+class ThemeEndnote(Orderable, EndNoteMixin):
     theme = ParentalKey(
         ThemePage, on_delete=models.CASCADE, related_name='endnotes')
-
-    class Meta:
-        ordering = ['sort_order']
 
 
 # Sets up pages' visibility
