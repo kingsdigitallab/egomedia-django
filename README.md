@@ -6,7 +6,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
-### Working on 0.1.0
+### 0.1: Increment 6
 
 - Bug fixes
 - Changed wording in ToC
@@ -19,6 +19,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Markdown foonote/endnote syntax
 - Static site generation via the wagtail bakery package
 - Modified sticky sidebar to allow for internal scrolling
+- Reduce session duration to one hour
 
 ### 0.0.9
 
