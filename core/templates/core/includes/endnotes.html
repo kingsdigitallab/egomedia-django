@@ -1,6 +1,6 @@
 {% load core_tags wagtailcore_tags %}
 
-{% if page.endnotes %}
+{% if page.endnotes.count > 0 %}
 
 {% with endnotes=page.endnotes.all|dictsort:"sort_order" %}
 <div class="block endnotes">
