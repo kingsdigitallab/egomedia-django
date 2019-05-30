@@ -239,7 +239,9 @@ AUTH_LDAP_REQUIRE_GROUP = (
 # https://docs.djangoproject.com/en/dev/ref/settings/#sessions
 # -----------------------------------------------------------------------------
 
+SESSION_COOKIE_AGE = 60 * 60
 SESSION_COOKIE_SECURE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # -----------------------------------------------------------------------------
 # Static files (CSS, JavaScript, Images)
