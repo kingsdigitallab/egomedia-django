@@ -93,13 +93,6 @@ $(document).ready(function() {
     .range([0, width])
     .domain(allNodes)
 
-  // In my input data, links are provided between nodes -id-, NOT between node names.
-  // So I have to do a link between this id and the name
-  idToNode = {}
-  data.nodes.forEach(function(n) {
-    idToNode[n.id] = n
-  })
-
   // Add the links
   var links = svg
     .selectAll('mylinks')
@@ -107,8 +100,8 @@ $(document).ready(function() {
     .enter()
     .append('path')
     .attr('d', function(d) {
-      start = x(idToNode[d.source].name) // X position of start node on the X axis
-      end = x(idToNode[d.target].name) // X position of end node
+      start = x(d.source) // X position of start node on the X axis
+      end = x(d.target) // X position of end node
       return [
         'M',
         start,
