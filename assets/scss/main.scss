@@ -970,25 +970,29 @@ main,
 svg {
   .hover {
     path {
-      stroke: #ccc;
+      stroke-opacity: 0.1;
 
       &.primary {
-        stroke: #333;
         stroke-opacity: 1;
+        stroke-width: 3;
       }
     }
 
     text {
-      fill: #ccc;
+      font-weight: 1;
+      opacity: 0.25;
     }
 
     g.primary text {
-      fill: black;
-      font-weight: bold;
+      font-variant-caps: all-small-caps;
+      font-weight: 1000;
+      opacity: 1;
     }
 
     g.secondary text {
-      fill: #333;
+      font-variant-caps: all-small-caps;
+      font-weight: 500;
+      opacity: 1;
     }
   }
 }

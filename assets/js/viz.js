@@ -46,10 +46,10 @@ $(document).ready(() => {
   })
 
   data.nodes.sort((a, b) => {
-    if (a.id < b.id) {
+    if (a.name < b.name) {
       return -1
     }
-    if (a.id > b.id) {
+    if (a.name > b.name) {
       return 1
     }
 
@@ -70,18 +70,27 @@ $(document).ready(() => {
     target.targetLinks.push(link)
   }
 
+  const colours = {
+    project: '#8cc5e3',
+    researcher: '#93db83',
+    theme: '#fcb049'
+  }
+
   // 2. d3: functions/settings
-  const color = d3.scaleOrdinal(
-    data.nodes.map(d => d.group).sort(d3.ascending),
-    d3.schemeCategory10
-  )
+  const colour = group => {
+    if (group in colours) {
+      return colours[group]
+    }
+
+    return '#e2e2e2'
+  }
 
   const margin = { top: 30, right: 30, bottom: 30, left: 30 }
   const step = 14
   const width = (data.nodes.length - 1) * step + margin.left + margin.right
-  const height = 600 - margin.top - margin.bottom
+  const height = 600 + margin.top + margin.bottom
 
-  const x = d3.scalePoint(data.nodes.map(d => d.id).sort(d3.ascending), [
+  const x = d3.scalePoint(data.nodes.map(d => d.id), [
     margin.left,
     width - margin.right
   ])
@@ -119,14 +128,14 @@ $(document).ready(() => {
         .append('text')
         .attr('x', -5)
         .attr('dy', '0.35em')
-        .attr('fill', d => d3.lab(color(d.group)).darker(2))
+        .attr('fill', d => d3.lab(colour(d.group)).darker(2))
         .text(d => d.name)
     )
     .call(g =>
       g
         .append('circle')
         .attr('r', 3)
-        .attr('fill', d => color(d.group))
+        .attr('fill', d => colour(d.group))
     )
 
   const path = svg
@@ -137,9 +146,7 @@ $(document).ready(() => {
     .selectAll('path')
     .data(data.links)
     .join('path')
-    .attr('stroke', d =>
-      d.source.group === d.target.group ? color(d.source.group) : '#aaa'
-    )
+    .attr('stroke', d => colour(d.source.group))
     .attr('d', arc)
 
   const overlay = svg
