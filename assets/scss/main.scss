@@ -964,3 +964,31 @@ main,
     }
   }
 }
+
+/* SVG/Viz */
+
+svg {
+  .hover {
+    path {
+      stroke: #ccc;
+
+      &.primary {
+        stroke: #333;
+        stroke-opacity: 1;
+      }
+    }
+
+    text {
+      fill: #ccc;
+    }
+
+    g.primary text {
+      fill: black;
+      font-weight: bold;
+    }
+
+    g.secondary text {
+      fill: #333;
+    }
+  }
+}

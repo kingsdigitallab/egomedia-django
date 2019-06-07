@@ -1,7 +1,25 @@
-$(document).ready(function() {
+$(document).ready(() => {
+  // 1. prepare the data
   data = {
-    nodes: Array(),
-    links: Array()
+    nodes: [],
+    links: []
+  }
+
+  const addNode = (nodes, node) => {
+    if (!nodes.find(item => item.id === node)) {
+      nodes.push({
+        id: node,
+        name: node
+          .split('_')
+          .slice(1)
+          .join(' '),
+        group: node.split('_').shift(),
+        sourceLinks: [],
+        targetLinks: []
+      })
+    }
+
+    return nodes
   }
 
   $('#results .cell').each(function() {
@@ -9,27 +27,15 @@ $(document).ready(function() {
       .attr('class')
       .split(' ')
 
-    // ignore the first element
+    // ignores the first element
     classes.shift()
 
     const node = classes.shift()
 
-    if (!data.nodes.includes(node)) {
-      data.nodes.push({
-        id: node,
-        name: node,
-        group: node.split('_').shift()
-      })
-    }
+    data.nodes = addNode(data.nodes, node)
 
-    classes.forEach(function(item) {
-      if (!data.nodes.includes(item)) {
-        data.nodes.push({
-          id: item,
-          name: item,
-          group: item.split('_').shift()
-        })
-      }
+    classes.forEach(item => {
+      data.nodes = addNode(data.nodes, item)
 
       data.links.push({
         source: node,
@@ -39,24 +45,58 @@ $(document).ready(function() {
     })
   })
 
-  data.nodes.sort(function(a, b) {
-    if (a.id > b.id) {
+  data.nodes.sort((a, b) => {
+    if (a.id < b.id) {
       return -1
     }
-    if (a.id < b.id) {
+    if (a.id > b.id) {
       return 1
     }
 
     return 0
   })
 
-  // d3
-  var margin = { top: 0, right: 30, bottom: 50, left: 60 },
-    width = 1440 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom
+  const nodeById = new Map(data.nodes.map(d => [d.id, d]))
 
-  // append the svg object to the body of the page
-  var svg = d3
+  data.links = data.links.map(({ source, target, value }) => ({
+    source: nodeById.get(source),
+    target: nodeById.get(target),
+    value
+  }))
+
+  for (const link of data.links) {
+    const { source, target, value } = link
+    source.sourceLinks.push(link)
+    target.targetLinks.push(link)
+  }
+
+  // 2. d3: functions/settings
+  const color = d3.scaleOrdinal(
+    data.nodes.map(d => d.group).sort(d3.ascending),
+    d3.schemeCategory10
+  )
+
+  const margin = { top: 30, right: 30, bottom: 30, left: 30 }
+  const step = 14
+  const width = (data.nodes.length - 1) * step + margin.left + margin.right
+  const height = 600 - margin.top - margin.bottom
+
+  const x = d3.scalePoint(data.nodes.map(d => d.id).sort(d3.ascending), [
+    margin.left,
+    width - margin.right
+  ])
+
+  const arc = d => {
+    const x1 = x(d.source.id)
+    const x2 = x(d.target.id)
+    const r = Math.abs(x2 - x1) / 2
+    return `M${x1},${height - step}A${r},${r} 0,0,${
+      x1 < x2 ? 1 : 0
+    } ${x2},${height - step}`
+  }
+
+  // 3. d3: render the svg
+  const svg = d3
     .select('#viz')
     .append('svg')
     .attr('width', width + margin.left + margin.right)
@@ -64,130 +104,73 @@ $(document).ready(function() {
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  // list of node names
-  var allNodes = data.nodes.map(function(d) {
-    return d.name
-  })
-
-  // list of groups
-  var allGroups = data.nodes.map(function(d) {
-    return d.group
-  })
-  allGroups = [...new Set(allGroups)]
-
-  // a color scale for groups:
-  var color = d3
-    .scaleOrdinal()
-    .domain(allGroups)
-    .range(d3.schemeSet3)
-
-  // a linear scale for node size
-  var size = d3
-    .scaleLinear()
-    .domain([1, 10])
-    .range([2, 10])
-
-  // a linear scale to position the nodes on the X axis
-  var x = d3
-    .scalePoint()
-    .range([0, width])
-    .domain(allNodes)
-
-  // Add the links
-  var links = svg
-    .selectAll('mylinks')
-    .data(data.links)
-    .enter()
-    .append('path')
-    .attr('d', function(d) {
-      start = x(d.source) // X position of start node on the X axis
-      end = x(d.target) // X position of end node
-      return [
-        'M',
-        start,
-        height - 30, // the arc starts at the coordinate x=start, y=height-30 (where the starting node is)
-        'A', // This means we're gonna build an elliptical arc
-        (start - end) / 2,
-        ',', // Next 2 lines are the coordinates of the inflexion point. Height of this point is proportional with start - end distance
-        (start - end) / 2,
-        0,
-        0,
-        ',',
-        start < end ? 1 : 0,
-        end,
-        ',',
-        height - 30
-      ] // We always want the arc on top. So if end is before start, putting 0 here turn the arc upside down.
-        .join(' ')
-    })
-    .style('fill', 'none')
-    .attr('stroke', 'grey')
-    .style('stroke-width', 1)
-
-  // Add the circle for the nodes
-  var nodes = svg
-    .selectAll('mynodes')
-    .data(data.nodes)
-    .enter()
-    .append('circle')
-    .attr('cx', function(d) {
-      return x(d.name)
-    })
-    .attr('cy', height - 30)
-    .attr('r', function(d) {
-      return size(5)
-    })
-    .style('fill', function(d) {
-      return color(d.group)
-    })
-    .attr('stroke', 'white')
-
-  // And give them a label
-  var labels = svg
-    .selectAll('mylabels')
-    .data(data.nodes)
-    .enter()
-    .append('text')
+  const label = svg
+    .append('g')
+    .attr('font-family', 'sans-serif')
     .attr('font-size', 10)
-    .attr('transform', function(d) {
-      return 'translate(' + x(d.id) + ',' + (height - 15) + ')rotate(-90)'
-    })
-    .attr('x', 0)
-    .attr('y', 0)
-    .text(function(d) {
-      return d.name
-    })
-    .style('text-anchor', 'end')
+    .attr('text-anchor', 'end')
+    .selectAll('g')
+    .data(data.nodes)
+    .join('g')
+    .attr('id', d => d.id)
+    .attr('transform', d => `translate(${x(d.id)},${height - 15})rotate(-45)`)
+    .call(g =>
+      g
+        .append('text')
+        .attr('x', -5)
+        .attr('dy', '0.35em')
+        .attr('fill', d => d3.lab(color(d.group)).darker(2))
+        .text(d => d.name)
+    )
+    .call(g =>
+      g
+        .append('circle')
+        .attr('r', 3)
+        .attr('fill', d => color(d.group))
+    )
 
-  // Add the highlighting functionnality
-  nodes
-    .on('mouseover', function(d) {
-      // Highlight the nodes: every node is green except of him
-      nodes.style('opacity', 0.2)
-      d3.select(this).style('opacity', 1)
-      // Highlight the connections
-      links
-        .style('stroke', function(link_d) {
-          return link_d.source === d.id || link_d.target === d.id
-            ? color(d.group)
-            : '#b8b8b8'
-        })
-        .style('stroke-opacity', function(link_d) {
-          return link_d.source === d.id || link_d.target === d.id ? 1 : 0.2
-        })
-        .style('stroke-width', function(link_d) {
-          return link_d.source === d.id || link_d.target === d.id ? 4 : 1
-        })
-      labels.attr('font-size', function(label_d) {
-        return label_d.name === d.name ? 16 : 5
-      })
+  const path = svg
+    .insert('g', '*')
+    .attr('fill', 'none')
+    .attr('stroke-opacity', 0.6)
+    .attr('stroke-width', 1.5)
+    .selectAll('path')
+    .data(data.links)
+    .join('path')
+    .attr('stroke', d =>
+      d.source.group === d.target.group ? color(d.source.group) : '#aaa'
+    )
+    .attr('d', arc)
+
+  const overlay = svg
+    .append('g')
+    .attr('fill', 'none')
+    .attr('pointer-events', 'all')
+    .selectAll('rect')
+    .data(data.nodes)
+    .join('rect')
+    .attr('width', step)
+    .attr('height', height - margin.top)
+    .attr('x', d => x(d.id) - step / 2)
+    .attr('y', 2 * margin.bottom)
+    .on('mouseover', d => {
+      svg.classed('hover', true)
+      label.classed('primary', n => n === d)
+      label.classed(
+        'secondary',
+        n =>
+          n.sourceLinks.some(l => l.target === d) ||
+          n.targetLinks.some(l => l.source === d)
+      )
+      path
+        .classed('primary', l => l.source === d || l.target === d)
+        .filter('.primary')
+        .raise()
     })
-    .on('mouseout', function(d) {
-      nodes.style('opacity', 1)
-      links
-        .style('stroke', 'grey')
-        .style('stroke-opacity', 0.8)
-        .style('stroke-width', '1')
-      labels.attr('font-size', 10)
+    .on('mouseout', d => {
+      svg.classed('hover', false)
+      label.classed('primary', false)
+      label.classed('secondary', false)
+      path.classed('primary', false).order()
     })
 })
