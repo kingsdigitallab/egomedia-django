@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.7.2",
+    "d3": "^5.9.2",
     "fontawesome": "^5.6.3",
     "foundation-sites": "^6.5.1",
     "isotope-layout": "^3.0.6",

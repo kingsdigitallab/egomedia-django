@@ -964,3 +964,35 @@ main,
     }
   }
 }
+
+/* SVG/Viz */
+
+svg {
+  .hover {
+    path {
+      stroke-opacity: 0.1;
+
+      &.primary {
+        stroke-opacity: 1;
+        stroke-width: 3;
+      }
+    }
+
+    text {
+      font-weight: 1;
+      opacity: 0.25;
+    }
+
+    g.primary text {
+      font-variant-caps: all-small-caps;
+      font-weight: 1000;
+      opacity: 1;
+    }
+
+    g.secondary text {
+      font-variant-caps: all-small-caps;
+      font-weight: 500;
+      opacity: 1;
+    }
+  }
+}
