@@ -1,4 +1,4 @@
-{% load staticfiles compress %}
+{% load compress staticfiles wagtailuserbar %}
 <!DOCTYPE html>
 <html>
 
@@ -97,6 +97,8 @@
     {% block footer_scripts %}{% endblock %}
     {% endcompress %}
     {% endblock %}
+
+    {% wagtailuserbar %}
   </body>
 
 </html>
