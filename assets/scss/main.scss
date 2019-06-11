@@ -82,8 +82,7 @@ body {
 }
 
 a {
-  word-break: break-all;
-  word-wrap: break-word;
+  // overflow-wrap: break-word;
 }
 
 .external {
@@ -261,9 +260,8 @@ nav {
 }
 
 .toc {
-  // max-height: 90vh;
-  // overflow: scroll;
-  word-wrap: break-word;
+  // hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 .top-bar {
@@ -806,6 +804,7 @@ main,
   font-family: "KingsBureauGrot", sans-serif;
   font-size: 14px;
   font-weight: 300;
+  hyphens: auto;
   overflow-wrap: break-word;
   padding: 2px 8px;
 
