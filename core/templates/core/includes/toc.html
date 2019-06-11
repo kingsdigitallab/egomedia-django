@@ -31,6 +31,12 @@
     <li>
       <a href="#endnotes" class="endnotes_block">Endnotes</a>
     </li>
+
+    {% if page.get_endnotes_by_entry.count > 0 %}
+    <li>
+      <a href="#bibliography" class="endnotes_block">Bibliography</a>
+    </li>
+    {% endif %}
     {% endif %}
   </ul>
   {% endif %}
