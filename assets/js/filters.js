@@ -1,146 +1,159 @@
 $(document).ready(function() {
   // add the cards' tags as classes in the cells for a cleaner isotope filtering
   $('#results .cell').each(function(i, cell) {
-    const tags = cell.querySelectorAll('.tag');
+    const tags = cell.querySelectorAll('.tag')
 
     $(tags).each(function(i, tag) {
-      $(cell).addClass($(tag).data('filter'));
-    });
-  });
+      $(cell).addClass($(tag).data('filter'))
+    })
+  })
 
-  var filters = {};
+  var filters = {}
 
-  showCurrentFilters(filters);
+  showCurrentFilters(filters)
 
   const $results = $('#results').isotope({
     itemSelector: '.cell',
     layoutMode: 'fitRows'
-  });
+  })
 
   // apply filters
   $('.filter').change(function() {
-    const category = $(this).data('category');
-    const value = $(this).val();
+    const category = $(this).data('category')
+    const value = $(this).val()
 
-    filters[category] = value;
+    filters[category] = value
 
-    const filterValue = getFilterValue(filters);
+    const filterValue = getFilterValue(filters)
 
-    filterResults($results, filterValue);
+    filterResults($results, filterValue)
 
-    showCurrentFilters(filters);
+    showCurrentFilters(filters)
 
-    toggleClearFilters(filterValue);
+    toggleClearFilters(filterValue)
 
-    disableUnavailableFilters($results);
-  });
+    disableUnavailableFilters($results)
+  })
 
   function getFilterValue(filters) {
     if (!filters) {
-      return '';
+      return ''
     }
 
-    return Object.values(filters).join('').trim();
+    return Object.values(filters)
+      .join('')
+      .trim()
   }
 
   function filterResults(isotopeObj, filterValue) {
     isotopeObj.isotope({
       filter: filterValue
-    });
+    })
   }
 
   function showCurrentFilters(filters) {
-    $('.remove-filter').parent().remove();
+    $('.remove-filter')
+      .parent()
+      .remove()
 
     if (!jQuery.isEmptyObject(filters)) {
       $('.filter option:selected').each(function(i, option) {
         if (option.value) {
-          const category = $(option).parent().data('category');
-          const text = option.innerText;
+          const category = $(option)
+            .parent()
+            .data('category')
+          const text = option.innerText
 
-          let cell = $('<div class="cell">');
+          let cell = $('<div class="cell">')
 
-          let button = $('<button type="button" class="button expanded remove-filter">');
-          button.addClass(category);
+          let button = $(
+            '<button type="button" class="button expanded remove-filter">'
+          )
+          button.addClass(category)
           // button.html(category + ': ' + text);
-          button.html(text);
-          button.val(category);
+          button.html(text)
+          button.val(category)
 
-          cell.append(button);
+          cell.append(button)
 
-          $('#current-filters').append(cell);
+          $('#current-filters').append(cell)
         }
-      });
+      })
     }
   }
 
   function toggleClearFilters(filterValue) {
     if (filterValue.length > 0) {
-      $('#clear-filters').removeAttr('disabled');
+      $('#clear-filters').removeAttr('disabled')
     } else {
-      $('#clear-filters').attr('disabled', true);
+      $('#clear-filters').attr('disabled', true)
     }
   }
 
   function disableUnavailableFilters(isotopeObj) {
-    const filteredItems = isotopeObj.isotope('getFilteredItemElements');
+    const filteredItems = isotopeObj.isotope('getFilteredItemElements')
     const availableFilters = [
       ...new Set(filteredItems.flatMap(x => x.className.split(' ')))
-    ];
+    ]
 
     $('.filter option').each(function(i, option) {
-      const value = option.value.replace(/\./, '');
+      const value = option.value.replace(/\./, '')
 
       if (value) {
         if (availableFilters.includes(value)) {
-          $(option).removeAttr('disabled');
+          $(option).removeAttr('disabled')
         } else {
-          $(option).attr('disabled', true);
+          $(option).attr('disabled', true)
         }
       }
-    });
+    })
   }
 
   // remove all filters
   $('#clear-filters').click(function() {
-    filters = {};
+    filters = {}
 
-    const filterValue = getFilterValue(filters);
+    const filterValue = getFilterValue(filters)
 
-    filterResults($results, filterValue);
+    filterResults($results, filterValue)
 
-    showCurrentFilters(filters);
+    showCurrentFilters(filters)
 
-    toggleClearFilters(filterValue);
+    toggleClearFilters(filterValue)
 
-    resetFilters();
-  });
+    resetFilters()
+  })
 
   function resetFilters() {
     $('.filter').each(function(i, select) {
-      select.selectedIndex = 0;
-    });
+      select.selectedIndex = 0
+    })
     $('.filter option:disabled').each(function(i, option) {
-      $(option).removeAttr('disabled');
-    });
+      $(option).removeAttr('disabled')
+    })
   }
 
   // remove selected filter
   $('#current-filters').on('click', 'button.remove-filter', function() {
-    const category = $(this).val();
+    const category = $(this).val()
 
-    $('.filter.' + category)[0].selectedIndex = 0;
+    $('.filter.' + category)[0].selectedIndex = 0
 
-    delete filters[category];
+    delete filters[category]
 
-    const filterValue = getFilterValue(filters);
+    const filterValue = getFilterValue(filters)
 
-    filterResults($results, filterValue);
+    filterResults($results, filterValue)
 
-    showCurrentFilters(filters);
+    showCurrentFilters(filters)
 
-    toggleClearFilters(filterValue);
+    toggleClearFilters(filterValue)
 
-    disableUnavailableFilters($results);
-  });
-});
+    disableUnavailableFilters($results)
+  })
+
+  // re-load after back button
+  if (window.history && window.history.pushState) {
+    $('.filter').trigger('change')
+  }
+})
