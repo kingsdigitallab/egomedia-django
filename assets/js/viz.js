@@ -45,12 +45,25 @@ $(document).ready(() => {
     })
   })
 
+  // sort by name
   data.nodes.sort((a, b) => {
-    if (a.group > b.group) {
+    if (a.name < b.name) {
       return -1
     }
+    if (a.name > b.name) {
+      return 1
+    }
+
+    return 0
+  })
+
+  // sort by group
+  data.nodes.sort((a, b) => {
     if (a.group < b.group) {
       return 1
+    }
+    if (a.group > b.group) {
+      return -1
     }
 
     return 0
@@ -85,10 +98,10 @@ $(document).ready(() => {
     return '#e2e2e2'
   }
 
-  const margin = { top: 30, right: 30, bottom: 30, left: 30 }
-  const step = 14
+  const margin = { top: 50, right: 10, bottom: 150, left: 10 }
+  const step = 11
   const width = (data.nodes.length - 1) * step + margin.left + margin.right
-  const height = 600 + margin.top + margin.bottom
+  const height = 600 + margin.top
 
   const x = d3.scalePoint(data.nodes.map(d => d.id), [
     margin.left,
@@ -116,13 +129,13 @@ $(document).ready(() => {
   const label = svg
     .append('g')
     .attr('font-family', 'sans-serif')
-    .attr('font-size', 10)
+    .attr('font-size', step)
     .attr('text-anchor', 'end')
     .selectAll('g')
     .data(data.nodes)
     .join('g')
     .attr('id', d => d.id)
-    .attr('transform', d => `translate(${x(d.id)},${height - 15})rotate(-45)`)
+    .attr('transform', d => `translate(${x(d.id)},${height - 15})rotate(-90)`)
     .call(g =>
       g
         .append('text')
@@ -157,9 +170,9 @@ $(document).ready(() => {
     .data(data.nodes)
     .join('rect')
     .attr('width', step)
-    .attr('height', height - margin.top)
+    .attr('height', margin.top + margin.bottom)
     .attr('x', d => x(d.id) - step / 2)
-    .attr('y', 2 * margin.bottom)
+    .attr('y', height - margin.top)
     .on('mouseover', d => {
       svg.classed('hover', true)
       label.classed('primary', n => n === d)
