@@ -46,10 +46,10 @@ $(document).ready(() => {
   })
 
   data.nodes.sort((a, b) => {
-    if (a.name < b.name) {
+    if (a.group > b.group) {
       return -1
     }
-    if (a.name > b.name) {
+    if (a.group < b.group) {
       return 1
     }
 
