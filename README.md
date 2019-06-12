@@ -6,10 +6,13 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
-### 0.1.1 Working on Increment #7
+### 0.1.1 Increment #7
+
 - First draft of visualization
 - Fixed modal size (now large)
 - Fixed modal overlap issue with close button
+- Fixes bibliography missing from ToC
+- Back to home page after clicking on a search result re-applies the previous filters
 
 ### 0.1 Increment #6
 
