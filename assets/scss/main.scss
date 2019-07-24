@@ -121,7 +121,8 @@ img {
 .projectpage,
 .themepage {
   &.page-body {
-    align-items: flex-end;
+    // align-items: flex-end;
+    // align-items: flex-start;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
