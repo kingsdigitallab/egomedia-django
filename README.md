@@ -14,6 +14,8 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Fixes bibliography missing from ToC
 - Back to home page after clicking on a search result re-applies the previous filters
 - Added `lang` attribute to the site
+- Issue fixes
+- Display sub-project tags in project cards on the home page
 
 ### 0.1 Increment #6
 
