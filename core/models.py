@@ -317,6 +317,7 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
             researcher_project_relationship__in=related)
 
         return [
+            ('project', self.get_children().specific().live()),
             ('theme', self.get_themes()),
             ('researcher', researchers)
         ]
