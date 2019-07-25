@@ -6,7 +6,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
-### 0.1.1 Increment #7
+### Working on 0.1.1 Increment #7
 
 - First draft of visualization
 - Fixed modal size (now large)
@@ -16,6 +16,8 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Added `lang` attribute to the site
 - Issue fixes
 - Display sub-project tags in project cards on the home page
+- Fixed bug for videos added within richtext editor
+- Reduced max-width for embedded objects (now 640px)
 
 ### 0.1 Increment #6
 
