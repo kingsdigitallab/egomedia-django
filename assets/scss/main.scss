@@ -52,8 +52,8 @@ body {
 
   &.embed_block {
     .embed {
-      margin-left: auto;
-      margin-right: auto;
+      // margin-left: auto;
+      // margin-right: auto;
       max-width: 640px;
     }
   }
@@ -382,6 +382,11 @@ a[class$="_block"] {
     content: "\f0ce";
     color: $dirty-yellow;
   }
+
+  table {
+    margin-left: 2rem;
+    width: 96%;
+  }
 }
 
 .controls {
@@ -532,17 +537,21 @@ audio+p {
 }
 
 .document {
+  margin-left: 2.25rem;
+
   &::before {
     color: $primary-color;
     content: "\f56d";
     font-family: "Font Awesome 5 Pro";
     font-weight: 900;
+    // margin-left: 2rem;
+    // margin-right: .5rem;
   }
 }
 
 .embed {
   clear: both;
-  margin: 1rem auto;
+  margin: 1rem 0;
   width: 100%;
 
   p {
@@ -971,13 +980,13 @@ main,
   background-color: $light-gray;
   border: .5rem solid $light-gray;
   margin-left: 2rem;
-  margin-right: 2rem;
+  // margin-right: 2rem;
   max-width: 640px;
   padding-bottom: 48%;
 
   &.audio {
     @include breakpoint(medium) {
-      padding-bottom: 20%;
+      padding-bottom: 19%;
     }
   }
 }
@@ -987,8 +996,8 @@ main,
 
 .rich-text {
   .responsive-object {
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
     max-width: 100%;
     padding-bottom: 0 !important;
     text-align: center;
