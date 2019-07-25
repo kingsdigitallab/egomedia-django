@@ -74,11 +74,11 @@ body {
 
 /* TODO: needs styling */
 .anchor-link {
-  @include breakpoint(medium) {
-    left: -1.5rem;
+  // @include breakpoint(medium) {
+    left: -1.25rem;
     position: absolute;
-    top: 0;
-  }
+    top: 3px;
+  // }
 
   &::before {
     clear: left;
