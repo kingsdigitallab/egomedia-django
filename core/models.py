@@ -1,6 +1,8 @@
 from core.blocks import HomePageStreamBlock, TimelineStreamBlock
 from django import forms
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from kdl_wagtail.core.models import (
     BasePage, BaseStreamPage, IndexPage, RichTextPage, StreamPage
 )
@@ -166,7 +168,7 @@ class HomePage(Page):
                  'title').values_list('title', flat=True)),
             ('project',
              ProjectPage.objects.live().order_by(
-                 'title').values_list('title', flat=True)),
+                 'full_title').values_list('title', 'full_title')),
             ('discipline', Discipline.objects.values_list('title', flat=True)),
             ('focus', Focus.objects.values_list('title', flat=True)),
             ('method', Method.objects.values_list('title', flat=True)),
@@ -300,6 +302,8 @@ class ProjectResearcherRelationship(Orderable, models.Model):
 
 
 class ProjectPage(BaseTimelinePage, FacetsMixin):
+    full_title = models.CharField(max_length=512, blank=True, null=True)
+
     content_panels = BaseTimelinePage.content_panels + [
         InlinePanel('endnotes', label='EndNotes'),
         InlinePanel('project_theme_relationship',
@@ -310,6 +314,12 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
 
     parent_page_types = [IndexPage, 'ProjectPage']
     subpage_types = ['ProjectPage']
+
+    def get_full_title(self):
+        if isinstance(self.get_parent().specific, ProjectPage):
+            return '{}: {}'.format(self.get_parent().title, self.title)
+
+        return self.title
 
     def get_page_facets(self):
         related = self.project_researcher_relationship.all()
@@ -326,6 +336,11 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
         related = self.project_theme_relationship.all()
         return ThemePage.objects.live().filter(
             theme_project_relationship__in=related)
+
+
+@receiver(pre_save, sender=ProjectPage)
+def pp_pre_save(sender, instance, *args, **kwargs):
+    instance.full_title = instance.get_full_title()
 
 
 class ProjectEndnote(Orderable, EndNoteMixin):

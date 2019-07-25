@@ -10,7 +10,16 @@
       <option value="">{{ filter.0|capfirst }}</option>
 
       {% for v in filter.1 %}
-      <option value=".{% get_filter_value filter.0 v %}">{{ v|capfirst }}</option>
+
+      {% if v.0 %}
+      <option value=".{% get_filter_value filter.0 v.0 %}">
+        {{ v.1|capfirst }}
+        {% else %}
+      <option value=".{% get_filter_value filter.0 v %}">
+        {{ v|capfirst }}
+        {% endif %}
+
+      </option>
       {% endfor %}
     </select>
   </div>
@@ -19,6 +28,7 @@
 
 <div class="grid-x small-up-1 medium-up-4 large-up-8" id="current-filters">
   <div class="cell">
-    <button type="button" class="button secondary expanded all" id="clear-filters" disabled>Clear all</button>
+    <button type="button" class="button secondary expanded all"
+      id="clear-filters" disabled>Clear all</button>
   </div>
 </div>
