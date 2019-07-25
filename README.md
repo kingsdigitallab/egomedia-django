@@ -18,6 +18,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Display sub-project tags in project cards on the home page
 - Fixed bug for videos added within richtext editor
 - Reduced max-width for embedded objects (now 640px)
+- Fixed bug: anchor link was display before content rather than on the side
 
 ### 0.1 Increment #6
 
