@@ -50,6 +50,14 @@ body {
     }
   }
 
+  &.embed_block {
+    .embed {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 640px;
+    }
+  }
+
 
   // &.endnotes ol li {
   //   clear: both;
@@ -964,10 +972,31 @@ main,
   border: .5rem solid $light-gray;
   margin-left: 2rem;
   margin-right: 2rem;
+  max-width: 640px;
+  padding-bottom: 48%;
 
   &.audio {
     @include breakpoint(medium) {
-      padding-bottom: 25%;
+      padding-bottom: 20%;
+    }
+  }
+}
+
+// Remove extra padding for responsive embeds
+// in rich-text divs
+
+.rich-text {
+  .responsive-object {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    padding-bottom: 0 !important;
+    text-align: center;
+
+    iframe {
+      background-color: $light-gray;
+      max-width: 100%;
+      padding: 8px;
     }
   }
 }
