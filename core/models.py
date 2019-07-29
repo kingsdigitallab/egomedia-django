@@ -270,6 +270,10 @@ class BaseTimelinePage(BasePage):
     def get_endnotes_by_entry(self):
         return self.endnotes.order_by('bibliography_entry__order')
 
+    def has_bibliography(self):
+        return self.endnotes.exclude(
+            bibliography_entry__isnull=True).count() > 0
+
 
 class ProjectThemeRelationship(Orderable, models.Model):
     project = ParentalKey(
