@@ -320,10 +320,17 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
     subpage_types = ['ProjectPage']
 
     def get_full_title(self):
-        if isinstance(self.get_parent().specific, ProjectPage):
-            return '{}: {}'.format(self.get_parent().title, self.title)
+        titles = []
 
-        return self.title
+        for page in self.get_ancestors().specific():
+            if isinstance(page, ProjectPage):
+                titles.append(page.title)
+
+            break
+
+        titles.append(self.title)
+
+        return ' > '.join(titles)
 
     def get_page_facets(self):
         related = self.project_researcher_relationship.all()
@@ -331,7 +338,8 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
             researcher_project_relationship__in=related)
 
         return [
-            ('project', self.get_children().specific().live()),
+            ('project',
+             self.get_descendants().specific().live().order_by('title')),
             ('theme', self.get_themes()),
             ('researcher', researchers)
         ]
