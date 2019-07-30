@@ -11,15 +11,15 @@
 
       {% for v in filter.1 %}
 
-      {% if v.0 %}
+      {% if v|length_is:2 %}
       <option value=".{% get_filter_value filter.0 v.0 %}">
         {{ v.1|capfirst }}
         {% else %}
       <option value=".{% get_filter_value filter.0 v %}">
         {{ v|capfirst }}
         {% endif %}
-
       </option>
+
       {% endfor %}
     </select>
   </div>
