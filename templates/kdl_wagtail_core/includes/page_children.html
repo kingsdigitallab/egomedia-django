@@ -1,7 +1,7 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% if children %}
-<ul class="nested-list no-bullet">
+<ul class="nested-list no-bullet{% if class %} {{ class }}{% endif %}">
     {% for child in children %}
     <li class="child-page{% if child.get_children %} parent{% endif %}">
 
@@ -11,30 +11,10 @@
         
         <a href="{% pageurl child %}">
             {{ child.title }}
-
-            {% comment %}
-
-            {% if child.image %}
-            <div class="child-page-image">
-                {% image child.image fill-180x180-c100 %}
-            </div>
-            {% endif %}
-
-            {% if child.introduction %}
-            <div class="child-page-introduction">
-                {{ child.introduction }}
-            </div>
-            {% endif %}
-
-            {% endcomment %}
         </a>
 
         {% if child.get_children %}
-        <ul class="sub hide no-bullet">
-            {% for sub in child.get_children %}
-            <li class="child-page"><a href="{% pageurl sub %}">{{ sub.title }}</a></li>
-            {% endfor %}
-        </ul>
+        {% include "kdl_wagtail_core/includes/page_children.html" with children=child.get_children class="sub hide" %}
         {% endif %}
     </li>
     {% endfor %}

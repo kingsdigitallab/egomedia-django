@@ -72,6 +72,10 @@ body {
   // }
 }
 
+.show {
+  display: block;
+}
+
 /* TODO: needs styling */
 .anchor-link {
   // @include breakpoint(medium) {
@@ -693,13 +697,8 @@ main,
 }
 
 .nested-list {
-
-  >li:not(:first-child) {
+  > li:not(:first-child) {
     border-top: 1px solid $light-gray;
-  }
-
-  .show {
-    background: scale-color($light-gray, $lightness: 50%);
   }
 
   li li {
