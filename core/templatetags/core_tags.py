@@ -48,3 +48,25 @@ def sort_endnotes(context, endnotes, field):
         return endnotes
 
     return endnotes.order_by(field)
+
+
+@register.simple_tag(takes_context=True)
+def get_site_root(context):
+    """Returns the site root Page, not the implementation-specific model used.
+    Object-comparison to self will return false as objects would differ.
+
+    :rtype: `wagtail.wagtailcore.models.Page`
+    """
+    return context['request'].site.root_page
+
+
+@register.inclusion_tag('core/tags/breadcrumb.html', takes_context=True)
+def breadcrumbs(context, root, current_page):
+    """Returns the pages that are part of the breadcrumb trail of the current
+    page, up to the root page."""
+    print(current_page)
+    pages = current_page.get_ancestors(
+        inclusive=True).descendant_of(root).filter(live=True)
+
+    return {'request': context['request'], 'root': root,
+            'current_page': current_page, 'pages': pages}
