@@ -612,7 +612,7 @@ main,
       text-align: center;
 
       figcaption {
-        text-align: left;
+        text-align: center;
       }
     }
 
@@ -645,6 +645,10 @@ main,
     text-align: center;
     vertical-align: middle;
   }
+}
+
+.richtext-image {
+  margin-bottom: 1.5rem;
 }
 
 .acknowledgement {
