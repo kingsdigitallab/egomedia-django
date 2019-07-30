@@ -326,8 +326,6 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
             if isinstance(page, ProjectPage):
                 titles.append(page.title)
 
-            break
-
         titles.append(self.title)
 
         return ' > '.join(titles)
