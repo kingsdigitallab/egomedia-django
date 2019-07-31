@@ -19,6 +19,9 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Fixed bug for videos added within richtext editor
 - Reduced max-width for embedded objects (now 640px)
 - Fixed bug: anchor link was display before content rather than on the side
+- Fixed bug: margin-bottom on floating elements
+- Added breadcrumbs to project pages
+- Nested list for Projects index page (all level display)
 
 ### 0.1 Increment #6
 
