@@ -22,6 +22,7 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 - Fixed bug: margin-bottom on floating elements
 - Added breadcrumbs to project pages
 - Nested list for Projects index page (all level display)
+- Refactor facet model: new facet types and items can be added via the admin interface
 
 ### 0.1 Increment #6
 
