@@ -6,7 +6,8 @@
   </div>
   {% for filter in filters %}
   <div class="cell filters">
-    <select class="filter {{ filter.0 }}" data-category="{{ filter.0 }}">
+    <select class="filter {% get_filter_value 'category' filter.0 %}"
+      data-category="{% get_filter_value 'category' filter.0 %}">
       <option value="">{{ filter.0|capfirst }}</option>
 
       {% for v in filter.1 %}

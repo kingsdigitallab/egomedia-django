@@ -35,7 +35,10 @@ def get_filter_value(category, value):
     if not category or not value:
         return
 
-    return '{}_{}'.format(category.lower(), re.sub(r'\W', '_', value.lower()))
+    return '{}_{}'.format(
+        re.sub(r'\W', '_', category.lower()),
+        re.sub(r'\W', '_', value.lower())
+    )
 
 
 @register.simple_tag(takes_context=True)
