@@ -13,8 +13,7 @@ from kdl_wagtail.zotero.models import Bibliography, BibliographyIndexPage
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.models import ClusterableModel
 from wagtail.admin.edit_handlers import (
-    FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, PageChooserPanel,
-    StreamFieldPanel
+    FieldPanel, InlinePanel, PageChooserPanel, StreamFieldPanel
 )
 from wagtail.api import APIField
 from wagtail.core.fields import RichTextField, StreamField
@@ -31,79 +30,81 @@ BasePage.promote_panels = Page.promote_panels + [
 ]
 
 
-class BaseFacet(index.Indexed, ClusterableModel):
+class FacetTypeManager(models.Manager):
+    def get_by_natural_key(self, title):
+        return self.get(title=title)
+
+
+@register_snippet
+class FacetType(models.Model):
     title = models.CharField(max_length=64, unique=True)
 
-    api_fields = [
-        APIField('_title')
-    ]
-
-    panels = [
-        FieldPanel('title', 'full')
-    ]
-
-    search_fields = [
-        index.SearchField('title')
-    ]
+    objects = FacetTypeManager()
 
     class Meta:
-        abstract = True
         ordering = ['title']
+
+    def __lt__(self, other):
+        return self.title < other.title
+
+    def __gt__(self, other):
+        return self.title > other.title
 
     def __str__(self):
         return self.title
 
-
-@register_snippet
-class Discipline(BaseFacet):
-    pass
+    def natural_key(self):
+        return (self.title,)
 
 
-@register_snippet
-class Focus(BaseFacet):
-    class Meta(BaseFacet.Meta):
-        verbose_name_plural = 'Focus'
+class FacetManager(models.Manager):
+    def get_by_natural_key(self, facet_type, title):
+        return self.get(facet_type__title=facet_type, title=title)
 
 
 @register_snippet
-class Keyword(BaseFacet):
-    pass
+class Facet(index.Indexed, ClusterableModel):
+    facet_type = models.ForeignKey(
+        FacetType, blank=True, null=True, on_delete=models.CASCADE)
+    title = models.CharField(max_length=64)
 
+    api_fields = [
+        APIField('facet_type'),
+        APIField('title')
+    ]
 
-@register_snippet
-class Method(BaseFacet):
-    pass
+    panels = [
+        FieldPanel('facet_type'),
+        FieldPanel('title', 'full')
+    ]
+
+    search_fields = [
+        index.SearchField('facet_type'),
+        index.SearchField('title')
+    ]
+
+    objects = FacetManager()
+
+    class Meta:
+        ordering = ['facet_type', 'title']
+        unique_together = [['facet_type', 'title']]
+
+    def __str__(self):
+        return '{}: {}'.format(self.facet_type, self.title)
+
+    def natural_key(self):
+        return self.facet_type.natural_key() + (self.title,)
 
 
 class FacetsMixin(models.Model):
-    disciplines = ParentalManyToManyField(Discipline, blank=True)
-    focus = ParentalManyToManyField(Focus, blank=True)
-    keywords = ParentalManyToManyField(Keyword, blank=True)
-    methods = ParentalManyToManyField(Method, blank=True)
+    facets = ParentalManyToManyField(Facet, blank=True)
 
     content_panels = [
-        MultiFieldPanel([
-            FieldRowPanel([
-                FieldPanel(
-                    'disciplines', classname='col6',
-                    widget=forms.CheckboxSelectMultiple
-                ),
-                FieldPanel(
-                    'methods', classname='col6',
-                    widget=forms.CheckboxSelectMultiple
-                )
-            ]),
-            FieldRowPanel([
-                FieldPanel(
-                    'focus', classname='col6',
-                    widget=forms.CheckboxSelectMultiple
-                ),
-                FieldPanel(
-                    'keywords', classname='col6',
-                    widget=forms.CheckboxSelectMultiple
-                )
-            ])
-        ], 'Facets', classname='collapsible collapsed')
+        FieldPanel(
+            'facets',
+            classname='collapsible collapsed',
+            widget=forms.CheckboxSelectMultiple
+        )
     ]
 
     class Meta:
@@ -111,10 +112,9 @@ class FacetsMixin(models.Model):
 
     def get_facets(self):
         return [
-            ('discipline', self.disciplines.values_list('title', flat=True)),
-            ('focus', self.focus.values_list('title', flat=True)),
-            ('keyword', self.keywords.values_list('title', flat=True)),
-            ('method', self.methods.values_list('title', flat=True)),
+            (ft.title,
+             self.facets.filter(facet_type=ft).values_list('title', flat=True))
+            for ft in FacetType.objects.all()
         ]
 
     def get_page_facets(self):
@@ -168,12 +168,15 @@ class HomePage(Page):
                  'title').values_list('title', flat=True)),
             ('project',
              ProjectPage.objects.live().order_by(
-                 'full_title').values_list('title', 'full_title')),
-            ('discipline', Discipline.objects.values_list('title', flat=True)),
-            ('focus', Focus.objects.values_list('title', flat=True)),
-            ('method', Method.objects.values_list('title', flat=True)),
-            ('keyword', Keyword.objects.values_list('title', flat=True))
+                 'full_title').values_list('title', 'full_title'))
         ]
+
+        for ft in FacetType.objects.all():
+            filters.append((
+                ft.title,
+                Facet.objects.filter(
+                    facet_type=ft).values_list('title', flat=True)
+            ))
 
         context['filters'] = filters
 

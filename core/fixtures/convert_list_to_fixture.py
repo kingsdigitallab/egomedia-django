@@ -4,16 +4,16 @@ from collections import defaultdict
 import simplejson
 
 
-def list_to_facet_fixture(items, model):
+def list_to_facet_fixture(facet_type, items):
     out = []
 
     items = items.split('\n')
 
-    for k, v in enumerate(items):
+    for v in items:
         d = defaultdict()
-        d['model'] = model
-        d['pk'] = k + 1
+        d['model'] = 'core.facet'
         d['fields'] = defaultdict()
+        d['fields']['facet_type'] = facet_type
         d['fields']['title'] = v.lower()
         out.append(d)
 
@@ -23,9 +23,9 @@ def list_to_facet_fixture(items, model):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        'items', help='a string with a list of items separated by a new line')
+        'facet_type', help='the facet type')
     parser.add_argument(
-        'model', help='model name, app.modelname, to create the fixture for')
+        'items', help='a string with a list of items separated by a new line')
     args = parser.parse_args()
 
-    print(list_to_facet_fixture(args.items, args.model))
+    print(list_to_facet_fixture(args.facet_type, args.items))

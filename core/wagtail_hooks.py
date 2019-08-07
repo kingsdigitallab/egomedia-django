@@ -3,35 +3,29 @@ from wagtail.contrib.modeladmin.options import (
 )
 from wagtail.core import hooks
 
-from .models import Discipline, Focus, Keyword, Method
+from .models import Facet, FacetType
 
 
 class FacetAdmin(ModelAdmin):
-    menu_icon = 'list-ul'
-    list_display = ['title']
+    model = Facet
+
+    menu_icon = 'tag'
+    list_display = ['facet_type', 'title']
+    list_filter = ['facet_type']
     search_fields = list_display
 
 
-class DisciplineAdmin(FacetAdmin):
-    model = Discipline
+class FacetTypeAdmin(ModelAdmin):
+    model = FacetType
 
-
-class FocusAdmin(FacetAdmin):
-    model = Focus
-
-
-class KeywordAdmin(FacetAdmin):
-    model = Keyword
-
-
-class MethodAdmin(FacetAdmin):
-    model = Method
+    menu_icon = 'title'
+    list_display = ['title']
 
 
 class FacetGroup(ModelAdminGroup):
     menu_label = 'Facets'
-    menu_icon = 'folder-open-inverse'
-    items = [DisciplineAdmin, FocusAdmin, KeywordAdmin, MethodAdmin]
+    menu_icon = 'tag'
+    items = [FacetTypeAdmin, FacetAdmin]
 
 
 modeladmin_register(FacetGroup)

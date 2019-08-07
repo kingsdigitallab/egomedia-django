@@ -1,0 +1,773 @@
+[
+  {
+    "model": "core.facettype",
+    "fields": {
+      "title": "Platforms/media"
+    }
+  },
+  {
+    "model": "core.facettype",
+    "fields": {
+      "title": "Subject"
+    }
+  },
+  {
+    "model": "core.facettype",
+    "fields": {
+      "title": "Concept"
+    }
+  },
+  {
+    "model": "core.facettype",
+    "fields": {
+      "title": "Disciplines/methods"
+    }
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "google" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "text messages" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "twitter" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Platforms/media"],
+      "title": "snapchat stories"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "snapchat" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "news media" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "interviews" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Platforms/media"],
+      "title": "interactive fiction"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Platforms/media"],
+      "title": "interactive non-fiction"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "blogs" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "audio" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "books" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Platforms/media"],
+      "title": "chat rooms/forums"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Platforms/media"],
+      "title": "digital/computer games"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "archives" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "search engines" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "emojis" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "facebook" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Platforms/media"],
+      "title": "facebook memories"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Platforms/media"],
+      "title": "facebook statuses"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "gifs" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "images" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "instagram" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Platforms/media"],
+      "title": "instagram stories"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "diaries" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "social media" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "video" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Platforms/media"],
+      "title": "mashups/remixes/ spoofs"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "memes" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "irc" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "questionnaires" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Platforms/media"],
+      "title": "youtube video titles"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Platforms/media"], "title": "web 2.0" },
+    "model": "core.facet"
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "networks", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "sharing", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "stories", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "aesthetics", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "metaphor", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "bots/chatbots", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "communities", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "dialogue", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "platforms", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "researchers", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "events", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "health", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "ai / machine learning", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "future", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "storytelling", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "senses", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "identity", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "ethics", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "social groupings", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "voice", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "epilepsy", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "migraine", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "location", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "virtual worlds", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "selfies", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "influencers", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "yanis varoufakis", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "female adolescents", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "black box(es)", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "computer", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "title": "prediction", "facet_type": ["Subject"] }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "impact" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "stance" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "affordances" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "ephemerality" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "visual language" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "quantification" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "historicity" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "small stories" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "access" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "affect" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "agency" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "imaginative agency" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "alignment" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "embodiment" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "public/private" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "privacy" }
+  },
+  {
+    "model": "core.facet",
+    "fields": {
+      "facet_type": ["Concept"],
+      "title": "detox/ disconnection/unplugging"
+    }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "place/space" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "authenticity" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "plot/emplotment" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "participation" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "tone" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "sharing everyday life" }
+  },
+  {
+    "model": "core.facet",
+    "fields": {
+      "facet_type": ["Concept"],
+      "title": "sharing life-in-the-moment"
+    }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "value" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "immediacy" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "identity" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "emblematic events" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "immediacy " }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "ritual appreciation" }
+  },
+  {
+    "model": "core.facet",
+    "fields": {
+      "facet_type": ["Concept"],
+      "title": "subjectivity (inter-subjectivity)"
+    }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "ephemerality" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "breaking news" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "poly-storying" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "rescripting" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "performance" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "visibility" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "recontextualization" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "story-linking" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "stancetaking" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "immediacy" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "audience-projection" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "audience selection " }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "narrative " }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "tellability" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "back-story" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "assessments" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "critical moments" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "portable quotes" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "sexuality" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "disability" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "age" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "gender" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "ethnicity/race" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "nationality" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "class" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "automation" }
+  },
+  {
+    "model": "core.facet",
+    "fields": { "facet_type": ["Concept"], "title": "datafication" }
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "literary theory"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "critical theory"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "media archaeology"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "multimodal analysis"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "life writing"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "media theory"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "medical humanities"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Disciplines/methods"], "title": "art history" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "cultural studies"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Disciplines/methods"], "title": "sociology" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "sociolinguistics"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "narrative analysis"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "platform studies"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "qualitative research"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "quantitative research"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "online conversation analysis"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Disciplines/methods"], "title": "neurology" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "digital humanities"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Disciplines/methods"], "title": "history" },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Disciplines/methods"], "title": "english" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "small stories research"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "practice-based research"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "digital ethnography & tracking"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "close reading"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "corpus assisted discourse analysis"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "online conversation analysis"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "platform studies"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "multimodal semiotic analysis"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "positioning analysis"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "discourse analysis"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": { "facet_type": ["Disciplines/methods"], "title": "feminism" },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "postcolonial studies/theory"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "natural language processing"
+    },
+    "model": "core.facet"
+  },
+  {
+    "fields": {
+      "facet_type": ["Disciplines/methods"],
+      "title": "software studies"
+    },
+    "model": "core.facet"
+  }
+]
