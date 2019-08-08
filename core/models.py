@@ -102,8 +102,12 @@ class FacetsMixin(models.Model):
     content_panels = [
         FieldPanel(
             'facets',
-            classname='collapsible collapsed',
-            widget=forms.CheckboxSelectMultiple
+            classname='facets',
+            widget=forms.CheckboxSelectMultiple(
+                attrs={
+                    'class': 'facet-checkbox'
+                }
+            )
         )
     ]
 

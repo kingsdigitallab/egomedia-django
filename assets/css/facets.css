@@ -1,0 +1,5 @@
+.facets .facet-checkbox li {
+  display: block;
+  float: left;
+  width: 50%;
+}
