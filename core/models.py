@@ -199,8 +199,8 @@ class ResearcherThemeRelationship(Orderable, models.Model):
         on_delete=models.CASCADE
     )
     theme = models.ForeignKey(
-        'ThemePage', related_name='theme_researcher_relationship',
-        on_delete=models.CASCADE
+        'ThemePage', blank=True, null=True,
+        related_name='theme_researcher_relationship', on_delete=models.CASCADE
     )
 
     panels = [
