@@ -11,12 +11,13 @@ ipython = "*"
 pycodestyle = "*"
 tox = "*"
 tox-pipenv = "*"
+pygraphviz = "*"
 
 [packages]
 django-activecollab-digger = "*"
 django-extensions = "*"
 django-kdl-ldap = "*"
-django-kdl-wagtail = {editable = true,ref = "develop",git = "https://github.com/kingsdigitallab/django-kdl-wagtail.git"}
+django-kdl-wagtail = {ref = "develop",git = "https://github.com/kingsdigitallab/django-kdl-wagtail.git",editable = true}
 django-libsass = "*"
 django-model-utils = "*"
 django-redis = "*"

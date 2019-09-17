@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(() => {
   // add the cards' tags as classes in the cells for a cleaner isotope filtering
   $('#results .cell').each(function(i, cell) {
     const tags = cell.querySelectorAll('.tag')

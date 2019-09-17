@@ -84,6 +84,7 @@
     </div>
 
     {% compress js %}
+    <script src="{% static 'js/polyfills.js' %}"></script>
     <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
     <script src="{% static 'js-cookie/src/js.cookie.js' %}"></script>
     <script src="{% static '@fortawesome/fontawesome-pro/js/all.min.js' %}">
@@ -93,7 +94,7 @@
     <script src="{% static 'js/main.js' %}"></script>
     {% endcompress %}
 
-    {% compress js %}
+    {% compress js file footer %}
     {% block footer_scripts %}{% endblock %}
     {% endcompress %}
     {% endblock %}

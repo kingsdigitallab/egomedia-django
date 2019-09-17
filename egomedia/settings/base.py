@@ -289,6 +289,28 @@ COMPRESS_CSS_FILTERS = [
 ]
 
 COMPRESS_PRECOMPILERS = (
+    # 1. npm install --save core-js@2
+    # 2. npm install --save-dev @babel/core @babel/cli @babel/preset-env
+    # 3. add to .babelrc:
+    #   {
+    #     "presets": [
+    #         [
+    #             "@babel/preset-env",
+    #             {
+    #                 "useBuiltIns": "entry",
+    #                 "corejs": {
+    #                     "version": 2
+    #                 }
+    #             }
+    #         ]
+    #     ]
+    # }
+    # 4. add to .browserslist:
+    #   > 0.25%
+    #   not dead
+    # 5. inside compress js add type="text/es6" to the scripts:
+    #   <script src="{% static 'js/app.js' %}" type="text/es6">
+    ('text/es6', 'npx babel {infile} -o {outfile}'),
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
 
