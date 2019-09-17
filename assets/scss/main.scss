@@ -309,6 +309,15 @@ a[class^="item-"] {
   margin-right: 1rem;
 }
 
+a.item-projects {
+  &::before {
+    content: "\f0c5";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    padding-right: 8px;
+  }
+}
+
 a.item-blue,
 a.item-projects {
   background: $navylike;
@@ -316,6 +325,15 @@ a.item-projects {
 
   &:hover {
     background: $bright-navy;
+  }
+}
+
+a.item-researchers {
+  &::before {
+    content: "\f0c0";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    padding-right: 8px;
   }
 }
 
@@ -329,10 +347,20 @@ a.item-researchers {
   }
 }
 
+a.item-themes {
+  &::before {
+    content: "\f660";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    padding-right: 8px;
+  }
+}
+
 a.item-orange,
 a.item-themes {
   background: $dirty-orange;
   border-bottom: 5px solid $bright-orange;
+  color: $black;
 
   &:hover {
     background: $bright-orange;
@@ -494,10 +522,28 @@ cite {
 
   &.projectpage {
     border-top: 5px solid $bright-navy;
+
+    h3 {
+      &::before {
+        content: "\f570";
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 900;
+        padding-right: 8px;
+      }
+    }
   }
 
   &.researcherpage {
     border-top: 5px solid $bright-green;
+
+    h3 {
+      &::before {
+        content: "\f007";
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 900;
+        padding-right: 8px;
+      }
+    }
   }
 
   // .streampage == default
@@ -507,6 +553,15 @@ cite {
 
   &.themepage {
     border-top: 5px solid $bright-orange;
+
+    h3 {
+      &::before {
+        content: "\f07b";
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 900;
+        padding-right: 8px;
+      }
+    }
   }
 
   h3 {
@@ -935,6 +990,12 @@ main,
 }
 
 /* Footer */
+
+footer {
+  h1, h2, h3, h4, h5, h6 {
+    color: $black;
+  }
+}
 
 // Cookies box
 
