@@ -333,6 +333,7 @@ a.item-orange,
 a.item-themes {
   background: $dirty-orange;
   border-bottom: 5px solid $bright-orange;
+  color: $black;
 
   &:hover {
     background: $bright-orange;
@@ -935,6 +936,12 @@ main,
 }
 
 /* Footer */
+
+footer {
+  h1, h2, h3, h4, h5, h6 {
+    color: $black;
+  }
+}
 
 // Cookies box
 
