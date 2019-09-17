@@ -309,6 +309,15 @@ a[class^="item-"] {
   margin-right: 1rem;
 }
 
+a.item-projects {
+  &::before {
+    content: "\f0c5";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    padding-right: 8px;
+  }
+}
+
 a.item-blue,
 a.item-projects {
   background: $navylike;
@@ -319,6 +328,15 @@ a.item-projects {
   }
 }
 
+a.item-researchers {
+  &::before {
+    content: "\f0c0";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    padding-right: 8px;
+  }
+}
+
 a.item-green,
 a.item-researchers {
   background: $dark-green;
@@ -326,6 +344,15 @@ a.item-researchers {
 
   &:hover {
     background: $bright-green;
+  }
+}
+
+a.item-themes {
+  &::before {
+    content: "\f660";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    padding-right: 8px;
   }
 }
 
@@ -495,10 +522,28 @@ cite {
 
   &.projectpage {
     border-top: 5px solid $bright-navy;
+
+    h3 {
+      &::before {
+        content: "\f570";
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 900;
+        padding-right: 8px;
+      }
+    }
   }
 
   &.researcherpage {
     border-top: 5px solid $bright-green;
+
+    h3 {
+      &::before {
+        content: "\f007";
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 900;
+        padding-right: 8px;
+      }
+    }
   }
 
   // .streampage == default
@@ -508,6 +553,15 @@ cite {
 
   &.themepage {
     border-top: 5px solid $bright-orange;
+
+    h3 {
+      &::before {
+        content: "\f07b";
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 900;
+        padding-right: 8px;
+      }
+    }
   }
 
   h3 {
