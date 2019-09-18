@@ -41,6 +41,14 @@ def get_filter_value(category, value):
     )
 
 
+@register.filter
+def get_filter_level(value, arg):
+    if isinstance(arg, int):
+        return range(5 * (arg - 4))
+
+    return []
+
+
 @register.simple_tag(takes_context=True)
 def sort_endnotes(context, endnotes, field):
     request = context.get('request')

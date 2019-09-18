@@ -1,3 +1,5 @@
+from itertools import chain
+
 from core.blocks import HomePageStreamBlock, TimelineStreamBlock
 from django import forms
 from django.db import models
@@ -169,10 +171,10 @@ class HomePage(Page):
                  'title').values_list('title', flat=True)),
             ('researcher',
              ResearcherPage.objects.live().order_by(
-                 'title').values_list('title', flat=True)),
+                 'person__name').values_list('title', flat=True)),
             ('project',
              ProjectPage.objects.live().order_by(
-                 'full_title').values_list('title', 'full_title'))
+                 'full_title').values_list('title', 'full_title', 'depth'))
         ]
 
         for ft in FacetType.objects.all():
@@ -184,11 +186,11 @@ class HomePage(Page):
 
         context['filters'] = filters
 
-        descendants = Page.objects.live().descendant_of(self)
-        pages = descendants.type(ThemePage) | descendants.type(
-            ResearcherPage) | descendants.type(ProjectPage)
-
-        context['pages'] = pages
+        context['pages'] = list(chain(
+            ThemePage.objects.live().order_by('title'),
+            ProjectPage.objects.live().order_by('title'),
+            ResearcherPage.objects.live().order_by('person__name')
+        ))
 
         return context
 
