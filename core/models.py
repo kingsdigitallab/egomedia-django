@@ -350,7 +350,7 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
     def get_page_facets(self):
         related = self.project_researcher_relationship.all()
         researchers = ResearcherPage.objects.live().filter(
-            researcher_project_relationship__in=related)
+            researcher_project_relationship__in=related).order_by('title')
 
         return [
             ('project',
@@ -362,7 +362,7 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
     def get_themes(self):
         related = self.project_theme_relationship.all()
         return ThemePage.objects.live().filter(
-            theme_project_relationship__in=related)
+            theme_project_relationship__in=related).order_by('title')
 
 
 @receiver(pre_save, sender=ProjectPage)
@@ -386,11 +386,11 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
     def get_page_facets(self):
         related = self.theme_project_relationship.all()
         projects = ProjectPage.objects.live().filter(
-            project_theme_relationship__in=related)
+            project_theme_relationship__in=related).order_by('title')
 
         related = self.theme_researcher_relationship.all()
         researchers = ResearcherPage.objects.live().filter(
-            researcher_theme_relationship__in=related)
+            researcher_theme_relationship__in=related).order_by('title')
 
         return [
             ('researcher', researchers),
