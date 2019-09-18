@@ -233,14 +233,21 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
     parent_page_types = [PeopleIndexPage]
     subpage_types = []
 
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context['projects'] = self.researcher_project_relationship.all(
+        ).order_by('project__title')
+
+        return context
+
     def get_page_facets(self):
         related = self.researcher_project_relationship.all()
         projects = ProjectPage.objects.live().filter(
-            project_researcher_relationship__in=related)
+            project_researcher_relationship__in=related).order_by('title')
 
         related = self.researcher_theme_relationship.all()
         themes = ThemePage.objects.live().filter(
-            theme_researcher_relationship__in=related)
+            theme_researcher_relationship__in=related).order_by('title')
 
         secondary_themes = ThemePage.objects.none()
 
@@ -249,6 +256,7 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
 
         secondary_themes = secondary_themes.distinct()
         secondary_themes = secondary_themes.difference(themes)
+        secondary_themes = secondary_themes.order_by('title')
 
         return [
             ('theme', themes),
