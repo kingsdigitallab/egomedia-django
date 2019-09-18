@@ -253,22 +253,22 @@ nav {
 
       .active > a {
         background: $light-gray;
-        border-bottom: 5px solid $dark-gray;
+        border-bottom: 8px solid $dark-gray;
         color: $dark-gray;
 
         &.item-projects {
-          background-color: scale-color($navylike, $lightness: -20%);
+          background-color: $navylike;
           color: $white;
         }
 
         &.item-researchers {
-          background-color: scale-color($dark-green, $lightness: -20%);
+          background-color: $dark-green;
           color: $white;
         }
 
         &.item-themes {
-          background-color: scale-color($dirty-orange, $lightness: -20%);
-          color: $white;
+          background-color: scale-color($dirty-orange, $lightness: 20%);
+          color: $black;
         }
       }
     }
@@ -294,6 +294,7 @@ nav {
   text-transform: uppercase;
 
   a {
+    border-bottom: 4px solid $light-gray;
     padding-top: rem-calc(8);
 
     &:hover {
@@ -321,7 +322,7 @@ a.item-projects {
 a.item-blue,
 a.item-projects {
   background: $navylike;
-  border-bottom: 5px solid $bright-navy;
+  border-bottom: 4px solid $bright-navy;
 
   &:hover {
     background: $bright-navy;
@@ -340,7 +341,7 @@ a.item-researchers {
 a.item-green,
 a.item-researchers {
   background: $dark-green;
-  border-bottom: 5px solid $bright-green;
+  border-bottom: 4px solid $bright-green;
 
   &:hover {
     background: $bright-green;
@@ -359,18 +360,19 @@ a.item-themes {
 a.item-orange,
 a.item-themes {
   background: $dirty-orange;
-  border-bottom: 5px solid $bright-orange;
+  border-bottom: 4px solid $bright-orange;
   color: $black;
 
   &:hover {
     background: $bright-orange;
+    color: $black;
   }
 }
 
 a.item-yellow,
 a.item-methods {
   background: $dirty-yellow;
-  border-bottom: 5px solid $bright-yellow;
+  border-bottom: 4px solid $bright-yellow;
 
   &:hover {
     background: $bright-yellow;
