@@ -884,6 +884,13 @@ main,
   li {
     display: block;
   }
+
+  button {
+    &:hover {
+      background: scale-color($bright-navy, $lightness: 50%);
+      color: $black;
+    }
+  }
 }
 
 .tag {
