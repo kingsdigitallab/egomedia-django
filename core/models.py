@@ -1,3 +1,4 @@
+import json
 from itertools import chain
 
 from core.blocks import HomePageStreamBlock, TimelineStreamBlock
@@ -148,8 +149,39 @@ class EndNoteMixin(ClusterableModel):
         abstract = True
 
 
+class TextSearchPage(BasePage):
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        live_pages = Page.objects.live().specific()
+
+        data = []
+        sf = index.SearchField('body')
+
+        for p in live_pages:
+            content = sf.get_value(p)
+            if isinstance(content, list):
+                content = ' '.join(content)
+
+            data.append({
+                'id': p.id,
+                'title': p.title,
+                'url': p.url,
+                'content': content
+            })
+
+        context['docs'] = json.dumps(data)
+
+        return context
+
+
 class HomePage(Page):
     body = StreamField(HomePageStreamBlock())
+
+    api_fields = [
+        APIField('body')
+    ]
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
@@ -159,8 +191,8 @@ class HomePage(Page):
         index.SearchField('body')
     ]
 
-    subpage_types = [BibliographyIndexPage,
-                     IndexPage, PeopleIndexPage, StreamPage]
+    subpage_types = [BibliographyIndexPage, IndexPage,
+                     PeopleIndexPage, StreamPage, TextSearchPage]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
