@@ -1,9 +1,11 @@
 $(document).ready(() => {
-  // strip html from the text
   data.forEach(doc => {
+    // remove html markup from the text
     doc.content = $('<div>')
       .html(doc.content)
       .text()
+
+    // removes footnote markers
     doc.content = doc.content.replace(/\[\^[^\]]\]/gi, '')
   })
 
