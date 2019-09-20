@@ -17,6 +17,15 @@ $(document).ready(() => {
     layoutMode: 'fitRows'
   })
 
+  // $results.isotope( 'on', 'arrangeComplete', function() {
+  //   $('#results .cell').each(function() {
+  //     // $(this).removeAttr("style")
+  //     $(this).css('position', '')
+  //            .css('left', '')
+  //            .css('top', '');
+  //   });
+  // });
+
   // apply filters
   $('.filter').change(function() {
     const category = $(this).data('category')

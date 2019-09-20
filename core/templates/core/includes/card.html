@@ -3,7 +3,7 @@
 {% get_page_label page as page_label %}
 
 <div class="cell {% get_filter_value page_label|cut:'page' page.title %}">
-  <div class="card {{ page_label }}" data-equalizer-watch="card">
+  <div class="card {{ page_label }}" data-equalizer-watch>
     <div class="card-divider">
       <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
     </div>
@@ -21,7 +21,10 @@
       </a>
       {% endif %}
 
-      {% include "core/includes/labels.html" with page=page %}
+      <!-- <button class="tiny secondary button expanded button-toggler">Expand</button> -->
+      <div class="hide sub">
+        {% include "core/includes/labels.html" with page=page %}
+      </div>
     </div>
   </div>
 </div>
