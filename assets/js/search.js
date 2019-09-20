@@ -60,8 +60,11 @@ $(document).ready(() => {
       }
 
       let content = doc.content
+      let contentCount = 0
       if (meta.content !== undefined) {
-        content = highlight(content, meta.content.position, true)
+        positions = meta.content.position
+        content = highlight(content, positions, true)
+        contentCount = positions.length
       }
 
       let li = $('<li>')
@@ -71,8 +74,11 @@ $(document).ready(() => {
 
       let h4 = $('<h4>')
       h4.append(a)
-      h4.append('&#160;')
-      h4.append($('<span class="badge">').html(meta.content.position.length))
+
+      if (contentCount > 0) {
+        h4.append('&#160;')
+        h4.append($('<span class="badge">').html(contentCount))
+      }
 
       let p = $('<p>').html(content)
 
