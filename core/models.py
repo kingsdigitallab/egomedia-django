@@ -165,13 +165,13 @@ class TextSearchPage(BasePage):
                 content = ' '.join(content)
 
             data.append({
-                'id': p.id,
+                'id': str(p.id),
                 'title': p.title,
                 'url': p.url,
                 'content': content
             })
 
-        context['docs'] = json.dumps(data)
+        context['data'] = json.dumps(data)
 
         return context
 
