@@ -101,10 +101,13 @@ $(document).ready(() => {
 
       end = pos[0]
 
-      text = `${text} ${value.substring(start, end)} <em>${value.substring(
+      text = `${text} ${value.substring(
+        start,
+        end
+      )} <span class="label">${value.substring(
         pos[0],
         pos[0] + pos[1]
-      )}</em> ${context ? gap : ''}`
+      )}</span> ${context ? gap : ''}`
 
       start = pos[0] + pos[1] + 1
     })
