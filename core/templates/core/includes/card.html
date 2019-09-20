@@ -3,9 +3,16 @@
 {% get_page_label page as page_label %}
 
 <div class="cell {% get_filter_value page_label|cut:'page' page.title %}">
-  <div class="card {{ page_label }}" data-equalizer-watch="card">
+  <div class="card {{ page_label }}{% if page.depth != 4 %} child{% endif %}" data-equalizer-watch="card">
     <div class="card-divider">
       <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
+      {% if page_label == 'projectpage' %}
+      <span class="level one{% if page.depth == 4 %} highlight{% endif %}"></span>
+      <span class="level neutral"></span>
+      <span class="level two{% if page.depth == 5 %} highlight{% endif %}"></span>
+      <span class="level neutral"></span>
+      <span class="level three{% if page.depth == 6 %} highlight{% endif %}"></span>
+      {% endif %}
     </div>
 
     {% if page.image %}

@@ -533,6 +533,10 @@ cite {
         padding-right: 8px;
       }
     }
+
+    &.child {
+      border-top: 5px dashed $bright-navy;
+    }
   }
 
   &.researcherpage {
@@ -589,6 +593,45 @@ cite {
     li {
       background: $white;
     }
+  }
+}
+
+.card-divider {
+
+  h3 {
+    padding-left: 1.1875em;
+    padding-right: 8px;
+    text-indent: -1.1875em;
+    width: 90%;
+  }
+
+  .highlight {
+    border-top: 8px solid $bright-orange !important;
+  }
+
+  .level {
+    border-right: 1px solid $light-gray;
+    border-top: 5px solid $light-gray;
+    height: 35px;
+    padding: 0;
+    width: 12px;
+  }
+
+  .neutral {
+    width: 2px;
+    border-right: 3px solid $light-gray;
+  }
+
+  .one {
+    background: $primary-color;
+  }
+
+  .two {
+    background: scale-color($primary-color, $lightness: 33%);
+  }
+
+  .three {
+    background: scale-color($primary-color, $lightness: 66%);
   }
 }
 
