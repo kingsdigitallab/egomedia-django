@@ -1,11 +1,11 @@
 $(document).ready(() => {
   // strip html from the text
-  data.forEach(
-    doc =>
-      (doc.content = $('<div>')
-        .html(doc.content)
-        .text())
-  )
+  data.forEach(doc => {
+    doc.content = $('<div>')
+      .html(doc.content)
+      .text()
+    doc.content = doc.content.replace(/\[\^[^\]]\]/gi, '')
+  })
 
   // create a document index for easy retrieval of the search results
   const docs = data.reduce((acc, doc) => {
