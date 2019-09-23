@@ -2,7 +2,10 @@
 
 {% get_page_label page as page_label %}
 
-<div class="cell {% get_filter_value page_label|cut:'page' page.title %}">
+<div id="{% get_filter_value page_label|cut:'page' page.title %}"
+  class="cell {% get_filter_value page_label|cut:'page' page.title %}"
+  {% if page_label == 'projectpage' and page.is_child %}data-child="data-child"
+  {% endif %}>
   <div
     class="card {{ page_label }}{% if page_label == 'projectpage' and page.is_child %} child{% endif %}"
     data-equalizer-watch="card">
