@@ -1,0 +1,21 @@
+{% extends "kdl_wagtail_core/base_page.html" %}
+{% load staticfiles %}
+
+{% block page-body %}
+<div class="grid-x grid-margin-x">
+  <div class="cell medium-12">
+    <h2 id="count"></h2>
+    <ol class="results"></ol>
+  </div>
+</div>
+{% endblock page-body %}
+
+{% block footer_scripts %}
+<script src="{% static 'lunr/lunr.min.js' %}"></script>
+<script type="text/javascript">
+  /* beautify preserve:start */
+  let data = {{ data | safe }}
+  /* beautify preserve:end */
+</script>
+<script src="{% static 'js/search.js' %}"></script>
+{% endblock footer_scripts %}

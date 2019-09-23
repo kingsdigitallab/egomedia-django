@@ -17,7 +17,8 @@
     "foundation-sites": "^6.5.1",
     "isotope-layout": "^3.0.6",
     "jquery": "^3.4.1",
-    "js-cookie": "^2.2.0"
+    "js-cookie": "^2.2.0",
+    "lunr": "^2.3.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
