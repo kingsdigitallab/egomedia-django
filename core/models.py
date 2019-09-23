@@ -89,7 +89,7 @@ class Facet(index.Indexed, ClusterableModel):
     objects = FacetManager()
 
     class Meta:
-        ordering = ['facet_type', 'title']
+        ordering = ['title']
         unique_together = [['facet_type', 'title']]
 
     def __str__(self):
@@ -118,11 +118,7 @@ class FacetsMixin(models.Model):
         abstract = True
 
     def get_facets(self):
-        return [
-            (ft.title,
-             self.facets.filter(facet_type=ft).values_list('title', flat=True))
-            for ft in FacetType.objects.all()
-        ]
+        return [(f.facet_type.title, f.title) for f in self.facets.all()]
 
     def get_page_facets(self):
         pass
