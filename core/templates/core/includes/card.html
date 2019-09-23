@@ -3,11 +3,8 @@
 {% get_page_label page as page_label %}
 
 <div id="{% get_filter_value page_label|cut:'page' page.title %}"
-  class="cell {% get_filter_value page_label|cut:'page' page.title %}"{% if page_label == 'projectpage' and page.is_child %} data-child="data-child"
-  {% endif %}>
-  <div
-    class="card {{ page_label }}{% if page_label == 'projectpage' and page.is_child %} child{% endif %}"
-    data-equalizer-watch="card">
+  class="cell {% get_filter_value page_label|cut:'page' page.title %}"{% if page_label == 'projectpage' and page.is_child %} data-child="data-child"{% endif %}>
+  <div class="card {{ page_label }}{% if page_label == 'projectpage' and page.is_child %} child{% endif %}" data-equalizer-watch="card">
     <div class="card-divider">
       <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
 
