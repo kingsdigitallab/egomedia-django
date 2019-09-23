@@ -82,8 +82,12 @@ $dark-gray: #333333;
 $black: #0a0a0a;
 $white: #fefefe;
 
-$dirty-orange: #e3890f;
-$bright-orange: #fcb049;
+// $dirty-orange: #e3890f;
+// $dirty-orange: #a36003; // OK for WCAG AA
+$dirty-orange: #9c3803; // OK for WCAG AAA
+// $bright-orange: #fcb049;
+// $bright-orange: #e3890f;
+$bright-orange: #ed7a3e;
 $dark-green: #256019;
 // $dark-green: #47803b;
 $bright-green: #47803b;
@@ -94,7 +98,7 @@ $bright-navy: #53849d;
 // $bright-navy: #8cc5e3;
 $dirty-yellow: #d3bd14; // Gold
 $bright-yellow: #ffe200;
-$dark-blue: #245d8e;
+$dark-blue: #245d88;
 $bright-blue: #31e6fd;
 
 $body-background: $white;
