@@ -267,8 +267,8 @@ nav {
         }
 
         &.item-themes {
-          background-color: scale-color($dirty-orange, $lightness: 20%);
-          color: $black;
+          background-color: scale-color($dirty-orange, $lightness: -20%);
+          color: $white;
         }
       }
     }
@@ -361,11 +361,11 @@ a.item-orange,
 a.item-themes {
   background: $dirty-orange;
   border-bottom: 4px solid $bright-orange;
-  color: $black;
+  // color: $black;
 
   &:hover {
     background: $bright-orange;
-    color: $black;
+    // color: $black;
   }
 }
 

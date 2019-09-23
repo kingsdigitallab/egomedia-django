@@ -3,8 +3,7 @@
 {% get_page_label page as page_label %}
 
 <div id="{% get_filter_value page_label|cut:'page' page.title %}"
-  class="cell {% get_filter_value page_label|cut:'page' page.title %}"
-  {% if page_label == 'projectpage' and page.is_child %}data-child="data-child"
+  class="cell {% get_filter_value page_label|cut:'page' page.title %}"{% if page_label == 'projectpage' and page.is_child %} data-child="data-child"
   {% endif %}>
   <div
     class="card {{ page_label }}{% if page_label == 'projectpage' and page.is_child %} child{% endif %}"
@@ -36,7 +35,10 @@
       </a>
       {% endif %}
 
-      {% include "core/includes/labels.html" with page=page %}
+      <!-- <button class="tiny secondary button expanded button-toggler">Expand</button> -->
+      <div class="hide sub">
+        {% include "core/includes/labels.html" with page=page %}
+      </div>
     </div>
   </div>
 </div>

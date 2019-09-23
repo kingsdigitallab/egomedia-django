@@ -46,6 +46,22 @@ $(document).ready(function() {
     return false
   })
 
+  // Testing
+
+  // $('.button-toggler').on('click', function() {
+  //   $(this)
+  //     .siblings('.sub')
+  //     .slideToggle(400)
+  //     .toggleClass('hide show')
+  //   $(this).toggleClass('close open')
+  //   // $('card').removeAttr("style")
+  //   // $('card').css('position', '')
+  //   // $('card').css('left', '')
+  //   // $('card').css('top', '');
+
+  //   return false
+  // })
+
   // Cookie disclaimer
   if (!Cookies.get('ego-cookie')) {
     $('#cookie-disclaimer').removeClass('hide')
