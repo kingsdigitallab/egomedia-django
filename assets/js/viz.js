@@ -5,7 +5,7 @@ $(document).ready(() => {
     links: []
   }
 
-  const addNode = (nodes, node) => {
+  const addNode = (nodes, node, group) => {
     if (!nodes.find(item => item.id === node)) {
       nodes.push({
         id: node,
@@ -13,13 +13,25 @@ $(document).ready(() => {
           .split('_')
           .slice(1)
           .join(' '),
-        group: node.split('_').shift(),
+        group: group,
         sourceLinks: [],
         targetLinks: []
       })
     }
 
     return nodes
+  }
+
+  const getGroup = value => {
+    return value.split('_').shift()
+  }
+
+  const isNotChild = el => {
+    return el.data('child') === undefined
+  }
+
+  const isGroupWhitelisted = group => {
+    return group === 'theme' || group === 'project'
   }
 
   $('#results .cell').each(function() {
@@ -31,18 +43,28 @@ $(document).ready(() => {
     classes.shift()
 
     const node = classes.shift()
+    let group = getGroup(node)
 
-    data.nodes = addNode(data.nodes, node)
+    if (isNotChild($(this))) {
+      if (isGroupWhitelisted(group)) {
+        data.nodes = addNode(data.nodes, node, group)
 
-    classes.forEach(item => {
-      data.nodes = addNode(data.nodes, item)
+        classes.forEach(item => {
+          if (isNotChild($('#' + item))) {
+            group = getGroup(item)
+            if (isGroupWhitelisted(group)) {
+              data.nodes = addNode(data.nodes, item, group)
 
-      data.links.push({
-        source: node,
-        target: item,
-        value: 1
-      })
-    })
+              data.links.push({
+                source: node,
+                target: item,
+                value: 1
+              })
+            }
+          }
+        })
+      }
+    }
   })
 
   // sort by name
