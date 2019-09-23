@@ -7,7 +7,7 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from kdl_wagtail.core.models import (
-    BasePage, BaseStreamPage, IndexPage, RichTextPage, StreamPage
+    BasePage, BaseStreamPage, IndexPage, RichTextPage, SitemapPage, StreamPage
 )
 from kdl_wagtail.people.models import (
     PeopleIndexPage, Person, PersonModel, PersonPage
@@ -188,7 +188,7 @@ class HomePage(Page):
     ]
 
     subpage_types = [BibliographyIndexPage, IndexPage,
-                     PeopleIndexPage, StreamPage, TextSearchPage]
+                     PeopleIndexPage, SitemapPage, StreamPage, TextSearchPage]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
