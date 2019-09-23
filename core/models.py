@@ -396,6 +396,13 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
         return ThemePage.objects.live().filter(
             theme_project_relationship__in=related).order_by('title')
 
+    def is_child(self):
+        parent = self.get_parent().specific
+        if isinstance(parent, ProjectPage):
+            return True
+
+        return False
+
 
 @receiver(pre_save, sender=ProjectPage)
 def pp_pre_save(sender, instance, *args, **kwargs):
