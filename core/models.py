@@ -82,7 +82,9 @@ class Facet(index.Indexed, ClusterableModel):
     ]
 
     search_fields = [
-        index.SearchField('facet_type'),
+        index.RelatedFields('facet_type', [
+            index.SearchField('title')
+        ]),
         index.SearchField('title')
     ]
 
