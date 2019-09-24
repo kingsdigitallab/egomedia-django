@@ -120,10 +120,10 @@ $(document).ready(() => {
     return '#e2e2e2'
   }
 
-  const margin = { top: 50, right: 10, bottom: 150, left: 10 }
-  const step = 11
+  const margin = { top: 50, right: 10, bottom: 1000, left: 10 }
+  const step = 22
   const width = (data.nodes.length - 1) * step + margin.left + margin.right
-  const height = 600 + margin.top
+  const height = 400
 
   const x = d3.scalePoint(data.nodes.map(d => d.id), [
     margin.left,
@@ -161,7 +161,7 @@ $(document).ready(() => {
     .call(g =>
       g
         .append('text')
-        .attr('x', -5)
+        .attr('x', -20)
         .attr('dy', '0.35em')
         .attr('fill', d => d3.lab(colour(d.group)).darker(2))
         .text(d => d.name)
@@ -169,7 +169,7 @@ $(document).ready(() => {
     .call(g =>
       g
         .append('circle')
-        .attr('r', 3)
+        .attr('r', 8)
         .attr('fill', d => colour(d.group))
     )
 
