@@ -22,7 +22,7 @@ class FacetAdmin(ModelAdmin):
     menu_icon = 'tag'
     list_display = ['facet_type', 'title']
     list_filter = ['facet_type']
-    search_fields = list_display
+    search_fields = ['facet_type__title', 'title']
 
 
 class FacetTypeAdmin(ModelAdmin):
