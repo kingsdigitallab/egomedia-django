@@ -7,7 +7,7 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from kdl_wagtail.core.models import (
-    BasePage, BaseStreamPage, IndexPage, RichTextPage, StreamPage
+    BasePage, BaseStreamPage, IndexPage, RichTextPage, SitemapPage, StreamPage
 )
 from kdl_wagtail.people.models import (
     PeopleIndexPage, Person, PersonModel, PersonPage
@@ -82,14 +82,16 @@ class Facet(index.Indexed, ClusterableModel):
     ]
 
     search_fields = [
-        index.SearchField('facet_type'),
+        index.RelatedFields('facet_type', [
+            index.SearchField('title')
+        ]),
         index.SearchField('title')
     ]
 
     objects = FacetManager()
 
     class Meta:
-        ordering = ['facet_type', 'title']
+        ordering = ['title']
         unique_together = [['facet_type', 'title']]
 
     def __str__(self):
@@ -118,11 +120,7 @@ class FacetsMixin(models.Model):
         abstract = True
 
     def get_facets(self):
-        return [
-            (ft.title,
-             self.facets.filter(facet_type=ft).values_list('title', flat=True))
-            for ft in FacetType.objects.all()
-        ]
+        return [(f.facet_type.title, f.title) for f in self.facets.all()]
 
     def get_page_facets(self):
         pass
@@ -192,7 +190,7 @@ class HomePage(Page):
     ]
 
     subpage_types = [BibliographyIndexPage, IndexPage,
-                     PeopleIndexPage, StreamPage, TextSearchPage]
+                     PeopleIndexPage, SitemapPage, StreamPage, TextSearchPage]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)

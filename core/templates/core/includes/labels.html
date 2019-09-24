@@ -35,8 +35,6 @@
   {% endfor %}
 
   {% for facet in page.get_facets %}
-  {% for item in facet.1 %}
-  {% include "core/includes/tag_label.html" with tag=item category=facet.0 %}
-  {% endfor %}
+  {% include "core/includes/tag_label.html" with tag=facet.1 category=facet.0 %}
   {% endfor %}
 </ul>
