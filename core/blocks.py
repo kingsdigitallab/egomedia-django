@@ -1,9 +1,10 @@
 from kdl_wagtail.core.blocks import (
     BaseCaptionAttributionBlock, BaseStreamBlock, BaseStructBlock,
-    DocumentBlock, EmbedBlock, ImageBlock, LinkBlock, TableBlock
+    DocumentBlock, EmbedBlock, ImageBlock, LinkBlock, RichTextBlock,
+    TableBlock
 )
 from wagtail.core.blocks import (
-    CharBlock, ListBlock, RichTextBlock, StreamBlock, StructBlock, URLBlock
+    CharBlock, ListBlock, StreamBlock, StructBlock, URLBlock
 )
 
 

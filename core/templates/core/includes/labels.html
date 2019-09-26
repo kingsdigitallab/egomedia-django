@@ -16,7 +16,7 @@
       id="project-list-{{ page.id }}" data-dropdown data-auto-focus="true"
       data-close-on-click="true">
       {% for project in projects %}
-      {% include "core/includes/page_label.html" with page=project category=category %}
+      {% include "core/includes/page_label.html" with page=project category=category idx=forloop.counter %}
       {% endfor %}
     </ul>
   </li>
