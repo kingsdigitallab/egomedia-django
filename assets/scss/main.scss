@@ -529,6 +529,7 @@ cite {
 
     h3 {
       &::before {
+        color: $white;
         content: "\f570";
         font-family: "Font Awesome 5 Pro";
         font-weight: 900;
@@ -546,6 +547,7 @@ cite {
 
     h3 {
       &::before {
+        color: $white;
         content: "\f007";
         font-family: "Font Awesome 5 Pro";
         font-weight: 900;
@@ -564,6 +566,7 @@ cite {
 
     h3 {
       &::before {
+        color: $white;
         content: "\f07b";
         font-family: "Font Awesome 5 Pro";
         font-weight: 900;
@@ -598,12 +601,29 @@ cite {
   }
 }
 
+.top-card {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
 .card-divider {
+  // background: rgba(32, 81, 106, 0.8);
+  background: rgba(55, 55, 55, 0.8);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+
   h3 {
     padding-left: 1.1875em;
     padding-right: 8px;
     text-indent: -1.1875em;
     width: 90%;
+
+    a {
+      color: $white;
+    }
   }
 
   .highlight {
@@ -611,8 +631,8 @@ cite {
   }
 
   .level {
-    border-right: 1px solid $light-gray;
-    border-top: 5px solid $light-gray;
+    border-right: 1px solid transparent;
+    border-top: 5px solid transparent;
     height: 35px;
     padding: 0;
     width: 12px;
@@ -620,7 +640,7 @@ cite {
 
   .neutral {
     width: 2px;
-    border-right: 3px solid $light-gray;
+    border-right: 3px solid transparent;
   }
 
   .one {

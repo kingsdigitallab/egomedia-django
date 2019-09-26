@@ -5,25 +5,27 @@
 <div id="{% get_filter_value page_label|cut:'page' page.title %}"
   class="cell {% get_filter_value page_label|cut:'page' page.title %}"{% if page_label == 'projectpage' and page.is_child %} data-child="data-child"{% endif %}>
   <div class="card {{ page_label }}{% if page_label == 'projectpage' and page.is_child %} child{% endif %}">
-    <div class="card-divider">
-      <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
+    <div class="top-card">
+      <div class="card-divider">
+        <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
 
-      {% if page_label == 'projectpage' %}
-      {% for level in 123|make_list %}
-      <span
-        class="level {{ level|apnumber }}{% if page.depth == level|add:3 %} highlight{% endif %}"></span>
-      {% if not forloop.last %}
-      <span class="level neutral"></span>
-      {% endif %}
-      {% endfor %}
+        {% if page_label == 'projectpage' %}
+        {% for level in 123|make_list %}
+        <span
+          class="level {{ level|apnumber }}{% if page.depth == level|add:3 %} highlight{% endif %}"></span>
+        {% if not forloop.last %}
+        <span class="level neutral"></span>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+      </div>
+
+      {% if page.image %}
+      <a href="{% pageurl page %}">
+        {% image page.image fill-600x300-c100 %}
+      </a>
       {% endif %}
     </div>
-
-    {% if page.image %}
-    <a href="{% pageurl page %}">
-      {% image page.image fill-600x300-c100 %}
-    </a>
-    {% endif %}
 
     <div class="card-section">
       {% if page.search_description %}
