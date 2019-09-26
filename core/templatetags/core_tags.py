@@ -19,7 +19,7 @@ def get_block_title(block):
         return 'Map'
 
     if block.block_type == 'modal_block':
-        return block.value.get('title')
+        return re.sub(r'\[\^([^\]]+)\]', '', block.value.get('title'))
 
     if block.block_type == 'timeline_block':
         return block.value.get('title')
