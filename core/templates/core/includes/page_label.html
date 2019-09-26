@@ -2,6 +2,13 @@
 
 <li class="tag {{ category }}"
   data-filter="{% get_filter_value category page.title %}">
-  <a
-    href="{% pageurl page %}">{% if page.full_title %}{{ page.full_title }}{% else %}{{ page }}{% endif %}</a>
+  {% if category == 'project' and page.is_child %}
+  <button class="clear button secondary float-right" type="button" data-tooltip
+    tabindex="{{ idx }}" title="{{ page.full_title }}" data-click-open="false"
+    data-position="right" data-alignment="center">
+    <i class="far fa-info-circle"></i>
+  </button>
+  {% endif %}
+
+  <a href="{% pageurl page %}">{{ page }}</a>
 </li>
