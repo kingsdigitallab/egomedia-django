@@ -518,6 +518,8 @@ cite {
 // Cards
 
 .card {
+  border: none;
+
   &.streampage {
     border-top: 5px solid $dark-gray;
   }
@@ -597,7 +599,6 @@ cite {
 }
 
 .card-divider {
-
   h3 {
     padding-left: 1.1875em;
     padding-right: 8px;
