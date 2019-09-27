@@ -73,7 +73,7 @@ $(document).ready(() => {
             .data('category')
           const text = option.innerText
 
-          let cardcontainer = $('<div class="cardcontainer">')
+          let cardcontainer = $('<div class="cell cardcontainer">')
 
           let button = $(
             '<button type="button" class="button expanded remove-filter">'
