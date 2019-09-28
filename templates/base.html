@@ -94,9 +94,9 @@
     <script src="{% static 'js/main.js' %}"></script>
     {% endcompress %}
 
-    {% compress js file footer %}
+    {% comment %} {% compress js file footer %} {% endcomment %}
     {% block footer_scripts %}{% endblock %}
-    {% endcompress %}
+    {% comment %} {% endcompress %} {% endcomment %}
     {% endblock %}
 
     {% wagtailuserbar %}

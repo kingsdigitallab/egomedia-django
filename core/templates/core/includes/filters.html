@@ -8,18 +8,20 @@
   <div class="cell filters">
     <select class="filter {% get_filter_value 'category' filter.0 %}"
       data-category="{% get_filter_value 'category' filter.0 %}">
-      <option value="">{{ filter.0|capfirst }}</option>
+      <option value="" data-filter="">{{ filter.0|capfirst }}</option>
 
       {% for v in filter.1 %}
 
       {% if v|length_is:3 %}
-      <option value=".{% get_filter_value filter.0 v.0 %}">
+      <option value=".{% get_filter_value filter.0 v.0 %}"
+        data-filter="{% get_filter_value filter.0 v.0 %}">
         {% for _ in '-'|get_filter_level:v.2 %}&#160;{% endfor %}
 
-        {{ v.0|capfirst }}
+        {{ v.0 }}
         {% else %}
-      <option value=".{% get_filter_value filter.0 v %}">
-        {{ v|capfirst }}
+      <option value=".{% get_filter_value filter.0 v %}"
+        data-filter="{% get_filter_value filter.0 v %}">
+        {{ v }}
         {% endif %}
       </option>
 

@@ -13,6 +13,7 @@
     "@fortawesome/fontawesome-pro": "^5.7.2",
     "core-js": "^3.2.1",
     "d3": "^5.9.2",
+    "filterizr": "^2.2.3",
     "fontawesome": "^5.6.3",
     "foundation-sites": "^6.5.1",
     "isotope-layout": "^3.0.6",

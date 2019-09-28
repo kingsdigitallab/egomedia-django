@@ -8,7 +8,8 @@
 {% include "core/includes/filters.html" %}
 
 {% if pages %}
-<div id="results" class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3">
+<div id="results"
+  class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 filter-container">
   {% for page in pages %}
   {% include "core/includes/card.html" %}
   {% endfor %}
@@ -23,8 +24,10 @@
 {% endblock page-body %}
 
 {% block footer_scripts %}
-<script src="{% static 'isotope-layout/dist/isotope.pkgd.min.js' %}"></script>
+<!--script src="{% static 'isotope-layout/dist/isotope.pkgd.min.js' %}"></script>
 <script src="{% static 'js/filters.js' %}"></script>
 <script src="{% static 'd3/dist/d3.min.js' %}"></script>
-<script src="{% static 'js/viz.js' %}"></script>
+<script src="{% static 'js/viz.js' %}"></script-->
+<script src="{% static 'filterizr/dist/vanilla.filterizr.min.js' %}"></script>
+<script src="{% static 'js/filterizr.js' %}" type="module"></script>
 {% endblock footer_scripts %}
