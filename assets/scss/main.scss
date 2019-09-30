@@ -116,6 +116,21 @@ img {
   }
 }
 
+.search {
+  button {
+    border: 0;
+    padding: .6875rem;
+  }
+
+  @include breakpoint(medium only) {
+    margin-top: 2rem;
+  }
+
+  @include breakpoint(small only) {
+    margin-top: 1rem;
+  }
+}
+
 /* Block types */
 /*
  * .embed_block
@@ -440,7 +455,7 @@ a[class$="_block"] {
 }
 
 // Responsive menu
-// Small scree title bar
+// Small screen title bar
 
 .title-bar {
   color: $black;
@@ -1134,7 +1149,6 @@ footer {
   background-color: $light-gray;
   border: .5rem solid $light-gray;
   margin-left: 2rem;
-  // margin-right: 2rem;
   max-width: 640px;
   padding-bottom: 48%;
 
