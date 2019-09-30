@@ -1,10 +1,13 @@
-{% load core_tags humanize kdl_wagtail_core_tags wagtailcore_tags wagtailimages_tags %}
+{% load core_tags humanize kdl_wagtail_core_tags staticfiles wagtailcore_tags wagtailimages_tags %}
 
 {% get_page_label page as page_label %}
 
 <div id="{% get_filter_value page_label|cut:'page' page.title %}"
-  class="cell {% get_filter_value page_label|cut:'page' page.title %}"{% if page_label == 'projectpage' and page.is_child %} data-child="data-child"{% endif %}>
-  <div class="card {{ page_label }}{% if page_label == 'projectpage' and page.is_child %} child{% endif %}">
+  class="cell {% get_filter_value page_label|cut:'page' page.title %}"
+  {% if page_label == 'projectpage' and page.is_child %} data-child="data-child"
+  {% endif %}>
+  <div
+    class="card {{ page_label }}{% if page_label == 'projectpage' and page.is_child %} child{% endif %}">
     <div class="card-divider">
       <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
 
@@ -21,7 +24,10 @@
 
     {% if page.image %}
     <a href="{% pageurl page %}">
-      {% image page.image fill-600x300-c100 %}
+      {% image page.image fill-600x300-c100 format-jpeg jpegquality-40 as img %}
+      <img {% if img.alt %}alt="{{ img.alt }}" {% endif %}class=" lazyload"
+        data-src="{{ img.url }}"
+        src="{% static 'images/placeholder-600x300.png' %}" />
     </a>
     {% endif %}
 
