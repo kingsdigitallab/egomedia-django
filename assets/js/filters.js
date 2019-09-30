@@ -1,10 +1,10 @@
 $(document).ready(() => {
-  // add the cards' tags as classes in the cells for a cleaner isotope filtering
-  $('#results .cell').each(function(i, cell) {
-    const tags = cell.querySelectorAll('.tag')
+  // add the cards' tags as classes in the cardcontainers for a cleaner isotope filtering
+  $('#results .cardcontainer').each(function(i, cardcontainer) {
+    const tags = cardcontainer.querySelectorAll('.tag')
 
     $(tags).each(function(i, tag) {
-      $(cell).addClass($(tag).data('filter'))
+      $(cardcontainer).addClass($(tag).data('filter'))
     })
   })
 
@@ -13,12 +13,12 @@ $(document).ready(() => {
   showCurrentFilters(filters)
 
   const $results = $('#results').isotope({
-    itemSelector: '.cell',
+    itemSelector: '.cardcontainer',
     layoutMode: 'fitRows'
   })
 
   // $results.isotope( 'on', 'arrangeComplete', function() {
-  //   $('#results .cell').each(function() {
+  //   $('#results .cardcontainer').each(function() {
   //     // $(this).removeAttr("style")
   //     $(this).css('position', '')
   //            .css('left', '')
@@ -73,7 +73,7 @@ $(document).ready(() => {
             .data('category')
           const text = option.innerText
 
-          let cell = $('<div class="cell">')
+          let cardcontainer = $('<div class="cell cardcontainer">')
 
           let button = $(
             '<button type="button" class="button expanded remove-filter">'
@@ -83,9 +83,9 @@ $(document).ready(() => {
           button.html(text)
           button.val(category)
 
-          cell.append(button)
+          cardcontainer.append(button)
 
-          $('#current-filters').append(cell)
+          $('#current-filters').append(cardcontainer)
         }
       })
     }
