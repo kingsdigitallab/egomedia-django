@@ -1,0 +1,42 @@
+{% load core_tags humanize kdl_wagtail_core_tags staticfiles wagtailcore_tags wagtailimages_tags %}
+
+{% get_page_label page as page_label %}
+
+<div id="{% get_filter_value page_label|cut:'page' page.title %}"
+  class="cell cardcontainer {% get_filter_value page_label|cut:'page' page.title %}"{% if page_label == 'projectpage' and page.is_child %} data-child="data-child"{% endif %}>
+  <div class="card {{ page_label }}{% if page_label == 'projectpage' and page.is_child %} child{% endif %}">
+    <div class="top-card">
+      <div class="card-divider">
+        <div class="grid-x align-bottom">
+          <div class="cell small-10">
+            <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
+          </div>
+          <div class="cell small-2">{% if page_label == 'projectpage' %}{% for level in 123|make_list %}<span class="level {{ level|apnumber }}{% if page.depth == level|add:3 %} highlight{% endif %}"></span>{% endfor %}{% endif %}</div>
+        </div>
+      </div>
+
+      {% if page.image %}
+      <a href="{% pageurl page %}">
+        {% image page.image fill-600x300-c100 %}
+      </a>
+      {% else %}
+      <a class="no-img" href="{% pageurl page %}">
+        <img src="{% static 'images/placeholder-600x300.png' %}">
+      </a>
+      {% endif %}
+    </div>
+
+    <div class="card-section">
+      {% if page.search_description %}
+      <a href="{% pageurl page %}">
+        {{ page.search_description|truncatechars:150 }}
+      </a>
+      {% endif %}
+
+      <!-- <button class="tiny secondary button expanded button-toggler">Expand</button> -->
+      <div class="">
+        {% include "core/includes/labels.html" with page=page %}
+      </div>
+    </div>
+  </div>
+</div>
