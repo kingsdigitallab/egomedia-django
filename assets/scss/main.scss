@@ -531,7 +531,6 @@ cite {
 
 .card {
   border: none;
-  border-top: 1px solid $light-gray;
 
   &.projectpage {
     .card-section {
@@ -610,6 +609,7 @@ cite {
   }
 
   img {
+    border: 1px solid $light-gray;
     width: 100%;
   }
 
