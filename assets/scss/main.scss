@@ -33,6 +33,10 @@ body {
   padding: rem-calc(16);
 }
 
+.center {
+  text-align: center;
+}
+
 .header-background {
   background: $light-gray;
   height: 50px;
@@ -839,6 +843,10 @@ main,
 
 .kcl {
   padding-top: 1rem;
+
+  @include breakpoint(small only) {
+    max-width: 250px;
+  }
 }
 
 .reveal {
