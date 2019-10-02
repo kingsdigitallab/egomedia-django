@@ -74,17 +74,16 @@ $(document).ready(() => {
       let a = $('<a>').html(title)
       a.attr('href', doc.url)
 
-      let h4 = $('<h4>')
-      h4.append(a)
+      let h3 = $('<h3>')
+      h3.append(a)
 
       if (contentCount > 0) {
-        h4.append('&#160;')
-        h4.append($('<span class="badge">').html(contentCount))
+        h3.append($('<span class="badge">').html(contentCount))
       }
 
       let p = $('<p>').html(content)
 
-      li.append(h4)
+      li.append(h3)
       li.append(p)
       ol.append(li)
     })
@@ -112,7 +111,7 @@ $(document).ready(() => {
       text = `${text} ${value.substring(
         start,
         end
-      )} <span class="label">${value.substring(
+      )} <span class="highlight">${value.substring(
         pos[0],
         pos[0] + pos[1]
       )}</span> ${context ? gap : ''}`
