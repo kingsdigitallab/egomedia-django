@@ -1,9 +1,5 @@
 {% load menu_tags %}
 
-<div class="grid-x">
-  <div class="cell small-12 medium-8 medium-offset-4">
-    {% block main_menu %}
-    {% main_menu max_levels=2 %}
-    {% endblock %}
-  </div>
-</div>
+{% block main_menu %}
+{% main_menu max_levels=2 %}
+{% endblock %}
