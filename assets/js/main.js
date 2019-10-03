@@ -11,11 +11,10 @@ $(document).ready(function() {
   $('.anchor-link').click(function() {
     try {
       let $field = $('<input>', {
-        'class': 'to-copy',
-        'type': 'text',
-        'value': location.href.replace(location.hash, '') + '#' + $(
-            this)
-          .attr('id')
+        class: 'to-copy',
+        type: 'text',
+        value:
+          location.href.replace(location.hash, '') + '#' + $(this).attr('id')
       })
 
       $(this).append($field)
@@ -34,33 +33,6 @@ $(document).ready(function() {
       console.log('copy execCommand failed', err)
     }
   })
-
-  // Expande / Collapse
-  $('.toggler').on('click', function() {
-    $(this)
-      .siblings('.sub')
-      .slideToggle(400)
-      .toggleClass('hide show')
-    $(this).toggleClass('close open')
-
-    return false
-  })
-
-  // Testing
-
-  // $('.button-toggler').on('click', function() {
-  //   $(this)
-  //     .siblings('.sub')
-  //     .slideToggle(400)
-  //     .toggleClass('hide show')
-  //   $(this).toggleClass('close open')
-  //   // $('card').removeAttr("style")
-  //   // $('card').css('position', '')
-  //   // $('card').css('left', '')
-  //   // $('card').css('top', '');
-
-  //   return false
-  // })
 
   // Cookie disclaimer
   if (!Cookies.get('ego-cookie')) {
