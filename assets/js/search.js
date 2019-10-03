@@ -149,6 +149,13 @@ $(document).ready(() => {
     positions.slice(0, 3).forEach((pos, idx) => {
       if (context) {
         start = pos[0] - offset >= 0 ? pos[0] - offset : 0
+
+        if (idx > 0) {
+          const prevPos = positions[idx - 1]
+          if (start <= prevPos[0] + prevPos[1]) {
+            start = prevPos[0] + prevPos[1] + 1
+          }
+        }
       }
 
       if (idx === 0 && start > 0) {
