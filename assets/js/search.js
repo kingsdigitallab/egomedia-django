@@ -34,6 +34,7 @@ $(document).ready(() => {
 
   if (searchParams.has('text')) {
     const text = searchParams.get('text')
+    $('#search-query').html(text)
 
     try {
       renderResults(index.search(`title:${text}^10 content:${text}`))
@@ -69,7 +70,7 @@ $(document).ready(() => {
         contentCount = positions.length
       }
 
-      let li = $('<li>')
+      let li = $('<li class="lazyload">')
 
       let a = $('<a>').html(title)
       a.attr('href', doc.url)

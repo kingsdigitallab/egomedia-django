@@ -12,22 +12,17 @@ $(document).ready(() => {
 
   showCurrentFilters(filters)
 
-  const $results = $('#results').isotope({
+  const $iso = $('#results').isotope({
     itemSelector: '.cardcontainer',
     layoutMode: 'fitRows'
   })
 
-  // $results.isotope( 'on', 'arrangeComplete', function() {
-  //   $('#results .cardcontainer').each(function() {
-  //     // $(this).removeAttr("style")
-  //     $(this).css('position', '')
-  //            .css('left', '')
-  //            .css('top', '');
-  //   });
-  // });
+  $iso.isotope('on', 'arrangeComplete', () => toggleStyle(true))
 
   // apply filters
   $('.filter').change(function() {
+    toggleStyle()
+
     const category = $(this).data('category')
     const value = $(this).val()
 
@@ -35,14 +30,33 @@ $(document).ready(() => {
 
     const filterValue = getFilterValue(filters)
 
-    filterResults($results, filterValue)
+    filterResults($iso, filterValue)
 
     showCurrentFilters(filters)
 
     toggleClearFilters(filterValue)
 
-    disableUnavailableFilters($results)
+    disableUnavailableFilters($iso)
   })
+
+  function toggleStyle(remove = false) {
+    if (remove) {
+      $('#results .cardcontainer').each(function() {
+        $(this).data('left', $(this).css('left'))
+        $(this).data('position', $(this).css('position'))
+        $(this).data('top', $(this).css('top'))
+        $(this).css('left', '')
+        $(this).css('position', '')
+        $(this).css('top', '')
+      })
+    } else {
+      $('#results .cardcontainer').each(function() {
+        $(this).css('left', $(this).data('left'))
+        $(this).css('position', $(this).data('position'))
+        $(this).css('top', $(this).data('top'))
+      })
+    }
+  }
 
   function getFilterValue(filters) {
     if (!filters) {
@@ -120,11 +134,13 @@ $(document).ready(() => {
 
   // remove all filters
   $('#clear-filters').click(function() {
+    toggleStyle()
+
     filters = {}
 
     const filterValue = getFilterValue(filters)
 
-    filterResults($results, filterValue)
+    filterResults($iso, filterValue)
 
     showCurrentFilters(filters)
 
@@ -144,6 +160,8 @@ $(document).ready(() => {
 
   // remove selected filter
   $('#current-filters').on('click', 'button.remove-filter', function() {
+    toggleStyle()
+
     const category = $(this).val()
 
     $('.filter.' + category)[0].selectedIndex = 0
@@ -152,13 +170,13 @@ $(document).ready(() => {
 
     const filterValue = getFilterValue(filters)
 
-    filterResults($results, filterValue)
+    filterResults($iso, filterValue)
 
     showCurrentFilters(filters)
 
     toggleClearFilters(filterValue)
 
-    disableUnavailableFilters($results)
+    disableUnavailableFilters($iso)
   })
 
   // re-load after back button
