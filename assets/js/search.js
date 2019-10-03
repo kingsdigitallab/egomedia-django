@@ -55,7 +55,55 @@ $(document).ready(() => {
 
     results.forEach(result => {
       const doc = docs[result.ref]
-      const meta = Object.values(result.matchData.metadata)[0]
+
+      const meta = {}
+      meta.content = {}
+      meta.content.position = []
+      meta.title = {}
+      meta.title.position = []
+
+      Array('title', 'content').forEach(field => {
+        Object.values(result.matchData.metadata).forEach(item => {
+          if (item[field]) {
+            Array.prototype.push.apply(
+              meta[field].position,
+              item[field].position
+            )
+          }
+        })
+
+        meta[field].position.sort((a, b) => {
+          if (a[0] < b[0]) {
+            return -1
+          }
+          if (a[0] > b[0]) {
+            return 1
+          }
+
+          return 0
+        })
+
+        // merge contiguous highlight positions
+        if (meta[field].position && meta[field].position[0] !== undefined) {
+          let positions = [meta[field].position[0]]
+
+          meta[field].position.forEach((item, idx) => {
+            if (idx > 0) {
+              const prevPos = positions.length - 1
+              const prev = positions[prevPos]
+              const prevEnd = prev[0] + prev[1] + 1
+
+              if (prevEnd == item[0]) {
+                positions[prevPos][1] = prev[1] + item[1] + 1
+              } else {
+                positions.push(item)
+              }
+            }
+          })
+
+          meta[field].position = positions.slice()
+        }
+      })
 
       let title = doc.title
       if (meta.title !== undefined) {
