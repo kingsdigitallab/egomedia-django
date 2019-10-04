@@ -310,6 +310,7 @@ def load_data(app=None):
         # run('./manage.py loaddata core/fixtures/*.json')
         run('./manage.py fixtree')
         run('./manage.py set_project_full_title')
+        run('./manage.py search_index')
         run('./manage.py zotero_import --delete')
 
 
