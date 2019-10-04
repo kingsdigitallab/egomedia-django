@@ -63,6 +63,8 @@ target/
 .babelrc
 .vagrant
 .vscode
+assets/js/search_data.json
+assets/js/search_index.json
 local.py
 logs/
 static/
