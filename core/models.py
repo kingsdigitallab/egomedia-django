@@ -1,8 +1,10 @@
 import json
+import re
 from itertools import chain
 
 from core.blocks import HomePageStreamBlock, TimelineStreamBlock
 from django import forms
+from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -151,7 +153,18 @@ class TextSearchPage(BasePage):
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
+        context['data'] = {}
+        context['build'] = 0
 
+        if settings.LUNR_BUILD_INDEX:
+            context['build'] = 1
+
+        context['data'] = self.get_search_data()
+
+        return context
+
+    @staticmethod
+    def get_search_data():
         live_pages = Page.objects.live().specific()
 
         data = []
@@ -162,6 +175,12 @@ class TextSearchPage(BasePage):
             if isinstance(content, list):
                 content = ' '.join(content)
 
+            if not content:
+                content = ''
+
+            content = re.sub('<[^>]*>', '', content)
+            content = re.sub(r'\[\^[^\]]\]', '', content)
+
             data.append({
                 'id': str(p.id),
                 'title': p.title,
@@ -169,9 +188,7 @@ class TextSearchPage(BasePage):
                 'content': content
             })
 
-        context['data'] = json.dumps(data)
-
-        return context
+        return json.dumps(data)
 
 
 class HomePage(Page):
