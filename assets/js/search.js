@@ -1,47 +1,51 @@
 $(document).ready(() => {
-  data.forEach(doc => {
-    // remove html markup from the text
-    doc.content = $('<div>')
-      .html(doc.content)
-      .text()
-
-    // removes footnote markers
-    doc.content = doc.content.replace(/\[\^[^\]]\]/gi, '')
-  })
-
   // create a document index for easy retrieval of the search results
   const docs = data.reduce((acc, doc) => {
     acc[doc.id] = doc
     return acc
   })
 
-  // the search index
-  const index = lunr(function() {
-    this.ref('id')
-    this.field('title')
-    this.field('content')
+  if (build) {
+    // the search index
+    index = lunr(function() {
+      this.ref('id')
+      this.field('title')
+      this.field('content')
 
-    this.metadataWhitelist = ['position']
+      this.metadataWhitelist = ['position']
 
-    data.forEach(function(doc) {
-      this.add(doc)
-    }, this)
-  })
+      data.forEach(function(doc) {
+        this.add(doc)
+      }, this)
+    })
+    search(index)
+  } else {
+    $.getJSON(indexUrl)
+      .done(json => {
+        index = lunr.Index.load(json)
+        search(index)
+      })
+      .fail((jqxhr, status, error) =>
+        console.log(`Request Failed: ${status}, ${error}`)
+      )
+  }
 
-  // gets the search text
-  const paramsString = window.location.search
-  const searchParams = new URLSearchParams(paramsString)
+  function search(index) {
+    // gets the search text
+    const paramsString = window.location.search
+    const searchParams = new URLSearchParams(paramsString)
 
-  if (searchParams.has('text')) {
-    const text = searchParams.get('text')
-    $('#search-query').html(text)
+    if (searchParams.has('text')) {
+      const text = searchParams.get('text')
+      $('#search-query').html(text)
 
-    try {
-      renderResults(index.search(`title:${text}^10 content:${text}`))
-    } catch (e) {
-      if (e instanceof lunr.QueryParseError) {
-      } else {
-        throw e
+      try {
+        renderResults(index.search(`title:${text}^10 content:${text}`))
+      } catch (e) {
+        if (e instanceof lunr.QueryParseError) {
+        } else {
+          throw e
+        }
       }
     }
   }

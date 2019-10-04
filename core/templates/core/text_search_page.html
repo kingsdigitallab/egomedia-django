@@ -15,7 +15,12 @@
 <script src="{% static 'lunr/lunr.min.js' %}"></script>
 <script type="text/javascript">
   /* beautify preserve:start */
-  let data = {{ data | safe }}
+  const build = {{ build }}
+  const data = {{ data | safe }}
+  let index = null
+{% if not build %}
+  const indexUrl = '{% static "js/search_index.json" %}'
+{% endif %}
   /* beautify preserve:end */
 </script>
 <script src="{% static 'js/search.js' %}"></script>

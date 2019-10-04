@@ -328,6 +328,8 @@ FABRIC_USER = getpass.getuser()
 # Google Analytics ID
 GA_ID = ''
 
+LUNR_BUILD_INDEX = False
+
 # -----------------------------------------------------------------------------
 # ActiveCollab Digger
 # -----------------------------------------------------------------------------
