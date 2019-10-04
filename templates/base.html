@@ -79,20 +79,24 @@
     <script src="{% static 'js/polyfills.js' %}"></script>
     <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
     <script src="{% static 'js-cookie/src/js.cookie.js' %}"></script>
-    <script src="{% static '@fortawesome/fontawesome-pro/js/all.min.js' %}">
-    </script>
     <script src="{% static 'foundation-sites/dist/js/foundation.min.js' %}">
     </script>
     <script src="{% static 'js/main.js' %}"></script>
     {% endcompress %}
 
+    {% compress js file fa %}
+    <script defer
+      src="{% static '@fortawesome/fontawesome-pro/js/all.min.js' %}">
+    </script>
+    {% endcompress %}
+
     {% compress js file footer %}
     {% block footer_scripts %}{% endblock %}
+    {% endcompress %}
 
     {# TODO: set GA_ID in settings and pass it to the context with a context processor #}
     {% include 'includes/google-analytics.html' %}
-    {% endcompress %}
-    {% endblock %}
+    {% endblock bottom %}
 
     {% wagtailuserbar %}
   </body>
