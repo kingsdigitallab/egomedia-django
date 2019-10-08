@@ -1,13 +1,19 @@
 $(document).ready(() => {
-  // create a document index for easy retrieval of the search results
-  const docs = data.reduce((acc, doc) => {
-    acc[doc.id] = doc
-    return acc
-  })
-
   if (build) {
+    buildAndSearch()
+  } else {
+    loadAndSearch()
+  }
+
+  function buildAndSearch() {
+    // create a document index for easy retrieval of the search results
+    const docs = data.reduce((acc, doc) => {
+      acc[doc.id] = doc
+      return acc
+    })
+
     // the search index
-    index = lunr(function() {
+    const index = lunr(function() {
       this.ref('id')
       this.field('title')
       this.field('content')
@@ -18,19 +24,31 @@ $(document).ready(() => {
         this.add(doc)
       }, this)
     })
-    search(index)
-  } else {
-    $.getJSON(indexUrl)
+
+    search(index, docs)
+  }
+
+  function loadAndSearch() {
+    $.getJSON(docsIndexUrl)
       .done(json => {
-        index = lunr.Index.load(json)
-        search(index)
+        const docs = json
+
+        $.getJSON(indexUrl)
+          .done(json => {
+            const index = lunr.Index.load(json)
+
+            search(index, docs)
+          })
+          .fail((jqxhr, status, error) =>
+            console.log(`Request Failed: ${status}, ${error}`)
+          )
       })
       .fail((jqxhr, status, error) =>
         console.log(`Request Failed: ${status}, ${error}`)
       )
   }
 
-  function search(index) {
+  function search(index, docs) {
     // gets the search text
     const paramsString = window.location.search
     const searchParams = new URLSearchParams(paramsString)
@@ -40,7 +58,7 @@ $(document).ready(() => {
       $('#search-query').html(text)
 
       try {
-        renderResults(index.search(`title:${text}^10 content:${text}`))
+        renderResults(index.search(`title:${text}^10 content:${text}`), docs)
       } catch (e) {
         if (e instanceof lunr.QueryParseError) {
         } else {
@@ -50,7 +68,7 @@ $(document).ready(() => {
     }
   }
 
-  function renderResults(results) {
+  function renderResults(results, docs) {
     const count = $('#count')
     count.html(results.length)
 
