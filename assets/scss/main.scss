@@ -33,6 +33,41 @@ body {
   padding: rem-calc(16);
 }
 
+button {
+  &.test {
+    color: $black;
+    cursor: pointer;
+    font-size: 0.875rem;
+    padding: .5rem 1rem;
+    text-align: left;
+    width: 120px;
+
+    &:hover {
+      background: $light-gray;
+    }
+  }
+
+  img,
+  svg {
+    border: 0 !important;
+    display: inline-block;
+    max-width: 16px;
+    opacity: .7;
+    padding-left: 4px;
+    vertical-align: text-bottom;
+  }
+
+  // svg {
+  //   fill: $dark-gray;
+  // }
+
+  // &:hover {
+  //   svg {
+  //     fill: $white;
+  //   }
+  // }
+}
+
 .center {
   text-align: center;
 }
@@ -519,6 +554,13 @@ main {
   padding-right: 1rem;
 }
 
+.content {
+  // background: $light-gray;
+  border-top: 5px solid $light-gray;
+  margin-top: 1rem;
+  padding: 2rem 1rem 1rem;
+}
+
 // Blockquotes
 
 blockquote {
@@ -552,6 +594,16 @@ cite {
 }
 
 // Cards
+
+.no-border {
+  border: 0 !important;
+}
+
+.card-section {
+  &.no-border {
+    padding: 0;
+  }
+}
 
 .card {
   border: none;
@@ -886,6 +938,10 @@ main,
 }
 
 // Metadata and Filters
+
+// #clear-filters {
+//   background-image: url('/static/svgs/trash-alt.svg') no-repeat;
+// }
 
 #current-filters,
 #current-filters button,

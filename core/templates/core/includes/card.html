@@ -41,12 +41,16 @@
         {{ page.search_description|truncatechars:150 }}
       </a>
       {% endif %}
+    </div>
 
-      <button class="secondary button expanded"
-        data-toggle="facets-{{ page.id }}">Expand</button>
-      <div id="facets-{{ page.id }}" class="hide" data-toggler=".hide">
+    <div class="card-section no-border">
+      <div id="tags-{{ page.id }}" class="hide" data-toggler=".hide">
         {% include "core/includes/labels.html" with page=page %}
       </div>
+      <button class="test" data-toggle="tags-{{ page.id }}">
+        Toggle tags
+        <img src="{% static 'svgs/tags.svg' %}" alt="">
+      </button>
     </div>
   </div>
 </div>
