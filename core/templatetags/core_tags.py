@@ -72,11 +72,13 @@ def get_site_root(context):
 
 
 @register.inclusion_tag('core/tags/breadcrumbs.html', takes_context=True)
-def breadcrumbs(context, root, current_page):
+def breadcrumbs(context, root, current_page, show_home=True):
     """Returns the pages that are part of the breadcrumb trail of the current
     page, up to the root page."""
     pages = current_page.get_ancestors(
         inclusive=True).descendant_of(root).filter(live=True)
 
-    return {'request': context['request'], 'root': root,
-            'current_page': current_page, 'pages': pages}
+    return {
+        'request': context['request'], 'root': root,
+        'current_page': current_page, 'pages': pages, 'show_home': show_home
+    }

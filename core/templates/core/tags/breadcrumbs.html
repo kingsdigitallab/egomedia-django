@@ -1,19 +1,21 @@
 {% load core_tags wagtailcore_tags %}
 
 <div class="breadcrumbs">
-    <ul class="breadcrumbs">
-        <li>
-            <a href="{% pageurl root %}"><i class="fa fa-home fa-lg"></i></a>
-        </li>
+  <ul class="breadcrumbs">
+    {% if show_home %}
+    <li>
+      <a href="{% pageurl root %}"><i class="fa fa-home fa-lg"></i></a>
+    </li>
+    {% endif %}
 
-        {% for page in pages %}
-        <li>
-            {% if forloop.last %}
-            {{ page.title }}
-            {% else %}
-            <a href="{% pageurl page %}">{{ page.title }}</a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
+    {% for page in pages %}
+    <li>
+      {% if forloop.last %}
+      {{ page.title }}
+      {% else %}
+      <a href="{% pageurl page %}">{{ page.title }}</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
 </div>
