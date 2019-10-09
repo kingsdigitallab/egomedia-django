@@ -1,37 +1,42 @@
 {% load core_tags %}
 
-<div class="grid-x small-up-1 medium-up-4 large-up-8">
-  <div class="cell">
-    <h3>Filter by</h3>
+<div class="sticky" data-sticky data-options="marginTop:0;"
+  data-top-anchor="content">
+  <h2>Search this digital book</h2>
+
+  <div class="grid-x small-up-1 medium-up-4 large-up-8">
+    <div class="cell">
+      <h3>Filter by</h3>
+    </div>
+    {% for filter in filters %}
+    <div class="cell filters">
+      <select class="filter {% get_filter_value 'category' filter.0 %}"
+        data-category="{% get_filter_value 'category' filter.0 %}">
+        <option value="">{{ filter.0|capfirst }}</option>
+
+        {% for v in filter.1 %}
+
+        {% if v|length_is:3 %}
+        <option value=".{% get_filter_value filter.0 v.0 %}">
+          {% for _ in '-'|get_filter_level:v.2 %}&#160;{% endfor %}
+
+          {{ v.0|capfirst }}
+          {% else %}
+        <option value=".{% get_filter_value filter.0 v %}">
+          {{ v|capfirst }}
+          {% endif %}
+        </option>
+
+        {% endfor %}
+      </select>
+    </div>
+    {% endfor %}
   </div>
-  {% for filter in filters %}
-  <div class="cell filters">
-    <select class="filter {% get_filter_value 'category' filter.0 %}"
-      data-category="{% get_filter_value 'category' filter.0 %}">
-      <option value="">{{ filter.0|capfirst }}</option>
 
-      {% for v in filter.1 %}
-
-      {% if v|length_is:3 %}
-      <option value=".{% get_filter_value filter.0 v.0 %}">
-        {% for _ in '-'|get_filter_level:v.2 %}&#160;{% endfor %}
-
-        {{ v.0|capfirst }}
-        {% else %}
-      <option value=".{% get_filter_value filter.0 v %}">
-        {{ v|capfirst }}
-        {% endif %}
-      </option>
-
-      {% endfor %}
-    </select>
-  </div>
-  {% endfor %}
-</div>
-
-<div class="grid-x small-up-1 medium-up-4 large-up-8" id="current-filters">
-  <div class="cell">
-    <button type="button" class="button secondary expanded all"
-      id="clear-filters" disabled>Clear all</button>
+  <div class="grid-x small-up-1 medium-up-4 large-up-8" id="current-filters">
+    <div class="cell">
+      <button type="button" class="button secondary expanded all"
+        id="clear-filters" disabled>Clear all</button>
+    </div>
   </div>
 </div>

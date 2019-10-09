@@ -21,7 +21,7 @@
             {% endcomment %}
 
             <button data-toggle="tags-{{ page.id }}"
-              aria-label="More info on {{ page.title }}" class="more-info">
+              aria-label="More info on {{ page.title }}" class="float-right">
               <img src="{% static 'svgs/info-circle-white.svg' %}" alt="">
             </button>
           </div>
@@ -44,7 +44,9 @@
 
     <div class="card-section">
       <div id="tags-{{ page.id }}" class="hide" data-toggler=".hide">
+        {% if site_root %}
         {% breadcrumbs root=site_root current_page=page show_home=False %}
+        {% endif %}
 
         {% if page.search_description %}
         <a href="{% pageurl page %}">
