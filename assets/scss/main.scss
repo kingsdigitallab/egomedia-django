@@ -314,7 +314,7 @@ nav {
     .menu {
       margin: .5rem 0;
 
-      .active > a {
+      .active>a {
         background: $light-gray;
         border-bottom: 8px solid $dark-gray;
         color: $dark-gray;
@@ -764,7 +764,7 @@ audio {
   width: 90%;
 }
 
-audio + p {
+audio+p {
   padding-left: .5rem;
 }
 
@@ -931,7 +931,7 @@ main,
 }
 
 .nested-list {
-  > li:not(:first-child) {
+  >li:not(:first-child) {
     border-top: 1px solid $light-gray;
   }
 
@@ -946,6 +946,12 @@ main,
 // #clear-filters {
 //   background-image: url('/static/svgs/trash-alt.svg') no-repeat;
 // }
+
+.filters-container {
+  .is-stuck {
+    background: $body-background;
+  }
+}
 
 #current-filters,
 #current-filters button,
@@ -1166,7 +1172,13 @@ main,
 /* Footer */
 
 footer {
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: $black;
   }
 }
@@ -1195,7 +1207,7 @@ footer {
 
 .bottom-footer {
   background-color: $light-gray;
-  
+
   .external {
     &::before {
       display: none;

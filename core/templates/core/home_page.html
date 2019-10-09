@@ -8,10 +8,10 @@
 </div>
 
 {% if pages %}
-<div class="content">
-  <h2>Search this digital book</h2>
-
-  {% include "core/includes/filters.html" %}
+<div id="content" class="content">
+  <div class="filters-container" data-sticky-container>
+    {% include "core/includes/filters.html" %}
+  </div>
 
   <div id="results"
     class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3">
@@ -25,14 +25,14 @@
 <p>No live pages found!</p>
 {% endif %}
 
-<div id="viz">
-</div>
+<!--div id="viz">
+</div-->
 
 {% endblock page-body %}
 
 {% block footer_scripts %}
 <script src="{% static 'isotope-layout/dist/isotope.pkgd.min.js' %}"></script>
 <script src="{% static 'js/filters.js' %}"></script>
-<script src="{% static 'd3/dist/d3.min.js' %}"></script>
-<script src="{% static 'js/viz.js' %}"></script>
+<!--script src="{% static 'd3/dist/d3.min.js' %}"></script>
+<script src="{% static 'js/viz.js' %}"></script-->
 {% endblock footer_scripts %}
