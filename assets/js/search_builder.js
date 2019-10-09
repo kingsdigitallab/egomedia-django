@@ -19,28 +19,42 @@ fs.readFile('assets/js/search_data.json', (err, data) => {
     }, this)
   })
 
-  let buffer = Buffer.from(JSON.stringify(idx), 'utf-8')
+  const searchIndex = JSON.stringify(idx)
+
+  fs.writeFile('assets/js/search_index.json', searchIndex, err => {
+    if (err) throw err
+    console.log('. generated search index')
+  })
+
+  let buffer = Buffer.from(searchIndex, 'utf-8')
   zlib.gzip(buffer, (err, result) => {
     if (err) throw err
 
     fs.writeFile('assets/js/search_index.json.gz', result, err => {
       if (err) throw err
-      console.log('. generated search index!')
+      console.log('. generated compressed search index')
     })
   })
 
-  const docsIdx = documents.reduce((acc, doc) => {
-    acc[doc.id] = doc
-    return acc
+  const docsIndex = JSON.stringify(
+    documents.reduce((acc, doc) => {
+      acc[doc.id] = doc
+      return acc
+    })
+  )
+
+  fs.writeFile('assets/js/search_docs_index.json', docsIndex, err => {
+    if (err) throw err
+    console.log('. generated search documents index')
   })
 
-  buffer = Buffer.from(JSON.stringify(docsIdx), 'utf-8')
+  buffer = Buffer.from(docsIndex, 'utf-8')
   zlib.gzip(buffer, (err, result) => {
     if (err) throw err
 
     fs.writeFile('assets/js/search_docs_index.json.gz', result, err => {
       if (err) throw err
-      console.log('. generated search documents index!')
+      console.log('. generated compressed search documents index')
     })
   })
 })
