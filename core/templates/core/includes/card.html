@@ -11,16 +11,17 @@
     <div class="top-card">
       <div class="card-divider">
         <div class="grid-x align-bottom">
-          <div class="cell small-10">
+          <div class="cell small-11">
             <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
           </div>
-          <div class="cell small-2">
+          <div class="cell small-1">
             {% comment %}
             {% if page_label == 'projectpage' %}{% for level in 123|make_list %}<span
               class="level {{ level|apnumber }}{% if page.depth == level|add:3 %} levelselected{% endif %}"></span>{% endfor %}{% endif %}
             {% endcomment %}
 
-            <button data-toggle="tags-{{ page.id }}" aria-label="More info on {{ page.title }}" class="more-info">
+            <button data-toggle="tags-{{ page.id }}"
+              aria-label="More info on {{ page.title }}" class="more-info">
               <img src="{% static 'svgs/info-circle-white.svg' %}" alt="">
             </button>
           </div>
@@ -43,18 +44,14 @@
 
     <div class="card-section">
       <div id="tags-{{ page.id }}" class="hide" data-toggler=".hide">
-        <ul class="breadcrumbs">
-          <li>path</li>
-          <li>to</li>
-          <li>page</li>
-          <li>here</li>
-        </ul>
+        {% breadcrumbs root=site_root current_page=page show_home=False %}
+
         {% if page.search_description %}
         <a href="{% pageurl page %}">
           {{ page.search_description|truncatechars:150 }}
         </a>
         {% endif %}
-      
+
         {% include "core/includes/labels.html" with page=page %}
       </div>
     </div>
