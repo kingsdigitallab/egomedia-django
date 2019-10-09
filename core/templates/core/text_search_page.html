@@ -20,8 +20,8 @@
   {% if build %}
   const data = {{ data | safe }}
   {% else %}
-  const docsIndexUrl = '{% static "js/search_docs_index.json.gz" %}'
-  const indexUrl = '{% static "js/search_index.json.gz" %}'
+  const docsIndexUrl = '{% static "js/search_docs_index.json" %}'
+  const indexUrl = '{% static "js/search_index.json" %}'
   {% endif %}
   /* beautify preserve:end */
 </script>

@@ -64,8 +64,8 @@ target/
 .vagrant
 .vscode
 assets/js/search_data.json
-assets/js/search_docs_index.json.gz
-assets/js/search_index.json.gz
+assets/js/search_docs_index.json*
+assets/js/search_index.json*
 local.py
 logs/
 static/
