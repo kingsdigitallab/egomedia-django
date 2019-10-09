@@ -33,6 +33,28 @@ body {
   padding: rem-calc(16);
 }
 
+button {
+  display: block;
+
+  img,
+  svg {
+    border: 0 !important;
+    display: block;
+    height: 20px;
+    opacity: .6;
+    width: 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    img,
+    svg {
+      opacity: 1;
+    }
+  }
+}
+
 .center {
   text-align: center;
 }
@@ -519,6 +541,26 @@ main {
   padding-right: 1rem;
 }
 
+.hp-intro {
+  font-size: 1.5rem;
+  line-height: 2;
+  margin: 2rem auto 1rem;
+  max-width: 960px;
+  padding: 1.5rem;
+}
+
+.content {
+  border-top: 10px solid $light-gray;
+  margin-top: 2rem;
+  padding: 2rem 0;
+}
+
+.more-info {
+  &button {
+    text-align: right;
+  }
+}
+
 // Blockquotes
 
 blockquote {
@@ -552,6 +594,20 @@ cite {
 }
 
 // Cards
+
+.no-border {
+  border: 0 !important;
+}
+
+.card-section {
+  &.no-border {
+    padding: 0;
+  }
+
+  ul {
+    margin: 1rem 0 .5rem;
+  }
+}
 
 .card {
   border: none;
@@ -886,6 +942,10 @@ main,
 }
 
 // Metadata and Filters
+
+// #clear-filters {
+//   background-image: url('/static/svgs/trash-alt.svg') no-repeat;
+// }
 
 #current-filters,
 #current-filters button,
