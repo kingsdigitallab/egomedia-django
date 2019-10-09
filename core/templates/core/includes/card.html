@@ -44,7 +44,9 @@
 
     <div class="card-section">
       <div id="tags-{{ page.id }}" class="hide" data-toggler=".hide">
+        {% if site_root %}
         {% breadcrumbs root=site_root current_page=page show_home=False %}
+        {% endif %}
 
         {% if page.search_description %}
         <a href="{% pageurl page %}">
