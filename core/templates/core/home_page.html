@@ -3,10 +3,14 @@
 
 {% block page-body %}
 
-{{ self.body }}
+<div class="hp-intro">
+    {{ self.body }}
+</div>
 
 {% if pages %}
 <div class="content">
+    <h2>Search this digital book</h2>
+
     {% include "core/includes/filters.html" %}
 
     <div id="results"

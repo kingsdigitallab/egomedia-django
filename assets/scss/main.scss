@@ -34,38 +34,25 @@ body {
 }
 
 button {
-  &.test {
-    color: $black;
-    cursor: pointer;
-    font-size: 0.875rem;
-    padding: .5rem 1rem;
-    text-align: left;
-    width: 120px;
-
-    &:hover {
-      background: $light-gray;
-    }
-  }
+  display: block;
 
   img,
   svg {
     border: 0 !important;
-    display: inline-block;
-    max-width: 16px;
-    opacity: .7;
-    padding-left: 4px;
-    vertical-align: text-bottom;
+    display: block;
+    height: 20px;
+    opacity: .6;
+    width: 20px;
   }
 
-  // svg {
-  //   fill: $dark-gray;
-  // }
+  &:hover {
+    cursor: pointer;
 
-  // &:hover {
-  //   svg {
-  //     fill: $white;
-  //   }
-  // }
+    img,
+    svg {
+      opacity: 1;
+    }
+  }
 }
 
 .center {
@@ -554,11 +541,24 @@ main {
   padding-right: 1rem;
 }
 
+.hp-intro {
+  font-size: 1.5rem;
+  line-height: 2;
+  margin: 2rem auto 1rem;
+  max-width: 960px;
+  padding: 1.5rem;
+}
+
 .content {
-  // background: $light-gray;
-  border-top: 5px solid $light-gray;
-  margin-top: 1rem;
-  padding: 2rem 1rem 1rem;
+  border-top: 10px solid $light-gray;
+  margin-top: 2rem;
+  padding: 2rem 0;
+}
+
+.more-info {
+  &button {
+    text-align: right;
+  }
 }
 
 // Blockquotes
@@ -602,6 +602,10 @@ cite {
 .card-section {
   &.no-border {
     padding: 0;
+  }
+
+  ul {
+    margin: 1rem 0 .5rem;
   }
 }
 
