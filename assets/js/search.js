@@ -203,6 +203,6 @@ $(document).ready(() => {
       text = `${text} ${value.substring(start)}`
     }
 
-    return text
+    return text.trim()
   }
 })
