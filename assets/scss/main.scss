@@ -75,6 +75,10 @@ button {
   display: block;
 }
 
+.list-children {
+  border-bottom: 5px dashed $primary-color;
+}
+
 .block {
   flex: 100% 0;
 
@@ -342,6 +346,7 @@ nav {
   &.is-stuck {
     max-height: 95vh;
     overflow-y: scroll;
+    padding-right: 1rem;
   }
 }
 
@@ -349,6 +354,8 @@ nav {
   hyphens: auto;
   // overflow-wrap: break-word;
   overflow-wrap: normal;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 
 .top-bar {
