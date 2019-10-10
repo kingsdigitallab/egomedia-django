@@ -400,9 +400,9 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
             researcher_project_relationship__in=related).order_by('title')
 
         return [
+            ('theme', self.get_themes()),
             ('project',
              self.get_descendants().specific().live().order_by('title')),
-            ('theme', self.get_themes()),
             ('researcher', researchers)
         ]
 
@@ -447,8 +447,8 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
             researcher_theme_relationship__in=related).order_by('title')
 
         return [
-            ('researcher', researchers),
-            ('project', projects)
+            ('project', projects),
+            ('researcher', researchers)
         ]
 
 
