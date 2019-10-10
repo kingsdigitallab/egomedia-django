@@ -76,7 +76,9 @@ button {
 }
 
 .list-children {
-  border-bottom: 5px dashed $primary-color;
+  border-top: 5px dashed $primary-color;
+  margin-top: 1rem;
+  padding-top: 1rem;
 }
 
 .block {
