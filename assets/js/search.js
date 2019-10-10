@@ -1,11 +1,23 @@
 $(document).ready(() => {
-  if (build) {
-    buildAndSearch()
-  } else {
-    loadAndSearch()
+  // gets the search text
+  const paramsString = window.location.search
+  const searchParams = new URLSearchParams(paramsString)
+
+  if (!searchParams.has('text') || !searchParams.get('text')) {
+    $('#search-details').html('No query found!')
+    return
   }
 
-  function buildAndSearch() {
+  const text = searchParams.get('text')
+  $('#search-query').html(text)
+
+  if (build) {
+    buildAndSearch(text)
+  } else {
+    loadAndSearch(text)
+  }
+
+  function buildAndSearch(text) {
     // create a document index for easy retrieval of the search results
     const docs = data.reduce((acc, doc) => {
       acc[doc.id] = doc
@@ -25,10 +37,10 @@ $(document).ready(() => {
       }, this)
     })
 
-    search(index, docs)
+    search(text, index, docs)
   }
 
-  function loadAndSearch() {
+  function loadAndSearch(text) {
     $.getJSON(docsIndexUrl)
       .done(json => {
         const docs = json
@@ -37,7 +49,7 @@ $(document).ready(() => {
           .done(json => {
             const index = lunr.Index.load(json)
 
-            search(index, docs)
+            search(text, index, docs)
           })
           .fail((jqxhr, status, error) =>
             console.log(`Request Failed: ${status}, ${error}`)
@@ -48,22 +60,17 @@ $(document).ready(() => {
       )
   }
 
-  function search(index, docs) {
+  function search(text, index, docs) {
     // gets the search text
     const paramsString = window.location.search
     const searchParams = new URLSearchParams(paramsString)
 
-    if (searchParams.has('text')) {
-      const text = searchParams.get('text')
-      $('#search-query').html(text)
-
-      try {
-        renderResults(index.search(`title:${text}^10 content:${text}`), docs)
-      } catch (e) {
-        if (e instanceof lunr.QueryParseError) {
-        } else {
-          throw e
-        }
+    try {
+      renderResults(index.search(`title:${text}^10 content:${text}`), docs)
+    } catch (e) {
+      if (e instanceof lunr.QueryParseError) {
+      } else {
+        throw e
       }
     }
   }
