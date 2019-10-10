@@ -175,6 +175,17 @@ class TextSearchPage(BasePage):
             if isinstance(content, list):
                 content = ' '.join(content)
 
+            if isinstance(p, BibliographyIndexPage):
+                content = '{} {}'.format(
+                    content if content else '', p.entries()
+                )
+
+            endnotes = getattr(p, 'endnotes', None)
+            if endnotes:
+                for e in endnotes.all():
+                    content = '{} {}; {}; {}'.format(
+                        content, e.pre_text, e.bibliography_entry, e.post_text)
+
             if not content:
                 content = ''
 
@@ -400,9 +411,9 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
             researcher_project_relationship__in=related).order_by('title')
 
         return [
+            ('theme', self.get_themes()),
             ('project',
              self.get_descendants().specific().live().order_by('title')),
-            ('theme', self.get_themes()),
             ('researcher', researchers)
         ]
 
@@ -447,8 +458,8 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
             researcher_theme_relationship__in=related).order_by('title')
 
         return [
-            ('researcher', researchers),
-            ('project', projects)
+            ('project', projects),
+            ('researcher', researchers)
         ]
 
 
