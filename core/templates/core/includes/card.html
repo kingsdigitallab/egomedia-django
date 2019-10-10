@@ -49,9 +49,11 @@
         {% endif %}
 
         {% if page.search_description %}
-        <a href="{% pageurl page %}">
-          {{ page.search_description|truncatechars:150 }}
-        </a>
+        <p>
+          <a href="{% pageurl page %}">
+            {{ page.search_description|truncatechars:150 }}
+          </a>
+        </p>
         {% endif %}
 
         {% include "core/includes/labels.html" with page=page %}
