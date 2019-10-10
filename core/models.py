@@ -175,6 +175,17 @@ class TextSearchPage(BasePage):
             if isinstance(content, list):
                 content = ' '.join(content)
 
+            if isinstance(p, BibliographyIndexPage):
+                content = '{} {}'.format(
+                    content if content else '', p.entries()
+                )
+
+            endnotes = getattr(p, 'endnotes', None)
+            if endnotes:
+                for e in endnotes.all():
+                    content = '{} {}; {}; {}'.format(
+                        content, e.pre_text, e.bibliography_entry, e.post_text)
+
             if not content:
                 content = ''
 
