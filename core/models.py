@@ -177,7 +177,8 @@ class TextSearchPage(BasePage):
 
             if isinstance(p, BibliographyIndexPage):
                 content = '{} {}'.format(
-                    content if content else '', p.entries()
+                    content if content else '', ' '.join(
+                        [e.entry for e in p.entries()])
                 )
 
             endnotes = getattr(p, 'endnotes', None)

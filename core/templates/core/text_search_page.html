@@ -4,8 +4,12 @@
 {% block page-body %}
 <div class="grid-x grid-margin-x">
   <div class="cell medium-12">
-    <h2><span id="count"><i class="fas fa-spinner fa-spin"></i></span> results
-      for <span id="search-query" class="highlight"></span></h2>
+    <h2 id="search-details">
+      <span id="search-query" class="highlight">___</span>
+      <span>found in</span>
+      <span id="count"><i class="fas fa-spinner fa-spin"></i></span>
+      <span>pages</span>
+    </h2>
     <ol class="results"></ol>
   </div>
 </div>
