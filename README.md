@@ -6,22 +6,33 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
-### Working on 0.2 Incremente #8
+### Working on 0.2 Increment #8
+
+- Homepage
+
+  - Styling (content separation)
+  - Sticky block for filtering
+  - Nested project filters
+  - Changed order of cards to: themes, projects, researchers
 
 - New cards styling
-    - Show/hide path, description, tags
-    - Style differentiation between parent and child cards
-    - Seethrough title block over image
-- Homepage styling (content separation)
-- Colour palette changes
-- Accessibility improvements
-- Removed capitalisation from tags
+
+  - Show/hide path, description, tags
+  - Style differentiation between parent and child cards
+  - Seethrough title block over image
+
+- Project page
+
+  - Sidebar restyled to match child pages in cards
+  - Tags are sorted alphabetically
+
 - Sitemap page
-- Sticky block for filtering in homepage
-- Project page sidebar restyled to match child pages in cards
-- Text search form
-- Bug fixes
+- Text search
+- Accessibility improvements
+- Colour palette changes
+- Removed capitalisation from tags
 - Google analytics set up (ready but not active)
+- Bug fixes and performance improvements
 
 ### 0.1.1 Increment #7
 
