@@ -19,7 +19,7 @@ fs.readFile('assets/js/search_data.json', (err, data) => {
     }, this)
   })
 
-  const searchIndex = JSON.stringify(idx)
+  const searchIndex = JSON.stringify(idx.toJSON())
 
   fs.writeFile('assets/js/search_index.json', searchIndex, err => {
     if (err) throw err
