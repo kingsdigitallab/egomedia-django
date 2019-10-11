@@ -75,6 +75,12 @@ button {
   display: block;
 }
 
+.list-children {
+  border-top: 5px dashed $primary-color;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
 .block {
   flex: 100% 0;
 
@@ -342,6 +348,7 @@ nav {
   &.is-stuck {
     max-height: 95vh;
     overflow-y: scroll;
+    padding-right: 1rem;
   }
 }
 
@@ -349,6 +356,8 @@ nav {
   hyphens: auto;
   // overflow-wrap: break-word;
   overflow-wrap: normal;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 
 .top-bar {
@@ -555,12 +564,6 @@ main {
   padding: 2rem 0;
 }
 
-.more-info {
-  &button {
-    text-align: right;
-  }
-}
-
 // Blockquotes
 
 blockquote {
@@ -605,7 +608,7 @@ cite {
   }
 
   ul {
-    margin: 1rem 0 .5rem;
+    margin: 0 0 .5rem;
   }
 }
 
@@ -950,6 +953,7 @@ main,
 .filters-container {
   .is-stuck {
     background: $body-background;
+    width: 100%;
   }
 }
 
@@ -957,8 +961,12 @@ main,
 #current-filters button,
 .filters,
 .filters select {
-  font-family: "KingsBureauGrot";
+  font-family: "KingsBureauGrot", sans-serif;
   font-weight: 300;
+}
+
+.filters option {
+  line-height: 1.5;
 }
 
 #current-filters {
@@ -1158,9 +1166,12 @@ main,
 
     .content {
       border-left: 1px solid $primary-color;
+      border-top: none;
       line-height: 1;
       margin-left: 8px;
+      margin-top: 0;
       padding-left: 22px;
+      padding-top: 0;
 
       p {
         line-height: 1.25;
