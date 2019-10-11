@@ -6,7 +6,24 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
-### Working on 0.1.1 Increment #7
+### Working on 0.2 Incremente #8
+
+- New cards styling
+    - Show/hide path, description, tags
+    - Style differentiation between parent and child cards
+    - Seethrough title block over image
+- Homepage styling (content separation)
+- Colour palette changes
+- Accessibility improvements
+- Removed capitalisation from tags
+- Sitemap page
+- Sticky block for filtering in homepage
+- Project page sidebar restyled to match child pages in cards
+- Text search form
+- Bug fixes
+- Google analytics set up (ready but not active)
+
+### 0.1.1 Increment #7
 
 - First draft of visualization
 - Fixed modal size (now large)
