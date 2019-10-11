@@ -3,7 +3,7 @@ $(document).ready(() => {
   const paramsString = window.location.search
   const searchParams = new URLSearchParams(paramsString)
 
-  if (!searchParams.has('text') || !searchParams.get('text')) {
+  if (!searchParams.get('text')) {
     $('#search-details').html('No query found!')
     return
   }
