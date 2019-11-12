@@ -251,7 +251,24 @@ class HomePage(Page):
             ResearcherPage.objects.live().order_by('person__name')
         ))
 
+        context['viz_data'] = self.get_viz_data()
+
         return context
+
+    @staticmethod
+    def get_viz_data():
+        data = []
+
+        for p in ProjectPage.objects.live().filter(depth=4):
+            data.append(p.get_viz_data())
+
+        for r in ResearcherPage.objects.live():
+            data.append(r.get_viz_data())
+
+        for t in ThemePage.objects.live():
+            data.append(t.get_viz_data())
+
+        return json.dumps(data)
 
 
 class ResearcherThemeRelationship(Orderable, models.Model):
@@ -322,6 +339,28 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
             ('theme', secondary_themes),
             ('project', projects)
         ]
+
+    def get_viz_data(self, related=True):
+        data = {
+            'class': 'researcher',
+            'id': self.id,
+            'title': self.title
+        }
+
+        if related:
+            data['related'] = []
+
+            for related in self.researcher_project_relationship.filter(
+                    project__depth=4):
+                data['related'].append(
+                    related.project.get_viz_data(related=False))
+
+            for related in self.researcher_theme_relationship.all():
+                if related.theme:
+                    data['related'].append(
+                        related.theme.get_viz_data(related=False))
+
+        return data
 
 
 class BaseTimelinePage(BasePage):
@@ -430,6 +469,26 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
 
         return False
 
+    def get_viz_data(self, related=True):
+        data = {
+            'class': 'project',
+            'id': self.id,
+            'title': self.title
+        }
+
+        if related:
+            data['related'] = []
+
+            for related in self.project_researcher_relationship.all():
+                data['related'].append(
+                    related.researcher.get_viz_data(related=False))
+
+            for related in self.project_theme_relationship.all():
+                data['related'].append(
+                    related.theme.get_viz_data(related=False))
+
+        return data
+
 
 @receiver(pre_save, sender=ProjectPage)
 def pp_pre_save(sender, instance, *args, **kwargs):
@@ -462,6 +521,27 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
             ('project', projects),
             ('researcher', researchers)
         ]
+
+    def get_viz_data(self, related=True):
+        data = {
+            'class': 'theme',
+            'id': self.id,
+            'title': self.title
+        }
+
+        if related:
+            data['related'] = []
+
+            for related in self.theme_researcher_relationship.all():
+                data['related'].append(
+                    related.researcher.get_viz_data(related=False))
+
+            for related in self.theme_project_relationship.filter(
+                    project__depth=4):
+                data['related'].append(
+                    related.project.get_viz_data(related=False))
+
+        return data
 
 
 class ThemeEndnote(Orderable, EndNoteMixin):
