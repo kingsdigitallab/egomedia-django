@@ -1284,6 +1284,25 @@ footer {
 
 /* SVG/Viz */
 
+#viz-legend {
+  li {
+    font-weight: bolder;
+    text-transform: uppercase;
+
+    &.project {
+      color: $dark-blue
+    }
+
+    &.researcher {
+      color: $dark-green
+    }
+
+    &.theme {
+      color: $dirty-orange
+    }
+  }
+}
+
 svg {
   .svg-link {
     &:hover {

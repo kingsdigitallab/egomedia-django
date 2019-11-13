@@ -58,7 +58,17 @@ $(document).ready(() => {
 
   const ribbon = d3.ribbon().radius(innerRadius)
 
-  // 3. d3: render the svg
+  // 3. legend
+  const legend = document.getElementById('viz-legend')
+
+  for (const property in color) {
+    const li = document.createElement('li')
+    li.appendChild(document.createTextNode(property))
+    li.className = `${property}`
+    legend.appendChild(li)
+  }
+
+  // 4. d3: render the svg
   const svg = d3
     .select('#viz')
     .append('svg')
