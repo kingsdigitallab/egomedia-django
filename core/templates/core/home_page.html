@@ -9,7 +9,7 @@
 
 {% if pages %}
 <div id="content" class="content">
-  <div class="filters-container" data-sticky-container>
+  {% comment %} <div class="filters-container" data-sticky-container>
     {% include "core/includes/filters.html" %}
   </div>
 
@@ -19,7 +19,7 @@
     {% for page in pages %}
     {% include "core/includes/card.html" with site_root=site_root %}
     {% endfor %}
-  </div>
+  </div> {% endcomment %}
 
   <div id="viz">
   </div>

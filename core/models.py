@@ -344,7 +344,8 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
         data = {
             'class': 'researcher',
             'id': self.id,
-            'title': self.title
+            'title': self.title,
+            'url': self.url
         }
 
         if related:
@@ -473,7 +474,8 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
         data = {
             'class': 'project',
             'id': self.id,
-            'title': self.title
+            'title': self.title,
+            'url': self.url
         }
 
         if related:
@@ -526,7 +528,8 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
         data = {
             'class': 'theme',
             'id': self.id,
-            'title': self.title
+            'title': self.title,
+            'url': self.url
         }
 
         if related:

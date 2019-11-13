@@ -8,9 +8,14 @@ $(document).ready(() => {
 
   let n = 0
 
+  const getKey = item =>
+    `${item.class}:::${item.id}:::${item.title}:::${item.url}`
+  const getGroup = idx => data.nameByIndex.get(idx).split(':::')[0]
+  const getTitle = idx => data.nameByIndex.get(idx).split(':::')[2]
+
   // creates a unique index for each object
   vizData.forEach(d => {
-    if (!data.indexByName.has((d = d.title))) {
+    if (!data.indexByName.has((d = getKey(d)))) {
       data.nameByIndex.set(n, d)
       data.indexByName.set(d, n++)
     }
@@ -18,15 +23,15 @@ $(document).ready(() => {
 
   // creates a square matrix counting related objects
   vizData.forEach(d => {
-    const source = data.indexByName.get(d.title)
+    const source = data.indexByName.get(getKey(d))
     let row = data.matrix[source]
 
     if (!row) row = data.matrix[source] = Array.from({ length: n }).fill(0)
 
-    d.related.forEach(d => row[data.indexByName.get(d.title)]++)
+    d.related.forEach(d => {
+      row[data.indexByName.get(getKey(d))]++
+    })
   })
-
-  console.log(data)
 
   // 2. d3: functions/settings
   const height = (width = 954)
@@ -44,7 +49,11 @@ $(document).ready(() => {
     .sortSubgroups(d3.descending)
     .sortChords(d3.descending)
 
-  const color = d3.scaleOrdinal(d3.schemeCategory10)
+  const color = {
+    project: '#53849d',
+    researcher: '#47803b',
+    theme: '#ed7a3e'
+  }
 
   const ribbon = d3.ribbon().radius(innerRadius)
 
@@ -68,8 +77,8 @@ $(document).ready(() => {
 
   group
     .append('path')
-    .attr('fill', d => color(d.index))
-    .attr('stroke', d => color(d.index))
+    .attr('fill', d => color[getGroup(d.index)])
+    .attr('stroke', d => color[getGroup(d.index)])
     .attr('d', arc)
 
   group
@@ -87,15 +96,15 @@ $(document).ready(() => {
       `
     )
     .attr('text-anchor', d => (d.angle > Math.PI ? 'end' : null))
-    .text(d => data.nameByIndex.get(d.index))
+    .text(d => getTitle(d.index))
 
   svg
     .append('g')
-    .attr('fill-opacity', 0.67)
+    .attr('fill-opacity', 0.7)
     .selectAll('path')
     .data(chords)
     .join('path')
-    .attr('stroke', d => d3.rgb(color(d.source.index)).darker())
-    .attr('fill', d => color(d.source.index))
+    .attr('stroke', d => d3.rgb(color[getGroup(d.target.index)]).darker(0.25))
+    .attr('fill', d => color[getGroup(d.target.index)])
     .attr('d', ribbon)
 })
