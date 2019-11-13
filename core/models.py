@@ -262,7 +262,7 @@ class HomePage(Page):
         for p in ProjectPage.objects.live().filter(depth=4):
             data.append(p.get_viz_data())
 
-        for r in ResearcherPage.objects.live():
+        for r in ResearcherPage.objects.live().order_by('title'):
             data.append(r.get_viz_data())
 
         for t in ThemePage.objects.live():
