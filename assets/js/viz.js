@@ -50,9 +50,9 @@ $(document).ready(() => {
     .sortChords(d3.descending)
 
   const color = {
-    project: '#53849d',
-    researcher: '#47803b',
-    theme: '#ed7a3e'
+    project: '#245d88',
+    researcher: '#256019',
+    theme: '#9c3803'
   }
 
   const ribbon = d3.ribbon().radius(innerRadius)
@@ -75,11 +75,26 @@ $(document).ready(() => {
     .data(chords.groups)
     .join('g')
 
-  group
+  const fade = opacity => {
+    return d => {
+      groupPath
+        .filter(dd => dd.index != d.index)
+        .transition()
+        .style('opacity', opacity)
+      ribbons
+        .filter(dd => dd.source.index != d.index && dd.target.index != d.index)
+        .transition()
+        .style('opacity', opacity)
+    }
+  }
+
+  const groupPath = group
     .append('path')
     .attr('fill', d => color[getGroup(d.index)])
     .attr('stroke', d => color[getGroup(d.index)])
     .attr('d', arc)
+    .on('mouseover', fade(0.1))
+    .on('mouseout', fade(1))
 
   group
     .append('text')
@@ -98,9 +113,9 @@ $(document).ready(() => {
     .attr('text-anchor', d => (d.angle > Math.PI ? 'end' : null))
     .text(d => getTitle(d.index))
 
-  svg
+  const ribbons = svg
     .append('g')
-    .attr('fill-opacity', 0.7)
+    .attr('fill-opacity', 0.75)
     .selectAll('path')
     .data(chords)
     .join('path')
