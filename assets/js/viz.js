@@ -75,7 +75,7 @@ $(document).ready(() => {
     .data(chords.groups)
     .join('g')
 
-  const fade = opacity => {
+  const highlightGroup = opacity => {
     return d => {
       groupPath
         .filter(dd => dd.index != d.index)
@@ -93,8 +93,8 @@ $(document).ready(() => {
     .attr('fill', d => color[getGroup(d.index)])
     .attr('stroke', d => color[getGroup(d.index)])
     .attr('d', arc)
-    .on('mouseover', fade(0.1))
-    .on('mouseout', fade(1))
+    .on('mouseover', highlightGroup(0.1))
+    .on('mouseout', highlightGroup(1))
 
   group
     .append('text')
@@ -113,6 +113,21 @@ $(document).ready(() => {
     .attr('text-anchor', d => (d.angle > Math.PI ? 'end' : null))
     .text(d => getTitle(d.index))
 
+  const highlightRibbon = opacity => {
+    return d => {
+      groupPath
+        .filter(
+          dd => dd.index !== d.source.index && dd.index !== d.target.index
+        )
+        .transition()
+        .style('opacity', opacity)
+      ribbons
+        .filter(dd => dd !== d)
+        .transition()
+        .style('opacity', opacity)
+    }
+  }
+
   const ribbons = svg
     .append('g')
     .attr('fill-opacity', 0.75)
@@ -122,4 +137,6 @@ $(document).ready(() => {
     .attr('stroke', d => d3.rgb(color[getGroup(d.target.index)]).darker(0.25))
     .attr('fill', d => color[getGroup(d.target.index)])
     .attr('d', ribbon)
+    .on('mouseover', highlightRibbon(0.1))
+    .on('mouseout', highlightRibbon(1))
 })
