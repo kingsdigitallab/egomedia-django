@@ -35,9 +35,9 @@ $(document).ready(() => {
   })
 
   // 2. d3: functions/settings
-  const height = (width = 954)
+  const height = (width = 920)
   const outerRadius = Math.min(width, height) * 0.5
-  const innerRadius = outerRadius - 124
+  const innerRadius = outerRadius - 254
 
   const arc = d3
     .arc()
