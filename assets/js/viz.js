@@ -12,6 +12,7 @@ $(document).ready(() => {
     `${item.class}:::${item.id}:::${item.title}:::${item.url}`
   const getGroup = idx => data.nameByIndex.get(idx).split(':::')[0]
   const getTitle = idx => data.nameByIndex.get(idx).split(':::')[2]
+  const getUrl = idx => data.nameByIndex.get(idx).split(':::')[3]
 
   // creates a unique index for each object
   vizData.forEach(d => {
@@ -111,7 +112,16 @@ $(document).ready(() => {
       `
     )
     .attr('text-anchor', d => (d.angle > Math.PI ? 'end' : null))
+    .attr('class', 'svg-link')
     .text(d => getTitle(d.index))
+    .on('click', d => (location.href = getUrl(d.index)))
+
+  group
+    .append('title')
+    .text(
+      d =>
+        `${getTitle(d.index)}: ${d.value} connection${d.value > 1 ? 's' : ''}`
+    )
 
   const highlightRibbon = opacity => {
     return d => {
