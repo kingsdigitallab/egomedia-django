@@ -560,8 +560,7 @@ main {
 
 .content {
   border-top: 10px solid $light-gray;
-  margin-top: 2rem;
-  padding: 2rem 0;
+  padding: 0 0 2rem;
 }
 
 // Blockquotes
@@ -946,13 +945,12 @@ main,
 
 // Metadata and Filters
 
-// #clear-filters {
-//   background-image: url('/static/svgs/trash-alt.svg') no-repeat;
-// }
-
 .filters-container {
+  padding-top: 2rem;
+
   .is-stuck {
     background: $body-background;
+    padding-top: 1rem;
     width: 100%;
   }
 }
@@ -1284,6 +1282,37 @@ footer {
 
 /* SVG/Viz */
 
+button {
+  &.showviz {
+    background: $light-gray;
+    clear: both;
+    display: inline-block;
+    float: right;
+    margin: 0;
+    padding: rem-calc(16);
+    text-align: right;
+
+    img {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}
+
+.collapsible-container {
+  border-top: 10px solid $light-gray;
+  padding: 2rem 0 0;
+}
+
+svg {
+  .svg-link {
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
 #viz-legend {
   li {
     font-weight: bolder;
@@ -1299,15 +1328,6 @@ footer {
 
     &.theme {
       color: $dirty-orange
-    }
-  }
-}
-
-svg {
-  .svg-link {
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
     }
   }
 }

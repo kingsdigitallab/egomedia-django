@@ -8,8 +8,19 @@
 </div>
 
 {% if pages %}
+<div class="clearfix">
+  <button data-toggle="viz-container" class="showviz">
+    <img src="{% static 'images/ego-viz-icon.png' %}"> Show visualisation
+  </button>
+</div>
+<div id="viz-container" class="hide collapsible-container" data-toggler=".hide">
+  <div id="viz">
+  </div>
+</div>
+
 <div id="content" class="content">
-  {% comment %} <div class="filters-container" data-sticky-container>
+  {% comment %}
+  <div class="filters-container" data-sticky-container>
     {% include "core/includes/filters.html" %}
   </div>
 
@@ -19,10 +30,8 @@
     {% for page in pages %}
     {% include "core/includes/card.html" with site_root=site_root %}
     {% endfor %}
-  </div> {% endcomment %}
-
-  <div id="viz">
   </div>
+  {% endcomment %}
 </div>
 {% else %}
 <p>No live pages found!</p>
