@@ -1298,6 +1298,11 @@ button {
     padding: rem-calc(16);
     text-align: right;
 
+    &:hover {
+      background: $medium-gray;
+      color: $white;
+    }
+
     img {
       display: inline-block;
       vertical-align: top;
@@ -1323,6 +1328,11 @@ svg {
   li {
     font-family: 'KingsBureauGrot';
     text-transform: uppercase;
+
+    &.menu-text {
+      font-family: 'KingsCaslon';
+      text-transform: capitalize;
+    }
 
     &.project {
       color: $dark-blue

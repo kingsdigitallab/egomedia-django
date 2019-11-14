@@ -13,14 +13,11 @@
     <img src="{% static 'images/ego-viz-icon.png' %}"> Toggle visualisation
   </button>
 </div>
-<div id="viz-container" class="grid-x grid-margin-xhide collapsible-container"
-  data-toggler=".hide">
-
-  <div class="cell medium-10" id="viz">
-  </div>
-  <div class="cell medium-2">
-    <h3>Legend</h3>
-    <ul class="no-bullet" id="viz-legend"></ul>
+<div id="viz-container" class="collapsible-container" data-toggler=".hide">
+  <ul class="menu simple" id="viz-legend">
+    <li class="menu-text">Legend:</li>
+  </ul>
+  <div id="viz">
   </div>
 </div>
 

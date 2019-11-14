@@ -35,9 +35,9 @@ $(document).ready(() => {
   })
 
   // 2. d3: settings
-  const height = (width = 920)
+  const height = (width = 960)
   const outerRadius = Math.min(width, height) * 0.5
-  const innerRadius = outerRadius - 254
+  const innerRadius = outerRadius - 256
 
   const color = {
     project: '#245d88',
