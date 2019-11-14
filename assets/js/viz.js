@@ -42,28 +42,27 @@ $(document).ready(() => {
   const color = {
     project: '#245d88',
     researcher: '#256019',
-    theme: '#9c3803'
+    theme: '#ed7a3e'
   }
 
   const ribbon = d3.ribbon().radius(innerRadius)
 
   // 3. legend
-  const legend = document.getElementById('viz-legend')
+  // const legend = document.getElementById('viz-legend')
 
-  for (const property in color) {
-    const li = document.createElement('li')
-    li.appendChild(document.createTextNode(property))
-    li.className = `${property}`
-    legend.appendChild(li)
-  }
+  // for (const property in color) {
+  //   const li = document.createElement('li')
+  //   li.appendChild(document.createTextNode(property))
+  //   li.className = `${property}`
+  //   legend.appendChild(li)
+  // }
 
   // 4. d3: render the svg
   const svg = d3
     .select('#viz')
     .append('svg')
     .attr('viewBox', [-width / 2, -height / 2, width, height])
-    .attr('font-size', 10)
-    .attr('font-family', 'sans-serif')
+    .attr('font-size', 14)
     .style('width', '100%')
     .style('height', 'auto')
 
