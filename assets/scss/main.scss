@@ -1321,7 +1321,7 @@ svg {
 
 #viz-legend {
   li {
-    font-weight: bolder;
+    font-family: 'KingsBureauGrot';
     text-transform: uppercase;
 
     &.project {
@@ -1333,7 +1333,7 @@ svg {
     }
 
     &.theme {
-      color: $dirty-orange
+      color: $bright-orange
     }
   }
 }

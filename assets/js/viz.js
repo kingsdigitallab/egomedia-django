@@ -48,14 +48,14 @@ $(document).ready(() => {
   const ribbon = d3.ribbon().radius(innerRadius)
 
   // 3. legend
-  // const legend = document.getElementById('viz-legend')
+  const legend = document.getElementById('viz-legend')
 
-  // for (const property in color) {
-  //   const li = document.createElement('li')
-  //   li.appendChild(document.createTextNode(property))
-  //   li.className = `${property}`
-  //   legend.appendChild(li)
-  // }
+  for (const property in color) {
+    const li = document.createElement('li')
+    li.appendChild(document.createTextNode(property))
+    li.className = `${property}`
+    legend.appendChild(li)
+  }
 
   // 4. d3: render the svg
   const svg = d3
@@ -122,7 +122,12 @@ $(document).ready(() => {
     )
     .attr('text-anchor', d => (d.angle > Math.PI ? 'end' : null))
     .attr('class', 'svg-link')
-    .text(d => getTitle(d.index))
+    .text(d => {
+      const title = getTitle(d.index)
+      return `${title.length < 25 ? title : title.substring(0, 25)}${
+        title.length > 25 ? '...' : ''
+      }`
+    })
     .on('click', d => (location.href = getUrl(d.index)))
 
   group

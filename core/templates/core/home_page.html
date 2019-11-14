@@ -10,11 +10,17 @@
 {% if pages %}
 <div class="clearfix">
   <button data-toggle="viz-container" class="showviz">
-    <img src="{% static 'images/ego-viz-icon.png' %}"> Show visualisation
+    <img src="{% static 'images/ego-viz-icon.png' %}"> Toggle visualisation
   </button>
 </div>
-<div id="viz-container" class="hide collapsible-container" data-toggler=".hide">
-  <div id="viz">
+<div id="viz-container" class="grid-x grid-margin-xhide collapsible-container"
+  data-toggler=".hide">
+
+  <div class="cell medium-10" id="viz">
+  </div>
+  <div class="cell medium-2">
+    <h3>Legend</h3>
+    <ul class="no-bullet" id="viz-legend"></ul>
   </div>
 </div>
 
@@ -23,7 +29,8 @@
     {% include "core/includes/filters.html" %}
   </div>
 
-  <div id="results" class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3">
+  <div id="results"
+    class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3">
     {% get_site_root as site_root %}
     {% for page in pages %}
     {% include "core/includes/card.html" with site_root=site_root %}
