@@ -946,12 +946,18 @@ main,
 // Metadata and Filters
 
 .filters-container {
-  padding-top: 2rem;
+  display: block;
+  margin-top: 2rem;
 
   .is-stuck {
     background: $body-background;
+    display: block;
     padding-top: 1rem;
     width: 100%;
+  }
+
+  .sticky {
+    display: block;
   }
 }
 
