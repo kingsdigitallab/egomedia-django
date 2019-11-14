@@ -34,21 +34,10 @@ $(document).ready(() => {
     })
   })
 
-  // 2. d3: functions/settings
+  // 2. d3: settings
   const height = (width = 920)
   const outerRadius = Math.min(width, height) * 0.5
   const innerRadius = outerRadius - 254
-
-  const arc = d3
-    .arc()
-    .innerRadius(innerRadius)
-    .outerRadius(innerRadius + 20)
-
-  const chord = d3
-    .chord()
-    .padAngle(0.04)
-    .sortSubgroups(d3.descending)
-    .sortChords(d3.descending)
 
   const color = {
     project: '#245d88',
@@ -78,6 +67,12 @@ $(document).ready(() => {
     .style('width', '100%')
     .style('height', 'auto')
 
+  const chord = d3
+    .chord()
+    .padAngle(0.04)
+    .sortSubgroups(d3.descending)
+    .sortChords(d3.descending)
+
   const chords = chord(data.matrix)
 
   const group = svg
@@ -85,6 +80,11 @@ $(document).ready(() => {
     .selectAll('g')
     .data(chords.groups)
     .join('g')
+
+  const arc = d3
+    .arc()
+    .innerRadius(innerRadius)
+    .outerRadius(innerRadius + 20)
 
   const highlightGroup = opacity => {
     return d => {
