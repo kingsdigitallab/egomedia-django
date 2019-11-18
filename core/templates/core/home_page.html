@@ -8,6 +8,19 @@
 </div>
 
 {% if pages %}
+<div class="clearfix">
+  <button data-toggle="viz-container" class="showviz">
+    <img src="{% static 'images/ego-viz-icon.png' %}"> Toggle visualisation
+  </button>
+</div>
+<div id="viz-container" class="collapsible-container hide" data-toggler=".hide">
+  <ul class="menu simple" id="viz-legend">
+    <li class="menu-text">Legend:</li>
+  </ul>
+  <div id="viz">
+  </div>
+</div>
+
 <div id="content" class="content">
   <div class="filters-container" data-sticky-container>
     {% include "core/includes/filters.html" %}
@@ -25,14 +38,16 @@
 <p>No live pages found!</p>
 {% endif %}
 
-<!--div id="viz">
-</div-->
-
 {% endblock page-body %}
 
 {% block footer_scripts %}
 <script src="{% static 'isotope-layout/dist/isotope.pkgd.min.js' %}"></script>
 <script src="{% static 'js/filters.js' %}"></script>
-<!--script src="{% static 'd3/dist/d3.min.js' %}"></script>
-<script src="{% static 'js/viz.js' %}"></script-->
+<script src="{% static 'd3/dist/d3.min.js' %}"></script>
+<script type="text/javascript">
+  /* beautify preserve:start */
+  const vizData = {{ viz_data | safe }}
+  /* beautify preserve:end */
+</script>
+<script src="{% static 'js/viz.js' %}"></script>
 {% endblock footer_scripts %}

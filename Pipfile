@@ -12,6 +12,7 @@ pycodestyle = "*"
 tox = "*"
 tox-pipenv = "*"
 pygraphviz = "*"
+autopep8 = "*"
 
 [packages]
 django-activecollab-digger = "*"
