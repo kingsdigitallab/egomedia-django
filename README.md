@@ -6,7 +6,17 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
-### Working on 0.2 Increment #8
+### 0.2.1 Increment #8
+
+- Homepage
+    - Implemented new visualisation (interactive)
+    - Added toggle to expand/collapse viz section
+
+- Merged Pillow dependency (security)
+- Bug and typo fixes
+
+
+### 0.2 Increment #8
 
 - Homepage
 
