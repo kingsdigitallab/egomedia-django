@@ -1,7 +1,7 @@
 {% load menu_tags %}
 <ul class="menu">
   {% for item in menu_items %}
-  <li class="{{ item.active_class }}">
+  <li{% if item.active_class %} class="{{ item.active_class }}"{% endif %}>
     <a class="item-{{ item|lower }}" href="{{ item.href }}">{{ item.text }}</a>
   </li>
   {% endfor %}
