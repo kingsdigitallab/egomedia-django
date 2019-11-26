@@ -6,6 +6,12 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
+### 0.2.2 Increment #8
+
+- Replaced logo with new version
+- Improved responsive menu on smaller screens
+- CSS clean up
+
 ### 0.2.1 Increment #8
 
 - Homepage
