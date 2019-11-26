@@ -107,24 +107,9 @@ button {
 
   &.embed_block {
     .embed {
-      // margin-left: auto;
-      // margin-right: auto;
       max-width: 640px;
     }
   }
-
-
-  // &.endnotes ol li {
-  //   clear: both;
-
-  //   .join * {
-  //     float: left;
-
-  //     &::after {
-  //       content: '\a0';
-  //     }
-  //   }
-  // }
 }
 
 .highlight {
@@ -320,7 +305,7 @@ nav {
     .menu {
       margin: .5rem 0;
 
-      .active>a {
+      .active > a {
         background: $light-gray;
         border-bottom: 8px solid $dark-gray;
         color: $dark-gray;
@@ -340,6 +325,17 @@ nav {
           color: $white;
         }
       }
+
+      @include breakpoint(small only) {
+        display: block;
+        margin-top: 2rem;
+
+        li {
+          a {
+            padding: 1rem .75rem .75rem;
+          }
+        }
+      }
     }
   }
 }
@@ -354,7 +350,6 @@ nav {
 
 .toc {
   hyphens: auto;
-  // overflow-wrap: break-word;
   overflow-wrap: normal;
   padding-right: 1rem;
   padding-bottom: 1rem;
@@ -374,6 +369,12 @@ nav {
       color: $white;
     }
   }
+
+  input {
+    @include breakpoint(small only) {
+      max-width: 100%
+    }
+  }
 }
 
 a[class^="item-"] {
@@ -385,6 +386,12 @@ a[class^="item-"] {
     font-family: "Font Awesome 5 Pro";
     font-weight: 900;
     padding-right: 8px;
+  }
+
+  @include breakpoint(small only) {
+    margin-right: 0;
+    margin-top: .5rem;
+    padding: .75rem;
   }
 }
 
@@ -556,6 +563,10 @@ main {
   margin: 2rem auto 1rem;
   max-width: 960px;
   padding: 1.5rem;
+
+  @include breakpoint(small only) {
+    margin: 0 auto 1rem;
+  }
 }
 
 .content {
@@ -1272,11 +1283,8 @@ footer {
 
 .rich-text {
   .responsive-object {
-    // margin-left: auto;
-    // margin-right: auto;
     max-width: 100%;
     padding-bottom: 0 !important;
-    // text-align: center;
 
     iframe {
       background-color: $light-gray;
