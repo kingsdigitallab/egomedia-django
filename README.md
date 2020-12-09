@@ -6,10 +6,12 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
-### 0.2.3
+### 0.2.4
 
 - Added live filter to Table of Contents in project pages
 - Updated pip package django-kdl-wagtail
+
+### 0.2.3
 
 ### 0.2.2 Increment #8
 
