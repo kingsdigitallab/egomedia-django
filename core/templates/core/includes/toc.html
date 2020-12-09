@@ -41,16 +41,11 @@
   </ul>
   {% endif %}
 
-  {% if page.get_children %}
+{% if page.get_children %}
   <h4 class="list-children">Other pages in this section</h4>
   <ul>
-    {% for child in page.get_children.specific %}
+    {% for child in page.get_children.live.specific %}
     <li>
-      {% comment %}
-      {% if child.image %}
-      {% image child.image fill-600x300-c100 %}
-      {% endif %}
-      {% endcomment %}
       <a href="{% pageurl child %}">{{ child.title }}</a>
     </li>
     {% endfor %}
