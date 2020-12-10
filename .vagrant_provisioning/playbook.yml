@@ -310,6 +310,13 @@
       tags:
         - django
 
+    - name: django | wagtail - fixtree
+      command: 'pipenv run python manage.py fixtree'
+      args:
+        chdir: '{{ project_root }}'
+      tags:
+        - django
+
 # GIT config
 # run as vagrant
 - hosts: all
