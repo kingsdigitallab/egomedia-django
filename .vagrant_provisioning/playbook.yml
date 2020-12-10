@@ -13,7 +13,7 @@
         path: /etc/sudoers
         backup: yes
         regexp: "^%sudo\\s+ALL=\\(ALL:ALL\\)\\s+ALL$"
-        line: "%sudo   ALL=(ALL) NOPASSWD: ALL"
+        line: '%sudo   ALL=(ALL) NOPASSWD: ALL'
       tags:
         - system
 
@@ -26,7 +26,7 @@
 
     - name: apt | install required system packages
       apt:
-        pkg: "{{ system_packages }}"
+        pkg: '{{ system_packages }}'
         state: present
         update_cache: yes
       tags:
@@ -54,7 +54,7 @@
         - system
 
     - name: motd | clean existing
-      shell: "rm -rf /etc/update-motd.d/*"
+      shell: 'rm -rf /etc/update-motd.d/*'
       tags:
         - system
 
@@ -64,10 +64,16 @@
         - system
 
     - name: motd | permissions
-      shell: "chmod +x /etc/update-motd.d/*"
+      shell: 'chmod +x /etc/update-motd.d/*'
       tags:
         - system
 
+    - name: python | upgrade pip
+      pip:
+        name: pip
+        state: latest
+      tags:
+        - python
     - name: python | install pipenv
       pip:
         name: pipenv
@@ -77,12 +83,12 @@
 
     - name: npm | upgrade node.js and npm
       npm:
-        name: "n"
+        name: 'n'
         global: true
       tags:
         - system
         - javascript
-    - command: "n stable"
+    - command: 'n stable'
       tags:
         - system
         - javascript
@@ -96,34 +102,34 @@
 
   tasks:
     - name: python | install packages from Pipfile
-      command: "pipenv install -d"
+      command: 'pipenv install -d'
       args:
-        chdir: "{{ project_root }}"
+        chdir: '{{ project_root }}'
       tags:
         - python
 
     - name: npm | create dummy package.json
       # this creates a dummy package.json. Needed for all other npm commands.
-      command: "npm init -y"
+      command: 'npm init -y'
       args:
-        chdir: "{{ project_root }}"
-        creates: "{{ project_root }}/package.json"
+        chdir: '{{ project_root }}'
+        creates: '{{ project_root }}/package.json'
       tags:
         - javascript
 
     - name: npm | install original javascript packages from vars.yml
       # only for the initial setup of the repository
       # it will install packages selected during bare-bone bootstrap
-      command: "npm i {{ npm.original_packages }}"
+      command: 'npm i {{ npm.original_packages }}'
       args:
-        chdir: "{{ project_root }}"
-        creates: "{{ project_root }}/package-lock.json"
+        chdir: '{{ project_root }}'
+        creates: '{{ project_root }}/package-lock.json'
       tags:
         - javascript
 
     - name: npm | install javascript packages from package.json
       npm:
-        path: "{{ project_root }}"
+        path: '{{ project_root }}'
       tags:
         - javascript
 
@@ -138,13 +144,13 @@
   tasks:
     - name: postgresql | setup gb locale
       locale_gen:
-        name: "{{ postgresql.locale }}"
+        name: '{{ postgresql.locale }}'
         state: present
       tags:
         - db
 
     - name: postgresql | get installed version
-      shell: "ls /etc/postgresql/*/main/pg_hba.conf | cut -d / -f4"
+      shell: 'ls /etc/postgresql/*/main/pg_hba.conf | cut -d / -f4'
       register: postgresql_version
       tags:
         - db
@@ -154,7 +160,7 @@
         path: /etc/postgresql/{{ postgresql_version.stdout }}/main/pg_hba.conf
         backup: yes
         regexp: "^local\\s+all\\s+{{ postgresql.admin_user }}\\s+peer$"
-        line: "local    all    {{ postgresql.admin_user }}    {{ postgresql.default_auth_method }}"
+        line: 'local    all    {{ postgresql.admin_user }}    {{ postgresql.default_auth_method }}'
       tags:
         - db
 
@@ -163,7 +169,7 @@
         path: /etc/postgresql/{{ postgresql_version.stdout }}/main/pg_hba.conf
         backup: yes
         regexp: "^local\\s+all\\s+all\\s+peer$"
-        line: "local    all    all    {{ postgresql.default_auth_method }}"
+        line: 'local    all    all    {{ postgresql.default_auth_method }}'
       notify:
         - postgresql | restart postgres
       tags:
@@ -185,24 +191,24 @@
     - vars.yml
   tasks:
     - name: postgresql | create user
-      become_user: "{{ postgresql.admin_user }}"
+      become_user: '{{ postgresql.admin_user }}'
       postgresql_user:
-        user: "{{ postgresql.user }}"
-        password: "{{ app.name }}"
+        user: '{{ postgresql.user }}'
+        password: '{{ app.name }}'
         role_attr_flags: CREATEDB # NOSUPERUSER NOCREATEROLE
       tags:
         - db
 
     - name: postgresql | create db
-      become_user: "{{ postgresql.admin_user }}"
+      become_user: '{{ postgresql.admin_user }}'
       postgresql_db:
-        name: "{{ app.name }}"
-        encoding: "{{postgresql.encoding}}"
-        lc_collate: "{{postgresql.locale}}"
-        lc_ctype: "{{postgresql.locale}}"
-        template: "template0"
+        name: '{{ app.name }}'
+        encoding: '{{postgresql.encoding}}'
+        lc_collate: '{{postgresql.locale}}'
+        lc_ctype: '{{postgresql.locale}}'
+        template: 'template0'
         state: present
-        owner: "{{ postgresql.user }}"
+        owner: '{{ postgresql.user }}'
       notify:
         - postgresql | apply privileges
       tags:
@@ -210,7 +216,7 @@
 
     - name: check if initial data file exists
       stat:
-        path: "{{ project_root }}/.vagrant_provisioning/{{ postgresql.initial_data_file }}"
+        path: '{{ project_root }}/.vagrant_provisioning/{{ postgresql.initial_data_file }}'
       register: idf
       tags:
         - db
@@ -226,7 +232,7 @@
         - data
 
     - name: posgresql | create postgis extension if available
-      become_user: "{{ postgresql.admin_user }}"
+      become_user: '{{ postgresql.admin_user }}'
       command: psql -U {{ postgresql.admin_user }} -d {{ app.name }} -c "CREATE EXTENSION IF NOT EXISTS postgis;"
       tags:
         - db
@@ -234,11 +240,11 @@
 
   handlers:
     - name: postgresql | apply privileges
-      become_user: "{{ postgresql.admin_user }}"
+      become_user: '{{ postgresql.admin_user }}'
       postgresql_privs:
-        db: "{{ app.name }}"
+        db: '{{ app.name }}'
         privs: ALL
-        roles: "{{ postgresql.user }}"
+        roles: '{{ postgresql.user }}'
         state: present
         type: database
       tags:
@@ -246,12 +252,12 @@
         - data
 
     - name: postgresql | apply privileges after data import
-      become_user: "{{ postgresql.admin_user }}"
+      become_user: '{{ postgresql.admin_user }}'
       postgresql_privs:
-        db: "{{ app.name }}"
+        db: '{{ app.name }}'
         objs: ALL_IN_SCHEMA
         privs: ALL
-        roles: "{{ postgresql.user }}"
+        roles: '{{ postgresql.user }}'
         state: present
         type: table
       tags:
@@ -270,51 +276,44 @@
         - django
 
     - name: django | migrations
-      command: "pipenv run python manage.py makemigrations"
+      command: 'pipenv run python manage.py makemigrations'
       args:
-        chdir: "{{ project_root }}"
-    - command: "pipenv run python manage.py migrate"
+        chdir: '{{ project_root }}'
+    - command: 'pipenv run python manage.py migrate'
       args:
-        chdir: "{{ project_root }}"
+        chdir: '{{ project_root }}'
       tags:
         - django
 
     - name: django | add default (vagrant/vagrant) superuser
       command: 'pipenv run python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser(''vagrant'', ''vagrant@localhost'', ''vagrant'')"'
       args:
-        chdir: "{{ project_root }}"
+        chdir: '{{ project_root }}'
       ignore_errors: yes # The user may already exist
       tags:
         - django
 
     - name: django | load data - gather fixtures
       find:
-        paths: "{{ project_root }}/core/fixtures"
-        patterns: "*.json"
+        paths: '{{ project_root }}/core/fixtures'
+        patterns: '*.json'
       register: fixture_files
       tags:
         - django
 
     - name: django | load data - from fixtures
-      command: "pipenv run python manage.py loaddata {{ item.path }}"
+      command: 'pipenv run python manage.py loaddata {{ item.path }}'
       args:
-        chdir: "{{ project_root }}"
+        chdir: '{{ project_root }}'
       with_items:
-        - "{{ fixture_files.files }}"
+        - '{{ fixture_files.files }}'
       tags:
         - django
 
-    - name: django | load data - import from CSVs
-      command: "pipenv run python manage.py import_data"
+    - name: django | wagtail - fixtree
+      command: 'pipenv run python manage.py fixtree'
       args:
-        chdir: "{{ project_root }}"
-      tags:
-        - django
-
-    - name: django | generate wagtail menu
-      command: "pipenv run python manage.py autopopulate_main_menus"
-      args:
-        chdir: "{{ project_root }}"
+        chdir: '{{ project_root }}'
       tags:
         - django
 
@@ -325,19 +324,19 @@
     - vars.yml
   tasks:
     - name: git | init
-      command: "git init"
+      command: 'git init'
       args:
-        chdir: "{{ project_root }}"
+        chdir: '{{ project_root }}'
       tags:
         - git
 
     - name: git | flake8 pre-commit hook
-      command: "pipenv run flake8 --install-hook=git"
+      command: 'pipenv run flake8 --install-hook=git'
       ignore_errors: yes # Stop errors if it already exists
       args:
-        chdir: "{{ project_root }}"
-    - command: "git config flake8.strict True"
+        chdir: '{{ project_root }}'
+    - command: 'git config flake8.strict True'
       args:
-        chdir: "{{ project_root }}"
+        chdir: '{{ project_root }}'
       tags:
         - git

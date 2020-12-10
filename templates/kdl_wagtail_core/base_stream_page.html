@@ -2,16 +2,32 @@
 {% load kdl_wagtail_core_tags wagtailcore_tags %}
 
 {% block page-body %}
+
+{% if page.title == 'About' %}
+<div class="grid-x grid-margin-x">
+    <div class="cell medium-3" data-sticky-container>
+        <div class="sticky sidebar" data-sticky data-anchor="project-content">
+            {% include "core/includes/toc.html" %}
+        </div>
+    </div>
+
+    <div class="cell medium-9" id="project-content">
+{% else %}
 <div class="page-body {% get_page_label page %}">
-  {% for block in page.body %}
-  <div
-    class="block{% if block.value.alignment %} {{ block.value.alignment }}{% endif %} {{ block.block_type }}">
-    <a class="anchor-link" id="{% get_object_id block %}"></a>
+    <div>
+{% endif %}
 
-    {% include_block block %}
-  </div>
-  {% endfor %}
+        {% for block in page.body %}
+        <div
+            class="block{% if block.value.alignment %} {{ block.value.alignment }}{% endif %} {{ block.block_type }}">
+            <a class="anchor-link" id="{% get_object_id block %}"></a>
 
-  {% include "core/includes/endnotes.html" %}
+            {% include_block block %}
+        </div>
+        {% endfor %}
+
+        {% include "core/includes/endnotes.html" %}
+    </div>
 </div>
+
 {% endblock page-body %}
