@@ -5,6 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "bento/ubuntu-16.04"
+  config.vm.box_version = "202012.23.0"
 
   config.vm.define "egomedia" do |egomedia|
   end
