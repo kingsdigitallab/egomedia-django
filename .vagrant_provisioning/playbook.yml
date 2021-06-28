@@ -70,10 +70,10 @@
 
     - name: python | upgrade pip
       pip:
-        name: pip
-        state: latest
+        name: pip>20,<21
       tags:
         - python
+
     - name: python | install pipenv
       pip:
         name: pipenv
@@ -88,6 +88,7 @@
       tags:
         - system
         - javascript
+
     - command: 'n stable'
       tags:
         - system
