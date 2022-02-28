@@ -231,7 +231,7 @@ class HomePage(Page):
             ('contributor',
              ResearcherPage.objects.live().order_by(
                  'person__name').values_list('title', flat=True)),
-            ('project',
+            ('section',
              ProjectPage.objects.live().order_by(
                  'full_title').values_list('title', 'full_title', 'depth'))
         ]
@@ -337,7 +337,7 @@ class ResearcherPage(BaseStreamPage, FacetsMixin):
         return [
             ('theme', themes),
             ('theme', secondary_themes),
-            ('project', projects)
+            ('section', projects)
         ]
 
     def get_viz_data(self, related=True):
@@ -453,7 +453,7 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
 
         return [
             ('theme', self.get_themes()),
-            ('project',
+            ('section',
              self.get_descendants().specific().live().order_by('title')),
             ('contributor', researchers)
         ]
@@ -472,7 +472,7 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
 
     def get_viz_data(self, related=True):
         data = {
-            'class': 'project',
+            'class': 'section',
             'id': self.id,
             'title': self.title,
             'url': self.url
@@ -520,7 +520,7 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
             researcher_theme_relationship__in=related).order_by('title')
 
         return [
-            ('project', projects),
+            ('section', projects),
             ('contributor', researchers)
         ]
 

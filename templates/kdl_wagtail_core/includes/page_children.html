@@ -2,7 +2,7 @@
 
 {% if children %}
 
-{% if page.title == 'Themes' or page.title == 'Projects' or page.title == 'Researchers' %}
+{% if page.title == 'Themes' or page.title == 'Sections' or page.title == 'Contributors' %}
 
 <div id="results" class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3"
                   data-equalizer="card" data-equalize-on="medium">
@@ -12,7 +12,7 @@
 </div>
 
 {% else %}
-
+test
 <ul class="nested-list no-bullet{% if class %} {{ class }}{% endif %}">
     {% for child in page.get_children.live.specific %}
     <li class="child-page{% if child.get_children.live %} parent{% endif %}">

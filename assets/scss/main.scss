@@ -308,7 +308,8 @@ nav {
         border-bottom: 8px solid $dark-gray;
         color: $dark-gray;
 
-        &.item-projects {
+        &.item-projects,
+        &.item-sections {
           background-color: $navylike;
           color: $white;
         }
@@ -394,14 +395,16 @@ a[class^='item-'] {
   }
 }
 
-a.item-projects {
+a.item-projects,
+a.item-sections {
   &::before {
     content: '\f0c5';
   }
 }
 
 a.item-blue,
-a.item-projects {
+a.item-projects,
+a.item-sections {
   background: $navylike;
   border-bottom: 4px solid $bright-navy;
 
@@ -1006,13 +1009,15 @@ main,
     }
 
     &.project,
+    &.section,
     &.researcher,
     &.contributor,
     &.theme {
       color: $dark-gray;
     }
 
-    &.project {
+    &.project,
+    &.section {
       border-left: 5px solid $bright-navy;
     }
 
@@ -1100,6 +1105,7 @@ main,
   padding: 2px 8px;
 
   &.project,
+  &.section,
   &.researcher,
   &.contributor,
   &.theme {
@@ -1133,6 +1139,11 @@ main,
 
 .project,
 .project.tag {
+  border-color: $bright-navy;
+}
+
+.section,
+.section.tag {
   border-color: $bright-navy;
 }
 
@@ -1347,7 +1358,8 @@ svg {
       text-transform: capitalize;
     }
 
-    &.project {
+    &.project,
+    &.section {
       color: $dark-blue;
     }
 

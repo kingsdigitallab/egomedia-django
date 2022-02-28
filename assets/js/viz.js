@@ -40,7 +40,7 @@ $(document).ready(() => {
   const innerRadius = outerRadius - 256
 
   const color = {
-    project: '#245d88',
+    section: '#245d88',
     contributor: '#256019',
     theme: '#ed7a3e'
   }
