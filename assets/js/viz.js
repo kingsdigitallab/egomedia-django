@@ -41,7 +41,7 @@ $(document).ready(() => {
 
   const color = {
     project: '#245d88',
-    researcher: '#256019',
+    contributor: '#256019',
     theme: '#ed7a3e'
   }
 

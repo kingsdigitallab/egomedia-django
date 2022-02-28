@@ -228,7 +228,7 @@ class HomePage(Page):
             ('theme',
              ThemePage.objects.live().order_by(
                  'title').values_list('title', flat=True)),
-            ('researcher',
+            ('contributor',
              ResearcherPage.objects.live().order_by(
                  'person__name').values_list('title', flat=True)),
             ('project',
@@ -455,7 +455,7 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
             ('theme', self.get_themes()),
             ('project',
              self.get_descendants().specific().live().order_by('title')),
-            ('researcher', researchers)
+            ('contributor', researchers)
         ]
 
     def get_themes(self):
@@ -521,7 +521,7 @@ class ThemePage(BaseTimelinePage, FacetsMixin):
 
         return [
             ('project', projects),
-            ('researcher', researchers)
+            ('contributor', researchers)
         ]
 
     def get_viz_data(self, related=True):
