@@ -41,7 +41,6 @@ $(document).ready(() => {
 
   const color = {
     section: '#245d88',
-    contributor: '#256019',
     theme: '#ed7a3e'
   }
 
