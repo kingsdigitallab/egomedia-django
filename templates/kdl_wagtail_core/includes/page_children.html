@@ -12,7 +12,6 @@
 </div>
 
 {% else %}
-test
 <ul class="nested-list no-bullet{% if class %} {{ class }}{% endif %}">
     {% for child in page.get_children.live.specific %}
     <li class="child-page{% if child.get_children.live %} parent{% endif %}">
