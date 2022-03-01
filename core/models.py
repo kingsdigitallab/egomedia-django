@@ -143,6 +143,52 @@ class EndNoteMixin(ClusterableModel):
         abstract = True
 
 
+class BrowsePage(BasePage):
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        filters = [
+            (
+                "theme",
+                ThemePage.objects.live()
+                .order_by("title")
+                .values_list("title", flat=True),
+            ),
+            (
+                "contributor",
+                ResearcherPage.objects.live()
+                .order_by("person__name")
+                .values_list("title", flat=True),
+            ),
+            (
+                "section",
+                ProjectPage.objects.live()
+                .order_by("full_title")
+                .values_list("title", "full_title", "depth"),
+            ),
+        ]
+
+        for ft in FacetType.objects.all():
+            filters.append(
+                (
+                    ft.title,
+                    Facet.objects.filter(facet_type=ft).values_list("title", flat=True),
+                )
+            )
+
+        context["filters"] = filters
+
+        context["pages"] = list(
+            chain(
+                ThemePage.objects.live().order_by("title"),
+                ProjectPage.objects.live().order_by("title"),
+                ResearcherPage.objects.live().order_by("person__name"),
+            )
+        )
+
+        return context
+
+
 class TextSearchPage(BasePage):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
@@ -206,6 +252,7 @@ class HomePage(Page):
 
     subpage_types = [
         BibliographyIndexPage,
+        BrowsePage,
         IndexPage,
         PeopleIndexPage,
         SitemapPage,
@@ -215,46 +262,6 @@ class HomePage(Page):
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
-
-        filters = [
-            (
-                "theme",
-                ThemePage.objects.live()
-                .order_by("title")
-                .values_list("title", flat=True),
-            ),
-            (
-                "contributor",
-                ResearcherPage.objects.live()
-                .order_by("person__name")
-                .values_list("title", flat=True),
-            ),
-            (
-                "section",
-                ProjectPage.objects.live()
-                .order_by("full_title")
-                .values_list("title", "full_title", "depth"),
-            ),
-        ]
-
-        for ft in FacetType.objects.all():
-            filters.append(
-                (
-                    ft.title,
-                    Facet.objects.filter(facet_type=ft).values_list("title", flat=True),
-                )
-            )
-
-        context["filters"] = filters
-
-        context["pages"] = list(
-            chain(
-                ThemePage.objects.live().order_by("title"),
-                ProjectPage.objects.live().order_by("title"),
-                ResearcherPage.objects.live().order_by("person__name"),
-            )
-        )
-
         context["viz_data"] = self.get_viz_data()
 
         return context
