@@ -76,8 +76,7 @@
 
     - name: python | install pipenv
       pip:
-        name: pipenv
-        state: latest
+        name: pipenv==2021.5.29
       tags:
         - python
 
