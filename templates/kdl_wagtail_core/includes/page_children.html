@@ -13,7 +13,7 @@
 
 {% else %}
 <ul class="nested-list no-bullet{% if class %} {{ class }}{% endif %}">
-    {% for child in page.get_children.live.specific %}
+    {% for child in children.specific %}
     <li class="child-page{% if child.get_children.live %} parent{% endif %}">
 
         {% if child.get_children.live %}
