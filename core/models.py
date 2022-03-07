@@ -180,8 +180,11 @@ class BrowsePage(BasePage):
 
         context["pages"] = list(
             chain(
+                [ThemePage(title="Themes")],
                 ThemePage.objects.live().order_by("title"),
+                [ProjectPage(title="Sections")],
                 ProjectPage.objects.live().order_by("title"),
+                [ResearcherPage(title="Contributors")],
                 ResearcherPage.objects.live().order_by("person__name"),
             )
         )
@@ -438,6 +441,9 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
         return " > ".join(titles)
 
     def get_page_facets(self):
+        if not self.id:
+            return []
+
         related = self.project_researcher_relationship.all()
         researchers = (
             ResearcherPage.objects.live()

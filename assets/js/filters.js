@@ -1,10 +1,29 @@
 $(document).ready(() => {
   // add the cards' tags as classes in the cardcontainers for a cleaner isotope filtering
-  $('#results .cardcontainer').each(function(i, cardcontainer) {
+  $('#results .cardcontainer').each(function (i, cardcontainer) {
     const tags = cardcontainer.querySelectorAll('.tag')
 
-    $(tags).each(function(i, tag) {
+    $(tags).each(function (i, tag) {
       $(cardcontainer).addClass($(tag).data('filter'))
+    })
+  })
+
+  document.querySelectorAll('.themepage').forEach(function (page) {
+    const tags = [...page.parentNode.classList].slice(2)
+    tags.forEach(function (tag) {
+      $(`#theme_themes`).addClass(tag)
+    })
+  })
+  document.querySelectorAll('.projectpage').forEach(function (page) {
+    const tags = [...page.parentNode.classList].slice(2)
+    tags.forEach(function (tag) {
+      $(`#project_sections`).addClass(tag)
+    })
+  })
+  document.querySelectorAll('.researcherpage').forEach(function (page) {
+    const tags = [...page.parentNode.classList].slice(2)
+    tags.forEach(function (tag) {
+      $(`#researcher_contributors`).addClass(tag)
     })
   })
 
@@ -20,7 +39,7 @@ $(document).ready(() => {
   $iso.isotope('on', 'arrangeComplete', () => toggleStyle(true))
 
   // apply filters
-  $('.filter').change(function() {
+  $('.filter').change(function () {
     toggleStyle()
 
     const category = $(this).data('category')
@@ -41,7 +60,7 @@ $(document).ready(() => {
 
   function toggleStyle(remove = false) {
     if (remove) {
-      $('#results .cardcontainer').each(function() {
+      $('#results .cardcontainer').each(function () {
         $(this).data('left', $(this).css('left'))
         $(this).data('position', $(this).css('position'))
         $(this).data('top', $(this).css('top'))
@@ -50,7 +69,7 @@ $(document).ready(() => {
         $(this).css('top', '')
       })
     } else {
-      $('#results .cardcontainer').each(function() {
+      $('#results .cardcontainer').each(function () {
         $(this).css('left', $(this).data('left'))
         $(this).css('position', $(this).data('position'))
         $(this).css('top', $(this).data('top'))
@@ -63,9 +82,7 @@ $(document).ready(() => {
       return ''
     }
 
-    return Object.values(filters)
-      .join('')
-      .trim()
+    return Object.values(filters).join('').trim()
   }
 
   function filterResults(isotopeObj, filterValue) {
@@ -75,16 +92,12 @@ $(document).ready(() => {
   }
 
   function showCurrentFilters(filters) {
-    $('.remove-filter')
-      .parent()
-      .remove()
+    $('.remove-filter').parent().remove()
 
     if (!jQuery.isEmptyObject(filters)) {
-      $('.filter option:selected').each(function(i, option) {
+      $('.filter option:selected').each(function (i, option) {
         if (option.value) {
-          const category = $(option)
-            .parent()
-            .data('category')
+          const category = $(option).parent().data('category')
           const text = option.innerText
 
           let cardcontainer = $('<div class="cell cardcontainer">')
@@ -116,10 +129,10 @@ $(document).ready(() => {
   function disableUnavailableFilters(isotopeObj) {
     const filteredItems = isotopeObj.isotope('getFilteredItemElements')
     const availableFilters = [
-      ...new Set(filteredItems.flatMap(x => x.className.split(' ')))
+      ...new Set(filteredItems.flatMap((x) => x.className.split(' ')))
     ]
 
-    $('.filter option').each(function(i, option) {
+    $('.filter option').each(function (i, option) {
       const value = option.value.replace(/\./, '')
 
       if (value) {
@@ -133,7 +146,7 @@ $(document).ready(() => {
   }
 
   // remove all filters
-  $('#clear-filters').click(function() {
+  $('#clear-filters').click(function () {
     toggleStyle()
 
     filters = {}
@@ -150,16 +163,16 @@ $(document).ready(() => {
   })
 
   function resetFilters() {
-    $('.filter').each(function(i, select) {
+    $('.filter').each(function (i, select) {
       select.selectedIndex = 0
     })
-    $('.filter option:disabled').each(function(i, option) {
+    $('.filter option:disabled').each(function (i, option) {
       $(option).removeAttr('disabled')
     })
   }
 
   // remove selected filter
-  $('#current-filters').on('click', 'button.remove-filter', function() {
+  $('#current-filters').on('click', 'button.remove-filter', function () {
     toggleStyle()
 
     const category = $(this).val()
