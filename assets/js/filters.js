@@ -7,19 +7,8 @@ $(document).ready(() => {
       $(cardcontainer).addClass($(tag).data('filter'))
     })
   })
-  // fill in the separator cards
-  ;[
-    { type: 'theme', label: 'themes' },
-    { type: 'project', label: 'sections' },
-    { type: 'researcher', label: 'contributors' }
-  ].forEach(function (obj) {
-    document.querySelectorAll(`.${obj.type}page`).forEach(function (page) {
-      const tags = [...page.parentNode.classList].slice(2)
-      tags.forEach(function (tag) {
-        $(`#${obj.type}_${obj.label}`).addClass(tag)
-      })
-    })
-  })
+
+  updateSeparatorCards()
 
   var filters = {}
 
@@ -44,6 +33,8 @@ $(document).ready(() => {
     const filterValue = getFilterValue(filters)
 
     filterResults($iso, filterValue)
+
+    updateSeparatorCards()
 
     showCurrentFilters(filters)
 
@@ -85,6 +76,31 @@ $(document).ready(() => {
     })
   }
 
+  function updateSeparatorCards() {
+    // fill in the separator cards
+    const sepCards = [
+      { type: 'theme', page: 'themepage', label: 'themes' },
+      { type: 'section', page: 'projectpage', label: 'sections' },
+      { type: 'contributor', page: 'researcherpage', label: 'contributors' }
+    ]
+    sepCards.forEach(function (obj) {
+      const id = `${obj.type}_${obj.label}`
+      const el = document.getElementById(id)
+      el.className = ''
+      el.classList.add('cell', 'cardcontainer', id)
+
+      const pages = [...document.querySelectorAll(`.${obj.page}`)]
+      pages.slice(1).forEach(function (page) {
+        const parent = page.parentNode
+        if (parent.style.display !== 'none') {
+          const tags = [...new Set([...parent.classList].slice(2))]
+
+          el.classList.add(...tags)
+        }
+      })
+    })
+  }
+
   function showCurrentFilters(filters) {
     $('.remove-filter').parent().remove()
 
@@ -121,10 +137,7 @@ $(document).ready(() => {
   }
 
   function disableUnavailableFilters(isotopeObj) {
-    const filteredItems = isotopeObj.isotope('getFilteredItemElements')
-    const availableFilters = [
-      ...new Set(filteredItems.flatMap((x) => x.className.split(' ')))
-    ]
+    const availableFilters = getAvailableFilters(isotopeObj)
 
     $('.filter option').each(function (i, option) {
       const value = option.value.replace(/\./, '')
@@ -137,6 +150,11 @@ $(document).ready(() => {
         }
       }
     })
+  }
+
+  function getAvailableFilters(isotopeObj) {
+    const filteredItems = isotopeObj.isotope('getFilteredItemElements')
+    return [...new Set(filteredItems.flatMap((x) => x.className.split(' ')))]
   }
 
   // remove all filters
@@ -178,6 +196,8 @@ $(document).ready(() => {
     const filterValue = getFilterValue(filters)
 
     filterResults($iso, filterValue)
+
+    updateSeparatorCards()
 
     showCurrentFilters(filters)
 

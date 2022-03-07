@@ -35,6 +35,11 @@ def get_filter_value(category, value):
     if not category or not value:
         return
 
+    if category == 'project':
+        category = 'section'
+    elif category == 'researcher':
+        category = 'contributor'
+
     return '{}_{}'.format(
         re.sub(r'\W', '_', category.lower()),
         re.sub(r'\W', '_', value.lower())
