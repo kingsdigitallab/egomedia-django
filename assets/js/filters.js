@@ -7,23 +7,17 @@ $(document).ready(() => {
       $(cardcontainer).addClass($(tag).data('filter'))
     })
   })
-
-  document.querySelectorAll('.themepage').forEach(function (page) {
-    const tags = [...page.parentNode.classList].slice(2)
-    tags.forEach(function (tag) {
-      $(`#theme_themes`).addClass(tag)
-    })
-  })
-  document.querySelectorAll('.projectpage').forEach(function (page) {
-    const tags = [...page.parentNode.classList].slice(2)
-    tags.forEach(function (tag) {
-      $(`#project_sections`).addClass(tag)
-    })
-  })
-  document.querySelectorAll('.researcherpage').forEach(function (page) {
-    const tags = [...page.parentNode.classList].slice(2)
-    tags.forEach(function (tag) {
-      $(`#researcher_contributors`).addClass(tag)
+  // fill in the separator cards
+  ;[
+    { type: 'theme', label: 'themes' },
+    { type: 'project', label: 'sections' },
+    { type: 'researcher', label: 'contributors' }
+  ].forEach(function (obj) {
+    document.querySelectorAll(`.${obj.type}page`).forEach(function (page) {
+      const tags = [...page.parentNode.classList].slice(2)
+      tags.forEach(function (tag) {
+        $(`#${obj.type}_${obj.label}`).addClass(tag)
+      })
     })
   })
 
