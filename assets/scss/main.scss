@@ -625,6 +625,45 @@ cite {
   }
 }
 
+// Dummy card for category
+#theme_themes,
+#section_sections,
+#contributor_contributors {
+  .card-divider {
+    z-index: 1;
+  }
+}
+#theme_themes {
+  .card-divider {
+    background: $dirty-orange;
+  }
+
+  .no-img img {
+    filter: sepia(100%) hue-rotate(292deg) saturate(2000%);
+  }
+}
+
+#section_sections {
+  .card-divider {
+    background: $navylike;
+  }
+
+  .no-img img {
+    filter: sepia(100%) hue-rotate(177deg) saturate(1000%);
+  }
+}
+
+#contributor_contributors {
+  .card-divider {
+    background: $dark-green
+  }
+
+  .no-img img {
+    filter: sepia(100%) hue-rotate(35deg) saturate(200%);
+  }
+}
+// End dummy card
+
 .card {
   border: none;
 

@@ -82,20 +82,12 @@ $dark-gray: #333333;
 $black: #0a0a0a;
 $white: #fefefe;
 
-// $dirty-orange: #e3890f;
-// $dirty-orange: #a36003; // OK for WCAG AA
 $dirty-orange: #9c3803; // OK for WCAG AAA
-// $bright-orange: #fcb049;
-// $bright-orange: #e3890f;
 $bright-orange: #ed7a3e;
 $dark-green: #256019;
-// $dark-green: #47803b;
 $bright-green: #47803b;
-// $bright-green: #93db83;
 $navylike: #20516a;
-// $navylike: #53849d;
 $bright-navy: #53849d;
-// $bright-navy: #8cc5e3;
 $dirty-yellow: #d3bd14; // Gold
 $bright-yellow: #ffe200;
 $dark-blue: #245d88;
@@ -111,7 +103,6 @@ $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
-// $global-menu-padding: 0.7rem 1rem;
 $global-menu-padding: 0.25rem 0.5rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
@@ -189,11 +180,9 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-// $anchor-color: $primary-color;
 $anchor-color: $dark-blue;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
-// $anchor-text-decoration-hover: none;
 $anchor-text-decoration-hover: underline;
 $hr-width: $global-width;
 $hr-border: 1px solid $medium-gray;
@@ -307,7 +296,6 @@ $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
-// $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-background-hover: $dark-gray;
 $button-color: $white;
 $button-color-alt: $black;
@@ -866,7 +854,6 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-// $topbar-background: $light-gray;
 $topbar-background: transparent;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
