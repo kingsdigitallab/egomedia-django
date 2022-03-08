@@ -1,4 +1,15 @@
 $(document).ready(() => {
+  const jump = document.getElementById('jump-to-content')
+  document
+    .querySelectorAll('.indexpage, .peopleindexpage')
+    .forEach(function (card) {
+      const parent = card.parentNode
+      const link = document.createElement('a')
+      link.href = `#${parent.id}`
+      link.innerText = link.title = card.getElementsByTagName('h3')[0].innerText
+      jump.appendChild(link)
+    })
+
   // add the cards' tags as classes in the cardcontainers for a cleaner isotope filtering
   $('#results .cardcontainer').each(function (i, cardcontainer) {
     const tags = cardcontainer.querySelectorAll('.tag')
@@ -79,15 +90,18 @@ $(document).ready(() => {
   function updateSeparatorCards() {
     // fill in the separator cards
     const sepCards = [
-      { type: 'theme', page: 'themepage', label: 'themes' },
-      { type: 'section', page: 'projectpage', label: 'sections' },
-      { type: 'contributor', page: 'researcherpage', label: 'contributors' }
+      { type: 'index', page: 'themepage', label: 'themes' },
+      { type: 'index', page: 'projectpage', label: 'projects' },
+      { type: 'peopleindex', page: 'researcherpage', label: 'researchers' }
     ]
     sepCards.forEach(function (obj) {
       const id = `${obj.type}_${obj.label}`
       const el = document.getElementById(id)
       el.className = ''
       el.classList.add('cell', 'cardcontainer', id)
+
+      const card = el.getElementsByClassName(`card ${obj.type}page`)[0]
+      card.classList.add(obj.page)
 
       const pages = [...document.querySelectorAll(`.${obj.page}`)]
       pages.slice(1).forEach(function (page) {
