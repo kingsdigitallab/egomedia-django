@@ -626,14 +626,14 @@ cite {
 }
 
 // Dummy card for category
-#theme_themes,
-#section_sections,
-#contributor_contributors {
+#index_themes,
+#index_sections,
+#peopleindex_contributors {
   .card-divider {
     z-index: 1;
   }
 }
-#theme_themes {
+#index_themes {
   .card-divider {
     background: $dirty-orange;
   }
@@ -643,7 +643,7 @@ cite {
   }
 }
 
-#section_sections {
+#index_sections {
   .card-divider {
     background: $navylike;
   }
@@ -651,15 +651,23 @@ cite {
   .no-img img {
     filter: sepia(100%) hue-rotate(177deg) saturate(1000%);
   }
+
+  .card-section {
+    border-top: 5px solid $bright-navy;
+  }
 }
 
-#contributor_contributors {
+#peopleindex_contributors {
   .card-divider {
     background: $dark-green
   }
 
   .no-img img {
     filter: sepia(100%) hue-rotate(35deg) saturate(200%);
+  }
+
+  .card-section {
+    border-top: 5px solid $bright-green;
   }
 }
 // End dummy card
