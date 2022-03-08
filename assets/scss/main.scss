@@ -565,7 +565,7 @@ main {
   line-height: 2;
   margin: 2rem auto 1rem;
   max-width: 960px;
-  padding: 1.5rem;
+  // padding: 1.5rem;
 
   @include breakpoint(small only) {
     margin: 0 auto 1rem;
@@ -1393,6 +1393,11 @@ svg {
       text-decoration: underline;
     }
   }
+}
+
+#viz-container {
+  padding-top: 1rem;
+  border-top: 10px solid $light-gray;
 }
 
 #viz-legend {
