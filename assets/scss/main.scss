@@ -136,6 +136,10 @@ button {
 
 a {
   overflow-wrap: break-word;
+
+  &:visited {
+    color: $medium-gray;
+  }
 }
 
 .external {
