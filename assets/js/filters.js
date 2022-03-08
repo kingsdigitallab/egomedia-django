@@ -19,8 +19,6 @@ $(document).ready(() => {
     })
   })
 
-  updateSeparatorCards()
-
   var filters = {}
 
   showCurrentFilters(filters)
@@ -30,7 +28,13 @@ $(document).ready(() => {
     layoutMode: 'fitRows'
   })
 
-  $iso.isotope('on', 'arrangeComplete', () => toggleStyle(true))
+  $iso.isotope('on', 'arrangeComplete', () => {
+    toggleStyle(true)
+
+    updateSeparatorCards()
+
+    disableUnavailableFilters($iso)
+  })
 
   // apply filters
   $('.filter').change(function () {
@@ -45,13 +49,9 @@ $(document).ready(() => {
 
     filterResults($iso, filterValue)
 
-    updateSeparatorCards()
-
     showCurrentFilters(filters)
 
     toggleClearFilters(filterValue)
-
-    disableUnavailableFilters($iso)
   })
 
   function toggleStyle(remove = false) {
@@ -88,31 +88,30 @@ $(document).ready(() => {
   }
 
   function updateSeparatorCards() {
+    const pageTypes = ['themepage', 'projectpage', 'researcherpage']
+
     // fill in the separator cards
-    const sepCards = [
-      { type: 'index', page: 'themepage', label: 'themes' },
-      { type: 'index', page: 'projectpage', label: 'projects' },
-      { type: 'peopleindex', page: 'researcherpage', label: 'researchers' }
-    ]
-    sepCards.forEach(function (obj) {
-      const id = `${obj.type}_${obj.label}`
-      const el = document.getElementById(id)
-      el.className = ''
-      el.classList.add('cell', 'cardcontainer', id)
+    document
+      .querySelectorAll('.indexpage, .peopleindexpage')
+      .forEach(function (separator, idx) {
+        const pageType = pageTypes[idx]
 
-      const card = el.getElementsByClassName(`card ${obj.type}page`)[0]
-      card.classList.add(obj.page)
+        const container = separator.parentNode
+        container.className = ''
+        container.classList.add('cell', 'cardcontainer')
 
-      const pages = [...document.querySelectorAll(`.${obj.page}`)]
-      pages.slice(1).forEach(function (page) {
-        const parent = page.parentNode
-        if (parent.style.display !== 'none') {
-          const tags = [...new Set([...parent.classList].slice(2))]
+        const cards = [...document.querySelectorAll(`.${pageType}`)]
+        cards.slice(1).forEach(function (card) {
+          const parent = card.parentNode
+          if (parent.style.display !== 'none') {
+            const tags = [...new Set([...parent.classList].slice(2))]
 
-          el.classList.add(...tags)
-        }
+            container.classList.add(...tags)
+          }
+        })
+
+        separator.classList.add(pageType)
       })
-    })
   }
 
   function showCurrentFilters(filters) {
@@ -211,13 +210,9 @@ $(document).ready(() => {
 
     filterResults($iso, filterValue)
 
-    updateSeparatorCards()
-
     showCurrentFilters(filters)
 
     toggleClearFilters(filterValue)
-
-    disableUnavailableFilters($iso)
   })
 
   // re-load after back button
