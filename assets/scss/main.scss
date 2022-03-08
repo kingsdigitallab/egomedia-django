@@ -1141,11 +1141,12 @@ main,
 }
 
 .tag {
-  background-color: $light-gray;
-  border-radius: 2px;
+  // background-color: $light-gray;
+  // border-radius: 2px;
+  border: 1px solid $light-gray;
   color: $dark-gray;
   font-family: 'KingsBureauGrot', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 300;
   hyphens: auto;
   // overflow-wrap: break-word;
@@ -1207,6 +1208,16 @@ main,
 .theme,
 .theme.tag {
   border-color: $bright-orange;
+}
+
+
+.project.tag,
+.section.tag,
+.researcher.tag,
+.contributor.tag,
+.theme.tag {
+  background: lighten($color: $light-gray, $amount: 7%);
+  font-size: 14px;
 }
 
 // Text
