@@ -180,11 +180,11 @@ class BrowsePage(BasePage):
 
         context["pages"] = list(
             chain(
-                [ThemePage(title="Themes")],
+                [ThemePage.objects.live().first().get_parent()],
                 ThemePage.objects.live().order_by("title"),
-                [ProjectPage(title="Sections")],
+                [ProjectPage.objects.live().first().get_parent()],
                 ProjectPage.objects.live().order_by("title"),
-                [ResearcherPage(title="Contributors")],
+                [ResearcherPage.objects.live().first().get_parent()],
                 ResearcherPage.objects.live().order_by("person__name"),
             )
         )
