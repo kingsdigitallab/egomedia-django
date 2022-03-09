@@ -3,11 +3,11 @@
 {% get_page_label page as page_label %}
 
 <div id="{% get_filter_value page_label|cut:'page' page.title %}"
-  class="cell cardcontainer {% get_filter_value page_label|cut:'page' page.title %}"
-  {% if page_label == 'projectpage' and page.is_child %} data-child="data-child"
-  {% endif %}>
+     class="cell cardcontainer {% get_filter_value page_label|cut:'page' page.title %}"
+     {% if page_label == 'projectpage' and page.is_child %} data-child="data-child"
+                                                            {% endif %}>
   <div
-    class="card {{ page_label }}{% if page_label == 'projectpage' and page.is_child %} child{% endif %}">
+      class="card {{ page_label }}{% if page_label == 'projectpage' and page.is_child %} child{% endif %}">
     <div class="top-card">
       <div class="card-divider">
         <div class="grid-x align-bottom">
@@ -19,7 +19,7 @@
           </div>
           <div class="cell small-1">
             <button data-toggle="tags-{{ page.id }}"
-              aria-label="More info on {{ page.title }}" class="float-right">
+                    aria-label="More info on {{ page.title }}" class="float-right">
               <img src="{% static 'svgs/info-circle-white.svg' %}" alt="">
             </button>
           </div>
@@ -30,8 +30,8 @@
       <a href="{% pageurl page %}">
         {% image page.image fill-600x300-c100 format-jpeg jpegquality-40 as img %}
         <img{% if img.alt %} alt="{{ img.alt }}" {% endif %} class="lazyload"
-          data-src="{{ img.url }}"
-          src="{% static 'images/placeholder-600x300.png' %}">
+                                                             data-src="{{ img.url }}"
+                                                             src="{% static 'images/placeholder-600x300.png' %}">
       </a>
       {% else %}
       <a class="no-img" href="{% pageurl page %}">
@@ -48,9 +48,9 @@
 
         {% if page.search_description %}
         <p>
-          <a href="{% pageurl page %}">
-            {{ page.search_description|truncatechars:150 }}
-          </a>
+        <a href="{% pageurl page %}">
+          {{ page.search_description|truncatechars:150 }}
+        </a>
         </p>
         {% endif %}
 
@@ -59,3 +59,9 @@
     </div>
   </div>
 </div>
+
+{% if page_label == 'projectpage' and page.sections.count > 0 %}
+{% for child in page.sections %}
+{% include "core/includes/card.html" with page=child site_root=site_root %}
+{% endfor %}
+{% endif %}

@@ -177,13 +177,14 @@ class BrowsePage(BasePage):
             )
 
         context["filters"] = filters
+        pp_index = ProjectPage.objects.live().first().get_parent().specific
 
         context["pages"] = list(
             chain(
                 [ThemePage.objects.live().first().get_parent()],
                 ThemePage.objects.live().order_by("title"),
-                [ProjectPage.objects.live().first().get_parent()],
-                ProjectPage.objects.live().order_by("title"),
+                [pp_index],
+                pp_index.children().live().order_by("title"),
                 [ResearcherPage.objects.live().first().get_parent()],
                 ResearcherPage.objects.live().order_by("person__name"),
             )
@@ -428,6 +429,9 @@ class ProjectPage(BaseTimelinePage, FacetsMixin):
 
     parent_page_types = [IndexPage, "ProjectPage"]
     subpage_types = ["ProjectPage"]
+
+    def sections(self):
+        return self.get_children().live().order_by("title").specific()
 
     def get_full_title(self):
         titles = []
