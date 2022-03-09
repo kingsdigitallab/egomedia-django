@@ -240,16 +240,21 @@ iframe {
 
 // Headings
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3,
+h4, h5, h6 {
   color: $medium-gray;
   font-family: 'KingsBureauGrot', sans-serif;
   line-height: 1.25em;
   padding-bottom: 0.25em;
+
+  &.small {
+    line-height: 1;
+    padding-bottom: 0;
+  }
+
+  .small {
+    font-size: 0.75em;
+  }
 }
 
 /* Header */
@@ -282,6 +287,17 @@ h6 {
   ul {
     margin: 0;
   }
+}
+
+// Full page title: shows hierarchy of the page
+.small-text {
+  color: $white;
+  font-family: "KingsBureauGrot", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0 0 .25rem;
+  padding: 0;
 }
 
 /* Lists */
@@ -1093,6 +1109,20 @@ main,
   }
 }
 
+// Jump to content buttons
+
+#jump-to-content {
+  &::before {
+    content: 'Jump to: ';
+  }
+
+  a {
+    padding: 0 .5rem;
+  }
+
+  padding-bottom: 1rem;
+}
+
 .page-meta {
   border-bottom: 10px solid $light-gray;
   margin-bottom: 8px;
@@ -1417,11 +1447,11 @@ svg {
 
 #viz-legend {
   li {
-    font-family: 'KingsBureauGrot';
+    font-family: 'KingsBureauGrot', sans-serif;
     text-transform: uppercase;
 
     &.menu-text {
-      font-family: 'KingsCaslon';
+      font-family: 'KingsCaslon', serif;
       text-transform: capitalize;
     }
 

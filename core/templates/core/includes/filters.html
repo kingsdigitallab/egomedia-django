@@ -1,16 +1,12 @@
 {% load core_tags %}
 
-<div class="sticky" data-sticky data-options="marginTop:0;" data-top-anchor="content" data-check-every="1">
-  <h2>Search this digital book</h2>
-
+<div class="sticky" data-sticky data-options="marginTop: 0;" data-top-anchor="content" data-check-every="1">
+  <h2 class="small"><span class="small">Search this digital book</span></h2>
+  <h3 class="small"><span class="small">Filter by:</span></h3>
   <div class="grid-x small-up-1 medium-up-4 large-up-8">
-    <div class="cell">
-      <h3>Filter by</h3>
-    </div>
     {% for filter in filters %}
     <div class="cell filters">
-      <select class="filter {% get_filter_value 'category' filter.0 %}"
-        data-category="{% get_filter_value 'category' filter.0 %}">
+      <select class="filter {% get_filter_value 'category' filter.0 %}" data-category="{% get_filter_value 'category' filter.0 %}">
         <option value="">{{ filter.0|capfirst }}</option>
 
         {% for v in filter.1 %}
@@ -37,5 +33,8 @@
       <button type="button" class="button secondary expanded all"
         id="clear-filters" disabled>Clear all</button>
     </div>
+  </div>
+  
+  <div id="jump-to-content">
   </div>
 </div>

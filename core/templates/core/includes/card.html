@@ -12,6 +12,9 @@
       <div class="card-divider">
         <div class="grid-x align-bottom">
           <div class="cell small-11">
+            {% if page.is_child %}
+            <p class="small-text">{{ page.get_full_title }}</p>
+            {% endif %}
             <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
           </div>
           <div class="cell small-1">
