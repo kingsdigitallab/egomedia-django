@@ -653,6 +653,7 @@ cite {
     z-index: 1;
   }
 }
+
 #index_themes {
   .card-divider {
     background: $dirty-orange;
@@ -694,6 +695,8 @@ cite {
 
 .card {
   border: none;
+  margin: 0;
+  padding: 0;
 
   &.projectpage {
     .card-section {
@@ -711,6 +714,14 @@ cite {
     }
 
     &.child {
+      background-color: transparent;
+      opacity: 0.95;
+      padding: 2rem;
+
+      &:hover {
+        opacity: 1;
+      }
+
       .card-section {
         border-top: 5px dashed $bright-navy;
       }
@@ -788,9 +799,14 @@ cite {
 }
 
 .top-card {
+  border-top: 5px solid transparent;
   margin: 0;
   padding: 0;
   position: relative;
+
+  &:hover {
+    border-top: 5px solid yellow;
+  }
 }
 
 .card-divider {
