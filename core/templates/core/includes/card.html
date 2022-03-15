@@ -60,7 +60,7 @@
   </div>
 </div>
 
-{% if page_label == 'projectpage' and page.sections.count > 0 %}
+{% if nest and page_label == 'projectpage' and page.sections.count > 0 %}
 {% for child in page.sections %}
 {% include "core/includes/card.html" with page=child site_root=site_root %}
 {% endfor %}
