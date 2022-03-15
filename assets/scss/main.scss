@@ -168,7 +168,11 @@ img {
 .search {
   button {
     border: 0;
-    padding: 0.6875rem;
+    padding: 0.5rem;
+
+    svg {
+      fill: $white;
+    }
   }
 
   @include breakpoint(medium only) {
@@ -584,12 +588,23 @@ main {
   padding-right: 1rem;
 }
 
+.rich-text,
+.richtext {
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      background: lighten($color: $dirty-yellow, $amount: 40%);
+      text-decoration: none;
+    }
+  }
+}
+
 .hp-intro {
   font-size: 1.5rem;
   line-height: 2;
   margin: 2rem auto 1rem;
   max-width: 960px;
-  // padding: 1.5rem;
 
   @include breakpoint(small only) {
     margin: 0 auto 1rem;
@@ -1470,6 +1485,25 @@ svg {
     font-family: 'KingsBureauGrot', sans-serif;
     text-transform: uppercase;
 
+    &.section,
+    &.theme {
+      &::before {
+        content: '';
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        margin-right: 4px;
+      }
+    }
+
+    &.section::before {
+      background-color: $dark-blue;
+    }
+
+    &.theme::before {
+      background-color: $bright-orange;
+    }
+
     &.menu-text {
       font-family: 'KingsCaslon', serif;
       text-transform: capitalize;
@@ -1486,7 +1520,7 @@ svg {
     }
 
     &.theme {
-      color: $bright-orange;
+      color: $dirty-orange;
     }
   }
 }
