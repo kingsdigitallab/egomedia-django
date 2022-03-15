@@ -141,6 +141,10 @@ select {
 a {
   overflow-wrap: break-word;
 
+  &:focus {
+    outline: 1px solid $dirty-orange;
+  }
+
   &:visited {
     color: $medium-gray;
   }
@@ -292,8 +296,23 @@ h4, h5, h6 {
 .breadcrumbs {
   margin: 1rem 0 0;
 
+  a {
+    svg:hover {
+      fill: $dirty-orange;
+    }
+  }
+
   ul {
     margin: 0;
+  }
+
+  li {
+    font-size: 0.875rem;
+  }
+
+  svg {
+    fill: $primary-color;
+    width: 16px;
   }
 }
 
@@ -1349,6 +1368,10 @@ footer {
   h5,
   h6 {
     color: $black;
+  }
+
+  h2 {
+    font-size: 1.5625rem;
   }
 }
 
