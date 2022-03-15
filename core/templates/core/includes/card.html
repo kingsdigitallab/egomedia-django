@@ -29,7 +29,7 @@
       {% if page.image %}
       <a href="{% pageurl page %}">
         {% image page.image fill-600x300-c100 format-jpeg jpegquality-40 as img %}
-        <img{% if img.alt %} alt="{{ img.alt }}" {% endif %} class="lazyload"
+        <img alt="{% if img.alt %}{{ img.alt }}{% endif %}" class="lazyload"
                                                              data-src="{{ img.url }}"
                                                              src="{% static 'images/placeholder-600x300.png' %}">
       </a>
