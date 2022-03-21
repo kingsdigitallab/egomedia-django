@@ -6,6 +6,15 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 
 ## Release notes
 
+### 1.0.0
+
+- Create specific page for browsing the data.
+- Add content separator tiles to the browse page.
+- Remove contributors dimension from the visualisation.
+- Refine display of keywords/tags.
+- Enable visited links.
+- Make breadcrumbs more visible.
+
 ### 0.2.4
 
 - Added live filter to Table of Contents in project pages
@@ -22,12 +31,12 @@ This project uses the technologies outlined in our [Technology Stack](https://st
 ### 0.2.1 Increment #8
 
 - Homepage
-    - Implemented new visualisation (interactive)
-    - Added toggle to expand/collapse viz section
+
+  - Implemented new visualisation (interactive)
+  - Added toggle to expand/collapse viz section
 
 - Merged Pillow dependency (security)
 - Bug and typo fixes
-
 
 ### 0.2 Increment #8
 
