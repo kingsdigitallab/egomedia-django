@@ -1,0 +1,24 @@
+{% load core_tags wagtailembeds_tags %}
+
+<div class="embed">
+  {% get_video self.embed_block.url as url %}
+
+  <div class="responsive-embed {{ self.display }}">
+    {% if url %}
+    <video width="320" height="240" controls>
+      <source src="{{ url }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    {% else %}
+    {% embed self.embed_block.url %}
+    {% endif %}
+  </div>
+
+  {% if self.caption or self.attribution %}
+  <p>
+  {% include "kdl_wagtail_core/includes/caption_attribution.html" with obj=self %}
+  </p>
+  {% endif %}
+
+  {% include "kdl_wagtail_core/includes/description_transcription.html" with obj=self %}
+</div>
