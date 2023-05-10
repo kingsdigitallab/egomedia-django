@@ -70,18 +70,9 @@
       {% endblock %}
     </footer>
 
-    {# Cookies #}
-    <div class="cookies-box hide" id="cookie-disclaimer">
-      <p>We use cookies to track usage and preferences.</p>
-      <p><a href="/cookie-policy/" class="button secondary">Cookie Policy</a>
-        <button class="button success close" aria-label="Dismiss alert"
-          type="button">I understand</button></p>
-    </div>
-
     {% compress js file main %}
     <script src="{% static 'js/polyfills.js' %}"></script>
     <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
-    <script src="{% static 'js-cookie/src/js.cookie.js' %}"></script>
     <script src="{% static 'foundation-sites/dist/js/foundation.min.js' %}">
     </script>
     <script src="{% static 'js/main.js' %}"></script>
