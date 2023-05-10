@@ -14,6 +14,11 @@ body {
   font-family: 'KingsCaslon', serif;
   font-size: rem-calc(20);
 
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
