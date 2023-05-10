@@ -208,8 +208,6 @@ img {
   }
 }
 
-
-
 #count {
   color: $primary-color;
 }
@@ -274,8 +272,12 @@ iframe {
 
 // Headings
 
-h1, h2, h3,
-h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $medium-gray;
   font-family: 'KingsBureauGrot', sans-serif;
   line-height: 1.25em;
@@ -341,11 +343,11 @@ h4, h5, h6 {
 // Full page title: shows hierarchy of the page
 .small-text {
   color: $white;
-  font-family: "KingsBureauGrot", sans-serif;
+  font-family: 'KingsBureauGrot', sans-serif;
   font-size: 13px;
   font-weight: 300;
   line-height: 1.2;
-  margin: 0 0 .25rem;
+  margin: 0 0 0.25rem;
   padding: 0;
 }
 
@@ -657,6 +659,10 @@ main {
   padding: 0 0 2rem;
 }
 
+.endnotes {
+  clear: both;
+}
+
 // Blockquotes
 
 blockquote {
@@ -740,7 +746,7 @@ cite {
 
 #peopleindex_contributors {
   .card-divider {
-    background: $dark-green
+    background: $dark-green;
   }
 
   .no-img img {
@@ -1201,7 +1207,7 @@ main,
   }
 
   a {
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
   }
 
   padding-bottom: 1rem;
@@ -1327,7 +1333,6 @@ main,
 .theme.tag {
   border-color: $bright-orange;
 }
-
 
 .project.tag,
 .section.tag,
