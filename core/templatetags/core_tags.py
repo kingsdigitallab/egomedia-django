@@ -1,11 +1,11 @@
 import re
 
+import bleach
 from django import template
 from django.conf import settings
 
-from kdl_wagtail.core.templatetags.kdl_wagtail_core_tags import (
-    get_block_title as kdl_get_block_title,
-)
+from kdl_wagtail.core.templatetags.kdl_wagtail_core_tags import \
+    get_block_title as kdl_get_block_title
 
 register = template.Library()
 
@@ -101,3 +101,11 @@ def get_video(url):
         return settings.VIDEOS_BASE_URL + settings.VIDEOS[url]
 
     return None
+
+
+@register.filter
+def clean(html):
+    if not html:
+        return
+
+    return bleach.clean(html, strip=True)

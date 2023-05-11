@@ -11,7 +11,7 @@
     {% for endnote in endnotes %}
     <li id="fn:{{ forloop.counter }}">
       {% if endnote.pre_text %}
-      {{ endnote.pre_text|richtext }}
+      {{ endnote.pre_text|richtext|clean|safe }}
       {% endif %}
 
       {% if endnote.bibliography_shortnote %}
