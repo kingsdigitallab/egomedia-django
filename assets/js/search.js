@@ -25,14 +25,14 @@ $(document).ready(() => {
     })
 
     // the search index
-    const index = lunr(function() {
+    const index = lunr(function () {
       this.ref('id')
       this.field('title')
       this.field('content')
 
       this.metadataWhitelist = ['position']
 
-      data.forEach(function(doc) {
+      data.forEach(function (doc) {
         this.add(doc)
       }, this)
     })
@@ -42,11 +42,11 @@ $(document).ready(() => {
 
   function loadAndSearch(text) {
     $.getJSON(docsIndexUrl)
-      .done(json => {
+      .done((json) => {
         const docs = json
 
         $.getJSON(indexUrl)
-          .done(json => {
+          .done((json) => {
             const index = lunr.Index.load(json)
 
             search(text, index, docs)
@@ -66,7 +66,7 @@ $(document).ready(() => {
     const searchParams = new URLSearchParams(paramsString)
 
     try {
-      renderResults(index.search(`title:${text}^10 content:${text}`), docs)
+      renderResults(index.search(text), docs)
     } catch (e) {
       if (e instanceof lunr.QueryParseError) {
       } else {
@@ -82,7 +82,7 @@ $(document).ready(() => {
     const ol = $('ol.results')
     ol.empty()
 
-    results.forEach(result => {
+    results.forEach((result) => {
       const doc = docs[result.ref]
 
       const meta = {}
@@ -91,8 +91,8 @@ $(document).ready(() => {
       meta.title = {}
       meta.title.position = []
 
-      Array('title', 'content').forEach(field => {
-        Object.values(result.matchData.metadata).forEach(item => {
+      Array('title', 'content').forEach((field) => {
+        Object.values(result.matchData.metadata).forEach((item) => {
           if (item[field]) {
             Array.prototype.push.apply(
               meta[field].position,
