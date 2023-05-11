@@ -96,6 +96,7 @@ button {
     &.float-right + .block.richtext_block {
       flex: 47% 0;
       justify-content: space-between;
+      padding-right: 1rem;
     }
   }
 
