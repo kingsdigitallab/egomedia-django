@@ -1395,7 +1395,7 @@ main,
 
 /* Footer */
 
-footer {
+.bottom-footer {
   h1,
   h2,
   h3,
@@ -1408,9 +1408,7 @@ footer {
   h2 {
     font-size: 1.5625rem;
   }
-}
 
-.bottom-footer {
   background-color: $light-gray;
 
   .external {
@@ -1419,10 +1417,129 @@ footer {
     }
   }
 
+  .kdl-attribution {
+    margin-bottom: 5.25rem;
+
+    @include breakpoint(large) {
+      margin-bottom: 1.25rem;
+    }
+  }
+
   @include breakpoint(small only) {
     .cell {
       margin-bottom: 0.5rem;
       margin-top: 1rem;
+    }
+  }
+}
+
+/* SUP footer */
+.sup-footer {
+  background: #000;
+  bottom: 0;
+  border-top: 1px solid #d3d3d3;
+  color: #fff;
+  font-size: 0.75rem;
+  font-family: ibm plex serif, georgia, Times, serif;
+  left: 0;
+  margin: 2rem 0 0;
+  min-width: 320px;
+  padding: 18px 4px 4px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: auto;
+  width: 100%;
+  z-index: 2;
+
+  @include breakpoint(large) {
+    padding: 14px 0 4px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  .container {
+    padding: 0;
+
+    @include breakpoint(large) {
+      -ms-flex-align: center;
+      -ms-flex-pack: justify;
+      -ms-flex-wrap: wrap;
+      -webkit-box-align: center;
+      -webkit-box-pack: justify;
+      align-items: center;
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0;
+      max-width: none;
+      padding: 0 15px;
+    }
+
+    .left {
+      all: initial;
+      all: unset;
+
+      @include breakpoint(large) {
+        max-width: 30%;
+        text-align: left;
+      }
+    }
+
+    .center {
+      all: initial;
+      all: unset;
+
+      @include breakpoint(large) {
+        max-width: 40%;
+      }
+    }
+
+    .right {
+      all: initial;
+      all: unset;
+      position: relative;
+
+      @include breakpoint(large) {
+        max-width: 30%;
+        padding-right: 26px;
+        text-align: right;
+      }
+
+      p {
+        display: inline-block;
+        vertical-align: top;
+
+        @include breakpoint(large) {
+          display: block;
+        }
+      }
+
+      .footer-graphic {
+        display: inline-block;
+        margin: -6px 0 0 8px;
+        vertical-align: top;
+
+        @include breakpoint(large) {
+          -ms-transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          display: block;
+          margin: -2px -2px 0 0;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
     }
   }
 }

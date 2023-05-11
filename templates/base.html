@@ -64,10 +64,32 @@
     </main>
 
     {% block bottom %}
-    <footer class="bottom-footer">
+    <div class="bottom-footer">
       {% block footer %}
       {% include 'includes/footer.html' %}
       {% endblock %}
+    </div>
+
+    <footer class="sup-footer">
+      <div class="container">
+        <div class="left">
+          <p>© 2022 Stanford University.
+            <a href="https://americaspublicbible.org/tou/">Terms of Use</a>.
+          </p>
+        </div>
+        <div class="center">
+          <p>ISBN: 9781503605244 |
+            DOI: <a href="https://doi.org/10.21627/2022apb">10.21627/2022apb</a> |
+            OCLC: <a href="https://www.worldcat.org/oclc/1347278919" target=" _blank">1347278919</a>
+          </p>
+        </div>
+        <div class="right">
+          <p>Published by <a href="https://www.sup.org/" target="_blank">Stanford University Press</a></p>
+          <div class="footer-graphic">
+            <img src="{% static 'images/logo_stanford.svg' %}" alt="Stanford University Press" width="15" height="33">
+          </div>
+        </div>
+      </div>
     </footer>
 
     {% compress js file main %}
