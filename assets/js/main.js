@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(function () {
   $(document).foundation()
 
-  $('a:not(.sup-footer a)')
+  $('a:not(header a):not(.sup-footer a)')
     .filter(function () {
       return this.hostname && this.hostname !== location.hostname
     })
