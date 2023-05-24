@@ -8,29 +8,18 @@ $(function () {
     .addClass('external')
     .attr('target', '_blank')
 
-  $('.anchor-link').click(function () {
+  $('.anchor-link').on('click', function () {
     try {
-      let $field = $('<input>', {
-        class: 'to-copy',
-        type: 'text',
-        value:
-          location.href.replace(location.hash, '') + '#' + $(this).attr('id')
-      })
-
-      $(this).append($field)
-      $field.focus()
-      $field.select()
-
-      document.execCommand('copy')
-
-      $field.remove()
+      navigator.clipboard.writeText(
+        `${location.href.replace(location.hash, '')}#${$(this).attr('id')}`
+      )
 
       $('#message-success').attr('style', '')
       $('#message-success').removeClass('hide')
     } catch (err) {
-      $('#message-aler').attr('style', '')
+      $('#message-alert').attr('style', '')
       $('#message-alert').removeClass('hide')
-      console.log('copy execCommand failed', err)
+      console.error('copy link to clipboard failed', err)
     }
   })
 })
