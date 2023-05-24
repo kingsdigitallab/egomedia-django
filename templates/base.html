@@ -1,96 +1,111 @@
 {% load compress staticfiles wagtailuserbar %}
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block meta_title %}{{ self.title }}{% endblock %} | Ego Media
-    </title>
-    <meta name="author" content="King's Digital Lab">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    {% compress css %}
-    <link rel="stylesheet" type="text/x-scss"
-      href="{% static 'scss/main.scss' %}" defer>
-    {% endcompress %}
-
-    <script src="{% static 'lazysizes/lazysizes.min.js' %}"></script>
-
-    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
-  </head>
-
-  <body>
-    <!-- Skip to content -->
-    <a class="skip-to-content-link" href="#main">Skip to content</a>
-    
-    {% block messages %}
-    <div id="message-alert" class="callout alert hide" data-closable>
-      <h5>Error</h5>
-      <p>Failed to copy link to the clipboard.</p>
-      <button class="close-button" aria-label="Dismiss alert" type="button"
-        data-close>
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div id="message-success" class="callout success hide" data-closable>
-      <h5>Success</h5>
-      <p>Link copied to the clipboard.</p>
-      <button class="close-button" aria-label="Dismiss alert" type="button"
-        data-close>
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    {% endblock messages %}
-
-    {% block top_header %}
-    <header class="top-header">
-      {% include 'includes/header.html' %}
-    </header>
-    {% endblock %}
-
-    <main id="main">
-      <div class="grid-container">
-        <div class="grid-x">
-          <div class="cell">
-            {% block page-header %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+            {% block meta_title %}{{ self.title }}{% endblock %}
+        | Ego Media</title>
+        <meta name="author" content="King's Digital Lab">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+              content="Saunders, Max, and Lisa Gee, eds. Ego Media: Life Writing and Online Affordances. Redwood City: Stanford University Press, 2023. http://doi.org/10.21627/2023em" />
+        <meta name="citation_title"
+              content="Ego Media: Life Writing and Online Affordances" />
+        <meta name="citation_isbn" content="9781503633544" />
+        <meta name="citation_author" content="Saunders, Max, and Lisa Gee, eds." />
+        <meta name="citation_publication_date" content="2023" />
+        <meta name="citation_language" content="en" />
+        <meta name="citation_publisher" content="Stanford University Press" />
+        <meta name="citation_DOI" content="10.21627/2023em" />
+        <meta name="citation_OCLC" content="1379807461" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title"
+              content="Ego Media: Life Writing and Online Affordances" />
+        <meta name="twitter:description"
+              content="Enabled by the internet and mobile technologies, digital media have generated profound changes in how and where we communicate, interact, and present ourselves. Ego Media explores the impact of these rapidly evolving media on forms and practices of self-presentation, giving a multidimensional account of how the ego presents itself through and across the digital media landscape, and how this has both changed and remediated earlier modes." />
+        <meta name="twitter:image"
+              content="https://www.sup.org/img/covers/med_large/pid_30954.jpg" />
+        <meta property="og:title"
+              content="Ego Media: Life Writing and Online Affordances" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://egomedia.org" />
+        <meta property="og:description"
+              content="Enabled by the internet and mobile technologies, digital media have generated profound changes in how and where we communicate, interact, and present ourselves. Ego Media explores the impact of these rapidly evolving media on forms and practices of self-presentation, giving a multidimensional account of how the ego presents itself through and across the digital media landscape, and how this has both changed and remediated earlier modes." />
+        <meta property="og:image"
+              content="https://www.sup.org/img/covers/med_large/pid_30954.jpg" />
+        <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+        <link rel="apple-touch-icon" href="{% static 'images/favicon.png' %}">
+        {% compress css %}
+            <link rel="stylesheet"
+                  type="text/x-scss"
+                  href="{% static 'scss/main.scss' %}"
+                  defer>
+        {% endcompress %}
+        <script src="{% static 'lazysizes/lazysizes.min.js' %}"></script>
+        <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+    </head>
+    <body>
+        <!-- Skip to content -->
+        <a class="skip-to-content-link" href="#main">Skip to content</a>
+        {% block messages %}
+            <div id="message-alert" class="callout alert hide" data-closable>
+                <h5>Error</h5>
+                <p>Failed to copy link to the clipboard.</p>
+                <button class="close-button"
+                        aria-label="Dismiss alert"
+                        type="button"
+                        data-close>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="message-success" class="callout success hide" data-closable>
+                <h5>Success</h5>
+                <p>Link copied to the clipboard.</p>
+                <button class="close-button"
+                        aria-label="Dismiss alert"
+                        type="button"
+                        data-close>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endblock messages %}
+        {% block top_header %}
+            <header class="top-header">
+                {% include 'includes/header.html' %}
+            </header>
+        {% endblock %}
+        <main id="main">
+            <div class="grid-container">
+                <div class="grid-x">
+                    <div class="cell">
+                        {% block page-header %}{% endblock %}
+                        {% block page-body %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% block bottom %}
+            {% block footer %}
+                {% include 'includes/sup-footer.html' %}
             {% endblock %}
-            {% block page-body %}
-            {% endblock %}
-          </div>
-        </div>
-      </div>
-    </main>
-
-    {% block bottom %}
-      {% block footer %}
-      {% include 'includes/sup-footer.html' %}
-      {% endblock %}
-
-    {% compress js file main %}
-    <script src="{% static 'js/polyfills.js' %}"></script>
-    <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
-    <script src="{% static 'foundation-sites/dist/js/foundation.min.js' %}">
-    </script>
-    <script src="{% static 'js/main.js' %}"></script>
-    {% endcompress %}
-
-    {% compress js file fa %}
-    <script defer
-      src="{% static '@fortawesome/fontawesome-pro/js/all.min.js' %}">
-    </script>
-    {% endcompress %}
-
-    {% compress js file footer %}
-    {% block footer_scripts %}{% endblock %}
-    {% endcompress %}
-
-    {# TODO: set GA_ID in settings and pass it to the context with a context processor #}
-    {% include 'includes/google-analytics.html' %}
-    {% endblock bottom %}
-
-    {% wagtailuserbar %}
-  </body>
-
+            {% compress js file main %}
+                <script src="{% static 'js/polyfills.js' %}"></script>
+                <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+                <script src="{% static 'foundation-sites/dist/js/foundation.min.js' %}"></script>
+                <script src="{% static 'js/main.js' %}"></script>
+            {% endcompress %}
+            {% compress js file fa %}
+                <script defer src="{% static '@fortawesome/fontawesome-pro/js/all.min.js' %}"></script>
+            {% endcompress %}
+            {% compress js file footer %}
+                {% block footer_scripts %}
+                {% endblock %}
+            {% endcompress %}
+            {# TODO: set GA_ID in settings and pass it to the context with a context processor #}
+            {% include 'includes/google-analytics.html' %}
+        {% endblock bottom %}
+        {% wagtailuserbar %}
+    </body>
 </html>
