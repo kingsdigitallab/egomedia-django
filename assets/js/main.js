@@ -22,4 +22,18 @@ $(function () {
       console.error('copy link to clipboard failed', err)
     }
   })
+
+  $('.reveal a[href^="#fn"]').on('click', function () {
+    $(this).closest('.reveal').trigger('close')
+  })
+
+  $('.reversefootnote').on('click', function () {
+    const id = $(this).attr('href').substring(1)
+    const target = document.getElementById(id)
+    const reveal = target.closest('.reveal')
+
+    if (reveal) {
+      $(reveal).trigger('open')
+    }
+  })
 })
