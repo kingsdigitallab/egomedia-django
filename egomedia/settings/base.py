@@ -433,6 +433,7 @@ VIDEOS = {
     "https://www.youtube.com/watch?v=hR1ozYj4tHw": "Max_discusses_To-Day_and_To-Morrow.mp4",
     "https://www.youtube.com/watch?v=GXRP6ickWHY": "User_Guide_1.mp4",
     "https://youtu.be/rtlEEODqBo4": "User_Guide_2.mp4",
+    "https://vimeo.com/158898472": "public-roundtable-voices-and-ethics-part-three-with-craig-howes.mp4"
 }
 
 # -----------------------------------------------------------------------------
