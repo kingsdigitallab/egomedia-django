@@ -103,8 +103,7 @@
                 {% block footer_scripts %}
                 {% endblock %}
             {% endcompress %}
-            {# TODO: set GA_ID in settings and pass it to the context with a context processor #}
-            {% include 'includes/google-analytics.html' %}
+            <script data-goatcounter="https://egomedia.goatcounter.com/count"async src="//gc.zgo.at/count.js"></script>
         {% endblock bottom %}
         {% wagtailuserbar %}
     </body>
